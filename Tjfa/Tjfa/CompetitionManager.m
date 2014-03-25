@@ -7,7 +7,6 @@
 //
 
 #import "CompetitionManager.h"
-#import "Competition.h"
 
 @implementation CompetitionManager
 
@@ -22,12 +21,45 @@
     return _sharedCompetitionManager;
 }
 
+-(Competition*) getCompetitionByIdFromNetwork:(int)competitionId
+{
+    
+    return nil;
+}
+
+-(Competition*) getCompetitionByIdFromCoreData:(int)competitionId
+{
+    return [Competition findFirstByAttribute:[Competition IdAttributeStr] withValue:@(competitionId)] ;
+}
+
 -(Competition*) getCompetitionById:(int)competitionId
 {
-    Competition* competition=nil;
-    
+    Competition* competition=[self getCompetitionByIdFromCoreData:competitionId];
+    if (competition==nil)
+    {
+        competition=[self getCompetitionByIdFromNetwork:competitionId];
+    }
     return competition;
 }
 
+-(void) insertCompetitionsWithArray:(NSArray*)array
+{
+}
+
+-(NSArray*) getCompetitionByDateFromCoreData:(NSDate*)date
+{
+    NSArray* competitionResult=[Competition findAll];
+    if (result.count==0) return nil;
+    for ()
+}
+
+-(NSArray*) getCompetitionsByDate:(NSDate*)date
+{
+    NSArray* result;
+    
+    
+    
+    return result;
+}
 
 @end

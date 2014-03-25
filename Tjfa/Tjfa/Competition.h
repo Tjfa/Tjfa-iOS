@@ -20,6 +20,9 @@
 @property (nonatomic, retain) NSDate * time;                //赛事时间 只要个大概 如 2013年1月
 @property (nonatomic, retain) NSSet *matches;               //所有比赛
 @property (nonatomic, retain) NSSet *teams;                 //参赛球队
+
++(NSString*) IdAttributeStr;
+
 @end
 
 @interface Competition (CoreDataGeneratedAccessors)

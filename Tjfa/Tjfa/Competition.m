@@ -21,4 +21,10 @@
 @dynamic matches;
 @dynamic teams;
 
+
++(NSString*) IdAttributeStr
+{
+    return @"competitionID";
+}
+
 @end

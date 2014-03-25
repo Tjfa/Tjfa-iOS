@@ -7,10 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Competition.h"
 
 @interface CompetitionManager : NSObject
 
 
 +(CompetitionManager*) sharedCompetitionManager;
+
+
+-(Competition*) getCompetitionById:(int)competitionId;
+
 
 @end
