@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		249CF66818E16AAB0084DDBB /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF66718E16AAB0084DDBB /* Team.m */; };
+		249CF66B18E16AAC0084DDBB /* Competition.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF66A18E16AAC0084DDBB /* Competition.m */; };
+		249CF67118E16AAC0084DDBB /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67018E16AAC0084DDBB /* News.m */; };
+		249CF67418E16AAC0084DDBB /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67318E16AAC0084DDBB /* Player.m */; };
+		249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67718E16DDE0084DDBB /* CompetitionManager.m */; };
+		249CF67B18E17C3D0084DDBB /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67A18E17C3D0084DDBB /* Match.m */; };
 		24F1D1E018E063E0007E2309 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1DF18E063E0007E2309 /* Foundation.framework */; };
 		24F1D1E218E063E1007E2309 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1E118E063E1007E2309 /* CoreGraphics.framework */; };
 		24F1D1E418E063E1007E2309 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1E318E063E1007E2309 /* UIKit.framework */; };
@@ -36,6 +42,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		249CF66618E16AAB0084DDBB /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		249CF66718E16AAB0084DDBB /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		249CF66918E16AAC0084DDBB /* Competition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Competition.h; sourceTree = "<group>"; };
+		249CF66A18E16AAC0084DDBB /* Competition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Competition.m; sourceTree = "<group>"; };
+		249CF66F18E16AAC0084DDBB /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		249CF67018E16AAC0084DDBB /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		249CF67218E16AAC0084DDBB /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		249CF67318E16AAC0084DDBB /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		249CF67618E16DDE0084DDBB /* CompetitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionManager.h; sourceTree = "<group>"; };
+		249CF67718E16DDE0084DDBB /* CompetitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionManager.m; sourceTree = "<group>"; };
+		249CF67918E17C3D0084DDBB /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
+		249CF67A18E17C3D0084DDBB /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
 		24F1D1DC18E063E0007E2309 /* Tjfa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tjfa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F1D1DF18E063E0007E2309 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24F1D1E118E063E1007E2309 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,9 +100,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		249CF66518E16A840084DDBB /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */,
+				249CF67218E16AAC0084DDBB /* Player.h */,
+				249CF67318E16AAC0084DDBB /* Player.m */,
+				249CF66F18E16AAC0084DDBB /* News.h */,
+				249CF67018E16AAC0084DDBB /* News.m */,
+				249CF66918E16AAC0084DDBB /* Competition.h */,
+				249CF66A18E16AAC0084DDBB /* Competition.m */,
+				249CF66618E16AAB0084DDBB /* Team.h */,
+				249CF66718E16AAB0084DDBB /* Team.m */,
+				249CF67918E17C3D0084DDBB /* Match.h */,
+				249CF67A18E17C3D0084DDBB /* Match.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		249CF67518E16DA40084DDBB /* Competition */ = {
+			isa = PBXGroup;
+			children = (
+				249CF67618E16DDE0084DDBB /* CompetitionManager.h */,
+				249CF67718E16DDE0084DDBB /* CompetitionManager.m */,
+			);
+			name = Competition;
+			sourceTree = "<group>";
+		};
 		24CFD62518E1517100D706D1 /* LogicalLayer */ = {
 			isa = PBXGroup;
 			children = (
+				249CF67518E16DA40084DDBB /* Competition */,
+				249CF66518E16A840084DDBB /* Database */,
 			);
 			name = LogicalLayer;
 			sourceTree = "<group>";
@@ -122,14 +169,13 @@
 		24F1D1E518E063E1007E2309 /* Tjfa */ = {
 			isa = PBXGroup;
 			children = (
-				24CFD62518E1517100D706D1 /* LogicalLayer */,
 				24F1D1EE18E063E1007E2309 /* AppDelegate.h */,
 				24F1D1EF18E063E1007E2309 /* AppDelegate.m */,
 				24F1D1F118E063E1007E2309 /* Main.storyboard */,
 				24F1D1F418E063E1007E2309 /* ViewController.h */,
-				24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */,
 				24F1D1F518E063E1007E2309 /* ViewController.m */,
 				24F1D1F718E063E1007E2309 /* Images.xcassets */,
+				24CFD62518E1517100D706D1 /* LogicalLayer */,
 				24F1D1E618E063E1007E2309 /* Supporting Files */,
 			);
 			path = Tjfa;
@@ -261,9 +307,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				249CF66818E16AAB0084DDBB /* Team.m in Sources */,
 				24F1D1F618E063E1007E2309 /* ViewController.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
+				249CF67B18E17C3D0084DDBB /* Match.m in Sources */,
+				249CF66B18E16AAC0084DDBB /* Competition.m in Sources */,
+				249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
+				249CF67118E16AAC0084DDBB /* News.m in Sources */,
+				249CF67418E16AAC0084DDBB /* Player.m in Sources */,
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
