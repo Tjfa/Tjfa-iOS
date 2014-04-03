@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @class Team;
+@class Competition;
 
 @interface Player : NSManagedObject
 
@@ -19,5 +20,14 @@
 @property (nonatomic, retain) NSNumber * redCard;       //红牌数量
 @property (nonatomic, retain) NSNumber * yellowCard;    //黄牌数量
 @property (nonatomic, retain) Team *team;               //所属于的球队
+@property (nonatomic, retain) Competition* competition; //所属比赛
+
++(NSString*) idAttributeStr;
+
++(NSString*) redCardAttributeStr;
+
++(NSString*) yellowCardAttributeStr;
+
++(NSString*) goalCountAttributeStr;
 
 @end

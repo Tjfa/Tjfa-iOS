@@ -8,6 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Player.h"
+#import "Team.h"
+#import "Match.h"
+#import "Competition.h"
+
 @interface PlayerManager : NSObject
+
+
++(PlayerManager*) sharedPlayerManager;
+
+-(Player*) getPlayerByIdFromCoreData:(int)playerId;
+
+-(NSArray*) getPlayersByTeamFromCoreData:(Team*) team;
+
+-(NSArray*) getPlayersByCompetitionFromCoreData:(Competition*)competition;
 
 @end

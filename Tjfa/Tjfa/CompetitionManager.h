@@ -14,8 +14,10 @@
 
 +(CompetitionManager*) sharedCompetitionManager;
 
+-(void) clearAllCompetitions;
 
--(Competition*) getCompetitionById:(int)competitionId;
+-(NSArray*) getCompetitionsByDateFromCoreData:(NSString*)dateStr;
 
+-(void) getCompetitionsByDateFromNetwork:(NSString*)dateStr complete:(void (^)(NSArray* results,NSError* error))complete;
 
 @end

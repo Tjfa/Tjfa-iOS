@@ -7,6 +7,9 @@
 //
 
 #import "CompetitionManager.h"
+#import "AFNetworking.h"
+#import "NSDate+Date2Str.h"
+#import "NetworkClient.h"
 
 @implementation CompetitionManager
 
@@ -21,45 +24,55 @@
     return _sharedCompetitionManager;
 }
 
--(Competition*) getCompetitionByIdFromNetwork:(int)competitionId
-{
-    
-    return nil;
-}
 
--(Competition*) getCompetitionByIdFromCoreData:(int)competitionId
+-(void) clearAllCompetitions
 {
-    return [Competition findFirstByAttribute:[Competition IdAttributeStr] withValue:@(competitionId)] ;
-}
-
--(Competition*) getCompetitionById:(int)competitionId
-{
-    Competition* competition=[self getCompetitionByIdFromCoreData:competitionId];
-    if (competition==nil)
+    NSArray* competitions=[Competition findAll];
+    for (Competition* obj in competitions)
     {
-        competition=[self getCompetitionByIdFromNetwork:competitionId];
+        [obj deleteEntity];
     }
-    return competition;
+    [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
 }
 
 -(void) insertCompetitionsWithArray:(NSArray*)array
 {
+    for (NSDictionary* obj in array)
+    {
+        NSInteger competitionId=[[obj objectForKey:@"id"] intValue];
+        if ([Competition findFirstByAttribute:[Competition idAttributeStr] withValue:@(competitionId)]==nil)
+        {
+            Competition* newObj=[Competition createEntity];
+            newObj.competitionID=@(competitionId);
+            newObj.name=[obj objectForKey:@"name"];
+            newObj.time=[obj objectForKeyedSubscript:@"time"];
+            newObj.isStart=[obj objectForKey:@"isStart"];
+            newObj.number=[obj objectForKey:@"number"];
+            [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
+        }
+    }
 }
 
--(NSArray*) getCompetitionByDateFromCoreData:(NSDate*)date
+-(NSArray*) getCompetitionsByDateFromCoreData:(NSString*)dateStr
 {
-    NSArray* competitionResult=[Competition findAll];
-    if (result.count==0) return nil;
-    for ()
+    return [Competition findByAttribute:[Competition timeAttributeStr] withValue:dateStr andOrderBy:[Competition nameAttributeStr] ascending:YES];
 }
 
--(NSArray*) getCompetitionsByDate:(NSDate*)date
+-(void) getCompetitionsByDateFromNetwork:(NSString*)dateStr complete:(void (^)(NSArray* results,NSError* error))complete
 {
-    NSArray* result;
-    
-    
-    
-    return result;
+    [[NetworkClient sharedNetworkClient] searchForAddress:@"Works/WorksItem.php" withParameters:@{@"workId":@"18" } complete:^(NSArray* results,NSError* error){
+        
+        if (error)
+        {
+            complete(nil,error);
+        }
+        else
+        {
+            [self insertCompetitionsWithArray:results];
+            complete([Competition findByAttribute:[Competition timeAttributeStr] withValue:dateStr andOrderBy:[Competition nameAttributeStr] ascending:YES],nil);
+        }
+    }];
 }
+
 
 @end

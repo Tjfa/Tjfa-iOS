@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "NSDate+Date2Str.h"
+#import "CompetitionManager.h"
 
 @interface TjfaTests : XCTestCase
 
@@ -29,6 +31,17 @@
 - (void)testExample
 {
     XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+}
+
+- (void)testDate
+{
+    NSDate* date=[NSDate dateWithTimeIntervalSince1970:10000];
+    NSLog(@"%@",[date date2CompetitionStr]);
+}
+
+-(void) testNetwork
+{
+    
 }
 
 @end

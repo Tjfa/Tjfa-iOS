@@ -23,4 +23,19 @@
 @dynamic teams;
 @dynamic players;
 
++(NSString*) idAttributeStr
+{
+    return @"competitionID";
+}
+
++(NSString*) timeAttributeStr
+{
+    return @"time";
+}
+
++(NSString*) nameAttributeStr
+{
+    return @"name";
+}
+
 @end

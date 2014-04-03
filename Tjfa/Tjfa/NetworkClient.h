@@ -7,7 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFNetworking.h"
+#import "AFHTTPSessionManager.h"
 
-@interface NetworkClient : NSObject
+@interface NetworkClient : AFHTTPSessionManager
+
++(NetworkClient*) sharedNetworkClient;
+
+-(NSURLSessionDataTask*) searchForAddress:(NSString*)address withParameters:(NSDictionary*)parametersArray complete:( void(^)(NSArray* results, NSError* error) )complete;
 
 @end

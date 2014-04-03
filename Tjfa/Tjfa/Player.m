@@ -19,4 +19,24 @@
 @dynamic yellowCard;
 @dynamic team;
 
++(NSString*) idAttributeStr
+{
+    return @"playerID";
+}
+
++(NSString*) yellowCardAttributeStr
+{
+    return @"yellowCard";
+}
+
++(NSString*) redCardAttributeStr
+{
+    return @"redCard";
+}
+
++(NSString*) goalCountAttributeStr
+{
+    return @"goalCount";
+}
+
 @end

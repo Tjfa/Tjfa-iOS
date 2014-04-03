@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Competition.h"
+#import "Match.h"
+
 @interface MatchManager : NSObject
+
++(MatchManager*) sharedMatchManager;
+
+-(NSArray*) getMatchesByCompetition:(Competition*)competition;
 
 @end

@@ -10,4 +10,27 @@
 
 @implementation MatchManager
 
++(MatchManager*) sharedMatchManager
+{
+    static MatchManager* _sharedMatchManager = nil;
+    
+    static dispatch_once_t matchOnceToken;
+    dispatch_once(&matchOnceToken, ^(){
+        _sharedMatchManager=[[MatchManager alloc] init];
+    });
+    return _sharedMatchManager;
+}
+
+
+-(NSArray*) getMatchesByCompetition:(Competition *)competition
+{
+    NSArray* result=[NSArray arrayWithObjects:competition.matches, nil];
+    
+    return [result sortedArrayUsingComparator:^NSComparisonResult(Match* a, Match* b){
+        return [a.date compare:b.date];
+    }];
+}
+
+
+
 @end
