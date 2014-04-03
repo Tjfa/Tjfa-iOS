@@ -2,27 +2,25 @@
 //  Competition.h
 //  Tjfa
 //
-//  Created by 邱峰 on 14-3-25.
+//  Created by 邱峰 on 14-3-30.
 //  Copyright (c) 2014年 邱峰. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Match, Team;
+@class Match, Player, Team;
 
 @interface Competition : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * competitionID;     //赛事ID
-@property (nonatomic, retain) NSNumber * isStart;           //这个赛事是否开始
-@property (nonatomic, retain) NSString * name;              //赛事名称
-@property (nonatomic, retain) NSNumber * number;            //第几届赛事
-@property (nonatomic, retain) NSDate * time;                //赛事时间 只要个大概 如 2013年1月
-@property (nonatomic, retain) NSSet *matches;               //所有比赛
-@property (nonatomic, retain) NSSet *teams;                 //参赛球队
-
-+(NSString*) IdAttributeStr;
-
+@property (nonatomic, retain) NSNumber * competitionID;
+@property (nonatomic, retain) NSNumber * isStart;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * number;
+@property (nonatomic, retain) NSString * time;
+@property (nonatomic, retain) NSSet *matches;
+@property (nonatomic, retain) NSSet *teams;
+@property (nonatomic, retain) NSSet *players;
 @end
 
 @interface Competition (CoreDataGeneratedAccessors)
@@ -36,5 +34,10 @@
 - (void)removeTeamsObject:(Team *)value;
 - (void)addTeams:(NSSet *)values;
 - (void)removeTeams:(NSSet *)values;
+
+- (void)addPlayersObject:(Player *)value;
+- (void)removePlayersObject:(Player *)value;
+- (void)addPlayers:(NSSet *)values;
+- (void)removePlayers:(NSSet *)values;
 
 @end

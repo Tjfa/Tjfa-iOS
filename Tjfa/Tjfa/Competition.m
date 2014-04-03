@@ -2,12 +2,13 @@
 //  Competition.m
 //  Tjfa
 //
-//  Created by 邱峰 on 14-3-25.
+//  Created by 邱峰 on 14-3-30.
 //  Copyright (c) 2014年 邱峰. All rights reserved.
 //
 
 #import "Competition.h"
 #import "Match.h"
+#import "Player.h"
 #import "Team.h"
 
 
@@ -20,11 +21,6 @@
 @dynamic time;
 @dynamic matches;
 @dynamic teams;
-
-
-+(NSString*) IdAttributeStr
-{
-    return @"competitionID";
-}
+@dynamic players;
 
 @end
