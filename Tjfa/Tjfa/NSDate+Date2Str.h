@@ -10,9 +10,8 @@
 
 @interface NSDate (Date2Str)
 
+- (NSString*)date2str;
 
--(NSString*) date2str;
-
--(NSString*) date2CompetitionStr;
+- (NSString*)date2CompetitionStr;
 
 @end

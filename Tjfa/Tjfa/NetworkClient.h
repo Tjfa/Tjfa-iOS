@@ -12,8 +12,8 @@
 
 @interface NetworkClient : AFHTTPSessionManager
 
-+(NetworkClient*) sharedNetworkClient;
++ (NetworkClient*)sharedNetworkClient;
 
--(NSURLSessionDataTask*) searchForAddress:(NSString*)address withParameters:(NSDictionary*)parametersArray complete:( void(^)(NSArray* results, NSError* error) )complete;
+- (NSURLSessionDataTask*)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parametersArray complete:(void (^)(NSArray* results, NSError* error))complete;
 
 @end

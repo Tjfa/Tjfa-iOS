@@ -8,7 +8,6 @@
 
 #import "News.h"
 
-
 @implementation News
 
 @dynamic content;

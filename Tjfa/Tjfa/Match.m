@@ -10,7 +10,6 @@
 #import "Competition.h"
 #import "Team.h"
 
-
 @implementation Match
 
 @dynamic date;

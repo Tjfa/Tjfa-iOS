@@ -13,8 +13,8 @@
 
 @interface MatchManager : NSObject
 
-+(MatchManager*) sharedMatchManager;
++ (MatchManager*)sharedMatchManager;
 
--(NSArray*) getMatchesByCompetition:(Competition*)competition;
+- (NSArray*)getMatchesByCompetition:(Competition*)competition;
 
 @end

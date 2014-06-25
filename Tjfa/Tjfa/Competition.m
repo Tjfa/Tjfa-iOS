@@ -11,7 +11,6 @@
 #import "Player.h"
 #import "Team.h"
 
-
 @implementation Competition
 
 @dynamic competitionID;
@@ -23,17 +22,17 @@
 @dynamic teams;
 @dynamic players;
 
-+(NSString*) idAttributeStr
++ (NSString*)idAttributeStr
 {
     return @"competitionID";
 }
 
-+(NSString*) timeAttributeStr
++ (NSString*)timeAttributeStr
 {
     return @"time";
 }
 
-+(NSString*) nameAttributeStr
++ (NSString*)nameAttributeStr
 {
     return @"name";
 }

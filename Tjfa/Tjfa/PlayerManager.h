@@ -15,13 +15,12 @@
 
 @interface PlayerManager : NSObject
 
++ (PlayerManager*)sharedPlayerManager;
 
-+(PlayerManager*) sharedPlayerManager;
+- (Player*)getPlayerByIdFromCoreData:(int)playerId;
 
--(Player*) getPlayerByIdFromCoreData:(int)playerId;
+- (NSArray*)getPlayersByTeamFromCoreData:(Team*)team;
 
--(NSArray*) getPlayersByTeamFromCoreData:(Team*) team;
-
--(NSArray*) getPlayersByCompetitionFromCoreData:(Competition*)competition;
+- (NSArray*)getPlayersByCompetitionFromCoreData:(Competition*)competition;
 
 @end

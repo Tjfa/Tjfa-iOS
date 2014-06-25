@@ -10,39 +10,34 @@
 
 @implementation PlayerManager
 
-
-+(PlayerManager*) sharedPlayerManager
++ (PlayerManager*)sharedPlayerManager
 {
     static PlayerManager* _playerManager = nil;
     static dispatch_once_t playerOnceToken;
-    dispatch_once(&playerOnceToken, ^(void){
-        
-    });
+    dispatch_once(&playerOnceToken, ^(void) {});
     return _playerManager;
 }
 
--(Player*) getPlayerByIdFromCoreData:(int)playerId;
+- (Player*)getPlayerByIdFromCoreData:(int)playerId;
 {
     return [Player findFirstByAttribute:[Player idAttributeStr] withValue:@(playerId)];
 }
 
--(NSArray*) getPlayersByTeamFromCoreData:(Team *)team
+- (NSArray*)getPlayersByTeamFromCoreData:(Team*)team
 {
     NSArray* result = [NSArray arrayWithObjects:team.players, nil];
-    
-    return [result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b){
+
+    return [result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
         return [a.name compare:b.name];
     }];
 }
 
--(NSArray*) getPlayersByCompetitionFromCoreData:(Competition *)competition
+- (NSArray*)getPlayersByCompetitionFromCoreData:(Competition*)competition
 {
-    NSArray* result=[NSArray arrayWithObjects:competition.players, nil];
-    return [result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b){
+    NSArray* result = [NSArray arrayWithObjects:competition.players, nil];
+    return [result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
         return [a.name compare:b.name];
     }];
 }
-
-
 
 @end

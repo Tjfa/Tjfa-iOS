@@ -11,7 +11,6 @@
 #import "Match.h"
 #import "Player.h"
 
-
 @implementation Team
 
 @dynamic emblemPath;

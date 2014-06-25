@@ -10,15 +10,14 @@
 
 @implementation NetworkClient
 
+NSString* serverUrlStr = @"http://10.0.1.35/TacWebsite2";
 
-NSString* serverUrlStr=@"http://10.0.1.35/TacWebsite2";
-
-+(NSURL*) serverUrl
++ (NSURL*)serverUrl
 {
     return [NSURL URLWithString:serverUrlStr];
 }
 
-+(NetworkClient*) sharedNetworkClient
++ (NetworkClient*)sharedNetworkClient
 {
     static NetworkClient* _networkClient = nil;
     static dispatch_once_t networkOnceToken;
@@ -26,16 +25,15 @@ NSString* serverUrlStr=@"http://10.0.1.35/TacWebsite2";
         NSURLSessionConfiguration* config=[NSURLSessionConfiguration defaultSessionConfiguration];
         _networkClient=[[NetworkClient alloc] initWithBaseURL:[NetworkClient serverUrl] sessionConfiguration:config];
         _networkClient.responseSerializer=[AFJSONResponseSerializer serializer];
-
     });
     return _networkClient;
 }
 
--(NSURLSessionDataTask*) searchForAddress:(NSString *)address withParameters:(NSDictionary *)parameters complete:(void (^)(NSArray *, NSError *))complete
+- (NSURLSessionDataTask*)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parameters complete:(void (^)(NSArray*, NSError*))complete
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    
-    NSURLSessionDataTask* task=[self POST:address parameters:parameters        success:^(NSURLSessionDataTask* task, id responseObject){
+
+    NSURLSessionDataTask* task = [self POST:address parameters:parameters success:^(NSURLSessionDataTask* task, id responseObject) {
             
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             NSLog(@"successful");
@@ -53,15 +51,15 @@ NSString* serverUrlStr=@"http://10.0.1.35/TacWebsite2";
                     complete(nil, nil);
                 });
             }
-        }
-        failure:^(NSURLSessionDataTask* task,NSError *error){
+    }
+        failure:^(NSURLSessionDataTask* task, NSError* error) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             NSLog(@"fail");
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSLog(@"%@",error);
                 complete(nil, error);
             });
-    }];
+        }];
     return task;
 }
 

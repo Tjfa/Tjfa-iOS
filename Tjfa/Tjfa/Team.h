@@ -13,23 +13,23 @@
 
 @interface Team : NSManagedObject
 
-@property (nonatomic, retain) NSString * emblemPath;        //队徽地址
-@property (nonatomic, retain) NSNumber * goalCount;         //进球数(小组赛) 过了小组赛 不在统计
-@property (nonatomic, retain) NSString * groupNo;           //所在小组 A B C D
-@property (nonatomic, retain) NSNumber * teamID;            //teamID
-@property (nonatomic, retain) NSNumber * missCount;         //失球数
-@property (nonatomic, retain) NSString * name;              //队伍名字
-@property (nonatomic, retain) NSNumber * score;             //小组赛积分
-@property (nonatomic, retain) Competition *competition;     //所属赛事 方便统计某个赛事的参加球队
-@property (nonatomic, retain) Match *match;                 //所属比赛
-@property (nonatomic, retain) NSSet *players;               //该队伍的队员
+@property (nonatomic, retain) NSString* emblemPath; //队徽地址
+@property (nonatomic, retain) NSNumber* goalCount; //进球数(小组赛) 过了小组赛 不在统计
+@property (nonatomic, retain) NSString* groupNo; //所在小组 A B C D
+@property (nonatomic, retain) NSNumber* teamID; //teamID
+@property (nonatomic, retain) NSNumber* missCount; //失球数
+@property (nonatomic, retain) NSString* name; //队伍名字
+@property (nonatomic, retain) NSNumber* score; //小组赛积分
+@property (nonatomic, retain) Competition* competition; //所属赛事 方便统计某个赛事的参加球队
+@property (nonatomic, retain) Match* match; //所属比赛
+@property (nonatomic, retain) NSSet* players; //该队伍的队员
 @end
 
 @interface Team (CoreDataGeneratedAccessors)
 
-- (void)addPlayersObject:(Player *)value;
-- (void)removePlayersObject:(Player *)value;
-- (void)addPlayers:(NSSet *)values;
-- (void)removePlayers:(NSSet *)values;
+- (void)addPlayersObject:(Player*)value;
+- (void)removePlayersObject:(Player*)value;
+- (void)addPlayers:(NSSet*)values;
+- (void)removePlayers:(NSSet*)values;
 
 @end

@@ -9,7 +9,6 @@
 #import "Player.h"
 #import "Team.h"
 
-
 @implementation Player
 
 @dynamic goalCount;
@@ -19,22 +18,22 @@
 @dynamic yellowCard;
 @dynamic team;
 
-+(NSString*) idAttributeStr
++ (NSString*)idAttributeStr
 {
     return @"playerID";
 }
 
-+(NSString*) yellowCardAttributeStr
++ (NSString*)yellowCardAttributeStr
 {
     return @"yellowCard";
 }
 
-+(NSString*) redCardAttributeStr
++ (NSString*)redCardAttributeStr
 {
     return @"redCard";
 }
 
-+(NSString*) goalCountAttributeStr
++ (NSString*)goalCountAttributeStr
 {
     return @"goalCount";
 }

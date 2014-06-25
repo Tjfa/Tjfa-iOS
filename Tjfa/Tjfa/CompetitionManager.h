@@ -11,13 +11,12 @@
 
 @interface CompetitionManager : NSObject
 
++ (CompetitionManager*)sharedCompetitionManager;
 
-+(CompetitionManager*) sharedCompetitionManager;
+- (void)clearAllCompetitions;
 
--(void) clearAllCompetitions;
+- (NSArray*)getCompetitionsByDateFromCoreData:(NSString*)dateStr;
 
--(NSArray*) getCompetitionsByDateFromCoreData:(NSString*)dateStr;
-
--(void) getCompetitionsByDateFromNetwork:(NSString*)dateStr complete:(void (^)(NSArray* results,NSError* error))complete;
+- (void)getCompetitionsByDateFromNetwork:(NSString*)dateStr complete:(void (^)(NSArray* results, NSError* error))complete;
 
 @end
