@@ -13,7 +13,6 @@
 + (MatchManager*)sharedMatchManager
 {
     static MatchManager* _sharedMatchManager = nil;
-
     static dispatch_once_t matchOnceToken;
     dispatch_once(&matchOnceToken, ^() {
         _sharedMatchManager=[[MatchManager alloc] init];

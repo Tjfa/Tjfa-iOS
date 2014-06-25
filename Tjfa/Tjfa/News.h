@@ -11,9 +11,24 @@
 
 @interface News : NSManagedObject
 
-@property (nonatomic, retain) NSString* content; //新闻内容
-@property (nonatomic, retain) NSDate* date; //日期
-@property (nonatomic, retain) NSNumber* newsID; //新闻ID
-@property (nonatomic, retain) NSString* title; //新闻标题
+/**
+ *  新闻内容
+ */
+@property (nonatomic, retain) NSString* content;
+
+/**
+ *  日期
+ */
+@property (nonatomic, retain) NSDate* date;
+
+/**
+ *  新闻ID
+ */
+@property (nonatomic, retain) NSNumber* newsID;
+
+/**
+ *  新闻标题
+ */
+@property (nonatomic, retain) NSString* title;
 
 @end

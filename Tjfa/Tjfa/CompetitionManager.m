@@ -36,6 +36,7 @@
 {
     for (NSDictionary* obj in array) {
         NSInteger competitionId = [obj[@"id"] intValue];
+
         if ([Competition findFirstByAttribute:[Competition idAttributeStr] withValue:@(competitionId)] == nil) {
             Competition* newObj = [Competition createEntity];
             newObj.competitionID = @(competitionId);
@@ -43,9 +44,9 @@
             newObj.time = obj[@"time"];
             newObj.isStart = obj[@"isStart"];
             newObj.number = obj[@"number"];
-            [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
         }
     }
+    [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
 }
 
 - (NSArray*)getCompetitionsByDateFromCoreData:(NSString*)dateStr
@@ -53,15 +54,22 @@
     return [Competition findByAttribute:[Competition timeAttributeStr] withValue:dateStr andOrderBy:[Competition nameAttributeStr] ascending:YES];
 }
 
-- (void)getCompetitionsByDateFromNetwork:(NSString*)dateStr complete:(void (^)(NSArray* results, NSError* error))complete
+- (void)getCompetitionsByDateFromNetwork:(NSString*)dateStr withLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete
 {
-    [[NetworkClient sharedNetworkClient] searchForAddress:@"Works/WorksItem.php" withParameters:@{ @"workId" : @"18" } complete:^(NSArray* results, NSError* error) {
-        
+    /**
+     *  set limit default is 10
+     */
+    if (limit == 0)
+        limit = 10;
+    NSDictionary* parameterDictionary = @{ @"competitionId" : @(18),
+                                           @"limit" : @(limit) };
+    [[NetworkClient sharedNetworkClient] searchForAddress:@"Works/WorksItem.php" withParameters:parameterDictionary complete:^(NSArray* results, NSError* error) {
+    
         if (error){
             complete(nil,error);
         }else{
             [self insertCompetitionsWithArray:results];
-            complete([Competition findByAttribute:[Competition timeAttributeStr] withValue:dateStr andOrderBy:[Competition nameAttributeStr] ascending:YES],nil);
+            complete([self getCompetitionsByDateFromCoreData:dateStr],nil);
         }
     }];
 }

@@ -17,6 +17,7 @@
 @dynamic redCard;
 @dynamic yellowCard;
 @dynamic team;
+@dynamic competition;
 
 + (NSString*)idAttributeStr
 {

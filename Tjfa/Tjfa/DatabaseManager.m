@@ -8,6 +8,8 @@
 
 #import "DatabaseManager.h"
 
+#import "CompetitionManager.h"
+
 @implementation DatabaseManager
 
 + (DatabaseManager*)sharedDatabaseManager
@@ -22,6 +24,7 @@
 
 - (void)clearAllData
 {
+    [[CompetitionManager sharedCompetitionManager] clearAllCompetitions];
 }
 
 @end

@@ -44,9 +44,7 @@ NSString* serverUrlStr = @"http://10.0.1.35/TacWebsite2";
                     NSLog(@"%@",responseObject);
                     complete(responseObject,nil);
                 });
-            }
-            else
-            {
+            }else{
                 dispatch_async(dispatch_get_main_queue(), ^{
                     complete(nil, nil);
                 });
