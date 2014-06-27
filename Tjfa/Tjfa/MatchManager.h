@@ -15,8 +15,8 @@
 
 + (MatchManager*)sharedMatchManager;
 
-- (NSArray*)getMatchesByCompetition:(Competition*)competition;
-
 - (NSArray*)getMatchesByCompetitionFromCoreData:(Competition*)competition;
+
+- (void)getMatchesByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray* results, NSError* error))complete;
 
 @end

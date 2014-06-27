@@ -2,8 +2,8 @@
 //  Team.h
 //  Tjfa
 //
-//  Created by 邱峰 on 14-3-25.
-//  Copyright (c) 2014年 邱峰. All rights reserved.
+//  Created by 邱峰 on 6/28/14.
+//  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -67,9 +67,27 @@
 
 @interface Team (CoreDataGeneratedAccessors)
 
+- (void)addMatchObject:(Match*)value;
+- (void)removeMatchObject:(Match*)value;
+- (void)addMatch:(NSSet*)values;
+- (void)removeMatch:(NSSet*)values;
+
 - (void)addPlayersObject:(Player*)value;
 - (void)removePlayersObject:(Player*)value;
 - (void)addPlayers:(NSSet*)values;
 - (void)removePlayers:(NSSet*)values;
+
+/**
+ *  不更新player
+ *
+ *  @param dictionary  dictionary of team
+ *  @param competition comptetion
+ *  @param match       match
+ *
+ *  @return 更新或者创建后的team
+ */
++ (Team*)updateBasePropertyWithDictionary:(NSDictionary*)dictionary competition:(Competition*)competition andMatch:(Match*)match;
+
++ (NSString*)idAttribute;
 
 @end

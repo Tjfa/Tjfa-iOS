@@ -28,6 +28,16 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
     return @"competition.php";
 }
 
++ (NSString*)newsAddress
+{
+    return @"news.php";
+}
+
++ (NSString*)matchAdderss
+{
+    return @"match.php";
+}
+
 + (NetworkClient*)sharedNetworkClient
 {
     static NetworkClient* _networkClient = nil;

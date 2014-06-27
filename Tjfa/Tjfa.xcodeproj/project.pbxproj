@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24093693195DD6E500180CA6 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 24093692195DD6E500180CA6 /* Team.m */; };
 		24796BF4195DBB5100176F8F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24796BF3195DBB5100176F8F /* MainViewController.m */; };
 		249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67718E16DDE0084DDBB /* CompetitionManager.m */; };
 		249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F143F195D6FBB0038DF42 /* NewsManager.m */; };
@@ -52,6 +53,8 @@
 
 /* Begin PBXFileReference section */
 		22EAFC87A20242C8AE3E0037 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		24093691195DD6E500180CA6 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		24093692195DD6E500180CA6 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		24796BF2195DBB5100176F8F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		24796BF3195DBB5100176F8F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		249CF67618E16DDE0084DDBB /* CompetitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionManager.h; sourceTree = "<group>"; };
@@ -151,6 +154,8 @@
 				24F64055195DB8640002B836 /* Match.m */,
 				24F64056195DB8640002B836 /* Player.h */,
 				24F64059195DB8640002B836 /* Player.m */,
+				24093691195DD6E500180CA6 /* Team.h */,
+				24093692195DD6E500180CA6 /* Team.m */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -428,6 +433,7 @@
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
 				24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */,
 				249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */,
+				24093693195DD6E500180CA6 /* Team.m in Sources */,
 				24F6405D195DB8640002B836 /* Team.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
 				24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */,

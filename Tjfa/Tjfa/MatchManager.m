@@ -7,6 +7,7 @@
 //
 
 #import "MatchManager.h"
+#import "NetworkClient.h"
 
 @implementation MatchManager
 
@@ -20,6 +21,16 @@
     return _sharedMatchManager;
 }
 
+- (NSArray*)insertMatchesWitchArray:(NSArray*)array andCompetition:(Competition*)competition
+{
+    NSMutableArray* results = [[NSMutableArray alloc] init];
+    for (NSDictionary* dictionary in array) {
+        Match* match = [Match updateMatchWithDictionary:dictionary andCompetetion:competition];
+        [results addObject:match];
+    }
+    return results;
+}
+
 - (NSArray*)getMatchesByCompetitionFromCoreData:(Competition*)competition
 {
     NSArray* matches = [competition.matches allObjects];
@@ -28,12 +39,16 @@
     }];
 }
 
-- (NSArray*)getMatchesByCompetition:(Competition*)competition
+- (void)getMatchesByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
-    NSArray* result = [NSArray arrayWithObjects:competition.matches, nil];
-
-    return [result sortedArrayUsingComparator:^NSComparisonResult(Match* a, Match* b) {
-        return [a.date compare:b.date];
+    NSDictionary* parameters = @{ @"competitionId" : competition.competitionId };
+    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient matchAdderss] withParameters:parameters complete:^(NSArray* results, NSError* error) {
+            if (error){
+                complete(nil,error);
+            }else{
+                results=[self insertMatchesWitchArray:results andCompetition:competition];
+                complete(results,nil);
+            }
     }];
 }
 

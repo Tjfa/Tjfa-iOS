@@ -66,4 +66,14 @@
 - (void)addTeams:(NSSet*)values;
 - (void)removeTeams:(NSSet*)values;
 
+/**
+ *   更新matches，同时更新team的基本属性
+ *
+ *  @param dictionary  包含match的基本属性 以及 teams
+ *  @param competition 所属于的competition
+ */
++ (Match*)updateMatchWithDictionary:(NSDictionary*)dictionary andCompetetion:(Competition*)competition;
+
++ (NSString*)idAttribute;
+
 @end

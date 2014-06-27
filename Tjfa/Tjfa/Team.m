@@ -2,8 +2,8 @@
 //  Team.m
 //  Tjfa
 //
-//  Created by 邱峰 on 14-3-25.
-//  Copyright (c) 2014年 邱峰. All rights reserved.
+//  Created by 邱峰 on 6/28/14.
+//  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
 #import "Team.h"
@@ -16,12 +16,38 @@
 @dynamic emblemPath;
 @dynamic goalCount;
 @dynamic groupNo;
-@dynamic teamId;
 @dynamic missCount;
 @dynamic name;
 @dynamic score;
+@dynamic teamId;
 @dynamic competition;
 @dynamic match;
 @dynamic players;
+
++ (NSString*)idAttribute
+{
+    return @"teamId";
+}
+
++ (Team*)updateBasePropertyWithDictionary:(NSDictionary*)dictionary competition:(Competition*)competition andMatch:(Match*)match
+{
+    Team* team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:dictionary[@"teamId"]];
+    if (team == nil)
+        team = [Team MR_createEntity];
+    team.teamId = dictionary[@"teamId"];
+    team.emblemPath = dictionary[@"emblemPath"];
+    team.groupNo = dictionary[@"groupNo"];
+    team.goalCount = dictionary[@"goalCount"];
+    team.missCount = dictionary[@"missCount"];
+    team.name = dictionary[@"name"];
+    team.score = dictionary[@"score"];
+    team.competition = competition;
+    [competition addTeamsObject:team];
+    [match addTeamsObject:team];
+    [team addMatchObject:match];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+
+    return team;
+}
 
 @end

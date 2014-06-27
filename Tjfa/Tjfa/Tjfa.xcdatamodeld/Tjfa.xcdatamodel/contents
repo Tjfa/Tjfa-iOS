@@ -45,7 +45,7 @@
         <attribute name="score" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="teamId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
         <relationship name="competition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competition" inverseName="teams" inverseEntity="Competition" syncable="YES"/>
-        <relationship name="match" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Match" inverseName="teams" inverseEntity="Match" syncable="YES"/>
+        <relationship name="match" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Match" inverseName="teams" inverseEntity="Match" syncable="YES"/>
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="team" inverseEntity="Player" syncable="YES"/>
     </entity>
     <elements>
