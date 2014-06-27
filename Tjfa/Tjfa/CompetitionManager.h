@@ -17,6 +17,8 @@
 
 - (NSArray*)getCompetitionsFromCoreData;
 
-- (void)getCompetitionsFromNetwork:(NSNumber*)competitionId withLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
+- (void)getEarlierCompetitionsFromNetwork:(NSNumber*)competitionId withLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
+
+- (void)getLatestCompetitionsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
 
 @end

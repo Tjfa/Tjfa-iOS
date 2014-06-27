@@ -13,7 +13,7 @@
 
 @implementation Competition
 
-@dynamic competitionID;
+@dynamic competitionId;
 @dynamic isStart;
 @dynamic name;
 @dynamic number;
@@ -23,9 +23,20 @@
 @dynamic teams;
 @dynamic players;
 
+- (NSString*)description
+{
+    NSDictionary* dictionary = @{
+        @"competitionId" : self.competitionId,
+        @"isStart" : self.isStart,
+        @"name" : self.name,
+        @"time" : self.time,
+    };
+    return [dictionary description];
+}
+
 + (NSString*)idAttributeStr
 {
-    return @"competitionID";
+    return @"competitionId";
 }
 
 + (NSString*)timeAttributeStr
@@ -40,15 +51,15 @@
 
 + (Competition*)updateBasePropertyWithDictionary:(NSDictionary*)dictionary
 {
-    Competition* competition = [Competition findFirstByAttribute:@"competitionID" withValue:dictionary[@"competitionID"]];
+    Competition* competition = [Competition MR_findFirstByAttribute:[Competition idAttributeStr] withValue:dictionary[@"competitionId"]];
     if (competition == nil)
-        competition = [Competition createEntity]; //create an new if doesn't exist
-    competition.competitionID = dictionary[@"competitionID"];
+        competition = [Competition MR_createEntity]; //create an new if doesn't exist
+    competition.competitionId = dictionary[@"competitionId"];
     competition.name = dictionary[@"name"];
     competition.time = dictionary[@"time"];
     competition.isStart = dictionary[@"isStart"];
     competition.number = dictionary[@"number"];
-    [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return competition;
 }
 

@@ -10,6 +10,7 @@
 #import "CompetitionManager.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel* testLable;
 
 @end
 
@@ -18,6 +19,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    //    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithLimit:10 complete:^(NSArray* results, NSErv bn     //            NSLog(@"%@",error);
+    //        }
+    //        else{
+    //            for (Competition* competition in results){
+    //                NSLog(@"%@",competition);
+    //                self.testLable.text=competition.name;
+    //            }
+    //        }
+    //    }];
+
+    NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreData];
+    for (Competition* competition in results) {
+        NSLog(@"%@", competition);
+        self.testLable.text = competition.name;
+    }
     // Do any additional setup after loading the view, typically from a nib.
 }
 

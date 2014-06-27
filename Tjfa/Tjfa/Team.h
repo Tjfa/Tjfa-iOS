@@ -29,9 +29,9 @@
 @property (nonatomic, retain) NSString* groupNo;
 
 /**
- *  teamID
+ *  teamId
  */
-@property (nonatomic, retain) NSNumber* teamID;
+@property (nonatomic, retain) NSNumber* teamId;
 
 /**
  *  失球数

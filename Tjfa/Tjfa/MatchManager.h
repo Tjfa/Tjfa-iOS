@@ -17,4 +17,6 @@
 
 - (NSArray*)getMatchesByCompetition:(Competition*)competition;
 
+- (NSArray*)getMatchesByCompetitionFromCoreData:(Competition*)competition;
+
 @end

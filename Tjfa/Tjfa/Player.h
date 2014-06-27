@@ -20,9 +20,9 @@
 @property (nonatomic, retain) NSNumber* goalCount;
 
 /**
- *  playerID  主键
+ *  playerId  主键
  */
-@property (nonatomic, retain) NSNumber* playerID;
+@property (nonatomic, retain) NSNumber* playerId;
 
 /**
  *  名字

@@ -2,8 +2,8 @@
 //  News.h
 //  Tjfa
 //
-//  Created by 邱峰 on 14-3-25.
-//  Copyright (c) 2014年 邱峰. All rights reserved.
+//  Created by 邱峰 on 6/27/14.
+//  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -22,14 +22,16 @@
 @property (nonatomic, retain) NSDate* date;
 
 /**
- *  新闻ID
+ *  新闻Id
  */
-@property (nonatomic, retain) NSNumber* newsID;
+@property (nonatomic, retain) NSNumber* newsId;
 
 /**
  *  新闻标题
  */
 @property (nonatomic, retain) NSString* title;
+
++ (NSString*)idAttribute;
 
 /**
  *  将后台获取到的news的基本属性更新

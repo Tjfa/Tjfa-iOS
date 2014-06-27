@@ -16,7 +16,7 @@
 @dynamic emblemPath;
 @dynamic goalCount;
 @dynamic groupNo;
-@dynamic teamID;
+@dynamic teamId;
 @dynamic missCount;
 @dynamic name;
 @dynamic score;

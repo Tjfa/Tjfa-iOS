@@ -20,5 +20,14 @@
  */
 - (NSArray*)getNewsFromCoreData;
 
-- (void)getNewsFromNetworkWithId:(NSNumber*)newsId andLimit:(int)limit complete:(void (^)(NSArray* array, NSError* error))complete;
+/**
+ *  获取之前的新闻
+ */
+- (void)getEarlierNewsFromNetworkWithId:(NSNumber*)newsId andLimit:(int)limit complete:(void (^)(NSArray* array, NSError* error))complete;
+
+/**
+ *  获取最新的新闻
+ */
+- (void)getLatestNewsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete;
+
 @end

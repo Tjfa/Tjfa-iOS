@@ -24,7 +24,7 @@
 
 - (NSArray*)getNewsFromCoreData
 {
-    return [News findAll];
+    return [News MR_findAllSortedBy:[News idAttribute] ascending:YES];
 }
 
 /**
@@ -44,7 +44,7 @@
     return results;
 }
 
-- (void)getNewsFromNetworkWithId:(NSNumber*)newsId andLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
+- (void)getEarlierNewsFromNetworkWithId:(NSNumber*)newsId andLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
 {
     NSDictionary* parameters = @{
         @"newsId" : newsId,
@@ -59,4 +59,10 @@
         }
     }];
 }
+
+- (void)getLatestNewsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
+{
+    [self getEarlierNewsFromNetworkWithId:@(-1) andLimit:limit complete:complete];
+}
+
 @end

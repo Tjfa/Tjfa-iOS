@@ -14,6 +14,8 @@
 
 + (NetworkClient*)sharedNetworkClient;
 
++ (NSString*)competitionAddress;
+
 - (NSURLSessionDataTask*)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parametersArray complete:(void (^)(NSArray* results, NSError* error))complete;
 
 @end

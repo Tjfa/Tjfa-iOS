@@ -25,11 +25,11 @@
 
 - (void)clearAllCompetitions
 {
-    NSArray* competitions = [Competition findAll];
+    NSArray* competitions = [Competition MR_findAll];
     for (Competition* obj in competitions) {
-        [obj deleteEntity];
+        [obj MR_deleteEntity];
     }
-    [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 - (NSArray*)insertCompetitionsWithArray:(NSArray*)array
@@ -44,27 +44,26 @@
 
 - (NSArray*)getCompetitionsFromCoreData
 {
-    return [Competition findAllSortedBy:[Competition idAttributeStr] ascending:YES];
+    return [Competition MR_findAllSortedBy:[Competition idAttributeStr] ascending:YES];
 }
 
-- (void)getCompetitionsFromNetwork:(NSString*)dateStr withLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete
+- (void)getEarlierCompetitionsFromNetwork:(NSNumber*)competitionId withLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
 {
-    /**
-     *  set limit default is 10
-     */
-    if (limit == 0)
-        limit = 10;
-    NSDictionary* parameterDictionary = @{ @"competitionId" : @(18),
+    NSDictionary* parameterDictionary = @{ @"competitionId" : competitionId,
                                            @"limit" : @(limit) };
-    [[NetworkClient sharedNetworkClient] searchForAddress:@"Works/WorksItem.php" withParameters:parameterDictionary complete:^(NSArray* results, NSError* error) {
-    
-        if (error){
-            complete(nil,error);
-        }else{
-            results=[self insertCompetitionsWithArray:results];
-            complete(results,nil);
-        }
+    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient competitionAddress] withParameters:parameterDictionary complete:^(NSArray* results, NSError* error) {
+            if (error){
+                complete(nil,error);
+            }else{
+                results=[self insertCompetitionsWithArray:results];
+                complete(results,nil);
+            }
     }];
+}
+
+- (void)getLatestCompetitionsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
+{
+    [self getEarlierCompetitionsFromNetwork:@(-1) withLimit:limit complete:complete];
 }
 
 @end

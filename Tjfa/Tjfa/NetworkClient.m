@@ -10,11 +10,22 @@
 
 @implementation NetworkClient
 
-NSString* serverUrlStr = @"http://10.0.1.35/TacWebsite2";
+//NSString* serverUrlStr = @"http://10.0.1.35/TJFA/";
+
+//localhost in QiuFeng
+//NSString* serverUrlStr = @"http://10.0.1.3/tjfa/";
+
+//word
+NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
 
 + (NSURL*)serverUrl
 {
     return [NSURL URLWithString:serverUrlStr];
+}
+
++ (NSString*)competitionAddress
+{
+    return @"competition.php";
 }
 
 + (NetworkClient*)sharedNetworkClient

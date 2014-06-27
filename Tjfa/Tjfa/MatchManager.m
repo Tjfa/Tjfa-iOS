@@ -20,6 +20,14 @@
     return _sharedMatchManager;
 }
 
+- (NSArray*)getMatchesByCompetitionFromCoreData:(Competition*)competition
+{
+    NSArray* matches = [competition.matches allObjects];
+    return [matches sortedArrayUsingComparator:^NSComparisonResult(Match* a, Match* b) {
+        return [a.matchId compare:b.matchId];
+    }];
+}
+
 - (NSArray*)getMatchesByCompetition:(Competition*)competition
 {
     NSArray* result = [NSArray arrayWithObjects:competition.matches, nil];

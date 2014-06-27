@@ -14,9 +14,9 @@
 @interface Competition : NSManagedObject
 
 /**
- *  competitionID
+ *  competitionId
  */
-@property (nonatomic, retain) NSNumber* competitionID;
+@property (nonatomic, retain) NSNumber* competitionId;
 
 /**
  *  这个赛事是否开始

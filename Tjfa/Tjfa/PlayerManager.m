@@ -14,7 +14,9 @@
 {
     static PlayerManager* _playerManager = nil;
     static dispatch_once_t playerOnceToken;
-    dispatch_once(&playerOnceToken, ^(void) {});
+    dispatch_once(&playerOnceToken, ^(void) {
+        _playerManager=[[PlayerManager alloc] init];
+    });
     return _playerManager;
 }
 

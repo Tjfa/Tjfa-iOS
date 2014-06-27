@@ -13,12 +13,12 @@
 @implementation Match
 
 @dynamic date;
-@dynamic matchID;
+@dynamic matchId;
 @dynamic isStart;
 @dynamic matchProperty;
 @dynamic scoreA;
 @dynamic scoreB;
-@dynamic winTeamID;
+@dynamic winTeamId;
 @dynamic competition;
 @dynamic teams;
 

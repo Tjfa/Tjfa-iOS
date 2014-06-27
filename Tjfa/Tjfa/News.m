@@ -2,8 +2,8 @@
 //  News.m
 //  Tjfa
 //
-//  Created by 邱峰 on 14-3-25.
-//  Copyright (c) 2014年 邱峰. All rights reserved.
+//  Created by 邱峰 on 6/27/14.
+//  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
 #import "News.h"
@@ -13,20 +13,25 @@
 
 @dynamic content;
 @dynamic date;
-@dynamic newsID;
+@dynamic newsId;
 @dynamic title;
+
++ (NSString*)idAttribute
+{
+    return @"newsId";
+}
 
 + (News*)updateNewsWithDictionary:(NSDictionary*)dictionary
 {
-    News* news = [News findFirstByAttribute:@"newsID" withValue:dictionary[@"newsID"]];
+    News* news = [News MR_findFirstByAttribute:[News idAttribute] withValue:dictionary[@"newsId"]];
     if (news == nil) {
-        news = [News createEntity];
+        news = [News MR_createEntity];
     }
-    news.newsID = dictionary[@"newsID"];
+    news.newsId = dictionary[@"newsId"];
     news.date = [NSDate str2Date:dictionary[@"date"]];
     news.content = dictionary[@"content"];
     news.title = dictionary[@"title"];
-    [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return news;
 }
 

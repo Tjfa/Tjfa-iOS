@@ -19,9 +19,9 @@
 @property (nonatomic, retain) NSDate* date;
 
 /**
- *  matchID
+ *  matchId
  */
-@property (nonatomic, retain) NSNumber* matchID;
+@property (nonatomic, retain) NSNumber* matchId;
 
 /**
  *  这场比赛是否已经开始
@@ -46,7 +46,7 @@
 /**
  *  获胜队伍的编号 由于这边是set 所以只有这个办法
  */
-@property (nonatomic, retain) NSNumber* winTeamID;
+@property (nonatomic, retain) NSNumber* winTeamId;
 
 /**
  *  所属的赛事

@@ -12,7 +12,7 @@
 @implementation Player
 
 @dynamic goalCount;
-@dynamic playerID;
+@dynamic playerId;
 @dynamic name;
 @dynamic redCard;
 @dynamic yellowCard;
@@ -21,7 +21,7 @@
 
 + (NSString*)idAttributeStr
 {
-    return @"playerID";
+    return @"playerId";
 }
 
 + (NSString*)yellowCardAttributeStr
