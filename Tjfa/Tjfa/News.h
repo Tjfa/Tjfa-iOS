@@ -31,4 +31,14 @@
  */
 @property (nonatomic, retain) NSString* title;
 
+/**
+ *  将后台获取到的news的基本属性更新
+ *  根据newsID找对应的数据 如果找不到 会创建一个新的实例 并且保存
+ *
+ *  @param dictionary 后台获取的json
+ *
+ *  @return 更新过后的news
+ */
++ (News*)updateNewsWithDictionary:(NSDictionary*)dictionary;
+
 @end

@@ -32,29 +32,22 @@
     [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
 }
 
-- (void)insertCompetitionsWithArray:(NSArray*)array
+- (NSArray*)insertCompetitionsWithArray:(NSArray*)array
 {
+    NSMutableArray* results = [[NSMutableArray alloc] init];
     for (NSDictionary* obj in array) {
-        NSInteger competitionId = [obj[@"id"] intValue];
-
-        if ([Competition findFirstByAttribute:[Competition idAttributeStr] withValue:@(competitionId)] == nil) {
-            Competition* newObj = [Competition createEntity];
-            newObj.competitionID = @(competitionId);
-            newObj.name = obj[@"name"];
-            newObj.time = obj[@"time"];
-            newObj.isStart = obj[@"isStart"];
-            newObj.number = obj[@"number"];
-        }
+        Competition* competition = [Competition updateBasePropertyWithDictionary:obj];
+        [results addObject:competition];
     }
-    [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
+    return results;
 }
 
-- (NSArray*)getCompetitionsByDateFromCoreData:(NSString*)dateStr
+- (NSArray*)getCompetitionsFromCoreData
 {
-    return [Competition findByAttribute:[Competition timeAttributeStr] withValue:dateStr andOrderBy:[Competition nameAttributeStr] ascending:YES];
+    return [Competition findAllSortedBy:[Competition idAttributeStr] ascending:YES];
 }
 
-- (void)getCompetitionsByDateFromNetwork:(NSString*)dateStr withLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete
+- (void)getCompetitionsFromNetwork:(NSString*)dateStr withLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete
 {
     /**
      *  set limit default is 10
@@ -68,8 +61,8 @@
         if (error){
             complete(nil,error);
         }else{
-            [self insertCompetitionsWithArray:results];
-            complete([self getCompetitionsByDateFromCoreData:dateStr],nil);
+            results=[self insertCompetitionsWithArray:results];
+            complete(results,nil);
         }
     }];
 }

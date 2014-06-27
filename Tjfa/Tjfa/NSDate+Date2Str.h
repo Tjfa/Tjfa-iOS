@@ -14,4 +14,13 @@
 
 - (NSString*)date2CompetitionStr;
 
+/**
+ *  将string转化为nsdate
+ *
+ *  @param str yyyy-MM-dd HH:mm:ss
+ *
+ *  @return the date of str
+ */
++ (NSDate*)str2Date:(NSString*)str;
+
 @end

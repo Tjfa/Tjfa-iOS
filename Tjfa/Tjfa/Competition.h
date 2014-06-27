@@ -78,4 +78,6 @@
 - (void)addPlayers:(NSSet*)values;
 - (void)removePlayers:(NSSet*)values;
 
++ (Competition*)updateBasePropertyWithDictionary:(NSDictionary*)dictionary;
+
 @end

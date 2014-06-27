@@ -15,8 +15,8 @@
 
 - (void)clearAllCompetitions;
 
-- (NSArray*)getCompetitionsByDateFromCoreData:(NSString*)dateStr;
+- (NSArray*)getCompetitionsFromCoreData;
 
-- (void)getCompetitionsByDateFromNetwork:(NSString*)dateStr withLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
+- (void)getCompetitionsFromNetwork:(NSNumber*)competitionId withLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
 
 @end

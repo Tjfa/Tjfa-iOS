@@ -17,8 +17,6 @@
 
 + (PlayerManager*)sharedPlayerManager;
 
-- (Player*)getPlayerByIdFromCoreData:(int)playerId;
-
 - (NSArray*)getPlayersByTeamFromCoreData:(Team*)team;
 
 - (NSArray*)getPlayersByCompetitionFromCoreData:(Competition*)competition;

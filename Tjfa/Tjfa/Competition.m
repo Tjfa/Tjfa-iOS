@@ -18,6 +18,7 @@
 @dynamic name;
 @dynamic number;
 @dynamic time;
+
 @dynamic matches;
 @dynamic teams;
 @dynamic players;
@@ -35,6 +36,20 @@
 + (NSString*)nameAttributeStr
 {
     return @"name";
+}
+
++ (Competition*)updateBasePropertyWithDictionary:(NSDictionary*)dictionary
+{
+    Competition* competition = [Competition findFirstByAttribute:@"competitionID" withValue:dictionary[@"competitionID"]];
+    if (competition == nil)
+        competition = [Competition createEntity]; //create an new if doesn't exist
+    competition.competitionID = dictionary[@"competitionID"];
+    competition.name = dictionary[@"name"];
+    competition.time = dictionary[@"time"];
+    competition.isStart = dictionary[@"isStart"];
+    competition.number = dictionary[@"number"];
+    [[NSManagedObjectContext defaultContext] saveToPersistentStoreAndWait];
+    return competition;
 }
 
 @end

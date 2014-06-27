@@ -18,11 +18,6 @@
     return _playerManager;
 }
 
-- (Player*)getPlayerByIdFromCoreData:(int)playerId;
-{
-    return [Player findFirstByAttribute:[Player idAttributeStr] withValue:@(playerId)];
-}
-
 - (NSArray*)getPlayersByTeamFromCoreData:(Team*)team
 {
     NSArray* result = [NSArray arrayWithObjects:team.players, nil];

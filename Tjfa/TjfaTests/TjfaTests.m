@@ -35,13 +35,16 @@
 
 - (void)testDate
 {
-    NSDate* date=[NSDate dateWithTimeIntervalSince1970:10000];
-    NSLog(@"%@",[date date2CompetitionStr]);
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:10000];
+    NSLog(@"%@", [date date2CompetitionStr]);
 }
 
--(void) testNetwork
+- (void)testNetwork
 {
-    
+}
+
+- (void)testCompetition
+{
 }
 
 @end
