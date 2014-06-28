@@ -31,6 +31,7 @@
         @"isStart" : self.isStart,
         @"name" : self.name,
         @"time" : self.time,
+        @"type":self.type,
     };
     return [dictionary description];
 }

@@ -28,7 +28,7 @@
     return @"matchId";
 }
 
-+ (Match*)updateMatchWithDictionary:(NSDictionary*)dictionary competetion:(Competition*)competition
++ (Match*)updateMatchWithDictionary:(NSDictionary*)dictionary andCompetetion:(Competition*)competition
 {
     Match* match = [Match MR_findFirstByAttribute:[Match idAttribute] withValue:dictionary[@"matchId"]];
 
