@@ -23,6 +23,33 @@
 @dynamic competition;
 @dynamic teams;
 
+- (NSString*)description
+{
+    NSMutableDictionary* dictionary = [@{
+        @"date" : self.date,
+        @"matchId" : self.matchId,
+        @"isStart" : self.isStart,
+        @"matchProperty" : self.matchProperty,
+        @"scoreA" : self.scoreA,
+        @"scoreB" : self.scoreB,
+        @"winTeamId" : self.winTeamId,
+        @"competitionId" : self.competition.competitionId
+    } mutableCopy];
+
+    Team* winTeam = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:self.winTeamId];
+
+    NSArray* array = [self.teams allObjects];
+    Team* lostTeam = [array firstObject];
+
+    if ([lostTeam.teamId isEqual:winTeam.teamId])
+        lostTeam = [array lastObject];
+
+    [dictionary setObject:[winTeam description] forKey:@"teamA"];
+    [dictionary setObject:lostTeam forKey:@"teamB"];
+
+    return [dictionary description];
+}
+
 + (NSString*)idAttribute
 {
     return @"matchId";
@@ -36,6 +63,7 @@
         match = [Match MR_createEntity];
 
     match.matchId = dictionary[@"matchId"];
+    match.isStart = dictionary[@"isStart"];
     match.date = [NSDate str2Date:dictionary[@"date"]];
     match.matchProperty = dictionary[@"matchProperty"];
     match.scoreA = dictionary[@"scoreA"];

@@ -24,6 +24,20 @@
 @dynamic match;
 @dynamic players;
 
+- (NSString*)description
+{
+    NSDictionary* dictionary = @{
+        @"emblemPath" : self.emblemPath,
+        @"goalCount" : self.goalCount,
+        @"groupNo" : self.groupNo,
+        @"missCount" : self.missCount,
+        @"name" : self.name,
+        @"score" : self.score,
+        @"teamId" : self.teamId,
+    };
+    return [dictionary description];
+}
+
 + (NSString*)idAttribute
 {
     return @"teamId";
