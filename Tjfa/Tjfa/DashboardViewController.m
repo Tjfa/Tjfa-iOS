@@ -36,7 +36,7 @@ const CGFloat dashboardButtonSize = 100;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.delegate=self;
+    self.navigationController.delegate = self;
     // Do any additional setup after loading the view.
 }
 

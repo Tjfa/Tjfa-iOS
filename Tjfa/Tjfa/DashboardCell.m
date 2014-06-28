@@ -54,6 +54,8 @@
         }
         self.nameLable.frame = nameLableFrame;
         [self addSubview:self.nameLable];
+
+        self.backgroundColor = [UIColor appBackgroundColor];
     }
     return self;
 }

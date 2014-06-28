@@ -55,7 +55,7 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
     return _networkClient;
 }
 
-- (NSURLSessionDataTask*)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parameters complete:(void (^)(NSArray*, NSError*))complete
+- (NSURLSessionDataTask*)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parameters complete:(void (^)(id, NSError*))complete
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 

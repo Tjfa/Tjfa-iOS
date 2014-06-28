@@ -15,5 +15,6 @@
     #import <Foundation/Foundation.h>
 
     #import <CoreData+MagicalRecord.h>
+    #import "UIColor+AppColor.h"
 
 #endif

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A261i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ffE-nE-44p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A261i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ffE-nE-44p">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
         <!--View Controller - 赛事-->
@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="1965" y="666"/>
         </scene>
-        <!--View Controller - 关于-->
+        <!--About View Controller - 关于-->
         <scene sceneID="Zgd-0J-7zE">
             <objects>
-                <viewController storyboardIdentifier="settingController" id="3rx-ST-ubI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingController" id="3rx-ST-ubI" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ggc-j2-8Sz"/>
                         <viewControllerLayoutGuide type="bottom" id="fSB-YG-0Te"/>
@@ -34,7 +34,16 @@
                     <view key="view" contentMode="scaleToFill" id="QNT-39-PLJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <containerView appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-mm-Evl">
+                                <rect key="frame" x="0.0" y="63" width="320" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="OW9-2x-ps1" kind="embed" id="Eij-sR-OGa"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="关于" id="WhF-Lj-Hxu"/>
                 </viewController>
@@ -68,7 +77,47 @@
             </objects>
             <point key="canvasLocation" x="1913" y="-767"/>
         </scene>
-        <!--Dashboard View Controller-->
+        <!--About Developer View Controller-->
+        <scene sceneID="J05-Y2-LjP">
+            <objects>
+                <viewController id="OW9-2x-ps1" customClass="AboutDeveloperViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qvZ-VD-AzZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="526-7H-1fh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6aT-kD-mOJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rWy-6p-vFw" customClass="iCarousel">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                <subviews>
+                                    <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="邱峰" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbv-Hw-VIa">
+                                        <rect key="frame" x="143" y="179" width="34" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="OW9-2x-ps1" id="X55-cv-Wfb"/>
+                                    <outlet property="delegate" destination="OW9-2x-ps1" id="4SC-1b-eIo"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="carouselView" destination="rWy-6p-vFw" id="QOc-sM-2eT"/>
+                        <outlet property="nameLabel" destination="Bbv-Hw-VIa" id="ahE-s6-sfg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aO8-eg-rbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2253" y="-483.5"/>
+        </scene>
+        <!--Dashboard View Controller - 首页-->
         <scene sceneID="m1H-Xn-pkh">
             <objects>
                 <viewController id="2hP-Y8-Nbb" customClass="DashboardViewController" sceneMemberID="viewController">
@@ -79,9 +128,9 @@
                     <view key="view" contentMode="scaleToFill" id="7JD-yj-oOd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SWa-Ky-Kia"/>
+                    <navigationItem key="navigationItem" title="首页" id="SWa-Ky-Kia"/>
                     <connections>
                         <segue destination="3rx-ST-ubI" kind="push" id="2NN-eZ-o4T"/>
                         <segue destination="Wed-kW-t8i" kind="push" id="LPe-wD-6F7"/>

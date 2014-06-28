@@ -7,7 +7,6 @@
 //
 
 #import "DashboardButton.h"
-#import "UIColor+AppColor.h"
 
 @interface DashboardButton ()
 
