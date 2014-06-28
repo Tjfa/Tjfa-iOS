@@ -27,7 +27,6 @@
 		24F1D1E018E063E0007E2309 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1DF18E063E0007E2309 /* Foundation.framework */; };
 		24F1D1E218E063E1007E2309 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1E118E063E1007E2309 /* CoreGraphics.framework */; };
 		24F1D1E418E063E1007E2309 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1E318E063E1007E2309 /* UIKit.framework */; };
-		24F1D1EA18E063E1007E2309 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D1E818E063E1007E2309 /* InfoPlist.strings */; };
 		24F1D1EC18E063E1007E2309 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D1EB18E063E1007E2309 /* main.m */; };
 		24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D1EF18E063E1007E2309 /* AppDelegate.m */; };
 		24F1D1F318E063E1007E2309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D1F118E063E1007E2309 /* Main.storyboard */; };
@@ -36,7 +35,6 @@
 		24F1D1FF18E063E1007E2309 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1FE18E063E1007E2309 /* XCTest.framework */; };
 		24F1D20018E063E1007E2309 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1DF18E063E0007E2309 /* Foundation.framework */; };
 		24F1D20118E063E1007E2309 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1E318E063E1007E2309 /* UIKit.framework */; };
-		24F1D20918E063E1007E2309 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D20718E063E1007E2309 /* InfoPlist.strings */; };
 		24F1D20B18E063E1007E2309 /* TjfaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D20A18E063E1007E2309 /* TjfaTests.m */; };
 		24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */; };
 		24F1D21718E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */; };
@@ -95,7 +93,6 @@
 		24F1D1E118E063E1007E2309 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		24F1D1E318E063E1007E2309 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		24F1D1E718E063E1007E2309 /* Tjfa-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tjfa-Info.plist"; sourceTree = "<group>"; };
-		24F1D1E918E063E1007E2309 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24F1D1EB18E063E1007E2309 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		24F1D1ED18E063E1007E2309 /* Tjfa-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tjfa-Prefix.pch"; sourceTree = "<group>"; };
 		24F1D1EE18E063E1007E2309 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -107,7 +104,6 @@
 		24F1D1FD18E063E1007E2309 /* TjfaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TjfaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F1D1FE18E063E1007E2309 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		24F1D20618E063E1007E2309 /* TjfaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TjfaTests-Info.plist"; sourceTree = "<group>"; };
-		24F1D20818E063E1007E2309 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24F1D20A18E063E1007E2309 /* TjfaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TjfaTests.m; sourceTree = "<group>"; };
 		24F1D21518E0711E007E2309 /* Tjfa.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tjfa.xcdatamodel; sourceTree = "<group>"; };
 		24FED22B195A774900A9F0DA /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
@@ -315,7 +311,6 @@
 			isa = PBXGroup;
 			children = (
 				24F1D1E718E063E1007E2309 /* Tjfa-Info.plist */,
-				24F1D1E818E063E1007E2309 /* InfoPlist.strings */,
 				24F1D1EB18E063E1007E2309 /* main.m */,
 				24F1D1ED18E063E1007E2309 /* Tjfa-Prefix.pch */,
 			);
@@ -335,7 +330,6 @@
 			isa = PBXGroup;
 			children = (
 				24F1D20618E063E1007E2309 /* TjfaTests-Info.plist */,
-				24F1D20718E063E1007E2309 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -419,7 +413,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F1D1F818E063E1007E2309 /* Images.xcassets in Resources */,
-				24F1D1EA18E063E1007E2309 /* InfoPlist.strings in Resources */,
 				24F1D1F318E063E1007E2309 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,7 +421,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F1D20918E063E1007E2309 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,28 +509,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		24F1D1E818E063E1007E2309 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24F1D1E918E063E1007E2309 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		24F1D1F118E063E1007E2309 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				24F1D1F218E063E1007E2309 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		24F1D20718E063E1007E2309 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24F1D20818E063E1007E2309 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
