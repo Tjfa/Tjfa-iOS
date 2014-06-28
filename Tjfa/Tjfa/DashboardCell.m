@@ -10,6 +10,9 @@
 
 @implementation DashboardCell {
     CGFloat dashboardButtonSize;
+    CGRect nameLableFrame;
+    DashboardLabelDirection dahboardLableDirection;
+    CGRect animateFrameCache;
 }
 
 - (CGFloat)widthSpace
@@ -22,6 +25,7 @@
     if (self = [super initWithFrame:frame]) {
 
         dashboardButtonSize = size;
+        dahboardLableDirection = direction;
 
 #pragma mark - dashboard button
         CGRect dashBoardFrame;
@@ -38,13 +42,15 @@
         self.nameLable = [[UILabel alloc] init];
         self.nameLable.text = label;
 
-        CGRect nameLableFrame;
         if (direction == kLeft) {
             nameLableFrame = CGRectMake([self widthSpace], 0, size, size);
             self.nameLable.textAlignment = NSTextAlignmentLeft;
+            animateFrameCache = CGRectMake(nameLableFrame.origin.x + 10, nameLableFrame.origin.y, nameLableFrame.size.width, nameLableFrame.size.height);
+
         } else {
             nameLableFrame = CGRectMake(frame.size.width - 100 - [self widthSpace], 0, size, size);
             self.nameLable.textAlignment = NSTextAlignmentRight;
+            animateFrameCache = CGRectMake(nameLableFrame.origin.x - 10, nameLableFrame.origin.y, nameLableFrame.size.width, nameLableFrame.size.height);
         }
         self.nameLable.frame = nameLableFrame;
         [self addSubview:self.nameLable];
@@ -57,21 +63,56 @@
  */
 - (void)showAnimateInit
 {
+    self.userInteractionEnabled = NO;
     self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, 0, 0);
     self.dashboardButton.layer.cornerRadius = dashboardButtonSize / 4;
-    self.userInteractionEnabled = NO;
+
+    if (dahboardLableDirection == kLeft) {
+        self.nameLable.frame = CGRectMake(-100, self.nameLable.frame.origin.y, self.nameLable.frame.size.width, self.nameLable.frame.size.height);
+    } else {
+        self.nameLable.frame = CGRectMake(self.frame.size.width + 100, self.nameLable.frame.origin.y, self.nameLable.frame.size.width, self.nameLable.frame.size.height);
+    }
+}
+
+- (void)setHideCacheFrame
+{
+    self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, dashboardButtonSize + 10, dashboardButtonSize + 10);
+    self.dashboardButton.layer.cornerRadius = dashboardButtonSize / 2;
+    self.nameLable.frame = animateFrameCache;
+}
+
+- (void)setHideFrame
+{
+    self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, 0, 0);
+    if (dahboardLableDirection == kLeft) {
+        self.nameLable.frame = CGRectMake(-100, self.nameLable.frame.origin.y, self.nameLable.frame.size.width, self.nameLable.frame.size.height);
+    } else {
+        self.nameLable.frame = CGRectMake(self.frame.size.width + 100, self.nameLable.frame.origin.y, self.nameLable.frame.size.width, self.nameLable.frame.size.height);
+    }
+}
+
+- (void)setShowFrame
+{
+    self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, dashboardButtonSize, dashboardButtonSize);
+    self.nameLable.frame = nameLableFrame;
+}
+
+- (void)setShowCacheFrame
+{
+    self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, dashboardButtonSize + 10, dashboardButtonSize + 10);
+    self.dashboardButton.layer.cornerRadius = dashboardButtonSize / 2;
+    self.nameLable.frame = animateFrameCache;
 }
 
 - (void)showWithAnimateComplete:(void (^)(BOOL))complete
 {
     [self showAnimateInit];
     [UIView animateWithDuration:0.3 animations:^() {
-         self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, dashboardButtonSize+10, dashboardButtonSize+10);
-         self.dashboardButton.layer.cornerRadius=dashboardButtonSize / 2;
     } completion:^(BOOL finished) {
+        [self setShowCacheFrame];
         
         [UIView animateWithDuration:0.1 animations:^(){
-            self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, dashboardButtonSize, dashboardButtonSize);
+            [self setShowFrame];
         }completion:^(BOOL finished){
             self.userInteractionEnabled=YES;
             if (complete){
@@ -85,11 +126,10 @@
 {
     [self showAnimateInit];
     [UIView animateWithDuration:0.3 delay:delay options:0 animations:^(void) {
-        self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, dashboardButtonSize+10, dashboardButtonSize+10);
-        self.dashboardButton.layer.cornerRadius=dashboardButtonSize / 2;
+        [self setShowCacheFrame];
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.1 animations:^(){
-            self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, dashboardButtonSize, dashboardButtonSize);
+            [self setShowFrame];
         }completion:^(BOOL finished){
             self.userInteractionEnabled=YES;
             if (complete){
@@ -103,12 +143,11 @@
 {
     self.userInteractionEnabled = NO;
     [UIView animateWithDuration:0.1 animations:^() {
-        self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, dashboardButtonSize+10, dashboardButtonSize+10);
-        self.dashboardButton.layer.cornerRadius=dashboardButtonSize / 2;
+        [self setHideCacheFrame];
     } completion:^(BOOL finished) {
         
         [UIView animateWithDuration:0.3 animations:^(){
-            self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, 0, 0);
+            [self setHideFrame];
         }completion:^(BOOL finished){
             self.userInteractionEnabled=YES;
             if (complete){
@@ -121,11 +160,11 @@
 - (void)hideWithAnimateAfterDelay:(NSTimeInterval)delay complete:(void (^)(BOOL))complete
 {
     [UIView animateWithDuration:0.1 delay:delay options:0 animations:^(void) {
-        self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, dashboardButtonSize+10, dashboardButtonSize+10);
-        self.dashboardButton.layer.cornerRadius=dashboardButtonSize / 2;
+        [self setHideCacheFrame];
     } completion:^(BOOL finished) {
+        
         [UIView animateWithDuration:0.3 animations:^(){
-            self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, 0, 0);
+            [self setHideFrame];
         }completion:^(BOOL finished){
             self.userInteractionEnabled=YES;
             if (complete){
