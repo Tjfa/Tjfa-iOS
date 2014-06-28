@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24093693195DD6E500180CA6 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 24093692195DD6E500180CA6 /* Team.m */; };
 		24796BF4195DBB5100176F8F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24796BF3195DBB5100176F8F /* MainViewController.m */; };
 		249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67718E16DDE0084DDBB /* CompetitionManager.m */; };
 		249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F143F195D6FBB0038DF42 /* NewsManager.m */; };
 		249F1444195D71A90038DF42 /* NSArray+ArrayLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F1443195D71A90038DF42 /* NSArray+ArrayLimit.m */; };
-		24C6FE2E195E809E008B594C /* Competition.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE2D195E809E008B594C /* Competition.m */; };
+		24C6FE4B195E8574008B594C /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE41195E8574008B594C /* Player.m */; };
+		24C6FE4C195E8574008B594C /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE45195E8574008B594C /* Match.m */; };
+		24C6FE4D195E8574008B594C /* Competition.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE46195E8574008B594C /* Competition.m */; };
+		24C6FE4E195E8574008B594C /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE47195E8574008B594C /* News.m */; };
+		24C6FE4F195E8574008B594C /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE48195E8574008B594C /* Team.m */; };
 		24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CECBF018E27F5300D43E0D /* NSDate+Date2Str.m */; };
 		24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CECC3318E2A3D700D43E0D /* NetworkClient.m */; };
 		24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E58E7E18E7FC29007BFFD8 /* PlayerManager.m */; };
@@ -33,10 +36,6 @@
 		24F1D20B18E063E1007E2309 /* TjfaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D20A18E063E1007E2309 /* TjfaTests.m */; };
 		24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */; };
 		24F1D21718E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */; };
-		24F64052195DB7DB0002B836 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F64051195DB7DB0002B836 /* News.m */; };
-		24F6405C195DB8640002B836 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F64055195DB8640002B836 /* Match.m */; };
-		24F6405D195DB8640002B836 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F64057195DB8640002B836 /* Team.m */; };
-		24F6405E195DB8640002B836 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F64059195DB8640002B836 /* Player.m */; };
 		24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FED22C195A774900A9F0DA /* DatabaseManager.m */; };
 		571F1BFD12CA4E6E8E04F93C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC567E161D864E30A568E12D /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -53,8 +52,6 @@
 
 /* Begin PBXFileReference section */
 		22EAFC87A20242C8AE3E0037 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		24093691195DD6E500180CA6 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
-		24093692195DD6E500180CA6 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		24796BF2195DBB5100176F8F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		24796BF3195DBB5100176F8F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		249CF67618E16DDE0084DDBB /* CompetitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionManager.h; sourceTree = "<group>"; };
@@ -63,8 +60,16 @@
 		249F143F195D6FBB0038DF42 /* NewsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsManager.m; sourceTree = "<group>"; };
 		249F1442195D71A90038DF42 /* NSArray+ArrayLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ArrayLimit.h"; sourceTree = "<group>"; };
 		249F1443195D71A90038DF42 /* NSArray+ArrayLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ArrayLimit.m"; sourceTree = "<group>"; };
-		24C6FE2C195E809E008B594C /* Competition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Competition.h; sourceTree = "<group>"; };
-		24C6FE2D195E809E008B594C /* Competition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Competition.m; sourceTree = "<group>"; };
+		24C6FE41195E8574008B594C /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		24C6FE42195E8574008B594C /* Competition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Competition.h; sourceTree = "<group>"; };
+		24C6FE43195E8574008B594C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		24C6FE44195E8574008B594C /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
+		24C6FE45195E8574008B594C /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
+		24C6FE46195E8574008B594C /* Competition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Competition.m; sourceTree = "<group>"; };
+		24C6FE47195E8574008B594C /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
+		24C6FE48195E8574008B594C /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		24C6FE49195E8574008B594C /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		24C6FE4A195E8574008B594C /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
 		24CECBEF18E27F5300D43E0D /* NSDate+Date2Str.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Date2Str.h"; sourceTree = "<group>"; };
 		24CECBF018E27F5300D43E0D /* NSDate+Date2Str.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Date2Str.m"; sourceTree = "<group>"; };
 		24CECC3218E2A3D700D43E0D /* NetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkClient.h; sourceTree = "<group>"; };
@@ -93,14 +98,6 @@
 		24F1D20818E063E1007E2309 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24F1D20A18E063E1007E2309 /* TjfaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TjfaTests.m; sourceTree = "<group>"; };
 		24F1D21518E0711E007E2309 /* Tjfa.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tjfa.xcdatamodel; sourceTree = "<group>"; };
-		24F64050195DB7DB0002B836 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
-		24F64051195DB7DB0002B836 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
-		24F64054195DB8640002B836 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
-		24F64055195DB8640002B836 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
-		24F64056195DB8640002B836 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		24F64057195DB8640002B836 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
-		24F64058195DB8640002B836 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
-		24F64059195DB8640002B836 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		24FED22B195A774900A9F0DA /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		24FED22C195A774900A9F0DA /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		EC567E161D864E30A568E12D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,19 +140,17 @@
 		249CF66518E16A840084DDBB /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				24C6FE42195E8574008B594C /* Competition.h */,
+				24C6FE46195E8574008B594C /* Competition.m */,
+				24C6FE43195E8574008B594C /* Player.h */,
+				24C6FE41195E8574008B594C /* Player.m */,
+				24C6FE44195E8574008B594C /* Match.h */,
+				24C6FE45195E8574008B594C /* Match.m */,
+				24C6FE48195E8574008B594C /* Team.m */,
+				24C6FE49195E8574008B594C /* Team.h */,
+				24C6FE4A195E8574008B594C /* News.h */,
+				24C6FE47195E8574008B594C /* News.m */,
 				24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */,
-				24C6FE2C195E809E008B594C /* Competition.h */,
-				24C6FE2D195E809E008B594C /* Competition.m */,
-				24F64050195DB7DB0002B836 /* News.h */,
-				24F64051195DB7DB0002B836 /* News.m */,
-				24F64054195DB8640002B836 /* Team.h */,
-				24F64057195DB8640002B836 /* Team.m */,
-				24F64058195DB8640002B836 /* Match.h */,
-				24F64055195DB8640002B836 /* Match.m */,
-				24F64056195DB8640002B836 /* Player.h */,
-				24F64059195DB8640002B836 /* Player.m */,
-				24093691195DD6E500180CA6 /* Team.h */,
-				24093692195DD6E500180CA6 /* Team.m */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -428,21 +423,20 @@
 				249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */,
 				24E58E8C18E815C1007BFFD8 /* MatchManager.m in Sources */,
 				24F1D1F618E063E1007E2309 /* ViewController.m in Sources */,
-				24F6405C195DB8640002B836 /* Match.m in Sources */,
-				24F64052195DB7DB0002B836 /* News.m in Sources */,
+				24C6FE4E195E8574008B594C /* News.m in Sources */,
+				24C6FE4F195E8574008B594C /* Team.m in Sources */,
+				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
+				24C6FE4C195E8574008B594C /* Match.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
 				24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */,
 				249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */,
-				24093693195DD6E500180CA6 /* Team.m in Sources */,
-				24F6405D195DB8640002B836 /* Team.m in Sources */,
-				24C6FE2E195E809E008B594C /* Competition.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
 				24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */,
 				24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */,
-				24F6405E195DB8640002B836 /* Player.m in Sources */,
 				24796BF4195DBB5100176F8F /* MainViewController.m in Sources */,
 				249F1444195D71A90038DF42 /* NSArray+ArrayLimit.m in Sources */,
 				24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */,
+				24C6FE4B195E8574008B594C /* Player.m in Sources */,
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

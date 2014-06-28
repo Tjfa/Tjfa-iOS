@@ -51,7 +51,7 @@
     </entity>
     <elements>
         <element name="Competition" positionX="-326" positionY="-207" width="128" height="180"/>
-        <element name="Match" positionX="-126" positionY="-45" width="128" height="178"/>
+        <element name="Match" positionX="-126" positionY="-45" width="128" height="180"/>
         <element name="News" positionX="-459" positionY="50" width="128" height="105"/>
         <element name="Player" positionX="-333" positionY="-369" width="128" height="150"/>
         <element name="Team" positionX="-146" positionY="-324" width="128" height="195"/>
