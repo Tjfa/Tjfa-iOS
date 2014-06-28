@@ -20,21 +20,25 @@
 {
     [super viewDidLoad];
 
-    //    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithLimit:10 complete:^(NSArray* results, NSErv bn     //            NSLog(@"%@",error);
-    //        }
-    //        else{
-    //            for (Competition* competition in results){
-    //                NSLog(@"%@",competition);
-    //                self.testLable.text=competition.name;
-    //            }
-    //        }
-    //    }];
+    //here is code for server data
+    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:@(1) limit:10 complete:^(NSArray* results, NSError* error) {
+            if (error)  {
+                     NSLog(@"%@",error);
+            }
+            else{
+                for (Competition* competition in results){
+                    NSLog(@"%@",competition);
+                    self.testLable.text=competition.name;
+                }
+            }
+    }];
 
-    NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreData];
-    for (Competition* competition in results) {
-        NSLog(@"%@", competition);
-        self.testLable.text = competition.name;
-    }
+    //here is code for local data
+    //    NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:@(1)];
+    //    for (Competition* competition in results) {
+    //        NSLog(@"%@", competition);
+    //        self.testLable.text = competition.name;
+    //    }
     // Do any additional setup after loading the view, typically from a nib.
 }
 
