@@ -50,7 +50,7 @@
         @"newsId" : newsId,
         @"limit" : @(limit),
     };
-    [[NetworkClient sharedNetworkClient] searchForAddress:@"Works/WorksItem.php" withParameters:parameters complete:^(NSArray* results, NSError* error) {
+    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsAddress] withParameters:parameters complete:^(NSArray* results, NSError* error) {
         if (error){
             complete(nil,error);
         }else{
@@ -63,6 +63,27 @@
 - (void)getLatestNewsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
 {
     [self getEarlierNewsFromNetworkWithId:@(-1) andLimit:limit complete:complete];
+}
+
+- (void)getNewsContentWithNews:(News*)news complete:(void (^)(News*, NSError*))complete
+{
+    if (news == nil)
+        return;
+
+    if (news.content == nil || [news.content isEqualToString:@""]) {
+        NSDictionary* dictionary = @{ @"newId" : news.newsId };
+        [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSString* content, NSError* error) {
+            if (error){
+                complete(nil,error);
+            }else{
+                news.content=content;
+                [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                complete(news,nil);
+            }
+        }];
+    } else {
+        complete(news, nil);
+    }
 }
 
 @end

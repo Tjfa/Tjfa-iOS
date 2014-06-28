@@ -21,13 +21,20 @@
 - (NSArray*)getNewsFromCoreData;
 
 /**
- *  获取之前的新闻
+ *  获取之前的新闻标题
  */
-- (void)getEarlierNewsFromNetworkWithId:(NSNumber*)newsId andLimit:(int)limit complete:(void (^)(NSArray* array, NSError* error))complete;
+- (void)getEarlierNewsFromNetworkWithId:(NSNumber*)newsId andLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
 
 /**
- *  获取最新的新闻
+ *  获取最新的新闻标题
  */
-- (void)getLatestNewsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete;
+- (void)getLatestNewsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
 
+/**
+ *  暂时不考虑news更新的情况
+ *
+ *  @param news 传递进来一个news  这个news是可能没有content的
+ *  @param complete 完成网络加载后运行的代码
+ */
+- (void)getNewsContentWithNews:(News*)news complete:(void (^)(News* news, NSError* error))complete;
 @end

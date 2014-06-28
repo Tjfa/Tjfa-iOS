@@ -8,6 +8,7 @@
 
 #import "MatchManager.h"
 #import "NetworkClient.h"
+#import "Team.h"
 
 @implementation MatchManager
 
@@ -37,6 +38,21 @@
     return [matches sortedArrayUsingComparator:^NSComparisonResult(Match* a, Match* b) {
         return [a.matchId compare:b.matchId];
     }];
+}
+
+- (NSArray*)getMatchesByTeamName:(NSString*)teamName competition:(Competition*)compeitition
+{
+    NSArray* matches = [self getMatchesByCompetitionFromCoreData:compeitition];
+    NSMutableArray* results = [[NSMutableArray alloc] init];
+    for (Match* match in matches) {
+        for (Team* team in match.teams) {
+            if ([team.name rangeOfString:teamName].location != NSNotFound) {
+                [results addObject:match];
+                break;
+            }
+        }
+    }
+    return results;
 }
 
 - (void)getMatchesByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete

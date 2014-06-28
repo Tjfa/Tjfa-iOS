@@ -18,8 +18,10 @@
 
 + (NSString*)newsAddress;
 
++ (NSString*)newsContentAddress;
+
 + (NSString*)matchAdderss;
 
-- (NSURLSessionDataTask*)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parametersArray complete:(void (^)(NSArray* results, NSError* error))complete;
+- (NSURLSessionDataTask*)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parametersArray complete:(void (^)(id results, NSError* error))complete;
 
 @end

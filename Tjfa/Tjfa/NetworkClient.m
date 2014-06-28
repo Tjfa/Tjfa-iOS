@@ -33,6 +33,11 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
     return @"news.php";
 }
 
++ (NSString*)newsContentAddress
+{
+    return @"newsContent.php";
+}
+
 + (NSString*)matchAdderss
 {
     return @"match.php";

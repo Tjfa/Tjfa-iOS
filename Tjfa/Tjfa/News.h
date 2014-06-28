@@ -37,7 +37,7 @@
  *  将后台获取到的news的基本属性更新
  *  根据newsID找对应的数据 如果找不到 会创建一个新的实例 并且保存
  *
- *  @param dictionary 后台获取的json
+ *  @param dictionary 后台获取的json , 由于news的content可能比较大。。。在加上标题党。。。在loadnews的时候 先不传递content了
  *
  *  @return 更新过后的news
  */
