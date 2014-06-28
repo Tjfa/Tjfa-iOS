@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6CC195EC23300F7820D /* UIColor+AppColor.m */; };
+		240AE6D0195EC52300F7820D /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6CF195EC52300F7820D /* DashboardViewController.m */; };
+		240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6D4195EC5F100F7820D /* DashboardButton.m */; };
+		240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6D7195EDCC600F7820D /* DashboardCell.m */; };
 		24796BF4195DBB5100176F8F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24796BF3195DBB5100176F8F /* MainViewController.m */; };
 		249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67718E16DDE0084DDBB /* CompetitionManager.m */; };
 		249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F143F195D6FBB0038DF42 /* NewsManager.m */; };
@@ -52,6 +56,14 @@
 
 /* Begin PBXFileReference section */
 		22EAFC87A20242C8AE3E0037 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		240AE6CB195EC23300F7820D /* UIColor+AppColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColor.h"; sourceTree = "<group>"; };
+		240AE6CC195EC23300F7820D /* UIColor+AppColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColor.m"; sourceTree = "<group>"; };
+		240AE6CE195EC52300F7820D /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
+		240AE6CF195EC52300F7820D /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		240AE6D3195EC5F100F7820D /* DashboardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardButton.h; sourceTree = "<group>"; };
+		240AE6D4195EC5F100F7820D /* DashboardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardButton.m; sourceTree = "<group>"; };
+		240AE6D6195EDCC600F7820D /* DashboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardCell.h; sourceTree = "<group>"; };
+		240AE6D7195EDCC600F7820D /* DashboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardCell.m; sourceTree = "<group>"; };
 		24796BF2195DBB5100176F8F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		24796BF3195DBB5100176F8F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		249CF67618E16DDE0084DDBB /* CompetitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionManager.h; sourceTree = "<group>"; };
@@ -128,6 +140,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		240AE6C9195EC1FA00F7820D /* UILayer */ = {
+			isa = PBXGroup;
+			children = (
+				240AE6CA195EC20B00F7820D /* Category */,
+				240AE6D1195EC53100F7820D /* Dashboard */,
+			);
+			name = UILayer;
+			sourceTree = "<group>";
+		};
+		240AE6CA195EC20B00F7820D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				240AE6CB195EC23300F7820D /* UIColor+AppColor.h */,
+				240AE6CC195EC23300F7820D /* UIColor+AppColor.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		240AE6D1195EC53100F7820D /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				240AE6D2195EC5DA00F7820D /* DashboardView */,
+				240AE6CE195EC52300F7820D /* DashboardViewController.h */,
+				240AE6CF195EC52300F7820D /* DashboardViewController.m */,
+			);
+			name = Dashboard;
+			sourceTree = "<group>";
+		};
+		240AE6D2195EC5DA00F7820D /* DashboardView */ = {
+			isa = PBXGroup;
+			children = (
+				240AE6D6195EDCC600F7820D /* DashboardCell.h */,
+				240AE6D7195EDCC600F7820D /* DashboardCell.m */,
+				240AE6D3195EC5F100F7820D /* DashboardButton.h */,
+				240AE6D4195EC5F100F7820D /* DashboardButton.m */,
+			);
+			name = DashboardView;
+			sourceTree = "<group>";
+		};
 		243E779918E5847700644056 /* Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +304,7 @@
 				24796BF2195DBB5100176F8F /* MainViewController.h */,
 				24796BF3195DBB5100176F8F /* MainViewController.m */,
 				24F1D1F718E063E1007E2309 /* Images.xcassets */,
+				240AE6C9195EC1FA00F7820D /* UILayer */,
 				24CFD62518E1517100D706D1 /* LogicalLayer */,
 				24F1D1E618E063E1007E2309 /* Supporting Files */,
 			);
@@ -423,6 +475,7 @@
 				249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */,
 				24E58E8C18E815C1007BFFD8 /* MatchManager.m in Sources */,
 				24F1D1F618E063E1007E2309 /* ViewController.m in Sources */,
+				240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */,
 				24C6FE4E195E8574008B594C /* News.m in Sources */,
 				24C6FE4F195E8574008B594C /* Team.m in Sources */,
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
@@ -435,8 +488,11 @@
 				24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */,
 				24796BF4195DBB5100176F8F /* MainViewController.m in Sources */,
 				249F1444195D71A90038DF42 /* NSArray+ArrayLimit.m in Sources */,
+				240AE6D0195EC52300F7820D /* DashboardViewController.m in Sources */,
+				240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */,
 				24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */,
 				24C6FE4B195E8574008B594C /* Player.m in Sources */,
+				240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */,
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
