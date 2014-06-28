@@ -18,6 +18,7 @@
 @dynamic name;
 @dynamic number;
 @dynamic time;
+@dynamic type;
 
 @dynamic matches;
 @dynamic teams;
@@ -49,12 +50,19 @@
     return @"name";
 }
 
++ (NSString*)typeAttributeStr
+{
+    return @"type";
+}
+
 + (Competition*)updateBasePropertyWithDictionary:(NSDictionary*)dictionary
 {
     Competition* competition = [Competition MR_findFirstByAttribute:[Competition idAttributeStr] withValue:dictionary[@"competitionId"]];
     if (competition == nil)
         competition = [Competition MR_createEntity]; //create an new if doesn't exist
+
     competition.competitionId = dictionary[@"competitionId"];
+    competition.type = dictionary[@"type"];
     competition.name = dictionary[@"name"];
     competition.time = dictionary[@"time"];
     competition.isStart = dictionary[@"isStart"];

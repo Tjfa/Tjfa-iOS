@@ -15,10 +15,17 @@
 
 - (void)clearAllCompetitions;
 
-- (NSArray*)getCompetitionsFromCoreData;
+/**
+ *  从数据库拿到对应的比赛性质
+ *
+ *  @param type 1代表本部比赛 2代表嘉定比赛
+ *
+ *  @return array of Competition
+ */
+- (NSArray*)getCompetitionsFromCoreDataWithType:(NSNumber*)type;
 
-- (void)getEarlierCompetitionsFromNetwork:(NSNumber*)competitionId withLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
+- (void)getEarlierCompetitionsFromNetwork:(NSNumber*)competitionId withType:(NSNumber*)type limit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
 
-- (void)getLatestCompetitionsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
+- (void)getLatestCompetitionsFromNetworkWithType:(NSNumber*)type limit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
 
 @end

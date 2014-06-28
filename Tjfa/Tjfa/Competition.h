@@ -19,6 +19,11 @@
 @property (nonatomic, retain) NSNumber* competitionId;
 
 /**
+ *  1 表示本部 2表示 嘉定  
+ */
+@property (nonatomic, retain) NSNumber* type;
+
+/**
  *  这个赛事是否开始
  */
 @property (nonatomic, retain) NSNumber* isStart;
@@ -58,6 +63,8 @@
 + (NSString*)timeAttributeStr;
 
 + (NSString*)nameAttributeStr;
+
++ (NSString*)typeAttributeStr;
 
 @end
 

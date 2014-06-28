@@ -42,14 +42,15 @@
     return results;
 }
 
-- (NSArray*)getCompetitionsFromCoreData
+- (NSArray*)getCompetitionsFromCoreDataWithType:(NSNumber*)type
 {
-    return [Competition MR_findAllSortedBy:[Competition idAttributeStr] ascending:YES];
+    return [Competition MR_findByAttribute:[Competition typeAttributeStr] withValue:type andOrderBy:[Competition idAttributeStr] ascending:YES];
 }
 
-- (void)getEarlierCompetitionsFromNetwork:(NSNumber*)competitionId withLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
+- (void)getEarlierCompetitionsFromNetwork:(NSNumber*)competitionId withType:(NSNumber*)type limit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
 {
-    NSDictionary* parameterDictionary = @{ @"competitionId" : competitionId,
+    NSDictionary* parameterDictionary = @{ @"type" : type,
+                                           @"competitionId" : competitionId,
                                            @"limit" : @(limit) };
     [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient competitionAddress] withParameters:parameterDictionary complete:^(NSArray* results, NSError* error) {
             if (error){
@@ -61,9 +62,9 @@
     }];
 }
 
-- (void)getLatestCompetitionsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
+- (void)getLatestCompetitionsFromNetworkWithType:(NSNumber*)type limit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
 {
-    [self getEarlierCompetitionsFromNetwork:@(-1) withLimit:limit complete:complete];
+    [self getEarlierCompetitionsFromNetwork:@(-1) withType:type limit:limit complete:complete];
 }
 
 @end
