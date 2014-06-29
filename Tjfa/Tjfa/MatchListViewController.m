@@ -94,16 +94,16 @@
     // request latest server data
     [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:@(1) limit:10 complete:^(NSArray *results, NSError *error){
         if (error) {
-            // no data.
+            // something wrong
             NSLog(@"%@",error);
         } else {
-            // hvae latest server data
+            // get latest server data
             [self handleCompetitionDataList:results];
         }
     }];
 }
 
-// get local data
+// get local data --- when first enter this page
 - (void) getLocalData {
     // empty old table data
     [self.durationList removeAllObjects];
@@ -120,6 +120,23 @@
         // local data is not empty
         [self handleCompetitionDataList:results];
     }
+}
+
+// pull-up get more --- get earlier server data
+- (void) pullupGetMore {
+    // find the last competition we have
+    Competition *lastCompetition = [[self.competionList lastObject] lastObject];
+    
+    // get more data from server
+    [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:[lastCompetition competitionId] withType:@(1) limit:10 complete:^(NSArray *results, NSError *error){
+        if (error) {
+            // something wrong
+            NSLog(@"%@",error);
+        } else {
+            // get more server data
+            [self handleCompetitionDataList:results];
+        }
+    }];
 }
 
 // handle data list --- convert list to table data & reload table data
