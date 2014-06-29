@@ -10,7 +10,9 @@
 #import "DashboardCell.h"
 #import "MatchListViewController.h"
 
-@interface DashboardViewController () <UINavigationControllerDelegate>
+@interface DashboardViewController () <UINavigationControllerDelegate>{
+    int campusType; // 0-本部 1-嘉定
+}
 
 @property (nonatomic, strong) DashboardCell* newsView;
 @property (nonatomic, strong) DashboardCell* settingView;
@@ -182,6 +184,7 @@ const CGFloat dashboardButtonSize = 100;
 - (void)benbuClick:(id)sender
 {
     NSLog(@"benbu click");
+    campusType = 0; // jump to benbu campus
     [self closeDashboardCellUserInterface];
     UIViewController* newsController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
     [self hideWithAnimateSynCompleteToController:newsController];
@@ -190,6 +193,7 @@ const CGFloat dashboardButtonSize = 100;
 - (void)jiadingClick:(id)sender
 {
     NSLog(@"jiading click");
+    campusType = 1; // jump to jiading campus
     [self closeDashboardCellUserInterface];
     UIViewController* newsController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
     [self hideWithAnimateSynCompleteToController:newsController];
@@ -219,7 +223,20 @@ const CGFloat dashboardButtonSize = 100;
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-//    ()sender
+    if ([segue.identifier isEqualToString:@"jumpToMatchlist"]) {
+        if (campusType == 0) {
+            // jump to benbu
+            [(MatchListViewController*)[sender destinationViewController] setCampusType:0];
+            NSLog(@"d set 0");
+        } else {
+            // jump to jiading
+            [(MatchListViewController*)[sender destinationViewController] setCampusType:1];
+            NSLog(@"d set 1");
+        }
+    }else{
+        NSLog(@"d no set");
+    }
+    NSLog(@"\n\n\n\n\n\n\n\n\nd no set");
 }
 
 - (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated

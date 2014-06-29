@@ -33,7 +33,12 @@
 {
     [super viewDidLoad];
     
-    [super viewDidLoad];
+    if (self.campusType == 0) {
+        self.navigationItem.title = @"本部赛事";
+    } else {
+        self.navigationItem.title = @"嘉定赛事";
+    }
+    
     NSMutableArray *firstArray = [[NSMutableArray alloc] initWithArray:@[@"first",@"second",@"third"]];
     NSMutableArray *secondAray = [[NSMutableArray alloc]initWithArray:@[@"test1",@"test2",@"test3"]];
     self.competionList = [[NSMutableArray alloc] init];
@@ -101,7 +106,7 @@
 - (void) dropdownRefresh{
     
     // request latest server data
-    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:@(1) limit:10 complete:^(NSArray *results, NSError *error){
+    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:[NSNumber numberWithInt:self.campusType] limit:10 complete:^(NSArray *results, NSError *error){
         if (error) {
             // something wrong
             NSLog(@"%@",error);
@@ -123,7 +128,7 @@
 //    [self.competionList removeAllObjects];
     
     // load all local data
-    NSArray *results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:@(1)];
+    NSArray *results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]];
     
     // check local data count
     if ([results count] ==0) {
@@ -138,7 +143,7 @@
 // pull-up get more --- get earlier server data
 - (void) pullupGetMore {
     // find the last competition we have
-    Competition *lastCompetition = [[[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:@(1)] lastObject];
+    Competition *lastCompetition = [[[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]] lastObject];
     
     // get more data from server
     [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:[lastCompetition competitionId] withType:@(1) limit:10 complete:^(NSArray *results, NSError *error){

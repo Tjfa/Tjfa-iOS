@@ -11,7 +11,7 @@
 
 @interface MatchListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MJRefreshBaseViewDelegate>
 
-@property (readwrite, nonatomic) int campusType; // 0-嘉定 1-本部
+@property (readwrite, nonatomic) int campusType; // 0-本部 1-嘉定
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
