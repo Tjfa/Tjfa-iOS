@@ -37,6 +37,7 @@ const CGFloat dashboardButtonSize = 100;
 {
     [super viewDidLoad];
     self.navigationController.delegate = self;
+    self.view.backgroundColor=[UIColor appBackgroundColor];
     // Do any additional setup after loading the view.
 }
 

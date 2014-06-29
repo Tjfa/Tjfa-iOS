@@ -26,7 +26,7 @@
 
 + (UIColor*)appBackgroundColor
 {
-    return [UIColor colorWith16Number:0xf8f8f8];
+    return [UIColor colorWith16Number:0xF8F8F8];
 }
 
 + (UIColor*)appGrayColor
