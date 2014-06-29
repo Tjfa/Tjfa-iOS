@@ -116,8 +116,8 @@
             // something wrong
             NSLog(@"%@",error);
         } else {
-            // get latest server data
-            [self handleCompetitionDataList:results];
+            // get latest server data & remove all old table data
+            [self handleCompetitionDataList:results resetSign:true];
         }
         
         // 关闭上拉下拉刷新
@@ -141,8 +141,8 @@
         // local data is empty
         [self dropdownRefresh];
     } else {
-        // local data is not empty
-        [self handleCompetitionDataList:results];
+        // local data is not empty & remove all old table data
+        [self handleCompetitionDataList:results resetSign:true];
     }
 }
 
@@ -159,7 +159,7 @@
             NSLog(@"%@",error);
         } else {
             // get more server data
-            [self handleCompetitionDataList:results];
+            [self handleCompetitionDataList:results resetSign:false];
         }
         
         // 关闭上拉下拉刷新
