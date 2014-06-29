@@ -32,12 +32,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.campusType = 1;
     
-    if (self.campusType == 0) {
+    if (self.campusType == 1) {
         self.navigationItem.title = @"本部赛事";
     } else {
         self.navigationItem.title = @"嘉定赛事";
     }
+    
+    hasMore = true;
     
     NSMutableArray *firstArray = [[NSMutableArray alloc] initWithArray:@[@"first",@"second",@"third"]];
     NSMutableArray *secondAray = [[NSMutableArray alloc]initWithArray:@[@"test1",@"test2",@"test3"]];
@@ -94,6 +97,18 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    // judge to load more.
+    if (hasMore && indexPath.section == [self.durationList count]-1 && indexPath.row == [[self.competionList lastObject] count]-1) {
+        
+        self.tableView.tableFooterView = loadMoreFooterView;
+        
+        [self performSelectorInBackground:@selector(pullupGetMore) withObject:nil];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
 /*
 #pragma mark - Navigation
 
@@ -122,7 +137,7 @@
         
         // 关闭上拉下拉刷新
         [header endRefreshing];
-        [footer endRefreshing];
+//        [footer endRefreshing];
     }];
 }
 
@@ -157,13 +172,19 @@
             // something wrong
             NSLog(@"%@",error);
         } else {
-            // get more server data
-            [self handleCompetitionDataList:results resetSign:false];
+            // 检测是否还有更多
+            if ([results count] == 0) {
+                hasMore = false;
+                self.tableView.tableFooterView = noMoreFooterView;
+            } else {
+                // get more server data
+                [self handleCompetitionDataList:results resetSign:false];
+            }
         }
         
         // 关闭上拉下拉刷新
         [header endRefreshing];
-        [footer endRefreshing];
+//        [footer endRefreshing];
     }];
 }
 
@@ -175,6 +196,7 @@
     NSMutableArray *tempComptitionArray = [[NSMutableArray alloc] init];
     
     if (sign) {
+        hasMore = true;
         [self.competionList removeAllObjects];
         [self.durationList removeAllObjects];
     }

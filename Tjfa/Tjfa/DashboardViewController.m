@@ -11,7 +11,7 @@
 #import "MatchListViewController.h"
 
 @interface DashboardViewController () <UINavigationControllerDelegate>{
-    int campusType; // 0-本部 1-嘉定
+    int campusType; // 1-本部 2-嘉定
 }
 
 @property (nonatomic, strong) DashboardCell* newsView;
@@ -224,14 +224,14 @@ const CGFloat dashboardButtonSize = 100;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"jumpToMatchlist"]) {
-        if (campusType == 0) {
+        if (campusType == 1) {
             // jump to benbu
-            [(MatchListViewController*)[sender destinationViewController] setCampusType:0];
-            NSLog(@"d set 0");
-        } else {
-            // jump to jiading
             [(MatchListViewController*)[sender destinationViewController] setCampusType:1];
             NSLog(@"d set 1");
+        } else {
+            // jump to jiading
+            [(MatchListViewController*)[sender destinationViewController] setCampusType:2];
+            NSLog(@"d set 2");
         }
     }else{
         NSLog(@"d no set");
