@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - 赛事-->
+        <!--Match List View Controller - 赛事-->
         <scene sceneID="bcI-eG-IlB">
             <objects>
-                <viewController storyboardIdentifier="competitionController" id="Enf-WD-3sQ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="competitionController" id="Enf-WD-3sQ" customClass="MatchListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q4j-9w-wEW"/>
                         <viewControllerLayoutGuide type="bottom" id="UVN-Mh-AIi"/>
@@ -15,9 +15,33 @@
                     <view key="view" contentMode="scaleToFill" id="dEc-Xl-vJY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="6" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="aza-C6-Jgo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Enf-WD-3sQ" id="xbI-Hd-8n8"/>
+                                    <outlet property="delegate" destination="Enf-WD-3sQ" id="fxl-3i-gXW"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aza-C6-Jgo" firstAttribute="leading" secondItem="dEc-Xl-vJY" secondAttribute="leading" id="So7-dQ-Frl"/>
+                            <constraint firstItem="aza-C6-Jgo" firstAttribute="top" secondItem="q4j-9w-wEW" secondAttribute="bottom" constant="-64" id="U7E-6y-8qg"/>
+                            <constraint firstItem="aza-C6-Jgo" firstAttribute="leading" secondItem="dEc-Xl-vJY" secondAttribute="leading" id="Zik-5p-EcX"/>
+                            <constraint firstAttribute="trailing" secondItem="aza-C6-Jgo" secondAttribute="trailing" id="aF3-c8-QMr"/>
+                            <constraint firstItem="UVN-Mh-AIi" firstAttribute="top" secondItem="aza-C6-Jgo" secondAttribute="bottom" id="b20-Ie-CyL"/>
+                            <constraint firstItem="UVN-Mh-AIi" firstAttribute="top" secondItem="aza-C6-Jgo" secondAttribute="bottom" id="bxP-In-911"/>
+                            <constraint firstAttribute="trailing" secondItem="aza-C6-Jgo" secondAttribute="trailing" id="dta-pq-J52"/>
+                            <constraint firstItem="aza-C6-Jgo" firstAttribute="top" secondItem="q4j-9w-wEW" secondAttribute="bottom" constant="-64" id="sNH-Kq-TWI"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="赛事" id="vli-Qe-bOd"/>
+                    <connections>
+                        <outlet property="tableView" destination="aza-C6-Jgo" id="bzO-UU-95o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOu-XL-EcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
