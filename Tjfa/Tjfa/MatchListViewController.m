@@ -99,10 +99,6 @@
 
 // drop-dwon refresh --- get latest data from server
 - (void) dropdownRefresh{
-    // empty old table data
-    [self.durationList removeAllObjects];
-    [self.competionList removeAllObjects];
-    [self.tableView reloadData];
     
     // request latest server data
     [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:@(1) limit:10 complete:^(NSArray *results, NSError *error){
@@ -110,8 +106,8 @@
             // something wrong
             NSLog(@"%@",error);
         } else {
-            // get latest server data
-            [self handleCompetitionDataList:results];
+            // get latest server data & remove all old table data
+            [self handleCompetitionDataList:results resetSign:true];
         }
         
         // 关闭上拉下拉刷新
@@ -122,9 +118,9 @@
 
 // get local data --- when first enter this page
 - (void) getLocalData {
-    // empty old table data
-    [self.durationList removeAllObjects];
-    [self.competionList removeAllObjects];
+//    // empty old table data
+//    [self.durationList removeAllObjects];
+//    [self.competionList removeAllObjects];
     
     // load all local data
     NSArray *results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:@(1)];
@@ -134,8 +130,8 @@
         // local data is empty
         [self dropdownRefresh];
     } else {
-        // local data is not empty
-        [self handleCompetitionDataList:results];
+        // local data is not empty & remove all old table data
+        [self handleCompetitionDataList:results resetSign:true];
     }
 }
 
@@ -151,7 +147,7 @@
             NSLog(@"%@",error);
         } else {
             // get more server data
-            [self handleCompetitionDataList:results];
+            [self handleCompetitionDataList:results resetSign:false];
         }
         
         // 关闭上拉下拉刷新
@@ -162,10 +158,16 @@
 
 // 辅助函数
 // handle data list --- convert list to table data & reload table data
-- (void) handleCompetitionDataList:(NSArray *)dataList {
+- (void) handleCompetitionDataList:(NSArray *)dataList resetSign:(BOOL)sign {
     BOOL firstGroupSign = true;
     NSString *tempCompetitionDuration;
     NSMutableArray *tempComptitionArray = [[NSMutableArray alloc] init];
+    
+    if (sign) {
+        [self.competionList removeAllObjects];
+        [self.durationList removeAllObjects];
+    }
+    
     for (Competition *competition in dataList) {
         if (![tempCompetitionDuration isEqualToString:[competition time]]) {
             // new temp competition array
@@ -193,9 +195,9 @@
 //    NSString *year = [time substringToIndex:[time length]-1];
     
     if ([[time substringFromIndex:[time length]-1] isEqualToString:@"1"]) {
-        return [NSString stringWithFormat:@"%@年第上学期",[time substringToIndex:[time length]-1]];
+        return [NSString stringWithFormat:@"%@年上学期",[time substringToIndex:[time length]-1]];
     } else {
-        return [NSString stringWithFormat:@"%@年第下学期",[time substringToIndex:[time length]-1]];
+        return [NSString stringWithFormat:@"%@年下学期",[time substringToIndex:[time length]-1]];
     }
 }
 
