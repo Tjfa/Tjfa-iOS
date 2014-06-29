@@ -10,6 +10,7 @@
 		240099EC196005600036EFF4 /* AboutProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099EB196005600036EFF4 /* AboutProjectViewController.m */; };
 		240099EE19600B160036EFF4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240099ED19600B160036EFF4 /* MessageUI.framework */; };
 		240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */; };
+		240099F9196024BE0036EFF4 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F8196024BE0036EFF4 /* AppInfo.m */; };
 		240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6CC195EC23300F7820D /* UIColor+AppColor.m */; };
 		240AE6D0195EC52300F7820D /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6CF195EC52300F7820D /* DashboardViewController.m */; };
 		240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6D4195EC5F100F7820D /* DashboardButton.m */; };
@@ -71,6 +72,8 @@
 		240099ED19600B160036EFF4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		240099F319600BF60036EFF4 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
+		240099F7196024BE0036EFF4 /* AppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInfo.h; sourceTree = "<group>"; };
+		240099F8196024BE0036EFF4 /* AppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInfo.m; sourceTree = "<group>"; };
 		240AE6CB195EC23300F7820D /* UIColor+AppColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColor.h"; sourceTree = "<group>"; };
 		240AE6CC195EC23300F7820D /* UIColor+AppColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColor.m"; sourceTree = "<group>"; };
 		240AE6CE195EC52300F7820D /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
@@ -179,6 +182,15 @@
 				240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		240099F6196024A80036EFF4 /* AppInfo */ = {
+			isa = PBXGroup;
+			children = (
+				240099F7196024BE0036EFF4 /* AppInfo.h */,
+				240099F8196024BE0036EFF4 /* AppInfo.m */,
+			);
+			name = AppInfo;
 			sourceTree = "<group>";
 		};
 		240AE6C9195EC1FA00F7820D /* UILayer */ = {
@@ -364,6 +376,7 @@
 		24F1D1E518E063E1007E2309 /* Tjfa */ = {
 			isa = PBXGroup;
 			children = (
+				240099F6196024A80036EFF4 /* AppInfo */,
 				ADEDA1E2195FED2C009B8D20 /* Library */,
 				24F1D1EE18E063E1007E2309 /* AppDelegate.h */,
 				24F1D1EF18E063E1007E2309 /* AppDelegate.m */,
@@ -590,6 +603,7 @@
 				2440F6D8195F1A0300E00A70 /* Developer.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
 				ADEDA1F1195FED5C009B8D20 /* MJRefreshFooterView.m in Sources */,
+				240099F9196024BE0036EFF4 /* AppInfo.m in Sources */,
 				24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */,
 				24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */,
 				24796BF4195DBB5100176F8F /* MainViewController.m in Sources */,

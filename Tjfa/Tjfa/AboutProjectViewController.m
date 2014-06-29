@@ -11,8 +11,9 @@
 #import "UIDevice+DeviceInfo.h"
 #import <MBProgressHUD.h>
 #import "DatabaseManager.h"
+#import "AppInfo.h"
 
-@interface AboutProjectViewController () <MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
+@interface AboutProjectViewController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate, UIActionSheetDelegate>
 
 @end
 
@@ -54,6 +55,8 @@
         [self gotoSuggestion];
     } else if ([cell.textLabel.text isEqualToString:@"删除本地数据"]) {
         [self deleteLocalData];
+    } else if ([cell.textLabel.text isEqualToString:@"告诉朋友"]) {
+        [self sharedWithMessage];
     }
 }
 
@@ -122,9 +125,7 @@
 
 - (void)evaluate
 {
-    NSString* appid = @"";
-    NSString* str = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@", appid];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[AppInfo appDownloadAddress]]];
 }
 
 #pragma mark - delete local data
@@ -159,6 +160,25 @@
             }];
         }];
     }
+}
+
+#pragma mark - shared
+
+- (void)sharedWithMessage
+{
+    MFMessageComposeViewController* message = [[MFMessageComposeViewController alloc] init];
+    message.messageComposeDelegate = (id)self;
+    if ([MFMessageComposeViewController canSendText]) {
+        message.body = [NSString stringWithFormat:@"hi~~我发现了一个关于同济足球的一个很棒的app,叫做%@,地址在%@,快去下载吧～～", [AppInfo appName], [AppInfo appDownloadAddress]];
+        [self presentViewController:message animated:YES completion:nil];
+    } else {
+        [self sendEmailFail:@"您的设备不支持信息发送，检查是否设置了iCloud账户。如果一切正常，建议您更新设备"];
+    }
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController*)controller didFinishWithResult:(MessageComposeResult)result
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
