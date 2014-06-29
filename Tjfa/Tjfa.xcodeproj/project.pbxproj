@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		240099EC196005600036EFF4 /* AboutProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099EB196005600036EFF4 /* AboutProjectViewController.m */; };
+		240099EE19600B160036EFF4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240099ED19600B160036EFF4 /* MessageUI.framework */; };
+		240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */; };
 		240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6CC195EC23300F7820D /* UIColor+AppColor.m */; };
 		240AE6D0195EC52300F7820D /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6CF195EC52300F7820D /* DashboardViewController.m */; };
 		240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6D4195EC5F100F7820D /* DashboardButton.m */; };
@@ -63,6 +66,11 @@
 
 /* Begin PBXFileReference section */
 		22EAFC87A20242C8AE3E0037 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		240099EA1960055F0036EFF4 /* AboutProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutProjectViewController.h; sourceTree = "<group>"; };
+		240099EB196005600036EFF4 /* AboutProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutProjectViewController.m; sourceTree = "<group>"; };
+		240099ED19600B160036EFF4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		240099F319600BF60036EFF4 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
+		240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
 		240AE6CB195EC23300F7820D /* UIColor+AppColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColor.h"; sourceTree = "<group>"; };
 		240AE6CC195EC23300F7820D /* UIColor+AppColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColor.m"; sourceTree = "<group>"; };
 		240AE6CE195EC52300F7820D /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
@@ -143,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				240099EE19600B160036EFF4 /* MessageUI.framework in Frameworks */,
 				24F1D1E218E063E1007E2309 /* CoreGraphics.framework in Frameworks */,
 				24F1D1E418E063E1007E2309 /* UIKit.framework in Frameworks */,
 				24F1D1E018E063E0007E2309 /* Foundation.framework in Frameworks */,
@@ -163,6 +172,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		240099F219600BE30036EFF4 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				240099F319600BF60036EFF4 /* UIDevice+DeviceInfo.h */,
+				240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		240AE6C9195EC1FA00F7820D /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,8 +225,11 @@
 		240AE6D9195F0D2100F7820D /* About */ = {
 			isa = PBXGroup;
 			children = (
+				240099F219600BE30036EFF4 /* Category */,
 				240AE6DA195F0D5900F7820D /* AboutViewController.h */,
 				240AE6DB195F0D5900F7820D /* AboutViewController.m */,
+				240099EA1960055F0036EFF4 /* AboutProjectViewController.h */,
+				240099EB196005600036EFF4 /* AboutProjectViewController.m */,
 				2440F6CF195F184700E00A70 /* AboutDeveloper */,
 			);
 			name = About;
@@ -330,6 +351,7 @@
 		24F1D1DE18E063E0007E2309 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				240099ED19600B160036EFF4 /* MessageUI.framework */,
 				24F1D1DF18E063E0007E2309 /* Foundation.framework */,
 				24F1D1E118E063E1007E2309 /* CoreGraphics.framework */,
 				24F1D1E318E063E1007E2309 /* UIKit.framework */,
@@ -555,6 +577,7 @@
 				24F1D1F618E063E1007E2309 /* ViewController.m in Sources */,
 				240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */,
 				24C6FE4E195E8574008B594C /* News.m in Sources */,
+				240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */,
 				24C6FE4F195E8574008B594C /* Team.m in Sources */,
 				ADEDA1F2195FED5C009B8D20 /* MJRefreshHeaderView.m in Sources */,
 				ADEDA1EF195FED5C009B8D20 /* MJRefreshBaseView.m in Sources */,
@@ -575,6 +598,7 @@
 				240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */,
 				24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */,
 				24C6FE4B195E8574008B594C /* Player.m in Sources */,
+				240099EC196005600036EFF4 /* AboutProjectViewController.m in Sources */,
 				240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */,
 				ADEDA1F0195FED5C009B8D20 /* MJRefreshConst.m in Sources */,
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
