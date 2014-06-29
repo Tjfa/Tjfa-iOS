@@ -32,10 +32,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    [super viewDidLoad];
-    NSMutableArray* firstArray = [[NSMutableArray alloc] initWithArray:@[ @"first", @"second", @"third" ]];
-    NSMutableArray* secondAray = [[NSMutableArray alloc] initWithArray:@[ @"test1", @"test2", @"test3" ]];
+    
+    if (self.campusType == 0) {
+        self.navigationItem.title = @"本部赛事";
+    } else {
+        self.navigationItem.title = @"嘉定赛事";
+    }
+    
+    NSMutableArray *firstArray = [[NSMutableArray alloc] initWithArray:@[@"first",@"second",@"third"]];
+    NSMutableArray *secondAray = [[NSMutableArray alloc]initWithArray:@[@"test1",@"test2",@"test3"]];
     self.competionList = [[NSMutableArray alloc] init];
     self.durationList = [[NSMutableArray alloc] init];
     [self.durationList addObject:@"2014年第二学期"];
@@ -103,15 +108,10 @@
 // 获取数据
 
 // drop-dwon refresh --- get latest data from server
-- (void)dropdownRefresh
-{
-    // empty old table data
-    //    [self.durationList removeAllObjects];
-    //    [self.competionList removeAllObjects];
-    //    [self.tableView reloadData];
-
+- (void) dropdownRefresh{
+    
     // request latest server data
-    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:@(1) limit:10 complete:^(NSArray* results, NSError* error) {
+    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:[NSNumber numberWithInt:self.campusType] limit:10 complete:^(NSArray *results, NSError *error){
         if (error) {
             // something wrong
             NSLog(@"%@",error);
@@ -127,15 +127,14 @@
 }
 
 // get local data --- when first enter this page
-- (void)getLocalData
-{
-    // empty old table data
-    [self.durationList removeAllObjects];
-    [self.competionList removeAllObjects];
-
+- (void) getLocalData {
+//    // empty old table data
+//    [self.durationList removeAllObjects];
+//    [self.competionList removeAllObjects];
+    
     // load all local data
-    NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:@(1)];
-
+    NSArray *results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]];
+    
     // check local data count
     if ([results count] == 0) {
         // local data is empty
@@ -150,8 +149,8 @@
 - (void)pullupGetMore
 {
     // find the last competition we have
-    Competition* lastCompetition = [[[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:@(1)] lastObject];
-
+    Competition *lastCompetition = [[[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]] lastObject];
+    
     // get more data from server
     [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:[lastCompetition competitionId] withType:@(1) limit:10 complete:^(NSArray* results, NSError* error) {
         if (error) {
@@ -170,12 +169,17 @@
 
 // 辅助函数
 // handle data list --- convert list to table data & reload table data
-- (void)handleCompetitionDataList:(NSArray*)dataList
-{
+- (void) handleCompetitionDataList:(NSArray *)dataList resetSign:(BOOL)sign {
     BOOL firstGroupSign = true;
-    NSString* tempCompetitionDuration;
-    NSMutableArray* tempComptitionArray = [[NSMutableArray alloc] init];
-    for (Competition* competition in dataList) {
+    NSString *tempCompetitionDuration;
+    NSMutableArray *tempComptitionArray = [[NSMutableArray alloc] init];
+    
+    if (sign) {
+        [self.competionList removeAllObjects];
+        [self.durationList removeAllObjects];
+    }
+    
+    for (Competition *competition in dataList) {
         if (![tempCompetitionDuration isEqualToString:[competition time]]) {
             // new temp competition array
             if (firstGroupSign) {
@@ -198,14 +202,13 @@
 }
 
 // convert competition time
-- (NSString*)convertTimetoString:(NSString*)time
-{
-    //    NSString *year = [time substringToIndex:[time length]-1];
-
-    if ([[time substringFromIndex:[time length] - 1] isEqualToString:@"1"]) {
-        return [NSString stringWithFormat:@"%@年第上学期", [time substringToIndex:[time length] - 1]];
+- (NSString*) convertTimetoString:(NSString*)time {
+//    NSString *year = [time substringToIndex:[time length]-1];
+    
+    if ([[time substringFromIndex:[time length]-1] isEqualToString:@"1"]) {
+        return [NSString stringWithFormat:@"%@年上学期",[time substringToIndex:[time length]-1]];
     } else {
-        return [NSString stringWithFormat:@"%@年第下学期", [time substringToIndex:[time length] - 1]];
+        return [NSString stringWithFormat:@"%@年下学期",[time substringToIndex:[time length]-1]];
     }
 }
 
