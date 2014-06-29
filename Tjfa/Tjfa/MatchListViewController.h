@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MJRefresh.h"
 
-@interface MatchListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface MatchListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MJRefreshBaseViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

@@ -44,6 +44,11 @@
 		24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FED22C195A774900A9F0DA /* DatabaseManager.m */; };
 		571F1BFD12CA4E6E8E04F93C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC567E161D864E30A568E12D /* libPods.a */; };
 		ADEDA1E1195FE00D009B8D20 /* MatchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E0195FE00D009B8D20 /* MatchListViewController.m */; };
+		ADEDA1EE195FED5C009B8D20 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ADEDA1E4195FED5C009B8D20 /* MJRefresh.bundle */; };
+		ADEDA1EF195FED5C009B8D20 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E7195FED5C009B8D20 /* MJRefreshBaseView.m */; };
+		ADEDA1F0195FED5C009B8D20 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E9195FED5C009B8D20 /* MJRefreshConst.m */; };
+		ADEDA1F1195FED5C009B8D20 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1EB195FED5C009B8D20 /* MJRefreshFooterView.m */; };
+		ADEDA1F2195FED5C009B8D20 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1ED195FED5C009B8D20 /* MJRefreshHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +125,16 @@
 		24FED22C195A774900A9F0DA /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		ADEDA1DF195FE00D009B8D20 /* MatchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchListViewController.h; sourceTree = "<group>"; };
 		ADEDA1E0195FE00D009B8D20 /* MatchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchListViewController.m; sourceTree = "<group>"; };
+		ADEDA1E4195FED5C009B8D20 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		ADEDA1E5195FED5C009B8D20 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		ADEDA1E6195FED5C009B8D20 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		ADEDA1E7195FED5C009B8D20 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		ADEDA1E8195FED5C009B8D20 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		ADEDA1E9195FED5C009B8D20 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		ADEDA1EA195FED5C009B8D20 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		ADEDA1EB195FED5C009B8D20 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		ADEDA1EC195FED5C009B8D20 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		ADEDA1ED195FED5C009B8D20 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
 		EC567E161D864E30A568E12D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -327,6 +342,7 @@
 		24F1D1E518E063E1007E2309 /* Tjfa */ = {
 			isa = PBXGroup;
 			children = (
+				ADEDA1E2195FED2C009B8D20 /* Library */,
 				24F1D1EE18E063E1007E2309 /* AppDelegate.h */,
 				24F1D1EF18E063E1007E2309 /* AppDelegate.m */,
 				24F1D1F118E063E1007E2309 /* Main.storyboard */,
@@ -376,6 +392,31 @@
 				ADEDA1E0195FE00D009B8D20 /* MatchListViewController.m */,
 			);
 			name = Match;
+			sourceTree = "<group>";
+		};
+		ADEDA1E2195FED2C009B8D20 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				ADEDA1E3195FED38009B8D20 /* MJRefresh */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		ADEDA1E3195FED38009B8D20 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				ADEDA1E4195FED5C009B8D20 /* MJRefresh.bundle */,
+				ADEDA1E5195FED5C009B8D20 /* MJRefresh.h */,
+				ADEDA1E6195FED5C009B8D20 /* MJRefreshBaseView.h */,
+				ADEDA1E7195FED5C009B8D20 /* MJRefreshBaseView.m */,
+				ADEDA1E8195FED5C009B8D20 /* MJRefreshConst.h */,
+				ADEDA1E9195FED5C009B8D20 /* MJRefreshConst.m */,
+				ADEDA1EA195FED5C009B8D20 /* MJRefreshFooterView.h */,
+				ADEDA1EB195FED5C009B8D20 /* MJRefreshFooterView.m */,
+				ADEDA1EC195FED5C009B8D20 /* MJRefreshHeaderView.h */,
+				ADEDA1ED195FED5C009B8D20 /* MJRefreshHeaderView.m */,
+			);
+			name = MJRefresh;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,6 +499,7 @@
 			files = (
 				24F1D1F818E063E1007E2309 /* Images.xcassets in Resources */,
 				24F1D1F318E063E1007E2309 /* Main.storyboard in Resources */,
+				ADEDA1EE195FED5C009B8D20 /* MJRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +556,8 @@
 				240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */,
 				24C6FE4E195E8574008B594C /* News.m in Sources */,
 				24C6FE4F195E8574008B594C /* Team.m in Sources */,
+				ADEDA1F2195FED5C009B8D20 /* MJRefreshHeaderView.m in Sources */,
+				ADEDA1EF195FED5C009B8D20 /* MJRefreshBaseView.m in Sources */,
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
 				24C6FE4C195E8574008B594C /* Match.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
@@ -522,6 +566,7 @@
 				2440F6DB195F1E4A00E00A70 /* AboutDeveloperViewController.m in Sources */,
 				2440F6D8195F1A0300E00A70 /* Developer.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
+				ADEDA1F1195FED5C009B8D20 /* MJRefreshFooterView.m in Sources */,
 				24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */,
 				24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */,
 				24796BF4195DBB5100176F8F /* MainViewController.m in Sources */,
@@ -531,6 +576,7 @@
 				24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */,
 				24C6FE4B195E8574008B594C /* Player.m in Sources */,
 				240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */,
+				ADEDA1F0195FED5C009B8D20 /* MJRefreshConst.m in Sources */,
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
 				ADEDA1E1195FE00D009B8D20 /* MatchListViewController.m in Sources */,
 				240AE6DC195F0D5900F7820D /* AboutViewController.m in Sources */,
