@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) NSMutableArray* data;
 @property (weak, nonatomic) IBOutlet iCarousel* carouselView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel* nameLabel;
 
 @end
 
@@ -45,8 +45,8 @@
 {
     if (_data == nil) {
         _data = [[NSMutableArray alloc] init];
-        NSArray* name = @[ @"aaa", @"bb", @"ccc", @"ddd" ];
-        NSArray* imageName = @[ @"qiufeng", @"qiufeng", @"qiufeng", @"qiufeng" ];
+        NSArray* name = @[ @"aaa", @"bb", @"ccc", @"ddd", @"xxx" ];
+        NSArray* imageName = @[ @"dashboardNews", @"qiufeng", @"qiufeng", @"qiufeng", @"qiufeng" ];
         for (int i = 0; i < name.count; i++) {
             Developer* developer = [[Developer alloc] initWithName:name[i] imageName:imageName[i]];
             [_data addObject:developer];
@@ -59,7 +59,17 @@
 {
     if (_carouselView != carouselView) {
         _carouselView = carouselView;
-        _carouselView.type = iCarouselTypeInvertedRotary;
+        _carouselView.type = iCarouselTypeRotary;
+    }
+}
+
+- (void)setNameLabel:(UILabel*)nameLabel
+{
+    if (_nameLabel != nameLabel) {
+        _nameLabel = nameLabel;
+        if (!iPhone5) {
+            _nameLabel.frame = CGRectMake(_nameLabel.frame.origin.x, _nameLabel.frame.origin.y - 70, _nameLabel.frame.size.width, _nameLabel.frame.size.height);
+        }
     }
 }
 
@@ -82,10 +92,16 @@
     if (view == nil) {
         Developer* developer = self.data[index];
 
-        CGFloat size = 150;
+        CGFloat size = 200;
+        CGFloat imageSize = 130;
+
+        if (!iPhone5) {
+            size = 130;
+            imageSize = 100;
+        }
+
         view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size, size)];
 
-        CGFloat imageSize = 100;
         UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake((size - imageSize) / 2, 20, imageSize, imageSize)];
         imageView.image = developer.image;
         [view addSubview:imageView];
@@ -96,7 +112,7 @@
 - (CGFloat)carouselItemWidth:(iCarousel*)carousel
 {
     //usually this should be slightly wider than the item views
-    return 200.0f;
+    return 220.0f;
 }
 
 - (CATransform3D)carousel:(iCarousel*)_carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
@@ -109,34 +125,34 @@
 - (CGFloat)carousel:(iCarousel*)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
 {
     switch (option) {
-        case iCarouselOptionRadius: {
-            return value;
-        }
-        case iCarouselOptionTilt: {
-            return 0.8;
-        }
-        case iCarouselOptionSpacing: {
-            return 0.8;
-        }
-        default: {
-            return value;
-        }
+    case iCarouselOptionRadius: {
+        return value;
+    }
+    case iCarouselOptionTilt: {
+        return 0.8;
+    }
+    case iCarouselOptionSpacing: {
+        return 0.8;
+    }
+    default: {
+        return value;
+    }
     }
 }
 
--(void)carouselDidScroll:(iCarousel *)carousel
+- (void)carouselDidScroll:(iCarousel*)carousel
 {
-    NSLog(@"%f %d",carousel.scrollOffset,(int) round(carousel.scrollOffset));
-    int index=(int) round(carousel.scrollOffset);
-    Developer* developer=self.data[index % self.data.count];
-    self.nameLabel.text=developer.name;
-
+    NSLog(@"%f %f", _carouselView.frame.size.height, self.nameLabel.frame.origin.y);
+    int index = (int)round(carousel.scrollOffset);
+    Developer* developer = self.data[index % self.data.count];
+    self.nameLabel.text = developer.name;
 }
 
--(void)carouselDidEndScrollingAnimation:(iCarousel *)carousel{
-    int index=(int) round(carousel.scrollOffset);
-    Developer* developer=self.data[index % self.data.count];
-    self.nameLabel.text=developer.name;
+- (void)carouselDidEndScrollingAnimation:(iCarousel*)carousel
+{
+    int index = (int)round(carousel.scrollOffset);
+    Developer* developer = self.data[index % self.data.count];
+    self.nameLabel.text = developer.name;
 }
 
 /*
