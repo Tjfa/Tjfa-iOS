@@ -44,7 +44,7 @@
 
 - (NSArray*)getCompetitionsFromCoreDataWithType:(NSNumber*)type
 {
-    return [Competition MR_findByAttribute:[Competition typeAttributeStr] withValue:type andOrderBy:[Competition idAttributeStr] ascending:YES];
+    return [Competition MR_findByAttribute:[Competition typeAttributeStr] withValue:type andOrderBy:[Competition idAttributeStr] ascending:NO];
 }
 
 - (void)getEarlierCompetitionsFromNetwork:(NSNumber*)competitionId withType:(NSNumber*)type limit:(int)limit complete:(void (^)(NSArray*, NSError*))complete

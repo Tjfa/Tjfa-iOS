@@ -36,7 +36,7 @@
 {
     NSArray* matches = [competition.matches allObjects];
     return [matches sortedArrayUsingComparator:^NSComparisonResult(Match* a, Match* b) {
-        return [a.matchId compare:b.matchId];
+        return [b.matchId compare:a.matchId];   //倒序排列
     }];
 }
 
