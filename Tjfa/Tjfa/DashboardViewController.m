@@ -10,9 +10,7 @@
 #import "DashboardCell.h"
 #import "MatchListViewController.h"
 
-@interface DashboardViewController () <UINavigationControllerDelegate>{
-    int campusType; // 1-本部 2-嘉定
-}
+@interface DashboardViewController () <UINavigationControllerDelegate>
 
 @property (nonatomic, strong) DashboardCell* newsView;
 @property (nonatomic, strong) DashboardCell* settingView;
@@ -40,7 +38,7 @@ const CGFloat dashboardButtonSize = 100;
 {
     [super viewDidLoad];
     self.navigationController.delegate = self;
-    self.view.backgroundColor=[UIColor appBackgroundColor];
+    self.view.backgroundColor = [UIColor appBackgroundColor];
     // Do any additional setup after loading the view.
 }
 
@@ -184,19 +182,19 @@ const CGFloat dashboardButtonSize = 100;
 - (void)benbuClick:(id)sender
 {
     NSLog(@"benbu click");
-    campusType = 0; // jump to benbu campus
     [self closeDashboardCellUserInterface];
-    UIViewController* newsController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
-    [self hideWithAnimateSynCompleteToController:newsController];
+    MatchListViewController* benbuController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
+    [benbuController setCampusType:1];
+    [self hideWithAnimateSynCompleteToController:benbuController];
 }
 
 - (void)jiadingClick:(id)sender
 {
     NSLog(@"jiading click");
-    campusType = 1; // jump to jiading campus
     [self closeDashboardCellUserInterface];
-    UIViewController* newsController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
-    [self hideWithAnimateSynCompleteToController:newsController];
+    MatchListViewController* jiadingController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
+    [jiadingController setCampusType:2];
+    [self hideWithAnimateSynCompleteToController:jiadingController];
 }
 
 - (void)newsClick:(id)sender
@@ -217,27 +215,6 @@ const CGFloat dashboardButtonSize = 100;
 }
 
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"jumpToMatchlist"]) {
-        if (campusType == 1) {
-            // jump to benbu
-            [(MatchListViewController*)[sender destinationViewController] setCampusType:1];
-            NSLog(@"d set 1");
-        } else {
-            // jump to jiading
-            [(MatchListViewController*)[sender destinationViewController] setCampusType:2];
-            NSLog(@"d set 2");
-        }
-    }else{
-        NSLog(@"d no set");
-    }
-    NSLog(@"\n\n\n\n\n\n\n\n\nd no set");
-}
 
 - (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated
 {

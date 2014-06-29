@@ -9,9 +9,13 @@
 #import "MatchListViewController.h"
 #import "CompetitionManager.h"
 
-@interface MatchListViewController () {
-    MJRefreshHeaderView* header;
-    MJRefreshFooterView* footer;
+@interface MatchListViewController (){
+    MJRefreshHeaderView *header;
+//    MJRefreshFooterView *footer;
+    BOOL hasMore;
+    
+    UIView *loadMoreFooterView;
+    UIView *noMoreFooterView;
 }
 @property (nonatomic, strong) NSMutableArray* durationList;
 @property (nonatomic, strong) NSMutableArray* competionList;
@@ -55,11 +59,28 @@
     header = [[MJRefreshHeaderView alloc] init];
     header.delegate = self;
     header.scrollView = self.tableView;
-
-    footer = [[MJRefreshFooterView alloc] init];
-    footer.delegate = self;
-    footer.scrollView = self.tableView;
-
+    
+//    footer = [[MJRefreshFooterView alloc] init];
+//    footer.delegate = self;
+//    footer.scrollView = self.tableView;
+    
+    
+    // initial has more table footer view
+    CGRect footerRect = CGRectMake(0, 0, 320, 40);
+    UILabel *tableFooter = [[UILabel alloc] initWithFrame:footerRect];
+    tableFooter.textColor = [UIColor whiteColor];
+    tableFooter.backgroundColor = [UIColor lightTextColor];
+    tableFooter.opaque = YES;
+    tableFooter.font = [UIFont boldSystemFontOfSize:15];
+    tableFooter.text = @"加载中...";
+    loadMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
+    [loadMoreFooterView addSubview:tableFooter];
+    
+    // initial no more table footer view
+    tableFooter.text = @"没有更多了";
+    noMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
+    [noMoreFooterView addSubview:tableFooter];
+    
     [self getLocalData];
 }
 
@@ -234,10 +255,9 @@
     }
 }
 
-// 山下拉， 刷新以及下载更多
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView*)refreshView
-{
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+// 上下拉， 刷新以及下载更多
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"HH : mm : ss.SSS";
     if (header == refreshView) { // 刷新数据
         [self dropdownRefresh];
