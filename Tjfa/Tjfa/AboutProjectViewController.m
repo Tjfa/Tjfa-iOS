@@ -9,8 +9,10 @@
 #import "AboutProjectViewController.h"
 #import <MessageUI/MessageUI.h>
 #import "UIDevice+DeviceInfo.h"
+#import <MBProgressHUD.h>
+#import "DatabaseManager.h"
 
-@interface AboutProjectViewController () <MFMailComposeViewControllerDelegate>
+@interface AboutProjectViewController () <MFMailComposeViewControllerDelegate, UIActionSheetDelegate>
 
 @end
 
@@ -50,6 +52,8 @@
         [self evaluate];
     } else if ([cell.textLabel.text isEqualToString:@"问题与反馈"]) {
         [self gotoSuggestion];
+    } else if ([cell.textLabel.text isEqualToString:@"删除本地数据"]) {
+        [self deleteLocalData];
     }
 }
 
@@ -121,6 +125,40 @@
     NSString* appid = @"";
     NSString* str = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@", appid];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+}
+
+#pragma mark - delete local data
+
+- (void)deleteLocalData
+{
+    UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"童鞋。。你要知道你在做什么" delegate:self cancelButtonTitle:@"好吧。。我错了" destructiveButtonTitle:@"别拦我。。我流量多。。" otherButtonTitles:nil, nil];
+    [actionSheet showInView:self.view];
+}
+
+#pragma mark - UIActionSheet delegete
+
+- (void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        MBProgressHUD* mbProgressHub = [[MBProgressHUD alloc] initWithView:self.parentViewController.view.superview.superview];
+        [self.parentViewController.parentViewController.view addSubview:mbProgressHub];
+        mbProgressHub.dimBackground = YES;
+        mbProgressHub.labelText = @"清除中。。请稍候";
+        [mbProgressHub showAnimated:YES whileExecutingBlock:^(void) {
+            [[DatabaseManager sharedDatabaseManager] clearAllData];
+        } completionBlock:^() {
+            
+            MBProgressHUD* finishProgress=[[MBProgressHUD alloc] initWithView:self.parentViewController.view.superview.superview];
+            [self.parentViewController.parentViewController.view addSubview:finishProgress];
+            finishProgress.dimBackground = YES;
+            finishProgress.labelText = @"清除成功";
+            finishProgress.mode= MBProgressHUDModeCustomView;
+            finishProgress.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkMark"]];
+            [finishProgress showAnimated:YES whileExecutingBlock:^(){
+                sleep(1);
+            }];
+        }];
+    }
 }
 
 @end
