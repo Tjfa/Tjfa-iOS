@@ -11,7 +11,11 @@
 
 @interface MatchListViewController (){
     MJRefreshHeaderView *header;
-    MJRefreshFooterView *footer;
+//    MJRefreshFooterView *footer;
+    BOOL hasMore;
+    
+    UIView *loadMoreFooterView;
+    UIView *noMoreFooterView;
 }
 @property(nonatomic, strong)NSMutableArray *durationList;
 @property(nonatomic, strong)NSMutableArray *competionList;
@@ -32,12 +36,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.campusType = 1;
     
-    if (self.campusType == 0) {
+    if (self.campusType == 1) {
         self.navigationItem.title = @"本部赛事";
     } else {
         self.navigationItem.title = @"嘉定赛事";
     }
+    
+    hasMore = true;
     
     NSMutableArray *firstArray = [[NSMutableArray alloc] initWithArray:@[@"first",@"second",@"third"]];
     NSMutableArray *secondAray = [[NSMutableArray alloc]initWithArray:@[@"test1",@"test2",@"test3"]];
@@ -53,9 +60,26 @@
     header.delegate = self;
     header.scrollView = self.tableView;
     
-    footer = [[MJRefreshFooterView alloc] init];
-    footer.delegate = self;
-    footer.scrollView = self.tableView;
+//    footer = [[MJRefreshFooterView alloc] init];
+//    footer.delegate = self;
+//    footer.scrollView = self.tableView;
+    
+    
+    // initial has more table footer view
+    CGRect footerRect = CGRectMake(0, 0, 320, 40);
+    UILabel *tableFooter = [[UILabel alloc] initWithFrame:footerRect];
+    tableFooter.textColor = [UIColor whiteColor];
+    tableFooter.backgroundColor = [UIColor lightTextColor];
+    tableFooter.opaque = YES;
+    tableFooter.font = [UIFont boldSystemFontOfSize:15];
+    tableFooter.text = @"加载中...";
+    loadMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
+    [loadMoreFooterView addSubview:tableFooter];
+    
+    // initial no more table footer view
+    tableFooter.text = @"没有更多了";
+    noMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
+    [noMoreFooterView addSubview:tableFooter];
     
     [self getLocalData];
 }
@@ -89,6 +113,18 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    // judge to load more.
+    if (hasMore && indexPath.section == [self.durationList count]-1 && indexPath.row == [[self.competionList lastObject] count]-1) {
+        
+        self.tableView.tableFooterView = loadMoreFooterView;
+        
+        [self performSelectorInBackground:@selector(pullupGetMore) withObject:nil];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
 /*
 #pragma mark - Navigation
 
@@ -117,7 +153,7 @@
         
         // 关闭上拉下拉刷新
         [header endRefreshing];
-        [footer endRefreshing];
+//        [footer endRefreshing];
     }];
 }
 
@@ -151,13 +187,19 @@
             // something wrong
             NSLog(@"%@",error);
         } else {
-            // get more server data
-            [self handleCompetitionDataList:results resetSign:false];
+            // 检测是否还有更多
+            if ([results count] == 0) {
+                hasMore = false;
+                self.tableView.tableFooterView = noMoreFooterView;
+            } else {
+                // get more server data
+                [self handleCompetitionDataList:results resetSign:false];
+            }
         }
         
         // 关闭上拉下拉刷新
         [header endRefreshing];
-        [footer endRefreshing];
+//        [footer endRefreshing];
     }];
 }
 
@@ -169,6 +211,7 @@
     NSMutableArray *tempComptitionArray = [[NSMutableArray alloc] init];
     
     if (sign) {
+        hasMore = true;
         [self.competionList removeAllObjects];
         [self.durationList removeAllObjects];
     }
@@ -188,7 +231,6 @@
         // add to last competition array
         [tempComptitionArray addObject:[competition name]];
     }
-    
     [self.competionList addObject:tempComptitionArray];
     [self.durationList addObject:[self convertTimetoString:tempCompetitionDuration]];
     
@@ -206,7 +248,7 @@
     }
 }
 
-// 山下拉， 刷新以及下载更多
+// 上下拉， 刷新以及下载更多
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"HH : mm : ss.SSS";
