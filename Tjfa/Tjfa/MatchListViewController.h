@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MatchListViewController : UIViewController
+@interface MatchListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
