@@ -24,7 +24,7 @@
 @property (nonatomic, retain) NSNumber* type;
 
 /**
- *  这个赛事是否开始
+ *  这个赛事是否开始 0 未开始 1正在进行 2已经结束
  */
 @property (nonatomic, retain) NSNumber* isStart;
 
