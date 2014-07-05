@@ -42,11 +42,11 @@
     }
 
     Competition* competition = [results firstObject];
-    //    [[MatchManager sharedMatchManager] getMatchesByCompetitionFromNetwork:competition complete:^(NSArray* results, NSError* error) {
-    //            for (Match* match in results){
-    //                NSLog(@"%@",match);
-    //            }
-    //    }];
+        [[MatchManager sharedMatchManager] getMatchesByCompetitionFromNetwork:competition complete:^(NSArray* results, NSError* error) {
+                for (Match* match in results){
+                    NSLog(@"%@",match);
+                }
+        }];
     NSArray* matches = [[MatchManager sharedMatchManager] getMatchesByCompetitionFromCoreData:competition];
     for (Match* match in matches) {
         NSLog(@"%@", match);

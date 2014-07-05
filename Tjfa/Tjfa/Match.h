@@ -56,7 +56,9 @@
 /**
  *  参加这场比赛的2只球队
  */
-@property (nonatomic, retain) NSSet* teams;
+@property (nonatomic, retain) Team* teamA;
+
+@property (nonatomic, retain) Team* teamB;
 
 /**
  *   更新matches，同时更新team的基本属性
@@ -67,14 +69,5 @@
 + (Match*)updateMatchWithDictionary:(NSDictionary*)dictionary andCompetetion:(Competition*)competition;
 
 + (NSString*)idAttribute;
-
-@end
-
-@interface Match (CoreDataGeneratedAccessors)
-
-- (void)addTeamsObject:(Team*)value;
-- (void)removeTeamsObject:(Team*)value;
-- (void)addTeams:(NSSet*)values;
-- (void)removeTeams:(NSSet*)values;
 
 @end

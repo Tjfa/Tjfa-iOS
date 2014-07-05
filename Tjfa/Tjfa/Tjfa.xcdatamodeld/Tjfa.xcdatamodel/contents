@@ -20,7 +20,8 @@
         <attribute name="scoreB" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="winTeamId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="competition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competition" inverseName="matches" inverseEntity="Competition" syncable="YES"/>
-        <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="match" inverseEntity="Team" syncable="YES"/>
+        <relationship name="teamA" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Team" syncable="YES"/>
+        <relationship name="teamB" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Team" syncable="YES"/>
     </entity>
     <entity name="News" representedClassName="News" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
@@ -48,14 +49,13 @@
         <attribute name="score" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="teamId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
         <relationship name="competition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competition" inverseName="teams" inverseEntity="Competition" syncable="YES"/>
-        <relationship name="match" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Match" inverseName="teams" inverseEntity="Match" syncable="YES"/>
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="team" inverseEntity="Player" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Competition" positionX="-326" positionY="-207" width="128" height="180"/>
-        <element name="Match" positionX="-126" positionY="-45" width="128" height="180"/>
+        <element name="Competition" positionX="-326" positionY="-207" width="128" height="178"/>
+        <element name="Match" positionX="-126" positionY="-45" width="128" height="193"/>
         <element name="News" positionX="-459" positionY="50" width="128" height="105"/>
         <element name="Player" positionX="-333" positionY="-369" width="128" height="150"/>
-        <element name="Team" positionX="-146" positionY="-324" width="128" height="223"/>
+        <element name="Team" positionX="-146" positionY="-324" width="128" height="208"/>
     </elements>
 </model>

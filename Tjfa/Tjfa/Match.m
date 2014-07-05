@@ -21,7 +21,8 @@
 @dynamic scoreB;
 @dynamic winTeamId;
 @dynamic competition;
-@dynamic teams;
+@dynamic teamA;
+@dynamic teamB;
 
 - (NSString*)description
 {
@@ -36,16 +37,8 @@
         @"competitionId" : self.competition.competitionId
     } mutableCopy];
 
-    Team* winTeam = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:self.winTeamId];
-
-    NSArray* array = [self.teams allObjects];
-    Team* lostTeam = [array firstObject];
-
-    if ([lostTeam.teamId isEqual:winTeam.teamId])
-        lostTeam = [array lastObject];
-
-    [dictionary setObject:[winTeam description] forKey:@"teamA"];
-    [dictionary setObject:lostTeam forKey:@"teamB"];
+    [dictionary setObject:[self.teamA description] forKey:@"teamA"];
+    [dictionary setObject:self.teamB forKey:@"teamB"];
 
     return [dictionary description];
 }
@@ -73,8 +66,8 @@
     [competition addMatchesObject:match];
     Team* teamA = [Team updateBasePropertyWithDictionary:dictionary[@"teamA"] competition:competition andMatch:match];
     Team* teamB = [Team updateBasePropertyWithDictionary:dictionary[@"teamB"] competition:competition andMatch:match];
-    [match addTeamsObject:teamA];
-    [match addTeamsObject:teamB];
+    match.teamA = teamA;
+    match.teamB = teamB;
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 
     return match;

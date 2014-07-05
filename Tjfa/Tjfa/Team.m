@@ -21,7 +21,6 @@
 @dynamic score;
 @dynamic teamId;
 @dynamic competition;
-@dynamic match;
 @dynamic players;
 @dynamic groupGoalCount;
 @dynamic groupMissCount;
@@ -61,8 +60,6 @@
     team.groupGoalCount = dictionary[@"groupGoalCount"];
     team.competition = competition;
     [competition addTeamsObject:team];
-    [match addTeamsObject:team];
-    [team addMatchObject:match];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 
     return team;

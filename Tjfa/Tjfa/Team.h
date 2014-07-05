@@ -64,11 +64,6 @@
 @property (nonatomic, retain) Competition* competition;
 
 /**
- *  所属比赛
- */
-@property (nonatomic, retain) NSSet* match;
-
-/**
  *  该队伍的队员
  */
 @property (nonatomic, retain) NSSet* players;
@@ -89,11 +84,6 @@
 @end
 
 @interface Team (CoreDataGeneratedAccessors)
-
-- (void)addMatchObject:(Match*)value;
-- (void)removeMatchObject:(Match*)value;
-- (void)addMatch:(NSSet*)values;
-- (void)removeMatch:(NSSet*)values;
 
 - (void)addPlayersObject:(Player*)value;
 - (void)removePlayersObject:(Player*)value;

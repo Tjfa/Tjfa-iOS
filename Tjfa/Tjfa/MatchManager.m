@@ -44,14 +44,13 @@
 {
     NSArray* matches = [self getMatchesByCompetitionFromCoreData:compeitition];
     NSMutableArray* results = [[NSMutableArray alloc] init];
+
     for (Match* match in matches) {
-        for (Team* team in match.teams) {
-            if ([team.name rangeOfString:teamName].location != NSNotFound) {
-                [results addObject:match];
-                break;
-            }
-        }
+        if ([match.teamA.name rangeOfString:teamName].location != NSNotFound || [match.teamB.name rangeOfString:teamName].location != NSNotFound)
+            [results addObject:match];
+        break;
     }
+
     return results;
 }
 
