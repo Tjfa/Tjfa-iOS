@@ -24,7 +24,7 @@
 @property (nonatomic, retain) NSNumber* matchId;
 
 /**
- *  这场比赛是否已经开始
+ *  这场比赛是否已经开始   0表示 没有开始  1或者2表示结束
  */
 @property (nonatomic, retain) NSNumber* isStart;
 
@@ -44,7 +44,7 @@
 @property (nonatomic, retain) NSNumber* scoreB;
 
 /**
- *  获胜队伍的编号 由于这边是set 所以只有这个办法
+ *  获胜队伍的编号
  */
 @property (nonatomic, retain) NSNumber* winTeamId;
 

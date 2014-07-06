@@ -53,7 +53,9 @@
     team.emblemPath = dictionary[@"emblemPath"];
     team.groupNo = dictionary[@"groupNo"];
     team.goalCount = dictionary[@"goalCount"];
-    team.missCount = dictionary[@"missCount"];
+    NSLog(@"%@",dictionary[@"goalCount"]);
+    NSLog(@"%@",dictionary[@"missCount"]);
+    team.missCount = @(2);
     team.name = dictionary[@"name"];
     team.score = dictionary[@"score"];
     team.groupMissCount = dictionary[@"groupMissCount"];

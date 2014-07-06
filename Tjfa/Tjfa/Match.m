@@ -64,6 +64,7 @@
     match.winTeamId = dictionary[@"winTeamId"];
     match.competition = competition;
     [competition addMatchesObject:match];
+
     Team* teamA = [Team updateBasePropertyWithDictionary:dictionary[@"teamA"] competition:competition andMatch:match];
     Team* teamB = [Team updateBasePropertyWithDictionary:dictionary[@"teamB"] competition:competition andMatch:match];
     match.teamA = teamA;
