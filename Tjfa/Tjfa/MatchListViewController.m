@@ -9,13 +9,13 @@
 #import "MatchListViewController.h"
 #import "CompetitionManager.h"
 
-@interface MatchListViewController (){
-    MJRefreshHeaderView *header;
-//    MJRefreshFooterView *footer;
+@interface MatchListViewController () {
+    MJRefreshHeaderView* header;
+    //    MJRefreshFooterView *footer;
     BOOL hasMore;
-    
-    UIView *loadMoreFooterView;
-    UIView *noMoreFooterView;
+
+    UIView* loadMoreFooterView;
+    UIView* noMoreFooterView;
 }
 @property (nonatomic, strong) NSMutableArray* durationList;
 @property (nonatomic, strong) NSMutableArray* competionList;
@@ -36,38 +36,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.campusType = 1;
-    
+
     if (self.campusType == 1) {
         self.navigationItem.title = @"本部赛事";
     } else {
         self.navigationItem.title = @"嘉定赛事";
     }
-    
+
     hasMore = true;
-    
-    NSMutableArray *firstArray = [[NSMutableArray alloc] initWithArray:@[@"first",@"second",@"third"]];
-    NSMutableArray *secondAray = [[NSMutableArray alloc]initWithArray:@[@"test1",@"test2",@"test3"]];
+
+    //    NSMutableArray *firstArray = [[NSMutableArray alloc] initWithArray:@[@"first",@"second",@"third"]];
+    //    NSMutableArray *secondAray = [[NSMutableArray alloc]initWithArray:@[@"test1",@"test2",@"test3"]];
     self.competionList = [[NSMutableArray alloc] init];
     self.durationList = [[NSMutableArray alloc] init];
-    [self.durationList addObject:@"2014年第二学期"];
-    [self.competionList addObject:firstArray];
-    [self.durationList addObject:@"2014年第一学期"];
-    [self.competionList addObject:secondAray];
+    //[self.durationList addObject:@"2014年第二学期"];
+    //[self.competionList addObject:firstArray];
+    //[self.durationList addObject:@"2014年第一学期"];
+    //[self.competionList addObject:secondAray];
 
     // 注册上拉下拉刷新控件
     header = [[MJRefreshHeaderView alloc] init];
     header.delegate = self;
     header.scrollView = self.tableView;
-    
-//    footer = [[MJRefreshFooterView alloc] init];
-//    footer.delegate = self;
-//    footer.scrollView = self.tableView;
-    
-    
+
+    //    footer = [[MJRefreshFooterView alloc] init];
+    //    footer.delegate = self;
+    //    footer.scrollView = self.tableView;
+
     // initial has more table footer view
     CGRect footerRect = CGRectMake(0, 0, 320, 40);
-    UILabel *tableFooter = [[UILabel alloc] initWithFrame:footerRect];
+    UILabel* tableFooter = [[UILabel alloc] initWithFrame:footerRect];
     tableFooter.textColor = [UIColor whiteColor];
     tableFooter.backgroundColor = [UIColor lightTextColor];
     tableFooter.opaque = YES;
@@ -75,12 +73,12 @@
     tableFooter.text = @"加载中...";
     loadMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
     [loadMoreFooterView addSubview:tableFooter];
-    
+
     // initial no more table footer view
     tableFooter.text = @"没有更多了";
     noMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
     [noMoreFooterView addSubview:tableFooter];
-    
+
     [self getLocalData];
 }
 
@@ -115,16 +113,16 @@
     }
     cell.textLabel.text = [[self.competionList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     return cell;
-    
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath
+{
+
     // judge to load more.
-    if (hasMore && indexPath.section == [self.durationList count]-1 && indexPath.row == [[self.competionList lastObject] count]-1) {
-        
+    if (hasMore && indexPath.section == [self.durationList count] - 1 && indexPath.row == [[self.competionList lastObject] count] - 1) {
+
         self.tableView.tableFooterView = loadMoreFooterView;
-        
+
         [self performSelectorInBackground:@selector(pullupGetMore) withObject:nil];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
@@ -144,10 +142,11 @@
 // 获取数据
 
 // drop-dwon refresh --- get latest data from server
-- (void) dropdownRefresh{
-    
+- (void)dropdownRefresh
+{
+
     // request latest server data
-    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:[NSNumber numberWithInt:self.campusType] limit:10 complete:^(NSArray *results, NSError *error){
+    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:[NSNumber numberWithInt:self.campusType] limit:10 complete:^(NSArray* results, NSError* error) {
         if (error) {
             // something wrong
             NSLog(@"%@",error);
@@ -158,19 +157,20 @@
         
         // 关闭上拉下拉刷新
         [header endRefreshing];
-//        [footer endRefreshing];
+        //        [footer endRefreshing];
     }];
 }
 
 // get local data --- when first enter this page
-- (void) getLocalData {
-//    // empty old table data
-//    [self.durationList removeAllObjects];
-//    [self.competionList removeAllObjects];
-    
+- (void)getLocalData
+{
+    //    // empty old table data
+    //    [self.durationList removeAllObjects];
+    //    [self.competionList removeAllObjects];
+
     // load all local data
-    NSArray *results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]];
-    
+    NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]];
+
     // check local data count
     if ([results count] == 0) {
         // local data is empty
@@ -185,8 +185,8 @@
 - (void)pullupGetMore
 {
     // find the last competition we have
-    Competition *lastCompetition = [[[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]] lastObject];
-    
+    Competition* lastCompetition = [[[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]] lastObject];
+
     // get more data from server
     [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:[lastCompetition competitionId] withType:@(1) limit:10 complete:^(NSArray* results, NSError* error) {
         if (error) {
@@ -205,24 +205,25 @@
         
         // 关闭上拉下拉刷新
         [header endRefreshing];
-//        [footer endRefreshing];
+        //        [footer endRefreshing];
     }];
 }
 
 // 辅助函数
 // handle data list --- convert list to table data & reload table data
-- (void) handleCompetitionDataList:(NSArray *)dataList resetSign:(BOOL)sign {
+- (void)handleCompetitionDataList:(NSArray*)dataList resetSign:(BOOL)sign
+{
     BOOL firstGroupSign = true;
-    NSString *tempCompetitionDuration;
-    NSMutableArray *tempComptitionArray = [[NSMutableArray alloc] init];
-    
+    NSString* tempCompetitionDuration;
+    NSMutableArray* tempComptitionArray = [[NSMutableArray alloc] init];
+
     if (sign) {
         hasMore = true;
         [self.competionList removeAllObjects];
         [self.durationList removeAllObjects];
     }
-    
-    for (Competition *competition in dataList) {
+
+    for (Competition* competition in dataList) {
         if (![tempCompetitionDuration isEqualToString:[competition time]]) {
             // new temp competition array
             if (firstGroupSign) {
@@ -245,19 +246,21 @@
 }
 
 // convert competition time
-- (NSString*) convertTimetoString:(NSString*)time {
-//    NSString *year = [time substringToIndex:[time length]-1];
-    
-    if ([[time substringFromIndex:[time length]-1] isEqualToString:@"1"]) {
-        return [NSString stringWithFormat:@"%@年上学期",[time substringToIndex:[time length]-1]];
+- (NSString*)convertTimetoString:(NSString*)time
+{
+    //    NSString *year = [time substringToIndex:[time length]-1];
+
+    if ([[time substringFromIndex:[time length] - 1] isEqualToString:@"1"]) {
+        return [NSString stringWithFormat:@"%@年上学期", [time substringToIndex:[time length] - 1]];
     } else {
-        return [NSString stringWithFormat:@"%@年下学期",[time substringToIndex:[time length]-1]];
+        return [NSString stringWithFormat:@"%@年下学期", [time substringToIndex:[time length] - 1]];
     }
 }
 
 // 上下拉， 刷新以及下载更多
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView*)refreshView
+{
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"HH : mm : ss.SSS";
     if (header == refreshView) { // 刷新数据
         [self dropdownRefresh];

@@ -37,7 +37,7 @@
     NSMutableArray* results = [[NSMutableArray alloc] init];
     for (NSDictionary* obj in array) {
         Competition* competition = [Competition updateBasePropertyWithDictionary:obj];
-        [results addObject:competition];
+        [results insertObject:competition atIndex:0];
     }
     return results;
 }

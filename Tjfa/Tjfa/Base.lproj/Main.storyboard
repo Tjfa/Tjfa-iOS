@@ -214,7 +214,7 @@
         <!--News-->
         <scene sceneID="Joq-ww-uJG">
             <objects>
-                <viewController storyboardIdentifier="newsController" id="Wed-kW-t8i" userLabel="News" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newsController" id="Wed-kW-t8i" userLabel="News" customClass="NewsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G2Z-xI-fMJ"/>
                         <viewControllerLayoutGuide type="bottom" id="uKk-q8-1pK"/>
@@ -223,15 +223,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="news" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBc-5O-TAB">
-                                <rect key="frame" x="127" y="295" width="41" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Jx-DG-OX3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="60" id="fNm-bp-NNJ" customClass="NewsCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fNm-bp-NNJ" id="hQH-hH-5sn">
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label appearanceType="userCustom" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="fjasdkfjsdlfjlsdjfladjsflsdajflds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRh-C9-EHM">
+                                                    <rect key="frame" x="20" y="19" width="222" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label appearanceType="userCustom" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2013 年5月6日12:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siL-Te-j4r">
+                                                    <rect key="frame" x="179" y="39" width="99" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="siL-Te-j4r" id="oSh-7d-fDk"/>
+                                            <outlet property="titleLabel" destination="vRh-C9-EHM" id="8l0-Kx-4CF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wed-kW-t8i" id="wzy-Hi-E1Z"/>
+                                    <outlet property="delegate" destination="Wed-kW-t8i" id="Ddi-E4-tmD"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uKk-q8-1pK" firstAttribute="top" secondItem="6Jx-DG-OX3" secondAttribute="bottom" id="2zS-Qw-IUi"/>
+                            <constraint firstAttribute="trailing" secondItem="6Jx-DG-OX3" secondAttribute="trailing" id="Wlh-oe-dzR"/>
+                            <constraint firstItem="6Jx-DG-OX3" firstAttribute="leading" secondItem="SF6-ce-ckw" secondAttribute="leading" id="Xey-Xt-GOb"/>
+                            <constraint firstItem="6Jx-DG-OX3" firstAttribute="top" secondItem="SF6-ce-ckw" secondAttribute="top" id="lgh-zA-ROk"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="新闻" id="Iof-4u-19Q"/>
+                    <connections>
+                        <outlet property="tableView" destination="6Jx-DG-OX3" id="WrI-S8-nOJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8T-r8-qmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

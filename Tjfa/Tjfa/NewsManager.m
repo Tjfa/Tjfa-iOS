@@ -15,7 +15,7 @@
 + (NewsManager*)sharedNewsManager
 {
     static NewsManager* _sharedNewsManager = nil;
-    dispatch_once_t newsManagerToken;
+    static dispatch_once_t newsManagerToken;
     dispatch_once(&newsManagerToken, ^() {
         _sharedNewsManager=[[NewsManager alloc] init];
     });
@@ -24,7 +24,7 @@
 
 - (NSArray*)getNewsFromCoreData
 {
-    return [News MR_findAllSortedBy:[News idAttribute] ascending:YES];
+    return [News MR_findAllSortedBy:[News idAttribute] ascending:NO];
 }
 
 /**
@@ -39,7 +39,7 @@
     NSMutableArray* results = [[NSMutableArray alloc] init];
     for (NSDictionary* dictionary in newsArray) {
         News* news = [News updateNewsWithDictionary:dictionary];
-        [results addObject:news];
+        [results insertObject:news atIndex:0];
     }
     return results;
 }
@@ -74,11 +74,15 @@
         NSDictionary* dictionary = @{ @"newId" : news.newsId };
         [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSString* content, NSError* error) {
             if (error){
-                complete(nil,error);
+                dispatch_sync(dispatch_get_main_queue(), ^(){
+                    complete(nil,error);
+                });
             }else{
                 news.content=content;
                 [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-                complete(news,nil);
+                dispatch_sync(dispatch_get_main_queue(), ^(){
+                    complete(news,nil);
+                });
             }
         }];
     } else {

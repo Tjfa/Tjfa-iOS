@@ -27,7 +27,7 @@
     NSMutableArray* results = [[NSMutableArray alloc] init];
     for (NSDictionary* dictionary in array) {
         Match* match = [Match updateMatchWithDictionary:dictionary andCompetetion:competition];
-        [results addObject:match];
+        [results insertObject:match atIndex:0];
     }
     return results;
 }

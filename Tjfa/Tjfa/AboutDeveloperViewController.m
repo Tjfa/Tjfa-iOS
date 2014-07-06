@@ -104,6 +104,8 @@
 
         UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake((size - imageSize) / 2, 20, imageSize, imageSize)];
         imageView.image = developer.image;
+        imageView.layer.cornerRadius = imageSize / 2;
+        imageView.clipsToBounds = YES;
         [view addSubview:imageView];
     }
     return view;

@@ -19,6 +19,8 @@
 		2440F6D8195F1A0300E00A70 /* Developer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440F6D7195F1A0300E00A70 /* Developer.m */; };
 		2440F6DB195F1E4A00E00A70 /* AboutDeveloperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440F6DA195F1E4A00E00A70 /* AboutDeveloperViewController.m */; };
 		24796BF4195DBB5100176F8F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24796BF3195DBB5100176F8F /* MainViewController.m */; };
+		2495BA2719690C1F009BB60F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2619690C1F009BB60F /* NewsViewController.m */; };
+		2495BA2A19691E28009BB60F /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2919691E28009BB60F /* NewsCell.m */; };
 		249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67718E16DDE0084DDBB /* CompetitionManager.m */; };
 		249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F143F195D6FBB0038DF42 /* NewsManager.m */; };
 		249F1444195D71A90038DF42 /* NSArray+ArrayLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F1443195D71A90038DF42 /* NSArray+ArrayLimit.m */; };
@@ -90,6 +92,10 @@
 		2440F6DA195F1E4A00E00A70 /* AboutDeveloperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutDeveloperViewController.m; sourceTree = "<group>"; };
 		24796BF2195DBB5100176F8F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		24796BF3195DBB5100176F8F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		2495BA2519690C1F009BB60F /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		2495BA2619690C1F009BB60F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		2495BA2819691E28009BB60F /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
+		2495BA2919691E28009BB60F /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
 		249CF67618E16DDE0084DDBB /* CompetitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionManager.h; sourceTree = "<group>"; };
 		249CF67718E16DDE0084DDBB /* CompetitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionManager.m; sourceTree = "<group>"; };
 		249F143E195D6FBB0038DF42 /* NewsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsManager.h; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 		240AE6C9195EC1FA00F7820D /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
+				2495BA2419690BE5009BB60F /* News */,
 				ADEDA1DE195FDFF0009B8D20 /* Match */,
 				240AE6D9195F0D2100F7820D /* About */,
 				240AE6CA195EC20B00F7820D /* Category */,
@@ -265,6 +272,17 @@
 				2440F6DA195F1E4A00E00A70 /* AboutDeveloperViewController.m */,
 			);
 			name = AboutDeveloper;
+			sourceTree = "<group>";
+		};
+		2495BA2419690BE5009BB60F /* News */ = {
+			isa = PBXGroup;
+			children = (
+				2495BA2519690C1F009BB60F /* NewsViewController.h */,
+				2495BA2619690C1F009BB60F /* NewsViewController.m */,
+				2495BA2819691E28009BB60F /* NewsCell.h */,
+				2495BA2919691E28009BB60F /* NewsCell.m */,
+			);
+			name = News;
 			sourceTree = "<group>";
 		};
 		249CF66518E16A840084DDBB /* Database */ = {
@@ -588,6 +606,7 @@
 				249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */,
 				24E58E8C18E815C1007BFFD8 /* MatchManager.m in Sources */,
 				24F1D1F618E063E1007E2309 /* ViewController.m in Sources */,
+				2495BA2A19691E28009BB60F /* NewsCell.m in Sources */,
 				240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */,
 				24C6FE4E195E8574008B594C /* News.m in Sources */,
 				240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */,
@@ -614,6 +633,7 @@
 				24C6FE4B195E8574008B594C /* Player.m in Sources */,
 				240099EC196005600036EFF4 /* AboutProjectViewController.m in Sources */,
 				240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */,
+				2495BA2719690C1F009BB60F /* NewsViewController.m in Sources */,
 				ADEDA1F0195FED5C009B8D20 /* MJRefreshConst.m in Sources */,
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
 				ADEDA1E1195FE00D009B8D20 /* MatchListViewController.m in Sources */,
