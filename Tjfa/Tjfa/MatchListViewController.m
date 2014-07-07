@@ -8,6 +8,7 @@
 
 #import "MatchListViewController.h"
 #import "CompetitionManager.h"
+#import <MBProgressHUD.h>
 
 @interface MatchListViewController () {
     MJRefreshHeaderView* header;
@@ -147,12 +148,15 @@
 
     // request latest server data
     [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:[NSNumber numberWithInt:self.campusType] limit:10 complete:^(NSArray* results, NSError* error) {
+        
         if (error) {
             // something wrong
             NSLog(@"%@",error);
         } else {
             // get latest server data & remove all old table data
             [self handleCompetitionDataList:results resetSign:true];
+            // close progress view
+            [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
         }
         
         // 关闭上拉下拉刷新
@@ -173,6 +177,10 @@
 
     // check local data count
     if ([results count] == 0) {
+        // initial hud progress view
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        hud.labelText = @"加载中";
+        
         // local data is empty
         [self dropdownRefresh];
     } else {
@@ -186,27 +194,37 @@
 {
     // find the last competition we have
     Competition* lastCompetition = [[[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]] lastObject];
-
-    // get more data from server
-    [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:[lastCompetition competitionId] withType:@(1) limit:10 complete:^(NSArray* results, NSError* error) {
-        if (error) {
-            // something wrong
-            NSLog(@"%@",error);
-        } else {
-            // 检测是否还有更多
-            if ([results count] == 0) {
-                hasMore = false;
-                self.tableView.tableFooterView = noMoreFooterView;
-            } else {
-                // get more server data
-                [self handleCompetitionDataList:results resetSign:false];
-            }
-        }
+    
+    // check if last competition is null
+    if (lastCompetition == nil) {
+        // can not get more data using last object.
+        hasMore = false;
+        self.tableView.tableFooterView = noMoreFooterView;
+    } else {
+        // can get more data using last object.
         
-        // 关闭上拉下拉刷新
-        [header endRefreshing];
-        //        [footer endRefreshing];
-    }];
+        // get more data from server
+        [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:[lastCompetition competitionId] withType:@(1) limit:10 complete:^(NSArray* results, NSError* error) {
+            
+            if (error) {
+                // something wrong
+                NSLog(@"%@",error);
+            } else {
+                // 检测是否还有更多
+                if ([results count] == 0) {
+                    hasMore = false;
+                    self.tableView.tableFooterView = noMoreFooterView;
+                } else {
+                    // get more server data
+                    [self handleCompetitionDataList:results resetSign:false];
+                }
+            }
+            
+            // 关闭上拉下拉刷新
+            [header endRefreshing];
+            //        [footer endRefreshing];
+        }];
+    }
 }
 
 // 辅助函数
