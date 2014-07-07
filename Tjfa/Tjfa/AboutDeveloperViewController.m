@@ -63,16 +63,6 @@
     }
 }
 
-- (void)setNameLabel:(UILabel*)nameLabel
-{
-    if (_nameLabel != nameLabel) {
-        _nameLabel = nameLabel;
-        if (!iPhone5) {
-            _nameLabel.frame = CGRectMake(_nameLabel.frame.origin.x, _nameLabel.frame.origin.y - 70, _nameLabel.frame.size.width, _nameLabel.frame.size.height);
-        }
-    }
-}
-
 #pragma mark iCarousel methods
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel*)carousel
@@ -92,12 +82,12 @@
     if (view == nil) {
         Developer* developer = self.data[index];
 
-        CGFloat size = 200;
-        CGFloat imageSize = 130;
+        CGFloat size = 220;
+        CGFloat imageSize = 150;
 
         if (!iPhone5) {
-            size = 130;
-            imageSize = 100;
+            size = 120;
+            imageSize = 90;
         }
 
         view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size, size)];
@@ -144,7 +134,6 @@
 
 - (void)carouselDidScroll:(iCarousel*)carousel
 {
-    NSLog(@"%f %f", _carouselView.frame.size.height, self.nameLabel.frame.origin.y);
     int index = (int)round(carousel.scrollOffset);
     Developer* developer = self.data[index % self.data.count];
     self.nameLabel.text = developer.name;

@@ -41,7 +41,7 @@
     [[NewsManager sharedNewsManager] getLatestNewsFromNetworkWithLimit:10 complete:^(NSArray* result, NSError* error) {
     
         if (progress){
-            self.tableView.hidden=NO;
+            weakSelf.tableView.hidden=NO;
             [weakSelf.loadProgress removeFromSuperview];
             weakSelf.loadProgress=nil;
         }
@@ -49,7 +49,7 @@
         if (error){
             
         }else{
-            self.data=[result mutableCopy];
+            weakSelf.data=[result mutableCopy];
         }
     }];
 }
