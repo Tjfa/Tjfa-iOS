@@ -45,8 +45,8 @@
 {
     if (_data == nil) {
         _data = [[NSMutableArray alloc] init];
-        NSArray* name = @[ @"aaa", @"bb", @"ccc", @"ddd", @"xxx" ];
-        NSArray* imageName = @[ @"dashboardNews", @"qiufeng", @"qiufeng", @"qiufeng", @"qiufeng" ];
+        NSArray* name = @[ @"aaa", @"bb", @"ccc", @"ddd", @"xxx", @"ddd" ];
+        NSArray* imageName = @[ @"dashboardNews", @"qiufeng", @"qiufeng", @"qiufeng", @"qiufeng", @"qiufeng" ];
         for (int i = 0; i < name.count; i++) {
             Developer* developer = [[Developer alloc] initWithName:name[i] imageName:imageName[i]];
             [_data addObject:developer];
@@ -82,20 +82,27 @@
     if (view == nil) {
         Developer* developer = self.data[index];
 
-        CGFloat size = 220;
-        CGFloat imageSize = 150;
-
+        CGFloat size = 250;
+        CGFloat imageSize = 160;
+        CGFloat yPosition = 50;
         if (!iPhone5) {
-            size = 120;
-            imageSize = 90;
+            size = 160;
+            imageSize = 130;
+            yPosition = 20;
         }
 
         view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size, size)];
 
-        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake((size - imageSize) / 2, 20, imageSize, imageSize)];
+        UIView* borderView = [[UIView alloc] initWithFrame:CGRectMake((size - imageSize) / 2 - 5, yPosition - 5, imageSize + 10, imageSize + 10)];
+        borderView.layer.cornerRadius = (imageSize + 10) / 2;
+        borderView.backgroundColor = [UIColor whiteColor];
+
+        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake((size - imageSize) / 2, yPosition, imageSize, imageSize)];
         imageView.image = developer.image;
         imageView.layer.cornerRadius = imageSize / 2;
         imageView.clipsToBounds = YES;
+
+        [view addSubview:borderView];
         [view addSubview:imageView];
     }
     return view;
@@ -104,7 +111,10 @@
 - (CGFloat)carouselItemWidth:(iCarousel*)carousel
 {
     //usually this should be slightly wider than the item views
-    return 220.0f;
+    if (iPhone5)
+        return 250;
+    else
+        return 180;
 }
 
 - (CATransform3D)carousel:(iCarousel*)_carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
