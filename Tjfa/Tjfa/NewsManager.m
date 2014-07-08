@@ -72,23 +72,39 @@
     if (news == nil)
         return;
 
-    if (news.content == nil || [news.content isEqualToString:@""]) {
-        NSDictionary* dictionary = @{ @"newId" : news.newsId };
-        [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSString* content, NSError* error) {
+    //if (news.content == nil || [news.content isEqualToString:@""]) {
+    NSDictionary* dictionary = @{ @"newId" : news.newsId };
+    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSDictionary* content, NSError* error) {
             if (error){
                     complete(nil,error);
             }else{
-                news.content=content;
+                NSLog(@"%@",content[@"content"]);
+                news.content=[NSString stringWithCString:[content[@"content"] UTF8String] encoding:NSUnicodeStringEncoding];
                 [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
                     complete(news,nil);
             }
-        }];
+    }];
+    //} else {
+    // complete(news, nil);
+    //}
+}
+
+- (void)markNewsToggleRead:(News*)news
+{
+    if ([news.isRead boolValue]) {
+        [self markNewsToUnread:news];
     } else {
-        complete(news, nil);
+        [self markNewsToRead:news];
     }
 }
 
-- (void)markAllNewsToRead:(News*)news
+- (void)markNewsToUnread:(News*)news
+{
+    news.isRead = @(NO);
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
+- (void)markNewsToRead:(News*)news
 {
     news.isRead = @(YES);
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];

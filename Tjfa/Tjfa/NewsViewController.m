@@ -105,6 +105,30 @@
     return cell;
 }
 
+- (NSString*)tableView:(UITableView*)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    News* news = self.data[indexPath.row];
+    if ([news.isRead boolValue]) {
+        return @"标记未读";
+    } else {
+        return @"标记已读";
+    }
+}
+
+- (BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    return YES;
+}
+
+- (void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        News* news = self.data[indexPath.row];
+        [[NewsManager sharedNewsManager] markNewsToggleRead:news];
+        [tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
 #pragma mark - navigation view controller
 
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender

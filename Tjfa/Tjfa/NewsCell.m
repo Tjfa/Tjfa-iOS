@@ -32,7 +32,7 @@
 {
     self.titleLabel.text = news.title;
     self.dateLabel.text = [news.date date2str];
-    if (news.isRead) {
+    if (![news.isRead boolValue]) {
         self.markReadView.hidden = NO;
         self.markReadView.layer.cornerRadius = self.markReadView.frame.size.width / 2;
     } else {

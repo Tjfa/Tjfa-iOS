@@ -38,6 +38,10 @@
  */
 - (void)getNewsContentWithNews:(News*)news complete:(void (^)(News* news, NSError* error))complete;
 
+- (void)markNewsToggleRead:(News*)news;
+
+- (void)markNewsToUnread:(News*)news;
+
 - (void)markNewsToRead:(News*)news;
 
 - (void)markAllNewsToRead;
