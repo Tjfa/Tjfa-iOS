@@ -18,7 +18,9 @@
 		240AE6DC195F0D5900F7820D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6DB195F0D5900F7820D /* AboutViewController.m */; };
 		2440F6D8195F1A0300E00A70 /* Developer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440F6D7195F1A0300E00A70 /* Developer.m */; };
 		2440F6DB195F1E4A00E00A70 /* AboutDeveloperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440F6DA195F1E4A00E00A70 /* AboutDeveloperViewController.m */; };
-		24796BF4195DBB5100176F8F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24796BF3195DBB5100176F8F /* MainViewController.m */; };
+		246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753B6196BE2BA007BDE90 /* NewsContentViewController.m */; };
+		246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */; };
+		246753C0196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753BF196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.m */; };
 		2495BA2719690C1F009BB60F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2619690C1F009BB60F /* NewsViewController.m */; };
 		2495BA2A19691E28009BB60F /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2919691E28009BB60F /* NewsCell.m */; };
 		249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67718E16DDE0084DDBB /* CompetitionManager.m */; };
@@ -90,8 +92,12 @@
 		2440F6D7195F1A0300E00A70 /* Developer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Developer.m; sourceTree = "<group>"; };
 		2440F6D9195F1E4A00E00A70 /* AboutDeveloperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutDeveloperViewController.h; sourceTree = "<group>"; };
 		2440F6DA195F1E4A00E00A70 /* AboutDeveloperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutDeveloperViewController.m; sourceTree = "<group>"; };
-		24796BF2195DBB5100176F8F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		24796BF3195DBB5100176F8F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		246753B5196BE2BA007BDE90 /* NewsContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsContentViewController.h; sourceTree = "<group>"; };
+		246753B6196BE2BA007BDE90 /* NewsContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentViewController.m; sourceTree = "<group>"; };
+		246753BB196BE52A007BDE90 /* MBProgressHUD+AppProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+AppProgressView.h"; sourceTree = "<group>"; };
+		246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+AppProgressView.m"; sourceTree = "<group>"; };
+		246753BE196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+NetWorkErrorView.h"; sourceTree = "<group>"; };
+		246753BF196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+NetWorkErrorView.m"; sourceTree = "<group>"; };
 		2495BA2519690C1F009BB60F /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		2495BA2619690C1F009BB60F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		2495BA2819691E28009BB60F /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
@@ -216,6 +222,10 @@
 			children = (
 				240AE6CB195EC23300F7820D /* UIColor+AppColor.h */,
 				240AE6CC195EC23300F7820D /* UIColor+AppColor.m */,
+				246753BB196BE52A007BDE90 /* MBProgressHUD+AppProgressView.h */,
+				246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */,
+				246753BE196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.h */,
+				246753BF196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -281,6 +291,8 @@
 				2495BA2619690C1F009BB60F /* NewsViewController.m */,
 				2495BA2819691E28009BB60F /* NewsCell.h */,
 				2495BA2919691E28009BB60F /* NewsCell.m */,
+				246753B5196BE2BA007BDE90 /* NewsContentViewController.h */,
+				246753B6196BE2BA007BDE90 /* NewsContentViewController.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -401,8 +413,6 @@
 				24F1D1F118E063E1007E2309 /* Main.storyboard */,
 				24F1D1F418E063E1007E2309 /* ViewController.h */,
 				24F1D1F518E063E1007E2309 /* ViewController.m */,
-				24796BF2195DBB5100176F8F /* MainViewController.h */,
-				24796BF3195DBB5100176F8F /* MainViewController.m */,
 				24F1D1F718E063E1007E2309 /* Images.xcassets */,
 				240AE6C9195EC1FA00F7820D /* UILayer */,
 				24CFD62518E1517100D706D1 /* LogicalLayer */,
@@ -614,10 +624,12 @@
 				ADEDA1F2195FED5C009B8D20 /* MJRefreshHeaderView.m in Sources */,
 				ADEDA1EF195FED5C009B8D20 /* MJRefreshBaseView.m in Sources */,
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
+				246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */,
 				24C6FE4C195E8574008B594C /* Match.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
 				24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */,
 				249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */,
+				246753C0196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.m in Sources */,
 				2440F6DB195F1E4A00E00A70 /* AboutDeveloperViewController.m in Sources */,
 				2440F6D8195F1A0300E00A70 /* Developer.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
@@ -625,7 +637,6 @@
 				240099F9196024BE0036EFF4 /* AppInfo.m in Sources */,
 				24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */,
 				24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */,
-				24796BF4195DBB5100176F8F /* MainViewController.m in Sources */,
 				249F1444195D71A90038DF42 /* NSArray+ArrayLimit.m in Sources */,
 				240AE6D0195EC52300F7820D /* DashboardViewController.m in Sources */,
 				240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */,
@@ -636,6 +647,7 @@
 				2495BA2719690C1F009BB60F /* NewsViewController.m in Sources */,
 				ADEDA1F0195FED5C009B8D20 /* MJRefreshConst.m in Sources */,
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
+				246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */,
 				ADEDA1E1195FE00D009B8D20 /* MatchListViewController.m in Sources */,
 				240AE6DC195F0D5900F7820D /* AboutViewController.m in Sources */,
 			);

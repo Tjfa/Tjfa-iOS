@@ -52,11 +52,13 @@
     NSDictionary* parameterDictionary = @{ @"type" : type,
                                            @"competitionId" : competitionId,
                                            @"limit" : @(limit) };
+
+    __weak CompetitionManager* weakSelf = self;
     [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient competitionAddress] withParameters:parameterDictionary complete:^(NSArray* results, NSError* error) {
             if (error){
                 complete(nil,error);
             }else{
-                results=[self insertCompetitionsWithArray:results];
+                results=[weakSelf insertCompetitionsWithArray:results];
                 complete(results,nil);
             }
     }];

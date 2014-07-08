@@ -50,11 +50,13 @@
         @"newsId" : newsId,
         @"limit" : @(limit),
     };
+
+    __weak NewsManager* weakSelf = self;
     [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsAddress] withParameters:parameters complete:^(NSArray* results, NSError* error) {
         if (error){
             complete(nil,error);
         }else{
-            results=[self insertNewsWithArray:results];
+            results=[weakSelf insertNewsWithArray:results];
             complete(results,error);
         }
     }];
@@ -74,20 +76,31 @@
         NSDictionary* dictionary = @{ @"newId" : news.newsId };
         [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSString* content, NSError* error) {
             if (error){
-                dispatch_sync(dispatch_get_main_queue(), ^(){
                     complete(nil,error);
-                });
             }else{
                 news.content=content;
                 [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-                dispatch_sync(dispatch_get_main_queue(), ^(){
                     complete(news,nil);
-                });
             }
         }];
     } else {
         complete(news, nil);
     }
+}
+
+- (void)markAllNewsToRead:(News*)news
+{
+    news.isRead = @(YES);
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
+- (void)markAllNewsToRead
+{
+    NSArray* array = [News MR_findAll];
+    for (News* news in array) {
+        news.isRead = @(YES);
+    }
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 @end

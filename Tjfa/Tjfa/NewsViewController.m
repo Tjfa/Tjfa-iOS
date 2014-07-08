@@ -9,6 +9,7 @@
 #import "NewsViewController.h"
 #import "NewsManager.h"
 #import "NewsCell.h"
+#import "NewsContentViewController.h"
 #import <MBProgressHUD.h>
 
 @interface NewsViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -102,6 +103,16 @@
     NewsCell* cell = [tableView dequeueReusableCellWithIdentifier:@"newsCell"];
     [cell setCellWithNews:self.data[indexPath.row]];
     return cell;
+}
+
+#pragma mark - navigation view controller
+
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
+{
+    UITableViewCell* cell = sender;
+    NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
+    NewsContentViewController* newsContentViewController = segue.destinationViewController;
+    newsContentViewController.news = self.data[indexPath.row];
 }
 
 @end

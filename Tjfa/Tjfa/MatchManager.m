@@ -57,11 +57,13 @@
 - (void)getMatchesByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
     NSDictionary* parameters = @{ @"competitionId" : competition.competitionId };
+
+    __weak MatchManager* weakSelf = self;
     [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient matchAdderss] withParameters:parameters complete:^(NSArray* results, NSError* error) {
             if (error){
                 complete(nil,error);
             }else{
-                results=[self insertMatchesWitchArray:results andCompetition:competition];
+                results=[weakSelf insertMatchesWitchArray:results andCompetition:competition];
                 complete(results,nil);
             }
     }];

@@ -7,6 +7,7 @@
 //
 
 #import "NetworkClient.h"
+#import "UIAlertView+NetWorkErrorView.h"
 
 @implementation NetworkClient
 
@@ -72,6 +73,8 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
                 });
             }else{
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertView* alertView=[UIAlertView alertViewWithErrorNetWork];
+                    [alertView show];
                     complete(nil, nil);
                 });
             }
@@ -81,6 +84,8 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
             NSLog(@"fail");
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSLog(@"%@",error);
+                UIAlertView* alertView=[UIAlertView alertViewWithErrorNetWork];
+                [alertView show];
                 complete(nil, error);
             });
         }];

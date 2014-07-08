@@ -19,7 +19,6 @@
 
 @implementation AboutProjectViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -125,12 +124,14 @@
         [self.parentViewController.parentViewController.view addSubview:mbProgressHub];
         mbProgressHub.dimBackground = YES;
         mbProgressHub.labelText = @"清除中。。请稍候";
+
+        __weak AboutProjectViewController* weakSelf = self;
         [mbProgressHub showAnimated:YES whileExecutingBlock:^(void) {
             [[DatabaseManager sharedDatabaseManager] clearAllData];
         } completionBlock:^() {
             
             MBProgressHUD* finishProgress=[[MBProgressHUD alloc] initWithView:self.parentViewController.view.superview.superview];
-            [self.parentViewController.parentViewController.view addSubview:finishProgress];
+            [weakSelf.parentViewController.parentViewController.view addSubview:finishProgress];
             finishProgress.dimBackground = YES;
             finishProgress.labelText = @"清除成功";
             finishProgress.mode= MBProgressHUDModeCustomView;

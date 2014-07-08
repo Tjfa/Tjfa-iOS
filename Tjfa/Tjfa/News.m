@@ -15,6 +15,7 @@
 @dynamic date;
 @dynamic newsId;
 @dynamic title;
+@dynamic isRead;
 
 + (NSString*)idAttribute
 {
@@ -26,6 +27,7 @@
     News* news = [News MR_findFirstByAttribute:[News idAttribute] withValue:dictionary[@"newsId"]];
     if (news == nil) {
         news = [News MR_createEntity];
+        news.isRead = @(NO);
     }
     news.newsId = dictionary[@"newsId"];
     news.date = [NSDate str2Date:dictionary[@"date"]];

@@ -37,4 +37,9 @@
  *  @param complete 完成网络加载后运行的代码
  */
 - (void)getNewsContentWithNews:(News*)news complete:(void (^)(News* news, NSError* error))complete;
+
+- (void)markNewsToRead:(News*)news;
+
+- (void)markAllNewsToRead;
+
 @end
