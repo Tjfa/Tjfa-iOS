@@ -72,21 +72,20 @@
     if (news == nil)
         return;
 
-    //if (news.content == nil || [news.content isEqualToString:@""]) {
-    NSDictionary* dictionary = @{ @"newId" : news.newsId };
-    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSDictionary* content, NSError* error) {
+    if (news.content == nil || [news.content isEqualToString:@""]) {
+        NSDictionary* dictionary = @{ @"newId" : news.newsId };
+        [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSDictionary* content, NSError* error) {
             if (error){
                     complete(nil,error);
             }else{
-                NSLog(@"%@",content[@"content"]);
                 news.content=content[@"content"];
                 [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
                     complete(news,nil);
             }
-    }];
-    //} else {
-    //complete(news, nil);
-    //}
+        }];
+    } else {
+        complete(news, nil);
+    }
 }
 
 - (void)markNewsToggleRead:(News*)news

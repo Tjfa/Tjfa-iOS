@@ -27,6 +27,4 @@
  */
 - (NSURLSessionDataTask*)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parameters complete:(void (^)(id results, NSError* error))complete;
 
-//- (void)getContentNewsWithParameters:(NSDictionary*)parameters complete:(void (^)(id results, NSError* error))complete;
-
 @end

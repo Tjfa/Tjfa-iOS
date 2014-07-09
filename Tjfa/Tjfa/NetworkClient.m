@@ -86,41 +86,4 @@ NSString* serverUrlStr = @"http://192.168.112.73/tjfa/";
     return task;
 }
 
-//- (void)getContentNewsWithParameters:(NSDictionary*)parameters complete:(void (^)(id, NSError*))complete
-//{
-//
-//    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-//
-//    dispatch_queue_t newsQueue = dispatch_queue_create("get news content", nil);
-//
-//    dispatch_async(newsQueue, ^(){
-//        NSString* html=[NSString stringWithContentsOfURL:[serverUrlStr stringByAppendingFormat:@"%@?"] encoding:<#(NSStringEncoding)#> error:<#(NSError *__autoreleasing *)#>]
-//    });
-//    NSURLSessionDataTask* task = [self POST:address parameters:parameters success:^(NSURLSessionDataTask* task, id responseObject) {
-//
-//        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-//        NSLog(@"successful");
-//        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
-//        if (httpResponse.statusCode == 200)     //200是成功返回
-//        {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                NSLog(@"%@",responseObject);
-//                complete(responseObject,nil);
-//            });
-//        }else{
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                complete(nil, nil);
-//            });
-//        }
-//    }
-//        failure:^(NSURLSessionDataTask* task, NSError* error) {
-//                                        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-//                                        NSLog(@"fail");
-//                                        dispatch_async(dispatch_get_main_queue(), ^{
-//                                            NSLog(@"%@",error);
-//                                            complete(nil, error);
-//                                        });
-//        }];
-//}
-
 @end
