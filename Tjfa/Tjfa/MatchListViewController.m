@@ -164,7 +164,7 @@
 
     // request latest server data
     [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:[NSNumber numberWithInt:self.campusType] limit:10 complete:^(NSArray* results, NSError* error) {
-        
+        [self.progressView removeFromSuperview];
         if (error) {
             // something wrong
             NSLog(@"%@",error);
@@ -173,7 +173,7 @@
             [self handleCompetitionDataList:results resetSign:true];
             // close progress view
             //[MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
-            [self.progressView removeFromSuperview];
+            
         }
         
         // 关闭上拉下拉刷新

@@ -60,6 +60,7 @@
     if (_carouselView != carouselView) {
         _carouselView = carouselView;
         _carouselView.type = iCarouselTypeRotary;
+        _carouselView.clipsToBounds=YES;
     }
 }
 
