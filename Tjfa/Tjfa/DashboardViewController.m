@@ -45,12 +45,6 @@ const CGFloat dashboardButtonSize = 100;
 - (void)viewDidAppear:(BOOL)animated
 {
     [self showDashboardButtonWithSyn];
-    // self.navigationController.navigationBar.hidden = YES;
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    // self.navigationController.navigationBar.hidden = NO;
 }
 
 - (CGFloat)getBaseHeightForDashboardButton
