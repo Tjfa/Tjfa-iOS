@@ -79,13 +79,13 @@
                     complete(nil,error);
             }else{
                 NSLog(@"%@",content[@"content"]);
-                news.content=[NSString stringWithCString:[content[@"content"] UTF8String] encoding:NSUnicodeStringEncoding];
+                news.content=content[@"content"];
                 [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
                     complete(news,nil);
             }
     }];
     //} else {
-    // complete(news, nil);
+    //complete(news, nil);
     //}
 }
 

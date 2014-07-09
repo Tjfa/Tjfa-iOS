@@ -28,7 +28,7 @@
     self.navigationController.title = self.news.title;
 
     [self.loadProgress show:YES];
-  
+
     [self loadContent];
 }
 
@@ -55,11 +55,6 @@
         if (error){
         }
         else{
-            
-            UILabel* lable=[[UILabel alloc] initWithFrame:CGRectMake(100, 100, 200, 300)];
-            lable.text=news.content;
-            [weakSelf.view addSubview:lable];
-            
             [weakSelf.contentView loadHTMLString:news.content baseURL:nil];
         }
     }];
