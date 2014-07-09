@@ -220,6 +220,8 @@
 		240AE6CA195EC20B00F7820D /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2495FA0B196D005C00319872 /* UIView+RefreshFooterView.h */,
+				2495FA0C196D005C00319872 /* UIView+RefreshFooterView.m */,
 				240AE6CB195EC23300F7820D /* UIColor+AppColor.h */,
 				240AE6CC195EC23300F7820D /* UIColor+AppColor.m */,
 				246753BB196BE52A007BDE90 /* MBProgressHUD+AppProgressView.h */,
@@ -295,15 +297,6 @@
 				246753B6196BE2BA007BDE90 /* NewsContentViewController.m */,
 			);
 			name = News;
-			sourceTree = "<group>";
-		};
-		2495FA0A196CFF6A00319872 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				2495FA0B196D005C00319872 /* UIView+RefreshFooterView.h */,
-				2495FA0C196D005C00319872 /* UIView+RefreshFooterView.m */,
-			);
-			name = Category;
 			sourceTree = "<group>";
 		};
 		249CF66518E16A840084DDBB /* Database */ = {
@@ -475,7 +468,6 @@
 		ADEDA1E3195FED38009B8D20 /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				2495FA0A196CFF6A00319872 /* Category */,
 				ADEDA1E4195FED5C009B8D20 /* MJRefresh.bundle */,
 				ADEDA1E5195FED5C009B8D20 /* MJRefresh.h */,
 				ADEDA1E6195FED5C009B8D20 /* MJRefreshBaseView.h */,

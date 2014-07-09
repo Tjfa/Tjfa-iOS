@@ -12,10 +12,10 @@
 @implementation NetworkClient
 
 //localhost in QiuFeng
-NSString* serverUrlStr = @"http://192.168.112.73/tjfa/";
+//NSString* serverUrlStr = @"http://192.168.112.73/tjfa/";
 
 //word
-//NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
+NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
 
 + (NSURL*)serverUrl
 {

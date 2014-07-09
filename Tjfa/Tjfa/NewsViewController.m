@@ -226,7 +226,8 @@
                 [indexPaths addObject:[NSIndexPath indexPathForRow:self.data.count inSection:0]];
                 [self.data addObject:results[i]];
             }
-            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
+            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+           // [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
         }
     }];
 }

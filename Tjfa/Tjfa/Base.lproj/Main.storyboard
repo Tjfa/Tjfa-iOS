@@ -187,17 +187,16 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView appearanceType="aqua" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JT4-zC-SOj">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JT4-zC-SOj" firstAttribute="leading" secondItem="M8d-0Y-s6y" secondAttribute="leading" id="7iM-gM-qZB"/>
-                            <constraint firstAttribute="trailing" secondItem="JT4-zC-SOj" secondAttribute="trailing" id="Rg2-bF-EoX"/>
-                            <constraint firstItem="JT4-zC-SOj" firstAttribute="top" secondItem="Rvd-QX-Ehq" secondAttribute="bottom" id="d71-Yl-rrT"/>
-                            <constraint firstItem="hqo-wF-M1J" firstAttribute="top" secondItem="JT4-zC-SOj" secondAttribute="bottom" id="fDR-yU-nzT"/>
+                            <constraint firstAttribute="trailing" secondItem="JT4-zC-SOj" secondAttribute="trailing" id="W9X-kZ-dXQ"/>
+                            <constraint firstItem="JT4-zC-SOj" firstAttribute="top" secondItem="M8d-0Y-s6y" secondAttribute="top" id="etu-5H-3f4"/>
+                            <constraint firstItem="hqo-wF-M1J" firstAttribute="top" secondItem="JT4-zC-SOj" secondAttribute="bottom" id="mAs-08-yfj"/>
+                            <constraint firstItem="JT4-zC-SOj" firstAttribute="leading" secondItem="M8d-0Y-s6y" secondAttribute="leading" id="qfK-kc-4h8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="news content" id="Buk-mw-YuA"/>
