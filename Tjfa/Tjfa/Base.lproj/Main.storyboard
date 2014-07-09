@@ -390,7 +390,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="首页" id="SWa-Ky-Kia"/>
+                    <navigationItem key="navigationItem" title="首页" id="grs-5g-EDV"/>
                     <connections>
                         <segue destination="3rx-ST-ubI" kind="push" id="2NN-eZ-o4T"/>
                         <segue destination="Wed-kW-t8i" kind="push" id="LPe-wD-6F7"/>

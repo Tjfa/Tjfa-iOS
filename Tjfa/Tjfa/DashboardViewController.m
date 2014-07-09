@@ -45,6 +45,12 @@ const CGFloat dashboardButtonSize = 100;
 - (void)viewDidAppear:(BOOL)animated
 {
     [self showDashboardButtonWithSyn];
+    // self.navigationController.navigationBar.hidden = YES;
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // self.navigationController.navigationBar.hidden = NO;
 }
 
 - (CGFloat)getBaseHeightForDashboardButton
@@ -219,9 +225,9 @@ const CGFloat dashboardButtonSize = 100;
 - (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated
 {
     if (viewController == self) {
-        navigationController.navigationBar.hidden = YES;
+        [navigationController setNavigationBarHidden:YES animated:YES];
     } else {
-        navigationController.navigationBar.hidden = NO;
+        [navigationController setNavigationBarHidden:NO animated:YES];
     }
 }
 

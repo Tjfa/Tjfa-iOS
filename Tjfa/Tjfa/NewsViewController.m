@@ -12,8 +12,9 @@
 #import "NewsContentViewController.h"
 #import "MBProgressHUD+AppProgressView.h"
 #import "MJRefresh.h"
+#import "UIView+RefreshFooterView.h"
 
-@interface NewsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface NewsViewController () <UITableViewDataSource, UITableViewDelegate, MJRefreshBaseViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray* data;
 
@@ -21,15 +22,23 @@
 
 @property (nonatomic, strong) MBProgressHUD* loadProgress;
 
+@property (nonatomic, strong) UIView* loadMoreFooterView;
+
+@property (nonatomic, strong) UIView* noMoreFooterView;
+
+@property (nonatomic, strong) MJRefreshHeaderView* headerView;
+
 @end
 
-@implementation NewsViewController
+@implementation NewsViewController {
+    BOOL hasMore;
+}
+
 @synthesize data = _data;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[self.tableView add]
     // Do any additional setup after loading the view.
 }
 
@@ -78,6 +87,42 @@
     }
 }
 
+- (MJRefreshHeaderView*)headerView
+{
+    if (_headerView == nil) {
+        _headerView = [[MJRefreshHeaderView alloc] init];
+    }
+    return _headerView;
+}
+
+-(UIView*) loadMoreFooterView
+{
+    if (_loadMoreFooterView==nil){
+        _loadMoreFooterView=[UIView loadMoreFooterView];
+    }
+    return _loadMoreFooterView;
+}
+
+-(UIView*) noMoreFooterView
+{
+    if (_noMoreFooterView==nil){
+        _noMoreFooterView=[UIView noMoreFotterView];
+    }
+    return _noMoreFooterView;
+}
+
+- (void)setTableView:(UITableView*)tableView
+{
+    if (_tableView != tableView) {
+        _tableView = tableView;
+        self.headerView.scrollView = _tableView;
+        self.headerView.delegate = self;
+
+        hasMore = YES;
+        _tableView.tableFooterView = self.loadMoreFooterView;
+    }
+}
+
 - (MBProgressHUD*)loadProgress
 {
     if (_loadProgress == nil) {
@@ -103,6 +148,9 @@
 {
     NewsCell* cell = [tableView dequeueReusableCellWithIdentifier:@"newsCell"];
     [cell setCellWithNews:self.data[indexPath.row]];
+    if (hasMore && indexPath.row == self.data.count - 1) {
+        [self getEarlierNews:[self.data lastObject]];
+    }
     return cell;
 }
 
@@ -137,7 +185,60 @@
     UITableViewCell* cell = sender;
     NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
     NewsContentViewController* newsContentViewController = segue.destinationViewController;
+    [[NewsManager sharedNewsManager] markNewsToRead:self.data[indexPath.row]];
     newsContentViewController.news = self.data[indexPath.row];
+}
+
+#pragma mark - refresh
+
+- (void)getLatestNews
+{
+    [[NewsManager sharedNewsManager] getLatestNewsFromNetworkWithLimit:10 complete:^(NSArray* newsArray, NSError* error) {
+        [self.headerView endRefreshing];
+
+        if (error){
+        }
+        else{
+            self.data=[newsArray mutableCopy];
+            [self.tableView reloadData];
+            [self.headerView endRefreshing];
+        }
+    }];
+}
+
+- (void)getEarlierNews:(News*)lastNews
+{
+    if (lastNews == nil)
+        return;
+    [[NewsManager sharedNewsManager] getEarlierNewsFromNetworkWithId:lastNews.newsId andLimit:10 complete:^(NSArray* results, NSError* error) {
+        if (error){
+            
+        }else{
+            
+            if (results==nil || results.count==0){
+                self.tableView.tableFooterView=self.noMoreFooterView;
+                hasMore=NO;
+                return ;
+            }
+            
+            NSMutableArray* indexPaths=[[NSMutableArray alloc] init];
+            for (int i=0; i<results.count; i++){
+                [indexPaths addObject:[NSIndexPath indexPathForRow:self.data.count inSection:0]];
+                [self.data addObject:results[i]];
+            }
+            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationBottom];
+        }
+    }];
+}
+
+#pragma mark - MJRefresh delegate
+
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView*)refreshView
+{
+    if (refreshView == self.headerView) {
+        [self getLatestNews];
+    } else {
+    }
 }
 
 @end

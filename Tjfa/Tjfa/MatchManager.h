@@ -27,12 +27,18 @@
 /**
  *  根据搜索的时候 输入某个team的关键字  返回对应的match
  *
- *  @param teamName 软件 软
+ *  @param teamName 如 软件 软
  *
  *  @return 包涵这个teamName的所有match
  */
 - (NSArray*)getMatchesByTeamName:(NSString*)teamName competition:(Competition*)compeitition;
 
+/**
+ *  根据comptition 获取服务器对应的mathches
+ *
+ *  @param competition 传入的competition
+ *  @param complete    完成后的block
+ */
 - (void)getMatchesByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray* results, NSError* error))complete;
 
 @end

@@ -25,6 +25,7 @@
 + (UIView*)loadMoreFooterViewWithFrame:(CGRect)frame
 {
     UIActivityIndicatorView* activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    [activityIndicatorView startAnimating];
     UIView* loadMoreFooterView = [[UIView alloc] initWithFrame:frame];
     [loadMoreFooterView addSubview:activityIndicatorView];
     return loadMoreFooterView;

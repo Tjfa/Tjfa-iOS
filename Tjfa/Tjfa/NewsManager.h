@@ -38,12 +38,30 @@
  */
 - (void)getNewsContentWithNews:(News*)news complete:(void (^)(News* news, NSError* error))complete;
 
+/**
+ *  根据新闻是否已读，如果已读 标记为未读 如果未读 标记为已读
+ *
+ *  @param news 传入的news
+ */
 - (void)markNewsToggleRead:(News*)news;
 
+/**
+ *  标记新闻为未读
+ *
+ *  @param 传入的新闻
+ */
 - (void)markNewsToUnread:(News*)news;
 
+/**
+ *  标记为已读
+ *
+ *  @param news 传入的新闻
+ */
 - (void)markNewsToRead:(News*)news;
 
+/**
+ *  标记所有新闻为已读
+ */
 - (void)markAllNewsToRead;
 
 @end
