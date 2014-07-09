@@ -8,7 +8,8 @@
 
 #import "MatchListViewController.h"
 #import "CompetitionManager.h"
-#import <MBProgressHUD.h>
+#import "UIView+RefreshFooterView.h"
+#import "MBProgressHUD+AppProgressView.h"
 
 @interface MatchListViewController () {
     MJRefreshHeaderView* header;
@@ -20,6 +21,8 @@
 }
 @property (nonatomic, strong) NSMutableArray* durationList;
 @property (nonatomic, strong) NSMutableArray* competionList;
+
+@property (nonatomic, strong) MBProgressHUD* progressView;
 
 @end
 
@@ -65,22 +68,35 @@
     //    footer.scrollView = self.tableView;
 
     // initial has more table footer view
-    CGRect footerRect = CGRectMake(0, 0, 320, 40);
-    UILabel* tableFooter = [[UILabel alloc] initWithFrame:footerRect];
-    tableFooter.textColor = [UIColor whiteColor];
-    tableFooter.backgroundColor = [UIColor lightTextColor];
-    tableFooter.opaque = YES;
-    tableFooter.font = [UIFont boldSystemFontOfSize:15];
-    tableFooter.text = @"加载中...";
-    loadMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
-    [loadMoreFooterView addSubview:tableFooter];
+    //    CGRect footerRect = CGRectMake(0, 0, 320, 40);
+    //    UILabel* tableFooter = [[UILabel alloc] initWithFrame:footerRect];
+    //    tableFooter.textColor = [UIColor whiteColor];
+    //    tableFooter.backgroundColor = [UIColor lightTextColor];
+    //    tableFooter.opaque = YES;
+    //    tableFooter.font = [UIFont boldSystemFontOfSize:15];
+    //    tableFooter.text = @"加载中...";
+    //loadMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
+    //[loadMoreFooterView addSubview:tableFooter];
+    loadMoreFooterView = [UIView loadMoreFooterView];
 
     // initial no more table footer view
-    tableFooter.text = @"没有更多了";
-    noMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
-    [noMoreFooterView addSubview:tableFooter];
+    //tableFooter.text = @"没有更多了";
+    //noMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
+    //[noMoreFooterView addSubview:tableFooter];
+    noMoreFooterView = [UIView noMoreFotterView];
 
     [self getLocalData];
+}
+
+#pragma mark - progress view
+
+- (MBProgressHUD*)progressView
+{
+    if (_progressView == nil) {
+        _progressView = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
+        [self.view addSubview:_progressView];
+    }
+    return _progressView;
 }
 
 - (void)didReceiveMemoryWarning
@@ -156,7 +172,8 @@
             // get latest server data & remove all old table data
             [self handleCompetitionDataList:results resetSign:true];
             // close progress view
-            [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+            //[MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+            [self.progressView removeFromSuperview];
         }
         
         // 关闭上拉下拉刷新
@@ -178,9 +195,12 @@
     // check local data count
     if ([results count] == 0) {
         // initial hud progress view
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-        hud.labelText = @"加载中";
-        
+        //MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        // MBProgressHUD* hud=[MBProgressHUD ]
+        //hud.labelText = @"加载中";
+
+        [self.progressView show:YES];
+
         // local data is empty
         [self dropdownRefresh];
     } else {
@@ -194,7 +214,7 @@
 {
     // find the last competition we have
     Competition* lastCompetition = [[[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]] lastObject];
-    
+
     // check if last competition is null
     if (lastCompetition == nil) {
         // can not get more data using last object.
@@ -202,7 +222,7 @@
         self.tableView.tableFooterView = noMoreFooterView;
     } else {
         // can get more data using last object.
-        
+
         // get more data from server
         [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:[lastCompetition competitionId] withType:@(1) limit:10 complete:^(NSArray* results, NSError* error) {
             

@@ -71,7 +71,8 @@ NSString* serverUrlStr = @"http://192.168.112.73/tjfa/";
                 });
             }else{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    complete(nil, nil);
+                    NSError* error=[[NSError alloc] init];
+                    complete(nil, error);
                 });
             }
     }

@@ -7,7 +7,6 @@
 //
 
 #import "NewsManager.h"
-#import "NSArray+ArrayLimit.h"
 #import "NetworkClient.h"
 
 @implementation NewsManager

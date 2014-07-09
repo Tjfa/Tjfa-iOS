@@ -23,9 +23,9 @@
 		246753C0196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753BF196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.m */; };
 		2495BA2719690C1F009BB60F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2619690C1F009BB60F /* NewsViewController.m */; };
 		2495BA2A19691E28009BB60F /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2919691E28009BB60F /* NewsCell.m */; };
+		2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495FA0C196D005C00319872 /* UIView+RefreshFooterView.m */; };
 		249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67718E16DDE0084DDBB /* CompetitionManager.m */; };
 		249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F143F195D6FBB0038DF42 /* NewsManager.m */; };
-		249F1444195D71A90038DF42 /* NSArray+ArrayLimit.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F1443195D71A90038DF42 /* NSArray+ArrayLimit.m */; };
 		24C6FE4B195E8574008B594C /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE41195E8574008B594C /* Player.m */; };
 		24C6FE4C195E8574008B594C /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE45195E8574008B594C /* Match.m */; };
 		24C6FE4D195E8574008B594C /* Competition.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE46195E8574008B594C /* Competition.m */; };
@@ -102,12 +102,12 @@
 		2495BA2619690C1F009BB60F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		2495BA2819691E28009BB60F /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
 		2495BA2919691E28009BB60F /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
+		2495FA0B196D005C00319872 /* UIView+RefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RefreshFooterView.h"; sourceTree = "<group>"; };
+		2495FA0C196D005C00319872 /* UIView+RefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RefreshFooterView.m"; sourceTree = "<group>"; };
 		249CF67618E16DDE0084DDBB /* CompetitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionManager.h; sourceTree = "<group>"; };
 		249CF67718E16DDE0084DDBB /* CompetitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionManager.m; sourceTree = "<group>"; };
 		249F143E195D6FBB0038DF42 /* NewsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsManager.h; sourceTree = "<group>"; };
 		249F143F195D6FBB0038DF42 /* NewsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsManager.m; sourceTree = "<group>"; };
-		249F1442195D71A90038DF42 /* NSArray+ArrayLimit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+ArrayLimit.h"; sourceTree = "<group>"; };
-		249F1443195D71A90038DF42 /* NSArray+ArrayLimit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+ArrayLimit.m"; sourceTree = "<group>"; };
 		24C6FE41195E8574008B594C /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		24C6FE42195E8574008B594C /* Competition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Competition.h; sourceTree = "<group>"; };
 		24C6FE43195E8574008B594C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -297,6 +297,15 @@
 			name = News;
 			sourceTree = "<group>";
 		};
+		2495FA0A196CFF6A00319872 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				2495FA0B196D005C00319872 /* UIView+RefreshFooterView.h */,
+				2495FA0C196D005C00319872 /* UIView+RefreshFooterView.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
 		249CF66518E16A840084DDBB /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,8 +347,6 @@
 			children = (
 				24CECBEF18E27F5300D43E0D /* NSDate+Date2Str.h */,
 				24CECBF018E27F5300D43E0D /* NSDate+Date2Str.m */,
-				249F1442195D71A90038DF42 /* NSArray+ArrayLimit.h */,
-				249F1443195D71A90038DF42 /* NSArray+ArrayLimit.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -468,6 +475,7 @@
 		ADEDA1E3195FED38009B8D20 /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
+				2495FA0A196CFF6A00319872 /* Category */,
 				ADEDA1E4195FED5C009B8D20 /* MJRefresh.bundle */,
 				ADEDA1E5195FED5C009B8D20 /* MJRefresh.h */,
 				ADEDA1E6195FED5C009B8D20 /* MJRefreshBaseView.h */,
@@ -629,6 +637,7 @@
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
 				24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */,
 				249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */,
+				2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */,
 				246753C0196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.m in Sources */,
 				2440F6DB195F1E4A00E00A70 /* AboutDeveloperViewController.m in Sources */,
 				2440F6D8195F1A0300E00A70 /* Developer.m in Sources */,
@@ -637,7 +646,6 @@
 				240099F9196024BE0036EFF4 /* AppInfo.m in Sources */,
 				24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */,
 				24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */,
-				249F1444195D71A90038DF42 /* NSArray+ArrayLimit.m in Sources */,
 				240AE6D0195EC52300F7820D /* DashboardViewController.m in Sources */,
 				240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */,
 				24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */,

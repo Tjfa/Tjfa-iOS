@@ -10,7 +10,8 @@
 #import "NewsManager.h"
 #import "NewsCell.h"
 #import "NewsContentViewController.h"
-#import <MBProgressHUD.h>
+#import "MBProgressHUD+AppProgressView.h"
+#import "MJRefresh.h"
 
 @interface NewsViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -28,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //[self.tableView add]
     // Do any additional setup after loading the view.
 }
 
@@ -79,9 +81,8 @@
 - (MBProgressHUD*)loadProgress
 {
     if (_loadProgress == nil) {
-        _loadProgress = [[MBProgressHUD alloc] initWithView:self.view];
+        _loadProgress = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
         [self.view addSubview:_loadProgress];
-        _loadProgress.labelText = @"加载中...";
     }
     return _loadProgress;
 }
