@@ -39,6 +39,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (self.data.count == 0) {
+        [self refreshLatestNewsWithProgress:YES];
+    }
     // Do any additional setup after loading the view.
 }
 
@@ -46,7 +49,7 @@
 {
     if (progress) {
         [self.loadProgress show:YES];
-        self.tableView.hidden = YES;
+          self.tableView.hidden = YES;
     }
 
     __weak NewsViewController* weakSelf = self;
@@ -72,9 +75,6 @@
 {
     if (_data == nil) {
         _data = [[[NewsManager sharedNewsManager] getNewsFromCoreData] mutableCopy];
-        if (_data.count == 0) {
-            [self refreshLatestNewsWithProgress:YES];
-        }
     }
     return _data;
 }
@@ -95,18 +95,18 @@
     return _headerView;
 }
 
--(UIView*) loadMoreFooterView
+- (UIView*)loadMoreFooterView
 {
-    if (_loadMoreFooterView==nil){
-        _loadMoreFooterView=[UIView loadMoreFooterView];
+    if (_loadMoreFooterView == nil) {
+        _loadMoreFooterView = [UIView loadMoreFooterView];
     }
     return _loadMoreFooterView;
 }
 
--(UIView*) noMoreFooterView
+- (UIView*)noMoreFooterView
 {
-    if (_noMoreFooterView==nil){
-        _noMoreFooterView=[UIView noMoreFotterView];
+    if (_noMoreFooterView == nil) {
+        _noMoreFooterView = [UIView noMoreFotterView];
     }
     return _noMoreFooterView;
 }
@@ -227,7 +227,6 @@
                 [self.data addObject:results[i]];
             }
             [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
-           // [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
         }
     }];
 }

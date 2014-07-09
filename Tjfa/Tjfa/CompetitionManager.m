@@ -25,10 +25,7 @@
 
 - (void)clearAllCompetitions
 {
-    NSArray* competitions = [Competition MR_findAll];
-    for (Competition* obj in competitions) {
-        [obj MR_deleteEntity];
-    }
+    [Competition MR_truncateAll];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 

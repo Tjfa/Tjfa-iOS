@@ -64,4 +64,9 @@
  */
 - (void)markAllNewsToRead;
 
+/**
+ *  清楚本地news的数据
+ */
+- (void)clearAllNews;
+
 @end

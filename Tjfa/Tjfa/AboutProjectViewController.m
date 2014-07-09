@@ -126,8 +126,11 @@
         mbProgressHub.labelText = @"清除中。。请稍候";
 
         __weak AboutProjectViewController* weakSelf = self;
+
         [mbProgressHub showAnimated:YES whileExecutingBlock:^(void) {
-            [[DatabaseManager sharedDatabaseManager] clearAllData];
+            dispatch_async(dispatch_get_main_queue(), ^(){
+                [[DatabaseManager sharedDatabaseManager] clearAllData];
+            });
         } completionBlock:^() {
             
             MBProgressHUD* finishProgress=[[MBProgressHUD alloc] initWithView:self.parentViewController.view.superview.superview];
