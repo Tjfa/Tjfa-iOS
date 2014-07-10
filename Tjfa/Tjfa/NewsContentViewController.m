@@ -25,10 +25,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.title = self.news.title;
+
+    self.navigationItem.title = self.news.title;
 
     [self.loadProgress show:YES];
-
     [self loadContent];
 }
 

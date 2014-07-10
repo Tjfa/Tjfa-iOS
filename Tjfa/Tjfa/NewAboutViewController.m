@@ -1,36 +1,34 @@
 //
-//  AboutDeveloperViewController.m
+//  NewAboutViewController.m
 //  Tjfa
 //
-//  Created by 邱峰 on 6/29/14.
+//  Created by 邱峰 on 7/10/14.
 //  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
-#import "AboutDeveloperViewController.h"
+#import "NewAboutViewController.h"
 #import "Developer.h"
+#import "UIColor+AppColor.h"
+#import "AboutManager.h"
 #import <iCarousel.h>
 
-@interface AboutDeveloperViewController () <iCarouselDataSource, iCarouselDelegate>
+@interface NewAboutViewController ()
+
+@property (nonatomic, weak) IBOutlet iCarousel* carouselView;
+
+@property (nonatomic, weak) IBOutlet UILabel* nameLabel;
 
 @property (nonatomic, strong) NSMutableArray* data;
-@property (weak, nonatomic) IBOutlet iCarousel* carouselView;
-@property (weak, nonatomic) IBOutlet UILabel* nameLabel;
 
 @end
 
-@implementation AboutDeveloperViewController
-
+@implementation NewAboutViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor appBackgroundColor];
     // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSMutableArray*)data
@@ -56,6 +54,13 @@
     }
 }
 
+- (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView* view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
 #pragma mark iCarousel methods
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel*)carousel
@@ -75,14 +80,9 @@
     if (view == nil) {
         Developer* developer = self.data[index];
 
-        CGFloat size = 250;
-        CGFloat imageSize = 160;
-        CGFloat yPosition = 50;
-        if (!iPhone5) {
-            size = 160;
-            imageSize = 130;
-            yPosition = 20;
-        }
+        CGFloat size = 160;
+        CGFloat imageSize = 130;
+        CGFloat yPosition = 10;
 
         view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size, size)];
 
@@ -103,11 +103,7 @@
 
 - (CGFloat)carouselItemWidth:(iCarousel*)carousel
 {
-    //usually this should be slightly wider than the item views
-    if (iPhone5)
-        return 250;
-    else
-        return 180;
+    return 180;
 }
 
 - (CATransform3D)carousel:(iCarousel*)_carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
@@ -147,6 +143,51 @@
     int index = (int)round(carousel.scrollOffset);
     Developer* developer = self.data[index % self.data.count];
     self.nameLabel.text = developer.name;
+}
+
+#pragma mark - tableView delegate & select action
+
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell.textLabel.text isEqualToString:@"为我评分"]) {
+        [self evaluate];
+    } else if ([cell.textLabel.text isEqualToString:@"问题与反馈"]) {
+        [self gotoSuggestion];
+    } else if ([cell.textLabel.text isEqualToString:@"删除本地数据"]) {
+        [self deleteLocalData];
+    } else if ([cell.textLabel.text isEqualToString:@"告诉朋友"]) {
+        [self sharedWithMessage];
+    }
+}
+
+- (void)evaluate
+{
+    AboutManager* aboutManager = [AboutManager sharedAboutManager];
+    aboutManager.instanceController = self;
+    [aboutManager evaluate];
+}
+
+- (void)deleteLocalData
+{
+    AboutManager* aboutManager = [AboutManager sharedAboutManager];
+    aboutManager.instanceController = self;
+    [aboutManager deleteLocalData];
+}
+
+- (void)gotoSuggestion
+{
+    AboutManager* aboutManager = [AboutManager sharedAboutManager];
+    aboutManager.instanceController = self;
+    [aboutManager gotoSuggestion];
+}
+
+- (void)sharedWithMessage
+{
+    AboutManager* aboutManager = [AboutManager sharedAboutManager];
+    aboutManager.instanceController = self;
+    [aboutManager sharedWithMessage];
 }
 
 @end

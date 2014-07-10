@@ -7,6 +7,7 @@
 //
 
 #import "UIView+RefreshFooterView.h"
+#import "UIColor+AppColor.h"
 
 @implementation UIView (RefreshFooterView)
 
@@ -26,8 +27,9 @@
 {
     UIActivityIndicatorView* activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     [activityIndicatorView startAnimating];
-    activityIndicatorView.center=CGPointMake(frame.size.width/2, frame.size.height/2);
+    activityIndicatorView.center = CGPointMake(frame.size.width / 2, frame.size.height / 2);
     UIView* loadMoreFooterView = [[UIView alloc] initWithFrame:frame];
+    loadMoreFooterView.backgroundColor=[UIColor appBackgroundColor];
     [loadMoreFooterView addSubview:activityIndicatorView];
     return loadMoreFooterView;
 }
@@ -35,6 +37,7 @@
 + (UIView*)noMoreFotterViewWithFrame:(CGRect)frame
 {
     UIView* loadMoreFooterView = [[UIView alloc] initWithFrame:frame];
+    loadMoreFooterView.backgroundColor=[UIColor appBackgroundColor];
     UILabel* label = [[UILabel alloc] initWithFrame:frame];
     label.text = @"没有更多了";
     [loadMoreFooterView addSubview:label];

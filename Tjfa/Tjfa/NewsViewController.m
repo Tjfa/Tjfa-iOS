@@ -49,7 +49,7 @@
 {
     if (progress) {
         [self.loadProgress show:YES];
-          self.tableView.hidden = YES;
+        self.tableView.hidden = YES;
     }
 
     __weak NewsViewController* weakSelf = self;

@@ -210,8 +210,9 @@ const CGFloat dashboardButtonSize = 100;
 {
     NSLog(@"setting click");
     [self closeDashboardCellUserInterface];
-    UIViewController* newsController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingController"];
-    [self hideWithAnimateSynCompleteToController:newsController];
+    // UIViewController* settingController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingController"];
+    UIViewController* settingController = [self.storyboard instantiateViewControllerWithIdentifier:@"newAbout"];
+    [self hideWithAnimateSynCompleteToController:settingController];
 }
 
 #pragma mark - Navigation
