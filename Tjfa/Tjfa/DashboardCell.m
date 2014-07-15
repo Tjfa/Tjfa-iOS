@@ -35,7 +35,7 @@
             dashBoardFrame = CGRectMake([self widthSpace], 0, size, size);
         }
         self.dashboardButton = [[DashboardButton alloc] initWithFrame:dashBoardFrame andImage:image andTarget:target action:action];
-        self.dashboardButton.layer.anchorPoint = CGPointMake(0.5, 0.5);
+        //self.dashboardButton.layer.anchorPoint = CGPointMake(0.5, 0.5);
         [self addSubview:self.dashboardButton];
 
 #pragma mark -  label
@@ -54,8 +54,6 @@
         }
         self.nameLable.frame = nameLableFrame;
         [self addSubview:self.nameLable];
-
-        self.backgroundColor = [UIColor appBackgroundColor];
     }
     return self;
 }
