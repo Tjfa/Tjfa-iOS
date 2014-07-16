@@ -31,6 +31,16 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)getRandomArray:(NSMutableArray*)developerArray
+{
+    for (int i = 0; i < developerArray.count; i++) {
+        int randomNum = arc4random() % developerArray.count;
+        Developer* obj = developerArray[i];
+        [developerArray replaceObjectAtIndex:i withObject:developerArray[randomNum]];
+        [developerArray replaceObjectAtIndex:randomNum withObject:obj];
+    }
+}
+
 - (NSMutableArray*)data
 {
     if (_data == nil) {
@@ -41,6 +51,7 @@
             Developer* developer = [[Developer alloc] initWithName:name[i] imageName:imageName[i]];
             [_data addObject:developer];
         }
+        [self getRandomArray:_data];
     }
     return _data;
 }

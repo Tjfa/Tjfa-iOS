@@ -1,17 +1,17 @@
 //
-//  MatchListViewController.m
+//  CompetitionViewController.m
 //  Tjfa
 //
 //  Created by JackYu on 6/29/14.
 //  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
-#import "MatchListViewController.h"
+#import "CompetitionViewController.h"
 #import "CompetitionManager.h"
 #import "UIView+RefreshFooterView.h"
 #import "MBProgressHUD+AppProgressView.h"
 
-@interface MatchListViewController () {
+@interface CompetitionViewController () {
     MJRefreshHeaderView* header;
     //    MJRefreshFooterView *footer;
     BOOL hasMore;
@@ -26,7 +26,7 @@
 
 @end
 
-@implementation MatchListViewController
+@implementation CompetitionViewController
 
 - (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 {
@@ -122,10 +122,10 @@
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    static NSString* matchListTableViewIdentifier = @"MatchListTableViewIdentifier";
-    UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:matchListTableViewIdentifier];
+    static NSString* competitionTableViewIdentifier = @"CompetitionTableViewIdentifier";
+    UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:competitionTableViewIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:matchListTableViewIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:competitionTableViewIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     cell.textLabel.text = [[self.competionList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];

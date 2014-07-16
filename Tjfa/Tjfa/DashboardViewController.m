@@ -8,7 +8,7 @@
 
 #import "DashboardViewController.h"
 #import "DashboardCell.h"
-#import "MatchListViewController.h"
+#import "CompetitionViewController.h"
 
 @interface DashboardViewController () <UINavigationControllerDelegate>
 
@@ -183,7 +183,7 @@ const CGFloat dashboardButtonSize = 100;
 {
     NSLog(@"benbu click");
     [self closeDashboardCellUserInterface];
-    MatchListViewController* benbuController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
+    CompetitionViewController* benbuController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
     [benbuController setCampusType:1];
     [self hideWithAnimateSynCompleteToController:benbuController];
 }
@@ -192,7 +192,7 @@ const CGFloat dashboardButtonSize = 100;
 {
     NSLog(@"jiading click");
     [self closeDashboardCellUserInterface];
-    MatchListViewController* jiadingController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
+    CompetitionViewController* jiadingController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
     [jiadingController setCampusType:2];
     [self hideWithAnimateSynCompleteToController:jiadingController];
 }

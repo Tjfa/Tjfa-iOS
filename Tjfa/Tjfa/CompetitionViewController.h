@@ -1,5 +1,5 @@
 //
-//  MatchListViewController.h
+//  CompetitionViewController.h
 //  Tjfa
 //
 //  Created by JackYu on 6/29/14.
@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "MJRefresh.h"
 
-@interface MatchListViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, MJRefreshBaseViewDelegate>
+@interface CompetitionViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MJRefreshBaseViewDelegate>
 
 @property (readwrite, nonatomic) int campusType; // 1-本部 2-嘉定
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView* tableView;
 @end

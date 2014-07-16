@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Match List View Controller - 赛事-->
+        <!--Competition View Controller - 赛事-->
         <scene sceneID="bcI-eG-IlB">
             <objects>
-                <viewController storyboardIdentifier="competitionController" id="Enf-WD-3sQ" customClass="MatchListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="competitionController" id="Enf-WD-3sQ" customClass="CompetitionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q4j-9w-wEW"/>
                         <viewControllerLayoutGuide type="bottom" id="UVN-Mh-AIi"/>
@@ -602,7 +602,7 @@
     <resources>
         <image name="contect" width="100" height="100"/>
         <image name="dashboardBenbu" width="100" height="100"/>
-        <image name="qiufeng" width="150" height="150"/>
+        <image name="qiufeng" width="284" height="284"/>
         <image name="score" width="100" height="100"/>
         <image name="tell" width="100" height="100"/>
     </resources>
