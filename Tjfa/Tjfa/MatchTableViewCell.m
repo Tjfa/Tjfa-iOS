@@ -8,6 +8,7 @@
 
 #import "MatchTableViewCell.h"
 #import "Team.h"
+#import <UIImageView+AFNetworking.h>
 #import "NSDate+Date2Str.h"
 
 @interface MatchTableViewCell ()
@@ -49,6 +50,8 @@
     } else {
         self.isFinish.text = @"已结束";
     }
+    [self.emblemPathA setImageWithURL:[NSURL URLWithString:match.teamA.emblemPath] placeholderImage:[UIImage imageNamed:@"dashboardSetting"]];
+    [self.emblemPathB setImageWithURL:[NSURL URLWithString:match.teamB.emblemPath] placeholderImage:[UIImage imageNamed:@"dashboardSetting"]];
 }
 
 @end

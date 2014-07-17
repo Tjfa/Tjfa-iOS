@@ -9,6 +9,7 @@
 #import "MatchViewController.h"
 #import <RESideMenu.h>
 #import "MatchManager.h"
+#import "RootViewController.h"
 #import "MatchTableViewCell.h"
 
 @interface MatchViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -39,10 +40,12 @@
 - (NSArray*)data
 {
     if (_data == nil) {
-        _data = [[MatchManager sharedMatchManager] getMatchesByCompetitionFromCoreData:self.competition];
-        NSLog(@"%@",self.competition);
+
+        __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
+        _data = [[MatchManager sharedMatchManager] getMatchesByCompetitionFromCoreData:rootViewController.competition];
         __weak MatchViewController* weakSelf = self;
-        [[MatchManager sharedMatchManager] getMatchesByCompetitionFromNetwork:self.competition complete:^(NSArray* array, NSError* error) {
+
+        [[MatchManager sharedMatchManager] getMatchesByCompetitionFromNetwork:rootViewController.competition complete:^(NSArray* array, NSError* error) {
             if (error){
                 
             }
@@ -57,12 +60,12 @@
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return self.data.count;
 }
 
 - (NSInteger)tableView:(UITableView*)tableView sectionForSectionIndexTitle:(NSString*)title atIndex:(NSInteger)index
 {
-    return self.data.count;
+    return 1;
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath

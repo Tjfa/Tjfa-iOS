@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Competition.h"
 
 @interface MatchViewController : UIViewController
-
-@property (nonatomic, strong) Competition* competition;
 
 @end

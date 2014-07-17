@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <RESideMenu.h>
+#import "Competition.h"
 
 @interface RootViewController : RESideMenu
+
+@property (nonatomic, strong) Competition* competition;
 
 @end

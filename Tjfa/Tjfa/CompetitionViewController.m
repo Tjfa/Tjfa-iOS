@@ -11,7 +11,7 @@
 #import "UIView+RefreshFooterView.h"
 #import "MBProgressHUD+AppProgressView.h"
 #import "UIViewController+Identifier.h"
-#import "MatchViewController.h"
+#import "RootViewController.h"
 
 @interface CompetitionViewController () {
     MJRefreshHeaderView* header;
@@ -150,24 +150,17 @@
 }
 
 #warning 这里需要你调整。。。。。传递到下一个页面的competition
-- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
-    MatchViewController* matchViewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]];
+    NSIndexPath* indexPath = [self.tableView indexPathForCell:sender];
+
+    RootViewController* rootViewController = [segue destinationViewController];
     NSLog(@"%@", [Competition MR_findFirst]);
-    matchViewController.competition = [Competition MR_findFirst];
+    rootViewController.competition = [Competition MR_findFirst];
     //matchViewController.competition = self.competitionList[indexPath.section][indexPath.row];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 // 获取数据
 
@@ -318,12 +311,6 @@
     } else { // 加载更多数据
         [self pullupGetMore];
     }
-}
-
-#pragma mark -
-
-- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
-{
 }
 
 @end
