@@ -14,6 +14,13 @@
 
 + (NSString*)menuViewControllerIdentifier;
 
-+ (NSString*)playerViewControllerIdentifier;
++ (NSString*)scoreListViewControllerIdentifier;
 
++ (NSString*)yellowCardViewControllerIdentifier;
+
++ (NSString*)redCardViewControllerIdentifier;
+
++ (NSString*)groupScoreViewController;
+
++ (NSString*)teamViewController;
 @end

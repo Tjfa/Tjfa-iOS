@@ -20,9 +20,29 @@
     return @"MenuViewController";
 }
 
-+ (NSString*)playerViewControllerIdentifier
++ (NSString*)scoreListViewControllerIdentifier
 {
-    return @"PlayerViewController";
+    return @"ScoreListViewController";
+}
+
++ (NSString*)yellowCardViewControllerIdentifier
+{
+    return @"YellowCardViewController";
+}
+
++ (NSString*)redCardViewControllerIdentifier
+{
+    return @"RedCardViewController";
+}
+
++ (NSString*)groupScoreViewController
+{
+    return @"GroupScoreViewController";
+}
+
++ (NSString*)teamViewController
+{
+    return @"TeamViewController";
 }
 
 @end

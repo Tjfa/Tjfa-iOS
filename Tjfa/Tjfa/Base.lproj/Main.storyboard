@@ -56,13 +56,17 @@
                         <outlet property="tableView" destination="aza-C6-Jgo" id="bzO-UU-95o"/>
                         <segue destination="yo5-Kg-39o" kind="push" id="SlI-yl-omC"/>
                         <segue destination="E92-Je-I0X" kind="push" id="aZd-Zi-NPR"/>
+                        <segue destination="WHv-DK-A7B" kind="push" id="IQH-cT-RDM"/>
+                        <segue destination="mJG-Ru-EJF" kind="push" id="ko7-ed-w66"/>
+                        <segue destination="i3l-Ze-PMa" kind="push" id="uCd-pa-TvX"/>
+                        <segue destination="uaq-8B-4Kv" kind="push" id="EJr-MS-lAf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOu-XL-EcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1965" y="666"/>
+            <point key="canvasLocation" x="-311" y="-142"/>
         </scene>
-        <!--Match View Controller-->
+        <!--Match View Controller - 比赛-->
         <scene sceneID="bLs-BG-ysd">
             <objects>
                 <viewController storyboardIdentifier="MatchViewController" id="yo5-Kg-39o" customClass="MatchViewController" sceneMemberID="viewController">
@@ -83,16 +87,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jR0-nJ-rSj"/>
+                    <navigationItem key="navigationItem" title="比赛" id="jR0-nJ-rSj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DqU-4S-eJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2473" y="1410"/>
+            <point key="canvasLocation" x="137" y="92"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - 射手榜-->
         <scene sceneID="J0f-pJ-sdG">
             <objects>
-                <viewController storyboardIdentifier="PlayerViewController" id="E92-Je-I0X" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ScoreListViewController" id="E92-Je-I0X" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jrT-LC-LQw"/>
                         <viewControllerLayoutGuide type="bottom" id="LOC-m2-W8M"/>
@@ -110,13 +114,89 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6kn-sK-Wnd"/>
+                    <navigationItem key="navigationItem" title="射手榜" id="6kn-sK-Wnd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uzp-m8-gZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2850" y="1392"/>
+            <point key="canvasLocation" x="594" y="84"/>
         </scene>
-        <!--Root View Controller - 比赛-->
+        <!--View Controller - 黄牌纪录-->
+        <scene sceneID="W1b-hI-3Xh">
+            <objects>
+                <viewController storyboardIdentifier="YellowCardViewController" id="WHv-DK-A7B" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8LP-if-KbT"/>
+                        <viewControllerLayoutGuide type="bottom" id="GHJ-VR-zOe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oc4-sa-d47">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="黄牌纪录" id="qMp-4C-WTZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Us2-t3-vPf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1040" y="92"/>
+        </scene>
+        <!--View Controller - 红牌纪录-->
+        <scene sceneID="2dL-Nf-LK8">
+            <objects>
+                <viewController storyboardIdentifier="RedCardViewController&quot;" id="mJG-Ru-EJF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ipc-mn-l08"/>
+                        <viewControllerLayoutGuide type="bottom" id="ufT-Iz-dDh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jqP-Zs-P2U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="红牌纪录" id="rVz-nR-jvx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c9s-Im-atf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492" y="84"/>
+        </scene>
+        <!--View Controller - 小组积分-->
+        <scene sceneID="Cgk-td-h1A">
+            <objects>
+                <viewController storyboardIdentifier="GroupScoreViewController" id="i3l-Ze-PMa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xQE-MX-jcW"/>
+                        <viewControllerLayoutGuide type="bottom" id="QMc-gz-muu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eOs-i5-E9b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="小组积分" id="6Yt-9g-S0i"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q4b-IY-wya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="92"/>
+        </scene>
+        <!--View Controller - 参赛球队-->
+        <scene sceneID="hhr-Ey-lJ4">
+            <objects>
+                <viewController storyboardIdentifier="TeamViewController" id="uaq-8B-4Kv" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UNC-rg-w3b"/>
+                        <viewControllerLayoutGuide type="bottom" id="JH2-jo-ro6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JTx-Qv-rHK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="参赛球队" id="CbZ-h2-4tZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uby-Wf-ZEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2365" y="92"/>
+        </scene>
+        <!--Root View Controller - root-->
         <scene sceneID="cOH-9H-oaX">
             <objects>
                 <viewController id="Fj6-dn-b1P" customClass="RootViewController" sceneMemberID="viewController">
@@ -129,17 +209,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="比赛" id="acE-oP-9Xo"/>
+                    <navigationItem key="navigationItem" title="root" id="acE-oP-9Xo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXF-ZD-LIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2434" y="690"/>
+            <point key="canvasLocation" x="137" y="-677"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="ryQ-We-Pom">
             <objects>
                 <tableViewController storyboardIdentifier="MenuViewController" id="OYp-oK-Hjt" customClass="MenuViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="995-RO-Rky">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="995-RO-Rky">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -151,15 +231,15 @@
                         <sections>
                             <tableViewSection id="lGg-g7-VoG">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="73" id="Jju-LG-7wQ">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="73"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="Jju-LG-7wQ">
+                                        <rect key="frame" x="0.0" y="64" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jju-LG-7wQ" id="hIh-Bz-bhD">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="比赛" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgZ-7S-1C7">
-                                                    <rect key="frame" x="266" y="25" width="34" height="21"/>
+                                                    <rect key="frame" x="266" y="19" width="34" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
@@ -167,15 +247,15 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="90" id="fuJ-Se-e6L">
-                                        <rect key="frame" x="0.0" y="137" width="320" height="90"/>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="fuJ-Se-e6L">
+                                        <rect key="frame" x="0.0" y="124" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fuJ-Se-e6L" id="4mj-zr-GgA">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="球员" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oa-e2-2aP">
-                                                    <rect key="frame" x="258" y="34" width="34" height="21"/>
+                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="射手榜" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Oa-e2-2aP">
+                                                    <rect key="frame" x="249" y="19" width="51" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
@@ -183,12 +263,68 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="kR1-Z9-G3t">
-                                        <rect key="frame" x="0.0" y="227" width="320" height="44"/>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="kR1-Z9-G3t">
+                                        <rect key="frame" x="0.0" y="184" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kR1-Z9-G3t" id="Tnp-N9-p5N">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="黄牌统计" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXd-7T-40d">
+                                                    <rect key="frame" x="232" y="19" width="68" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="KUW-Tf-7cu">
+                                        <rect key="frame" x="0.0" y="244" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KUW-Tf-7cu" id="WL3-wa-gLz">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="红牌纪录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nai-VA-sOH">
+                                                    <rect key="frame" x="232" y="19" width="68" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="HwG-H9-M5y">
+                                        <rect key="frame" x="0.0" y="304" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HwG-H9-M5y" id="07y-Oa-I5O">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="小组积分" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgG-rY-EnF">
+                                                    <rect key="frame" x="232" y="19" width="68" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="tHG-0D-GLz">
+                                        <rect key="frame" x="0.0" y="364" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tHG-0D-GLz" id="Yho-8r-mKA">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="参赛球队" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZ6-qE-RAW">
+                                                    <rect key="frame" x="232" y="19" width="68" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -202,7 +338,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKY-Sw-ILE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2793" y="706"/>
+            <point key="canvasLocation" x="594" y="-685"/>
         </scene>
         <!--About View Controller - 关于-->
         <scene sceneID="Zgd-0J-7zE">
@@ -253,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O9q-eg-rTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2265" y="-11"/>
+            <point key="canvasLocation" x="-295" y="2517"/>
         </scene>
         <!--News-->
         <scene sceneID="Joq-ww-uJG">
@@ -332,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G8T-r8-qmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1913" y="-767"/>
+            <point key="canvasLocation" x="-303" y="833"/>
         </scene>
         <!--News Content View Controller - news content-->
         <scene sceneID="nX4-VQ-uRk">
@@ -366,7 +502,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K89-0V-ABT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421" y="-1281"/>
+            <point key="canvasLocation" x="149" y="815"/>
         </scene>
         <!--About Developer View Controller-->
         <scene sceneID="J05-Y2-LjP">
@@ -426,7 +562,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aO8-eg-rbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2646" y="-16"/>
+            <point key="canvasLocation" x="137" y="2512"/>
         </scene>
         <!--About Project View Controller-->
         <scene sceneID="h2B-K6-Ydo">
@@ -534,7 +670,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zN-2u-MN9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2673" y="357"/>
+            <point key="canvasLocation" x="149" y="2852"/>
         </scene>
         <!--New About View Controller - 关于-->
         <scene sceneID="erZ-IX-lU4">
@@ -682,7 +818,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYc-1y-5KS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1883" y="-16"/>
+            <point key="canvasLocation" x="-303" y="1704"/>
         </scene>
         <!--Dashboard View Controller - 首页-->
         <scene sceneID="m1H-Xn-pkh">
@@ -707,7 +843,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLK-19-kMb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="924" y="-470"/>
+            <point key="canvasLocation" x="-996" y="666"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="wdy-TH-c86">
@@ -735,7 +871,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XO1-aK-C8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-9" y="-522"/>
+            <point key="canvasLocation" x="-1937" y="666"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HaQ-ff-N5B">
@@ -753,7 +889,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u6Q-i9-b1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="398" y="-470"/>
+            <point key="canvasLocation" x="-1490" y="658"/>
         </scene>
     </scenes>
     <resources>
