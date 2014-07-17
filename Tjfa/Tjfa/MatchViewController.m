@@ -8,8 +8,14 @@
 
 #import "MatchViewController.h"
 #import <RESideMenu.h>
+#import "MatchManager.h"
+#import "MatchTableViewCell.h"
 
-@interface MatchViewController ()
+@interface MatchViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, weak) IBOutlet UITableView* tableView;
+
+@property (nonatomic, strong) NSArray* data;
 
 @end
 
@@ -30,15 +36,45 @@
 
 #pragma mark - getter & setter
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (NSArray*)data
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if (_data == nil) {
+        _data = [[MatchManager sharedMatchManager] getMatchesByCompetitionFromCoreData:self.competition];
+        NSLog(@"%@",self.competition);
+        __weak MatchViewController* weakSelf = self;
+        [[MatchManager sharedMatchManager] getMatchesByCompetitionFromNetwork:self.competition complete:^(NSArray* array, NSError* error) {
+            if (error){
+                
+            }
+            else{
+                weakSelf.data=array;
+                [weakSelf.tableView reloadData];
+            }
+        }];
+    }
+    return _data;
 }
-*/
+
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView*)tableView sectionForSectionIndexTitle:(NSString*)title atIndex:(NSInteger)index
+{
+    return self.data.count;
+}
+
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    static NSString* cellIdentifier = @"MatchTableViewCell";
+
+    MatchTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[MatchTableViewCell alloc] init];
+    }
+    [cell setCellWithMatch:self.data[indexPath.row]];
+    return cell;
+}
 
 @end

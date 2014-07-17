@@ -10,6 +10,8 @@
 #import "CompetitionManager.h"
 #import "UIView+RefreshFooterView.h"
 #import "MBProgressHUD+AppProgressView.h"
+#import "UIViewController+Identifier.h"
+#import "MatchViewController.h"
 
 @interface CompetitionViewController () {
     MJRefreshHeaderView* header;
@@ -20,7 +22,7 @@
     UIView* noMoreFooterView;
 }
 @property (nonatomic, strong) NSMutableArray* durationList;
-@property (nonatomic, strong) NSMutableArray* competionList;
+@property (nonatomic, strong) NSMutableArray* competitionList;
 
 @property (nonatomic, strong) MBProgressHUD* progressView;
 
@@ -51,12 +53,12 @@
 
     //    NSMutableArray *firstArray = [[NSMutableArray alloc] initWithArray:@[@"first",@"second",@"third"]];
     //    NSMutableArray *secondAray = [[NSMutableArray alloc]initWithArray:@[@"test1",@"test2",@"test3"]];
-    self.competionList = [[NSMutableArray alloc] init];
+    self.competitionList = [[NSMutableArray alloc] init];
     self.durationList = [[NSMutableArray alloc] init];
     //[self.durationList addObject:@"2014年第二学期"];
-    //[self.competionList addObject:firstArray];
+    //[self.competitionList addObject:firstArray];
     //[self.durationList addObject:@"2014年第一学期"];
-    //[self.competionList addObject:secondAray];
+    //[self.competitionList addObject:secondAray];
 
     // 注册上拉下拉刷新控件
     header = [[MJRefreshHeaderView alloc] init];
@@ -105,6 +107,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - tableview
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
     return [self.durationList count];
@@ -112,7 +116,7 @@
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.competionList objectAtIndex:section] count];
+    return [[self.competitionList objectAtIndex:section] count];
 }
 
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
@@ -128,7 +132,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:competitionTableViewIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    cell.textLabel.text = [[self.competionList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[self.competitionList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -136,14 +140,22 @@
 {
 
     // judge to load more.
-    if (hasMore && indexPath.section == [self.durationList count] - 1 && indexPath.row == [[self.competionList lastObject] count] - 1) {
+    if (hasMore && indexPath.section == [self.durationList count] - 1 && indexPath.row == [[self.competitionList lastObject] count] - 1) {
 
         self.tableView.tableFooterView = loadMoreFooterView;
 
         [self performSelectorInBackground:@selector(pullupGetMore) withObject:nil];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
+}
 
+#warning 这里需要你调整。。。。。传递到下一个页面的competition
+- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    MatchViewController* matchViewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]];
+    NSLog(@"%@", [Competition MR_findFirst]);
+    matchViewController.competition = [Competition MR_findFirst];
+    //matchViewController.competition = self.competitionList[indexPath.section][indexPath.row];
 }
 
 /*
@@ -188,7 +200,7 @@
 {
     //    // empty old table data
     //    [self.durationList removeAllObjects];
-    //    [self.competionList removeAllObjects];
+    //    [self.competitionList removeAllObjects];
 
     // load all local data
     NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]];
@@ -258,7 +270,7 @@
 
     if (sign) {
         hasMore = true;
-        [self.competionList removeAllObjects];
+        [self.competitionList removeAllObjects];
         [self.durationList removeAllObjects];
     }
 
@@ -268,7 +280,7 @@
             if (firstGroupSign) {
                 firstGroupSign = false;
             } else {
-                [self.competionList addObject:tempComptitionArray];
+                [self.competitionList addObject:tempComptitionArray];
                 [self.durationList addObject:[self convertTimetoString:tempCompetitionDuration]];
             }
             tempCompetitionDuration = [competition time];
@@ -278,7 +290,7 @@
         [tempComptitionArray addObject:[competition name]];
     }
 
-    [self.competionList addObject:tempComptitionArray];
+    [self.competitionList addObject:tempComptitionArray];
     [self.durationList addObject:[self convertTimetoString:tempCompetitionDuration]];
 
     [self.tableView reloadData];
@@ -306,6 +318,12 @@
     } else { // 加载更多数据
         [self pullupGetMore];
     }
+}
+
+#pragma mark -
+
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
+{
 }
 
 @end
