@@ -9,11 +9,13 @@
 #import "RootViewController.h"
 #import "UIViewController+Identifier.h"
 
-@interface RootViewController ()
+@interface RootViewController () <RESideMenuDelegate>
 
 @end
 
-@implementation RootViewController
+@implementation RootViewController {
+    BOOL isShow;
+}
 
 - (void)awakeFromNib
 {
@@ -22,6 +24,7 @@
     self.contentViewController = viewController;
     self.rightMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController menuViewControllerIdentifier]];
     //    self.rightMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenuController"];
+    self.delegate = self;
 }
 
 - (void)viewDidLoad
@@ -36,15 +39,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (IBAction)toggleMenu:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if (isShow) {
+        [self hideMenuViewController];
+    } else {
+        [self presentRightMenuViewController];
+    }
 }
-*/
+
+- (void)sideMenu:(RESideMenu*)sideMenu didShowMenuViewController:(UIViewController*)menuViewController
+{
+    isShow = YES;
+}
+
+- (void)sideMenu:(RESideMenu*)sideMenu didHideMenuViewController:(UIViewController*)menuViewController
+{
+    isShow = NO;
+}
 
 @end
