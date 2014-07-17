@@ -36,7 +36,7 @@
         [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]] animated:YES];
         [self.sideMenuViewController hideMenuViewController];
     } else if (indexPath.row == 1) {
-        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController playerViewControllerIdentifier]] animated:YES];
+        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController scoreListViewControllerIdentifier]] animated:YES];
         [self.sideMenuViewController hideMenuViewController];
     }
 }

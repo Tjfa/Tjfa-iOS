@@ -240,7 +240,7 @@
 		240AE6C9195EC1FA00F7820D /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
-				24C84BB51976960600980720 /* Match */,
+				24B8C1B91977B33300B2FAD0 /* CompetitionDetail */,
 				24686C77196E7B2D00D8CF86 /* Welcome */,
 				2495BA2419690BE5009BB60F /* News */,
 				ADEDA1DE195FDFF0009B8D20 /* Competition */,
@@ -436,16 +436,24 @@
 			name = Category;
 			sourceTree = "<group>";
 		};
-		24C84BB51976960600980720 /* Match */ = {
+		24B8C1B91977B33300B2FAD0 /* CompetitionDetail */ = {
 			isa = PBXGroup;
 			children = (
 				24C84BC81976D92600980720 /* Category */,
-				24C84BBC1976BC0E00980720 /* MatchViewController.h */,
-				24C84BBD1976BC0E00980720 /* MatchViewController.m */,
 				24C84BBF1976CADE00980720 /* RootViewController.h */,
 				24C84BC01976CADE00980720 /* RootViewController.m */,
 				24C84BC21976CFF700980720 /* MenuViewController.h */,
 				24C84BC31976CFF700980720 /* MenuViewController.m */,
+				24C84BB51976960600980720 /* Match */,
+			);
+			name = CompetitionDetail;
+			sourceTree = "<group>";
+		};
+		24C84BB51976960600980720 /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				24C84BBC1976BC0E00980720 /* MatchViewController.h */,
+				24C84BBD1976BC0E00980720 /* MatchViewController.m */,
 			);
 			name = Match;
 			sourceTree = "<group>";
