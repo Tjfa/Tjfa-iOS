@@ -9,6 +9,7 @@
 #import "DashboardViewController.h"
 #import "DashboardCell.h"
 #import "CompetitionViewController.h"
+#import "UIColor+AppColor.h"
 
 @interface DashboardViewController () <UINavigationControllerDelegate>
 
@@ -85,7 +86,7 @@ const CGFloat dashboardButtonSize = 100;
     if (_benbuView == nil) {
         CGRect cellFrame = CGRectMake(0, [self getBaseHeightForDashboardButton], self.view.frame.size.width, dashboardButtonSize);
 
-        _benbuView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardBenbu"] labelName:@"本部" direction:kRight target:self action:@selector(benbuClick:) dashboardSize:dashboardButtonSize];
+        _benbuView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardBenbu"] labelName:@"本部" color:[UIColor benbuItemColor] direction:kRight target:self action:@selector(benbuClick:) dashboardSize:dashboardButtonSize];
         [self.view addSubview:_benbuView];
     }
     return _benbuView;
@@ -97,7 +98,7 @@ const CGFloat dashboardButtonSize = 100;
 
         CGRect cellFrame = CGRectMake(0, [self getBaseHeightForDashboardButton] + [self heightSpace], self.view.frame.size.width, dashboardButtonSize);
 
-        _jiadingView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardJiading"] labelName:@"嘉定" direction:kLeft target:self action:@selector(jiadingClick:) dashboardSize:dashboardButtonSize];
+        _jiadingView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardJiading"] labelName:@"嘉定" color:[UIColor jiadingItemColor] direction:kLeft target:self action:@selector(jiadingClick:) dashboardSize:dashboardButtonSize];
         [self.view addSubview:_jiadingView];
     }
     return _jiadingView;
@@ -109,7 +110,7 @@ const CGFloat dashboardButtonSize = 100;
 
         CGRect cellFrame = CGRectMake(0, [self getBaseHeightForDashboardButton] + [self heightSpace] * 2, self.view.frame.size.width, dashboardButtonSize);
 
-        _newsView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardNews"] labelName:@"新闻" direction:kRight target:self action:@selector(newsClick:) dashboardSize:dashboardButtonSize];
+        _newsView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardNews"] labelName:@"新闻" color:[UIColor newsItemColor] direction:kRight target:self action:@selector(newsClick:) dashboardSize:dashboardButtonSize];
         [self.view addSubview:_newsView];
     }
     return _newsView;
@@ -120,7 +121,7 @@ const CGFloat dashboardButtonSize = 100;
     if (_settingView == nil) {
         CGRect cellFrame = CGRectMake(0, [self getBaseHeightForDashboardButton] + [self heightSpace] * 3, self.view.frame.size.width, dashboardButtonSize);
 
-        _settingView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardSetting"] labelName:@"关于" direction:kLeft target:self action:@selector(settingClick:) dashboardSize:dashboardButtonSize];
+        _settingView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardSetting"] labelName:@"关于" color:[UIColor aboutItemColor] direction:kLeft target:self action:@selector(settingClick:) dashboardSize:dashboardButtonSize];
         [self.view addSubview:_settingView];
     }
     return _settingView;

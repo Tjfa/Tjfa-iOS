@@ -20,7 +20,7 @@
     return 60;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame image:(UIImage*)image labelName:(NSString*)label direction:(DashboardLabelDirection)direction target:(id)target action:(SEL)action dashboardSize:(CGFloat)size
+- (instancetype)initWithFrame:(CGRect)frame image:(UIImage*)image labelName:(NSString*)label color:(UIColor*)color direction:(DashboardLabelDirection)direction target:(id)target action:(SEL)action dashboardSize:(CGFloat)size
 {
     if (self = [super initWithFrame:frame]) {
 
@@ -35,23 +35,26 @@
             dashBoardFrame = CGRectMake([self widthSpace], 0, size, size);
         }
         self.dashboardButton = [[DashboardButton alloc] initWithFrame:dashBoardFrame andImage:image andTarget:target action:action];
-        //self.dashboardButton.layer.anchorPoint = CGPointMake(0.5, 0.5);
         [self addSubview:self.dashboardButton];
 
 #pragma mark -  label
-        self.nameLable = [[UILabel alloc] init];
-        self.nameLable.text = label;
+        self.nameLable = [UIButton buttonWithType:UIButtonTypeSystem];
+        [self.nameLable setTitleColor:color forState:UIControlStateNormal];
+        self.nameLable.titleLabel.font=[UIFont systemFontOfSize:30];
+        [self.nameLable setTitle:label forState:UIControlStateNormal];
+        [self.nameLable addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
 
         if (direction == kLeft) {
             nameLableFrame = CGRectMake([self widthSpace], 0, size, size);
-            self.nameLable.textAlignment = NSTextAlignmentLeft;
+            self.nameLable.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
             animateFrameCache = CGRectMake(nameLableFrame.origin.x + 10, nameLableFrame.origin.y, nameLableFrame.size.width, nameLableFrame.size.height);
 
         } else {
             nameLableFrame = CGRectMake(frame.size.width - 100 - [self widthSpace], 0, size, size);
-            self.nameLable.textAlignment = NSTextAlignmentRight;
+            self.nameLable.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
             animateFrameCache = CGRectMake(nameLableFrame.origin.x - 10, nameLableFrame.origin.y, nameLableFrame.size.width, nameLableFrame.size.height);
         }
+        self.nameLable.exclusiveTouch = YES;
         self.nameLable.frame = nameLableFrame;
         [self addSubview:self.nameLable];
     }
