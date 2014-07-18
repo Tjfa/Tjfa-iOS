@@ -11,20 +11,33 @@
 #import "MatchManager.h"
 #import "RootViewController.h"
 #import "MatchTableViewCell.h"
+#import "MBProgressHUD+AppProgressView.h"
+#import "UIAlertView+NetWorkErrorView.h"
+#import "MJRefresh.h"
 
-@interface MatchViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MatchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, MJRefreshBaseViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView* tableView;
 
+@property (nonatomic, weak) IBOutlet UISearchBar* searchBar;
+
 @property (nonatomic, strong) NSArray* data;
+
+@property (nonatomic, strong) MBProgressHUD* mbProgressHud;
 
 @end
 
-@implementation MatchViewController
+@implementation MatchViewController {
+    MJRefreshHeaderView* header;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    header = [[MJRefreshHeaderView alloc] init];
+    header.delegate = self;
+    header.scrollView = self.tableView;
+
     // Do any additional setup after loading the view.
     //[self.sideMenuViewController presentLeftMenuViewController];
 }
@@ -37,23 +50,52 @@
 
 #pragma mark - getter & setter
 
+- (MBProgressHUD*)mbProgressHud
+{
+    if (_mbProgressHud == nil) {
+        _mbProgressHud = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
+        [self.view addSubview:_mbProgressHud];
+    }
+    return _mbProgressHud;
+}
+
+- (void)getLasterData:(BOOL)isFirstEnter
+{
+    __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
+    __weak MatchViewController* weakSelf = self;
+
+    if (isFirstEnter) {
+        [self.mbProgressHud show:YES];
+    }
+
+    [[MatchManager sharedMatchManager] getMatchesByCompetitionFromNetwork:rootViewController.competition complete:^(NSArray* array, NSError* error) {
+        if (error){
+            [[UIAlertView alertViewWithErrorNetWork] show];
+        }
+        else{
+            weakSelf.data=array;
+            [weakSelf.tableView reloadData];
+        }
+        
+        if (isFirstEnter) {
+            [self.mbProgressHud removeFromSuperview];
+        }
+        [header endRefreshing];
+
+        /**
+         *  search bar 交出firstresponder  防止出现搜索后 然后下拉刷新 searchbar没有清空的情况
+         */
+        self.searchBar.text=@"";
+        [self.searchBar resignFirstResponder];
+    }];
+}
+
 - (NSArray*)data
 {
     if (_data == nil) {
-
         __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
         _data = [[MatchManager sharedMatchManager] getMatchesByCompetitionFromCoreData:rootViewController.competition];
-        __weak MatchViewController* weakSelf = self;
-
-        [[MatchManager sharedMatchManager] getMatchesByCompetitionFromNetwork:rootViewController.competition complete:^(NSArray* array, NSError* error) {
-            if (error){
-                
-            }
-            else{
-                weakSelf.data=array;
-                [weakSelf.tableView reloadData];
-            }
-        }];
+        [self getLasterData:YES];
     }
     return _data;
 }
@@ -78,6 +120,31 @@
     }
     [cell setCellWithMatch:self.data[indexPath.row]];
     return cell;
+}
+
+#pragma mark - search bar
+
+- (void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)searchText
+{
+
+    NSString* text = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+    __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
+    if (text == nil || [text isEqualToString:@""]) {
+        self.data = [[MatchManager sharedMatchManager] getMatchesByCompetitionFromCoreData:rootViewController.competition];
+        [self.tableView reloadData];
+
+    } else {
+        self.data = [[MatchManager sharedMatchManager] getMatchesByTeamName:text competition:rootViewController.competition];
+        [self.tableView reloadData];
+    }
+}
+
+#pragma mark - mjrefresh
+
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView*)refreshView
+{
+    [self getLasterData:NO];
 }
 
 @end
