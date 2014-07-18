@@ -140,11 +140,22 @@
     }
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar*)searchBar
+{
+    [self.searchBar resignFirstResponder];
+}
+
 #pragma mark - mjrefresh
 
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView*)refreshView
 {
     [self getLasterData:NO];
+}
+
+#pragma mark - scroll
+- (void)scrollViewWillBeginDragging:(UIScrollView*)scrollView
+{
+    [self.searchBar resignFirstResponder];
 }
 
 @end
