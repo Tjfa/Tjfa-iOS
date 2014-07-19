@@ -17,8 +17,19 @@
 
 + (PlayerManager*)sharedPlayerManager;
 
+/**
+ *  获取某个队伍的球员
+ *
+ *  @param team <#team description#>
+ *
+ *  @return <#return value description#>
+ */
 - (NSArray*)getPlayersByTeamFromCoreData:(Team*)team;
 
 - (NSArray*)getPlayersByCompetitionFromCoreData:(Competition*)competition;
+
+- (NSArray*)getYellowCardListFromCoreData:(Competition*)competition;
+
+- (void)getYellowCardListFromNetworkCompetition:(Competition*)competition complete:(void (^)(NSArray* results, NSError* error))complete;
 
 @end
