@@ -12,7 +12,6 @@
 
 @interface MatchListViewController () {
     MJRefreshHeaderView* header;
-    //    MJRefreshFooterView *footer;
     BOOL hasMore;
 
     UIView* loadMoreFooterView;
@@ -29,7 +28,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
     }
     return self;
 }
@@ -46,25 +44,13 @@
 
     hasMore = true;
 
-    //    NSMutableArray *firstArray = [[NSMutableArray alloc] initWithArray:@[@"first",@"second",@"third"]];
-    //    NSMutableArray *secondAray = [[NSMutableArray alloc]initWithArray:@[@"test1",@"test2",@"test3"]];
     self.competionList = [[NSMutableArray alloc] init];
     self.durationList = [[NSMutableArray alloc] init];
-    //[self.durationList addObject:@"2014年第二学期"];
-    //[self.competionList addObject:firstArray];
-    //[self.durationList addObject:@"2014年第一学期"];
-    //[self.competionList addObject:secondAray];
 
-    // 注册上拉下拉刷新控件
     header = [[MJRefreshHeaderView alloc] init];
     header.delegate = self;
     header.scrollView = self.tableView;
 
-    //    footer = [[MJRefreshFooterView alloc] init];
-    //    footer.delegate = self;
-    //    footer.scrollView = self.tableView;
-
-    // initial has more table footer view
     CGRect footerRect = CGRectMake(0, 0, 320, 40);
     UILabel* tableFooter = [[UILabel alloc] initWithFrame:footerRect];
     tableFooter.textColor = [UIColor whiteColor];
@@ -278,8 +264,8 @@
 // 上下拉， 刷新以及下载更多
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView*)refreshView
 {
-    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"HH : mm : ss.SSS";
+//    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+//    formatter.dateFormat = @"HH : mm : ss.SSS";
     if (header == refreshView) { // 刷新数据
         [self dropdownRefresh];
     } else { // 加载更多数据
