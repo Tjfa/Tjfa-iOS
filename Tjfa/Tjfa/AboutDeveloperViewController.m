@@ -117,23 +117,23 @@
     return CATransform3DTranslate(transform, 0.0f, 0.0f, offset * self.carouselView.itemWidth);
 }
 
-- (CGFloat)carousel:(iCarousel*)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
-{
-    switch (option) {
-    case iCarouselOptionRadius: {
-        return value;
-    }
-    case iCarouselOptionTilt: {
-        return 0.8;
-    }
-    case iCarouselOptionSpacing: {
-        return 0.8;
-    }
-    default: {
-        return value;
-    }
-    }
-}
+//- (CGFloat)carousel:(iCarousel*)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
+//{
+//    switch (option) {
+//    case iCarouselOptionRadius: {
+//        return value;
+//    }
+//    case iCarouselOptionTilt: {
+//        return 0.8;
+//    }
+//    case iCarouselOptionSpacing: {
+//        return 0.8;
+//    }
+//    default: {
+//        return value;
+//    }
+//    }
+//}
 
 - (void)carouselDidScroll:(iCarousel*)carousel
 {
