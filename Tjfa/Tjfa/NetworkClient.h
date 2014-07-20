@@ -25,6 +25,6 @@
 /**
  *  complete block will call on main thread
  */
-- (NSURLSessionDataTask*)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parametersArray complete:(void (^)(id results, NSError* error))complete;
+- (NSURLSessionDataTask*)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parameters complete:(void (^)(id results, NSError* error))complete;
 
 @end

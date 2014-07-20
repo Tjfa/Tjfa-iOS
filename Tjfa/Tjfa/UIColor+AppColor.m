@@ -34,4 +34,24 @@
     return [UIColor colorWith16Number:0xebebeb];
 }
 
++ (UIColor*)benbuItemColor
+{
+    return [UIColor colorWith16Number:0x06ac8f];
+}
+
++ (UIColor*)jiadingItemColor
+{
+    return [UIColor colorWith16Number:0xcf9335];
+}
+
++ (UIColor*)newsItemColor
+{
+    return [UIColor colorWith16Number:0x23367f];
+}
+
++ (UIColor*)aboutItemColor
+{
+    return [UIColor colorWith16Number:0xb8125c];
+}
+
 @end

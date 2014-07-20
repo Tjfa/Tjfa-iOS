@@ -1,16 +1,19 @@
 //
-//  MatchListViewController.m
+//  CompetitionViewController.m
 //  Tjfa
 //
 //  Created by JackYu on 6/29/14.
 //  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
-#import "MatchListViewController.h"
+#import "CompetitionViewController.h"
 #import "CompetitionManager.h"
-#import <MBProgressHUD.h>
+#import "UIView+RefreshFooterView.h"
+#import "MBProgressHUD+AppProgressView.h"
+#import "UIViewController+Identifier.h"
+#import "RootViewController.h"
 
-@interface MatchListViewController () {
+@interface CompetitionViewController () {
     MJRefreshHeaderView* header;
     BOOL hasMore;
 
@@ -18,11 +21,13 @@
     UIView* noMoreFooterView;
 }
 @property (nonatomic, strong) NSMutableArray* durationList;
-@property (nonatomic, strong) NSMutableArray* competionList;
+@property (nonatomic, strong) NSMutableArray* competitionList;
+
+@property (nonatomic, strong) MBProgressHUD* progressView;
 
 @end
 
-@implementation MatchListViewController
+@implementation CompetitionViewController
 
 - (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 {
@@ -44,13 +49,25 @@
 
     hasMore = true;
 
+<<<<<<< HEAD:Tjfa/Tjfa/MatchListViewController.m
     self.competionList = [[NSMutableArray alloc] init];
     self.durationList = [[NSMutableArray alloc] init];
+=======
+    //    NSMutableArray *firstArray = [[NSMutableArray alloc] initWithArray:@[@"first",@"second",@"third"]];
+    //    NSMutableArray *secondAray = [[NSMutableArray alloc]initWithArray:@[@"test1",@"test2",@"test3"]];
+    self.competitionList = [[NSMutableArray alloc] init];
+    self.durationList = [[NSMutableArray alloc] init];
+    //[self.durationList addObject:@"2014年第二学期"];
+    //[self.competitionList addObject:firstArray];
+    //[self.durationList addObject:@"2014年第一学期"];
+    //[self.competitionList addObject:secondAray];
+>>>>>>> cd5df2fc5688a36648fd6c212e6030a8e615f72a:Tjfa/Tjfa/CompetitionViewController.m
 
     header = [[MJRefreshHeaderView alloc] init];
     header.delegate = self;
     header.scrollView = self.tableView;
 
+<<<<<<< HEAD:Tjfa/Tjfa/MatchListViewController.m
     CGRect footerRect = CGRectMake(0, 0, 320, 40);
     UILabel* tableFooter = [[UILabel alloc] initWithFrame:footerRect];
     tableFooter.textColor = [UIColor whiteColor];
@@ -60,13 +77,42 @@
     tableFooter.text = @"加载中...";
     loadMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
     [loadMoreFooterView addSubview:tableFooter];
+=======
+    //    footer = [[MJRefreshFooterView alloc] init];
+    //    footer.delegate = self;
+    //    footer.scrollView = self.tableView;
+
+    // initial has more table footer view
+    //    CGRect footerRect = CGRectMake(0, 0, 320, 40);
+    //    UILabel* tableFooter = [[UILabel alloc] initWithFrame:footerRect];
+    //    tableFooter.textColor = [UIColor whiteColor];
+    //    tableFooter.backgroundColor = [UIColor lightTextColor];
+    //    tableFooter.opaque = YES;
+    //    tableFooter.font = [UIFont boldSystemFontOfSize:15];
+    //    tableFooter.text = @"加载中...";
+    //loadMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
+    //[loadMoreFooterView addSubview:tableFooter];
+    loadMoreFooterView = [UIView loadMoreFooterView];
+>>>>>>> cd5df2fc5688a36648fd6c212e6030a8e615f72a:Tjfa/Tjfa/CompetitionViewController.m
 
     // initial no more table footer view
-    tableFooter.text = @"没有更多了";
-    noMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
-    [noMoreFooterView addSubview:tableFooter];
+    //tableFooter.text = @"没有更多了";
+    //noMoreFooterView = [[UIView alloc] initWithFrame:footerRect];
+    //[noMoreFooterView addSubview:tableFooter];
+    noMoreFooterView = [UIView noMoreFotterView];
 
     [self getLocalData];
+}
+
+#pragma mark - progress view
+
+- (MBProgressHUD*)progressView
+{
+    if (_progressView == nil) {
+        _progressView = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
+        [self.view addSubview:_progressView];
+    }
+    return _progressView;
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,6 +121,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - tableview
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
     return [self.durationList count];
@@ -82,7 +130,7 @@
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[self.competionList objectAtIndex:section] count];
+    return [[self.competitionList objectAtIndex:section] count];
 }
 
 - (NSString*)tableView:(UITableView*)tableView titleForHeaderInSection:(NSInteger)section
@@ -92,13 +140,13 @@
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    static NSString* matchListTableViewIdentifier = @"MatchListTableViewIdentifier";
-    UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:matchListTableViewIdentifier];
+    static NSString* competitionTableViewIdentifier = @"CompetitionTableViewIdentifier";
+    UITableViewCell* cell = [self.tableView dequeueReusableCellWithIdentifier:competitionTableViewIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:matchListTableViewIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:competitionTableViewIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    cell.textLabel.text = [[self.competionList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[self.competitionList objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -106,7 +154,7 @@
 {
 
     // judge to load more.
-    if (hasMore && indexPath.section == [self.durationList count] - 1 && indexPath.row == [[self.competionList lastObject] count] - 1) {
+    if (hasMore && indexPath.section == [self.durationList count] - 1 && indexPath.row == [[self.competitionList lastObject] count] - 1) {
 
         self.tableView.tableFooterView = loadMoreFooterView;
 
@@ -115,16 +163,18 @@
     }
 }
 
-/*
-#pragma mark - Navigation
+#warning 这里需要你调整。。。。。传递到下一个页面的competition
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSIndexPath* indexPath = [self.tableView indexPathForCell:sender];
+
+    RootViewController* rootViewController = [segue destinationViewController];
+    NSLog(@"%@", [Competition MR_findFirst]);
+    rootViewController.competition = [Competition MR_findFirst];
+    //matchViewController.competition = self.competitionList[indexPath.section][indexPath.row];
 }
-*/
 
 // 获取数据
 
@@ -134,7 +184,7 @@
 
     // request latest server data
     [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:[NSNumber numberWithInt:self.campusType] limit:10 complete:^(NSArray* results, NSError* error) {
-        
+        [self.progressView removeFromSuperview];
         if (error) {
             // something wrong
             NSLog(@"%@",error);
@@ -142,7 +192,8 @@
             // get latest server data & remove all old table data
             [self handleCompetitionDataList:results resetSign:true];
             // close progress view
-            [MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+            //[MBProgressHUD hideAllHUDsForView:self.navigationController.view animated:YES];
+            
         }
         
         // 关闭上拉下拉刷新
@@ -156,7 +207,7 @@
 {
     //    // empty old table data
     //    [self.durationList removeAllObjects];
-    //    [self.competionList removeAllObjects];
+    //    [self.competitionList removeAllObjects];
 
     // load all local data
     NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]];
@@ -164,9 +215,12 @@
     // check local data count
     if ([results count] == 0) {
         // initial hud progress view
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-        hud.labelText = @"加载中";
-        
+        //MBProgressHUD* hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        // MBProgressHUD* hud=[MBProgressHUD ]
+        //hud.labelText = @"加载中";
+
+        [self.progressView show:YES];
+
         // local data is empty
         [self dropdownRefresh];
     } else {
@@ -180,7 +234,7 @@
 {
     // find the last competition we have
     Competition* lastCompetition = [[[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:[NSNumber numberWithInt:self.campusType]] lastObject];
-    
+
     // check if last competition is null
     if (lastCompetition == nil) {
         // can not get more data using last object.
@@ -188,7 +242,7 @@
         self.tableView.tableFooterView = noMoreFooterView;
     } else {
         // can get more data using last object.
-        
+
         // get more data from server
         [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:[lastCompetition competitionId] withType:@(1) limit:10 complete:^(NSArray* results, NSError* error) {
             
@@ -223,7 +277,7 @@
 
     if (sign) {
         hasMore = true;
-        [self.competionList removeAllObjects];
+        [self.competitionList removeAllObjects];
         [self.durationList removeAllObjects];
     }
 
@@ -233,7 +287,7 @@
             if (firstGroupSign) {
                 firstGroupSign = false;
             } else {
-                [self.competionList addObject:tempComptitionArray];
+                [self.competitionList addObject:tempComptitionArray];
                 [self.durationList addObject:[self convertTimetoString:tempCompetitionDuration]];
             }
             tempCompetitionDuration = [competition time];
@@ -243,7 +297,7 @@
         [tempComptitionArray addObject:[competition name]];
     }
 
-    [self.competionList addObject:tempComptitionArray];
+    [self.competitionList addObject:tempComptitionArray];
     [self.durationList addObject:[self convertTimetoString:tempCompetitionDuration]];
 
     [self.tableView reloadData];

@@ -31,6 +31,11 @@
  */
 @property (nonatomic, retain) NSString* title;
 
+/**
+ *  该新闻是否阅读过 只在本地存在
+ */
+@property (nonatomic, retain) NSNumber* isRead;
+
 + (NSString*)idAttribute;
 
 /**

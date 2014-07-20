@@ -16,4 +16,6 @@
 
 + (NSString*)appId;
 
++ (NSString*)appVersion;
+
 @end

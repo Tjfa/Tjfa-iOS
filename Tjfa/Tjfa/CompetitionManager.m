@@ -25,10 +25,7 @@
 
 - (void)clearAllCompetitions
 {
-    NSArray* competitions = [Competition MR_findAll];
-    for (Competition* obj in competitions) {
-        [obj MR_deleteEntity];
-    }
+    [Competition MR_truncateAll];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
@@ -52,11 +49,13 @@
     NSDictionary* parameterDictionary = @{ @"type" : type,
                                            @"competitionId" : competitionId,
                                            @"limit" : @(limit) };
+
+    __weak CompetitionManager* weakSelf = self;
     [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient competitionAddress] withParameters:parameterDictionary complete:^(NSArray* results, NSError* error) {
             if (error){
                 complete(nil,error);
             }else{
-                results=[self insertCompetitionsWithArray:results];
+                results=[weakSelf insertCompetitionsWithArray:results];
                 complete(results,nil);
             }
     }];

@@ -7,6 +7,7 @@
 //
 
 #import "UIDevice+DeviceInfo.h"
+#import "AppInfo.h"
 
 @implementation UIDevice (DeviceInfo)
 
@@ -16,7 +17,8 @@
     NSDictionary* dictionary = @{ @"name" : device.name,
                                   @"systemName" : device.systemName,
                                   @"systemVersion" : device.systemVersion,
-                                  @"model" : device.model };
+                                  @"model" : device.model,
+                                  @"version" : [AppInfo appVersion] };
     return [dictionary description];
 }
 

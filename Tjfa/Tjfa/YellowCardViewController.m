@@ -1,20 +1,20 @@
 //
-//  MainViewController.m
+//  YellowCardViewController.m
 //  Tjfa
 //
-//  Created by 邱峰 on 6/27/14.
+//  Created by 邱峰 on 7/17/14.
 //  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "YellowCardViewController.h"
 
-@interface MainViewController ()
+@interface YellowCardViewController ()
 
 @end
 
-@implementation MainViewController
+@implementation YellowCardViewController
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {

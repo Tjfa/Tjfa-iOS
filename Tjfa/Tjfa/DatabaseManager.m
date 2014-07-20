@@ -9,6 +9,7 @@
 #import "DatabaseManager.h"
 
 #import "CompetitionManager.h"
+#import "NewsManager.h"
 
 @implementation DatabaseManager
 
@@ -24,6 +25,8 @@
 
 - (void)clearAllData
 {
+
+    [[NewsManager sharedNewsManager] clearAllNews];
     [[CompetitionManager sharedCompetitionManager] clearAllCompetitions];
 }
 

@@ -7,13 +7,12 @@
 //
 
 #import "NetworkClient.h"
+#import "UIAlertView+NetWorkErrorView.h"
 
 @implementation NetworkClient
 
-//NSString* serverUrlStr = @"http://10.0.1.35/TJFA/";
-
 //localhost in QiuFeng
-//NSString* serverUrlStr = @"http://10.0.1.3/tjfa/";
+//NSString* serverUrlStr = @"http://192.168.112.73/tjfa/";
 
 //word
 NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
@@ -72,7 +71,8 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
                 });
             }else{
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    complete(nil, nil);
+                    NSError* error=[[NSError alloc] init];
+                    complete(nil, error);
                 });
             }
     }

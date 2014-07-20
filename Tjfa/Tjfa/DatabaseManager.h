@@ -12,6 +12,9 @@
 
 + (DatabaseManager*)sharedDatabaseManager;
 
+/**
+ *  清楚所有的本地数据  在关于页面调用
+ */
 - (void)clearAllData;
 
 @end

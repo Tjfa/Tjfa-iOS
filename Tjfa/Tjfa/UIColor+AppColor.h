@@ -38,4 +38,12 @@
  */
 + (UIColor*)colorWith16Number:(int)number;
 
+/**
+ *  dashboard 上 4个字体的颜色
+ */
++ (UIColor*)benbuItemColor;
++ (UIColor*)jiadingItemColor;
++ (UIColor*)newsItemColor;
++ (UIColor*)aboutItemColor;
+
 @end

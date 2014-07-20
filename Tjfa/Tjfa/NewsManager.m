@@ -7,7 +7,6 @@
 //
 
 #import "NewsManager.h"
-#import "NSArray+ArrayLimit.h"
 #import "NetworkClient.h"
 
 @implementation NewsManager
@@ -50,11 +49,13 @@
         @"newsId" : newsId,
         @"limit" : @(limit),
     };
+
+    __weak NewsManager* weakSelf = self;
     [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsAddress] withParameters:parameters complete:^(NSArray* results, NSError* error) {
         if (error){
             complete(nil,error);
         }else{
-            results=[self insertNewsWithArray:results];
+            results=[weakSelf insertNewsWithArray:results];
             complete(results,error);
         }
     }];
@@ -72,22 +73,54 @@
 
     if (news.content == nil || [news.content isEqualToString:@""]) {
         NSDictionary* dictionary = @{ @"newId" : news.newsId };
-        [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSString* content, NSError* error) {
+        [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSDictionary* content, NSError* error) {
             if (error){
-                dispatch_sync(dispatch_get_main_queue(), ^(){
                     complete(nil,error);
-                });
             }else{
-                news.content=content;
+                news.content=content[@"content"];
                 [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-                dispatch_sync(dispatch_get_main_queue(), ^(){
                     complete(news,nil);
-                });
             }
         }];
     } else {
         complete(news, nil);
     }
+}
+
+- (void)markNewsToggleRead:(News*)news
+{
+    if ([news.isRead boolValue]) {
+        [self markNewsToUnread:news];
+    } else {
+        [self markNewsToRead:news];
+    }
+}
+
+- (void)markNewsToUnread:(News*)news
+{
+    news.isRead = @(NO);
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
+- (void)markNewsToRead:(News*)news
+{
+    news.isRead = @(YES);
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
+- (void)markAllNewsToRead
+{
+    NSArray* array = [News MR_findAll];
+    for (News* news in array) {
+        news.isRead = @(YES);
+    }
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
+- (void)clearAllNews
+{
+    [News MR_truncateAll];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 @end

@@ -15,6 +15,8 @@
 
 @property (nonatomic, weak) IBOutlet UILabel* dateLabel;
 
+@property (nonatomic, weak) IBOutlet UIView* markReadView;
+
 @end
 
 @implementation NewsCell
@@ -30,6 +32,12 @@
 {
     self.titleLabel.text = news.title;
     self.dateLabel.text = [news.date date2str];
+    if (![news.isRead boolValue]) {
+        self.markReadView.hidden = NO;
+        self.markReadView.layer.cornerRadius = self.markReadView.frame.size.width / 2;
+    } else {
+        self.markReadView.hidden = YES;
+    }
 }
 
 @end
