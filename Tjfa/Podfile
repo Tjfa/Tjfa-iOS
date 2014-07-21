@@ -1,7 +1,8 @@
 platform :ios, '7.0'
 
-pod 'MagicalRecord'
-pod 'AFNetworking'
-pod 'MBProgressHUD'
-pod 'iCarousel'
-pod 'RESideMenu'
+pod 'MagicalRecord' , '~> 2.2'
+pod 'AFNetworking' , '~> 2.3.1'
+pod 'MBProgressHUD' , '~> 0.8'
+pod 'iCarousel' , '~> 1.6.3'
+pod 'RESideMenu' , '~> 4.0.5'
+pod 'NewRelicAgent' , '~> 3.343'

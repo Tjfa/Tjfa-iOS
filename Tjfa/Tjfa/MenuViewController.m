@@ -23,21 +23,31 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#define MATCH_VIEW_CONTROLLER_INDEX 0
+#define SCORE_LIST_VIEW_CONTROLLER_INDEX 1
+#define YELLOW_CARD_VIEW_CONTROLLER_INDEX 2
+#define RED_CARD_VIEW_CONTROLLER_INDEX 3
+#define GROUP_SCORE_VIEW_CONTROLLER_INDEX 4
+#define TEAM_VIEW_CONTROLLER_INDEX 5
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row == 0) {
+    if (indexPath.row == MATCH_VIEW_CONTROLLER_INDEX) {
         [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]] animated:YES];
         [self.sideMenuViewController hideMenuViewController];
-    } else if (indexPath.row == 1) {
+    } else if (indexPath.row == SCORE_LIST_VIEW_CONTROLLER_INDEX) {
         [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController scoreListViewControllerIdentifier]] animated:YES];
         [self.sideMenuViewController hideMenuViewController];
+    } else if (indexPath.row == YELLOW_CARD_VIEW_CONTROLLER_INDEX) {
+        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController yellowCardViewControllerIdentifier]] animated:YES];
+        [self.sideMenuViewController hideMenuViewController];
+    } else if (indexPath.row == RED_CARD_VIEW_CONTROLLER_INDEX) {
+        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController redCardViewControllerIdentifier]] animated:YES];
+    } else if (indexPath.row == GROUP_SCORE_VIEW_CONTROLLER_INDEX) {
+        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController groupScoreViewController]] animated:YES];
+    } else if (indexPath.row == TEAM_VIEW_CONTROLLER_INDEX) {
+        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController teamViewController]] animated:YES];
     }
 }
 

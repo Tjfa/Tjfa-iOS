@@ -7,12 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import <NewRelic.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
     [MagicalRecord setupCoreDataStack];
+    [NewRelicAgent startWithApplicationToken:@"AA01c89510950c44d5eb52e03ed96dba90b59798e3"];
     // Override point for customization after application launch.
     return YES;
 }

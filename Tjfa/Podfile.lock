@@ -25,20 +25,23 @@ PODS:
     - MagicalRecord/Core
   - MagicalRecord/Core (2.2)
   - MBProgressHUD (0.8)
+  - NewRelicAgent (3.343)
   - RESideMenu (4.0.5)
 
 DEPENDENCIES:
-  - AFNetworking
-  - iCarousel
-  - MagicalRecord
-  - MBProgressHUD
-  - RESideMenu
+  - AFNetworking (~> 2.3.1)
+  - iCarousel (~> 1.6.3)
+  - MagicalRecord (~> 2.2)
+  - MBProgressHUD (~> 0.8)
+  - NewRelicAgent (~> 3.343)
+  - RESideMenu (~> 4.0.5)
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   iCarousel: 5a971e2e673f6791240d1c368980596f38220810
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+  NewRelicAgent: 95b45c10c8f53738fb8a65034e6d6ae72e90570f
   RESideMenu: 0a6f20a11412975d683fab9db2d255865d0aaeee
 
 COCOAPODS: 0.33.1
