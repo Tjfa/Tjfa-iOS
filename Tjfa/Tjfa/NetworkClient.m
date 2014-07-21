@@ -42,6 +42,11 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
     return @"match.php";
 }
 
++ (NSString*)playerAddress
+{
+    return @"player.php";
+}
+
 + (NetworkClient*)sharedNetworkClient
 {
     static NetworkClient* _networkClient = nil;

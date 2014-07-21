@@ -7,6 +7,7 @@
 //
 
 #import "PlayerManager.h"
+#import "NetworkClient.h"
 
 @implementation PlayerManager
 
@@ -35,6 +36,31 @@
     return [result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
         return [a.name compare:b.name];
     }];
+}
+
+- (void)getPlayersByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
+{
+    NSDictionary* dictionary = @{};
+    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient playerAddress] withParameters:dictionary complete:^(NSArray* results, NSError* error) {
+        if (error){
+            complete(nil,error);
+        }
+        else{
+            complete(results,nil);
+        }
+    }];
+}
+
+- (NSArray*)getPlayersByKey:(NSString*)key competition:(Competition*)competition
+{
+    NSArray* players = [self getPlayersByCompetitionFromCoreData:competition];
+    NSMutableArray* results = [[NSMutableArray alloc] init];
+    for (Player* player in players) {
+        if (player.name && [player.name rangeOfString:key].location != NSNotFound) {
+            [results addObject:player];
+        }
+    }
+    return results;
 }
 
 @end

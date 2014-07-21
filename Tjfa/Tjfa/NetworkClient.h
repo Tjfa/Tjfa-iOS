@@ -22,6 +22,8 @@
 
 + (NSString*)matchAdderss;
 
++ (NSString*)playerAddress;
+
 /**
  *  complete block will call on main thread
  */

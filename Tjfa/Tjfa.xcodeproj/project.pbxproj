@@ -47,6 +47,9 @@
 		24C84BC71976D92200980720 /* UIViewController+Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C84BC61976D92200980720 /* UIViewController+Identifier.m */; };
 		24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CECBF018E27F5300D43E0D /* NSDate+Date2Str.m */; };
 		24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CECC3318E2A3D700D43E0D /* NetworkClient.m */; };
+		24D42BC7197CD79A0069F224 /* RedCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D42BC6197CD79A0069F224 /* RedCardViewController.m */; };
+		24D42BCA197CDC200069F224 /* RedCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D42BC9197CDC200069F224 /* RedCardTableViewCell.m */; };
+		24D42BCD197D013F0069F224 /* CompetitionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D42BCC197D013F0069F224 /* CompetitionDetailViewController.m */; };
 		24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E58E7E18E7FC29007BFFD8 /* PlayerManager.m */; };
 		24E58E8C18E815C1007BFFD8 /* MatchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E58E8B18E815C1007BFFD8 /* MatchManager.m */; };
 		24F1D1E018E063E0007E2309 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1DF18E063E0007E2309 /* Foundation.framework */; };
@@ -163,6 +166,12 @@
 		24CECBF018E27F5300D43E0D /* NSDate+Date2Str.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Date2Str.m"; sourceTree = "<group>"; };
 		24CECC3218E2A3D700D43E0D /* NetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkClient.h; sourceTree = "<group>"; };
 		24CECC3318E2A3D700D43E0D /* NetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkClient.m; sourceTree = "<group>"; };
+		24D42BC5197CD79A0069F224 /* RedCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedCardViewController.h; sourceTree = "<group>"; };
+		24D42BC6197CD79A0069F224 /* RedCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedCardViewController.m; sourceTree = "<group>"; };
+		24D42BC8197CDC200069F224 /* RedCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedCardTableViewCell.h; sourceTree = "<group>"; };
+		24D42BC9197CDC200069F224 /* RedCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedCardTableViewCell.m; sourceTree = "<group>"; };
+		24D42BCB197D013F0069F224 /* CompetitionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionDetailViewController.h; sourceTree = "<group>"; };
+		24D42BCC197D013F0069F224 /* CompetitionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionDetailViewController.m; sourceTree = "<group>"; };
 		24E58E7D18E7FC29007BFFD8 /* PlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerManager.h; sourceTree = "<group>"; };
 		24E58E7E18E7FC29007BFFD8 /* PlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerManager.m; sourceTree = "<group>"; };
 		24E58E8A18E815C1007BFFD8 /* MatchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchManager.h; sourceTree = "<group>"; };
@@ -448,13 +457,15 @@
 		24B8C1B91977B33300B2FAD0 /* CompetitionDetail */ = {
 			isa = PBXGroup;
 			children = (
-				24B8C1C21977B47400B2FAD0 /* RedCard */,
+				24D42BCB197D013F0069F224 /* CompetitionDetailViewController.h */,
+				24D42BCC197D013F0069F224 /* CompetitionDetailViewController.m */,
 				24C84BC81976D92600980720 /* Category */,
 				24C84BBF1976CADE00980720 /* RootViewController.h */,
 				24C84BC01976CADE00980720 /* RootViewController.m */,
 				24C84BC21976CFF700980720 /* MenuViewController.h */,
 				24C84BC31976CFF700980720 /* MenuViewController.m */,
 				24C84BB51976960600980720 /* Match */,
+				24B8C1C21977B47400B2FAD0 /* RedCard */,
 				24B8C1BE1977B44400B2FAD0 /* YellowCard */,
 				24B8C1BA1977B41600B2FAD0 /* TopScore */,
 			);
@@ -482,6 +493,10 @@
 		24B8C1C21977B47400B2FAD0 /* RedCard */ = {
 			isa = PBXGroup;
 			children = (
+				24D42BC8197CDC200069F224 /* RedCardTableViewCell.h */,
+				24D42BC9197CDC200069F224 /* RedCardTableViewCell.m */,
+				24D42BC5197CD79A0069F224 /* RedCardViewController.h */,
+				24D42BC6197CD79A0069F224 /* RedCardViewController.m */,
 			);
 			name = RedCard;
 			sourceTree = "<group>";
@@ -787,7 +802,9 @@
 				24C6FE4E195E8574008B594C /* News.m in Sources */,
 				240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */,
 				24C6FE4F195E8574008B594C /* Team.m in Sources */,
+				24D42BCA197CDC200069F224 /* RedCardTableViewCell.m in Sources */,
 				241D4A4F196E917C00E3FC02 /* UIApplication+MainNav.m in Sources */,
+				24D42BC7197CD79A0069F224 /* RedCardViewController.m in Sources */,
 				ADEDA1F2195FED5C009B8D20 /* MJRefreshHeaderView.m in Sources */,
 				ADEDA1EF195FED5C009B8D20 /* MJRefreshBaseView.m in Sources */,
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
@@ -803,6 +820,7 @@
 				246753C0196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.m in Sources */,
 				24B8C1C51977B7F800B2FAD0 /* MatchTableViewCell.m in Sources */,
 				2440F6DB195F1E4A00E00A70 /* AboutDeveloperViewController.m in Sources */,
+				24D42BCD197D013F0069F224 /* CompetitionDetailViewController.m in Sources */,
 				24686C74196E66DC00D8CF86 /* AboutManager.m in Sources */,
 				24B8C1C11977B46D00B2FAD0 /* YellowCardViewController.m in Sources */,
 				24C84BBE1976BC0E00980720 /* MatchViewController.m in Sources */,

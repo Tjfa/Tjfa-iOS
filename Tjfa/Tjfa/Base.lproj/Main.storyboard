@@ -232,8 +232,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="比赛" id="6kn-sK-Wnd"/>
                     <connections>
-                        <outlet property="searchBar" destination="L7A-DC-Ugx" id="jyc-TC-hoU"/>
-                        <outlet property="tableView" destination="IBs-HI-Pen" id="bxa-mr-weB"/>
+                        <outlet property="searchBar" destination="L7A-DC-Ugx" id="0di-wn-cJ5"/>
+                        <outlet property="tableView" destination="IBs-HI-Pen" id="n3B-Yr-DOZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uzp-m8-gZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -272,10 +272,10 @@
             </objects>
             <point key="canvasLocation" x="1040" y="92"/>
         </scene>
-        <!--View Controller - 红牌纪录-->
+        <!--Red Card View Controller - 红牌纪录-->
         <scene sceneID="2dL-Nf-LK8">
             <objects>
-                <viewController storyboardIdentifier="RedCardViewController&quot;" id="mJG-Ru-EJF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RedCardViewController" id="mJG-Ru-EJF" customClass="RedCardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ipc-mn-l08"/>
                         <viewControllerLayoutGuide type="bottom" id="ufT-Iz-dDh"/>
@@ -284,7 +284,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eEE-OM-jT3">
+                            <view appearanceType="aqua" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEE-OM-jT3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                                 <subviews>
                                     <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="红牌纪录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qY8-Y1-aaV">
@@ -295,10 +295,77 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.94293707770000001" green="0.04734268548" blue="0.1197215814" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7P7-Zo-knX">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" appearanceType="aqua" contentMode="redraw" placeholder="输入球员名字可以搜索相关球员" id="wvy-Gg-rT9">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="mJG-Ru-EJF" id="9fA-qh-gQv"/>
+                                    </connections>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RedCardTableViewCell" rowHeight="60" id="L9x-7e-Rtd" customClass="RedCardTableViewCell">
+                                        <rect key="frame" x="0.0" y="66" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L9x-7e-Rtd" id="voh-Jn-65M">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="范尼斯特鲁伊" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiT-HB-BKI">
+                                                    <rect key="frame" x="20" y="19" width="102" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label appearanceType="userCustom" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NNc-g3-Sad">
+                                                    <rect key="frame" x="280" y="19" width="20" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label appearanceType="userCustom" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="曼彻斯特联" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jp2-x7-yea">
+                                                    <rect key="frame" x="158" y="19" width="85" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="NiT-HB-BKI" id="lai-PY-iEe"/>
+                                            <outlet property="redCardCount" destination="NNc-g3-Sad" id="9Br-HH-hEK"/>
+                                            <outlet property="teamNameLable" destination="Jp2-x7-yea" id="2yA-FO-dWV"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="mJG-Ru-EJF" id="2Aq-Qy-m6H"/>
+                                    <outlet property="delegate" destination="mJG-Ru-EJF" id="KJG-Ra-5j5"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eEE-OM-jT3" firstAttribute="trailing" secondItem="7P7-Zo-knX" secondAttribute="trailing" id="5KI-2W-S9q"/>
+                            <constraint firstItem="7P7-Zo-knX" firstAttribute="top" secondItem="eEE-OM-jT3" secondAttribute="bottom" id="8kD-2z-r8J"/>
+                            <constraint firstItem="7P7-Zo-knX" firstAttribute="leading" secondItem="jqP-Zs-P2U" secondAttribute="leading" id="9rT-pt-fWr"/>
+                            <constraint firstItem="eEE-OM-jT3" firstAttribute="leading" secondItem="7P7-Zo-knX" secondAttribute="leading" id="AGx-W0-sdV"/>
+                            <constraint firstItem="ufT-Iz-dDh" firstAttribute="top" secondItem="7P7-Zo-knX" secondAttribute="bottom" id="DkA-tG-FkC"/>
+                            <constraint firstItem="eEE-OM-jT3" firstAttribute="top" secondItem="jqP-Zs-P2U" secondAttribute="top" id="iSJ-Vy-dG7"/>
+                            <constraint firstAttribute="bottom" secondItem="eEE-OM-jT3" secondAttribute="bottom" constant="504" id="phi-ZT-lDT"/>
+                            <constraint firstAttribute="trailing" secondItem="7P7-Zo-knX" secondAttribute="trailing" id="qah-l6-Bjh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="红牌纪录" id="rVz-nR-jvx"/>
+                    <connections>
+                        <outlet property="searchBar" destination="wvy-Gg-rT9" id="Vb8-T1-jhF"/>
+                        <outlet property="tableView" destination="7P7-Zo-knX" id="W3S-PE-AQL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c9s-Im-atf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

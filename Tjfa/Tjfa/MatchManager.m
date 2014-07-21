@@ -40,9 +40,9 @@
     }];
 }
 
-- (NSArray*)getMatchesByTeamName:(NSString*)teamName competition:(Competition*)compeitition
+- (NSArray*)getMatchesByTeamName:(NSString*)teamName competition:(Competition*)competition
 {
-    NSArray* matches = [self getMatchesByCompetitionFromCoreData:compeitition];
+    NSArray* matches = [self getMatchesByCompetitionFromCoreData:competition];
     NSMutableArray* results = [[NSMutableArray alloc] init];
 
     for (Match* match in matches) {
