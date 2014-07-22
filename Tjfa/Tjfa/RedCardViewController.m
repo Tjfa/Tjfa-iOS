@@ -50,14 +50,14 @@
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition
 {
     return [[[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromCoreData:competition] sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
-        return [a.redCard compare:b.redCard];
+        return [b.redCard compare:a.redCard];
     }];
 }
 
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition whenSearch:(NSString*)key
 {
     return [[[PlayerManager sharedPlayerManager] getPlayersByKey:key competition:competition] sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
-        return [a.redCard compare:b.redCard];
+        return [b.redCard compare:a.redCard];
     }];
 }
 
