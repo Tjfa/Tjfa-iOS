@@ -21,6 +21,7 @@
 
 - (void)setCellWithPlayer:(Player*)player
 {
+    NSLog(@"%@",player);
     NSLog(@"%@", player.name);
     self.nameLabel.text = player.name;
     self.teamNameLable.text = player.team.name;

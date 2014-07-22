@@ -12,13 +12,16 @@
 #import <MBProgressHUD.h>
 #import "Competition.h"
 
-@interface CompetitionDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, MJRefreshBaseViewDelegate>
+@interface CompetitionDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, MJRefreshBaseViewDelegate> {
+}
 
 @property (nonatomic, weak) IBOutlet UITableView* tableView;
 
 @property (nonatomic, weak) IBOutlet UISearchBar* searchBar;
 
 @property (nonatomic, strong) NSArray* data;
+
+@property (nonatomic, strong) void (^completeBlock)(NSArray* array, NSError* error);
 
 /**
  *  template method

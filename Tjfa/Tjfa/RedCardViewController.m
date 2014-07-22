@@ -34,17 +34,31 @@
 
 - (void)getDataFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
-    [[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromNetwork:competition complete:complete];
+    [[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromNetwork:competition complete:^(NSArray* result, NSError* error) {
+        if (!error){
+            NSArray* array=[result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player*b){
+                return [b.redCard compare:a.redCard];       //从高到低排序
+            }];
+            self.completeBlock(array,nil);
+        }
+        else{
+            self.completeBlock(nil,error);
+        }
+    }];
 }
 
-- (NSArray*)getDataFromCoreDataCompetition:(Competition*)compeition
+- (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition
 {
-    return [[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromCoreData:compeition];
+    return [[[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromCoreData:competition] sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
+        return [a.redCard compare:b.redCard];
+    }];
 }
 
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition whenSearch:(NSString*)key
 {
-    return [[PlayerManager sharedPlayerManager] getPlayersByKey:key competition:competition];
+    return [[[PlayerManager sharedPlayerManager] getPlayersByKey:key competition:competition] sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
+        return [a.redCard compare:b.redCard];
+    }];
 }
 
 @end

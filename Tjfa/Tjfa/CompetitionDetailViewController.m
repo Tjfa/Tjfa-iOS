@@ -9,6 +9,7 @@
 #import "CompetitionDetailViewController.h"
 #import "RootViewController.h"
 #import "UIAlertView+NetWorkErrorView.h"
+#import "MBProgressHUD+AppProgressView.h"
 
 @interface CompetitionDetailViewController ()
 
@@ -26,42 +27,47 @@
     [super viewDidLoad];
 
     self.header.scrollView = self.tableView;
-
     // Do any additional setup after loading the view.
 }
 
 - (void)getLasterData:(BOOL)isFirstEnter
 {
     __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
-    __weak CompetitionDetailViewController* weakSelf = self;
 
     if (isFirstEnter) {
         [self.mbProgressHud show:YES];
     }
 
-    void (^completeBlock)(NSArray * array, NSError * error) = ^(NSArray* array, NSError* error) {
-        if (error) {
-            [[UIAlertView alertViewWithErrorNetWork] show];
-        } else {
-            weakSelf.data = array;
-            [weakSelf.tableView reloadData];
-        }
-
-        if (isFirstEnter) {
-            [weakSelf.mbProgressHud removeFromSuperview];
-        }
-        [weakSelf.header endRefreshing];
-
-        /**
-         *  search bar 交出firstresponder  防止出现搜索后 然后下拉刷新 searchbar没有清空的情况
-         */
-        weakSelf.searchBar.text = @"";
-        [weakSelf.searchBar resignFirstResponder];
-    };
-    [self getDataFromNetwork:rootViewController.competition complete:completeBlock];
+    [self getDataFromNetwork:rootViewController.competition complete:self.completeBlock];
 }
 
 #pragma mark - getter & setter
+
+- (void (^)(NSArray* array, NSError* error))completeBlock
+{
+    if (_completeBlock == nil) {
+        __weak CompetitionDetailViewController* weakSelf = self;
+        _completeBlock = ^(NSArray* array, NSError* error) {
+            if (error) {
+                [[UIAlertView alertViewWithErrorNetWork] show];
+            } else {
+                weakSelf.data = array;
+                [weakSelf.tableView reloadData];
+            }
+            
+            [weakSelf.mbProgressHud removeFromSuperview];
+
+            [weakSelf.header endRefreshing];
+            
+            /**
+             *  search bar 交出firstresponder  防止出现搜索后 然后下拉刷新 searchbar没有清空的情况
+             */
+            weakSelf.searchBar.text = @"";
+            [weakSelf.searchBar resignFirstResponder];
+        };
+    }
+    return _completeBlock;
+}
 
 - (NSArray*)data
 {
@@ -82,6 +88,15 @@
         self.header.delegate = self;
     }
     return _header;
+}
+
+- (MBProgressHUD*)mbProgressHud
+{
+    if (_mbProgressHud == nil) {
+        _mbProgressHud = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
+        [self.view addSubview:_mbProgressHud];
+    }
+    return _mbProgressHud;
 }
 
 #pragma mark - tableview delegate & datasource

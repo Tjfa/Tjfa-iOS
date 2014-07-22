@@ -41,4 +41,6 @@
  */
 - (void)getMatchesByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray* results, NSError* error))complete;
 
+- (void)clearAllMatch;
+
 @end

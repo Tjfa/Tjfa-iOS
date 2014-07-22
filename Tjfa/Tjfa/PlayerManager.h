@@ -44,4 +44,7 @@
 - (void)getPlayersByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray* results, NSError* error))complete;
 
 - (NSArray*)getPlayersByKey:(NSString*)key competition:(Competition*)competition;
+
+- (void)clearAllPlayer;
+
 @end

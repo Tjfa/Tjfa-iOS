@@ -32,21 +32,34 @@
 
 - (NSArray*)getPlayersByCompetitionFromCoreData:(Competition*)competition
 {
-    NSArray* result = [NSArray arrayWithObjects:competition.players, nil];
+    NSSet* playerSet = competition.players;
+    NSArray* result = [playerSet allObjects];
     return [result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
         return [a.name compare:b.name];
     }];
 }
 
+- (NSArray*)insertPlayersWithArray:(NSArray*)array
+{
+    NSMutableArray* results = [[NSMutableArray alloc] init];
+    for (NSDictionary* dictionary in array) {
+        Player* player = [Player updatePlayerWithDictionary:dictionary];
+        [results addObject:player];
+    }
+    return results;
+}
+
 - (void)getPlayersByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
-    NSDictionary* dictionary = @{};
+    NSDictionary* dictionary = @{ @"competitionId" : competition.competitionId,
+                                  @"limit" : @(20) };
     [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient playerAddress] withParameters:dictionary complete:^(NSArray* results, NSError* error) {
         if (error){
             complete(nil,error);
         }
         else{
-            complete(results,nil);
+            NSArray* players=[self insertPlayersWithArray:results];
+            complete(players,nil);
         }
     }];
 }
@@ -61,6 +74,12 @@
         }
     }
     return results;
+}
+
+- (void)clearAllPlayer
+{
+    [Player MR_truncateAll];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 @end

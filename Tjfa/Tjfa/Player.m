@@ -8,6 +8,7 @@
 
 #import "Player.h"
 #import "Team.h"
+#import "Competition.h"
 
 @implementation Player
 
@@ -37,6 +38,27 @@
 + (NSString*)goalCountAttributeStr
 {
     return @"goalCount";
+}
+
++ (Player*)updatePlayerWithDictionary:(NSDictionary*)dictionary
+{
+    NSNumber* playerId = dictionary[@"playerId"];
+    Player* player = [Player MR_findFirstByAttribute:[self idAttributeStr] withValue:playerId];
+    if (player == nil) {
+        player = [Player MR_createEntity];
+    }
+    player.playerId = playerId;
+    player.goalCount = dictionary[@"goalCount"];
+    player.name = dictionary[@"name"];
+    player.redCard = dictionary[@"redCard"];
+    player.yellowCard = dictionary[@"yellowCard"];
+    NSNumber* competitionId = dictionary[@"competitionId"];
+    player.competition = [Competition MR_findFirstByAttribute:[Competition idAttributeStr] withValue:competitionId];
+    NSNumber* teamId = dictionary[@"teamId"];
+    player.team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamId];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+
+    return player;
 }
 
 @end

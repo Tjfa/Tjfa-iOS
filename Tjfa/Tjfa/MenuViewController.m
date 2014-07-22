@@ -44,10 +44,13 @@
         [self.sideMenuViewController hideMenuViewController];
     } else if (indexPath.row == RED_CARD_VIEW_CONTROLLER_INDEX) {
         [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController redCardViewControllerIdentifier]] animated:YES];
+        [self.sideMenuViewController hideMenuViewController];
     } else if (indexPath.row == GROUP_SCORE_VIEW_CONTROLLER_INDEX) {
         [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController groupScoreViewController]] animated:YES];
+        [self.sideMenuViewController hideMenuViewController];
     } else if (indexPath.row == TEAM_VIEW_CONTROLLER_INDEX) {
         [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController teamViewController]] animated:YES];
+        [self.sideMenuViewController hideMenuViewController];
     }
 }
 

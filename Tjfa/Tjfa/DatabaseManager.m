@@ -10,6 +10,8 @@
 
 #import "CompetitionManager.h"
 #import "NewsManager.h"
+#import "PlayerManager.h"
+#import "MatchManager.h"
 
 @implementation DatabaseManager
 
@@ -28,6 +30,8 @@
 
     [[NewsManager sharedNewsManager] clearAllNews];
     [[CompetitionManager sharedCompetitionManager] clearAllCompetitions];
+    [[MatchManager sharedMatchManager] clearAllMatch];
+    [[PlayerManager sharedPlayerManager] clearAllPlayer];
 }
 
 @end

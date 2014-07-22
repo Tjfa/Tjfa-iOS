@@ -57,4 +57,6 @@
 
 + (NSString*)goalCountAttributeStr;
 
++ (Player*)updatePlayerWithDictionary:(NSDictionary*)dictionary;
+
 @end

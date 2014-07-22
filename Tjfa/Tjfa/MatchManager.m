@@ -42,7 +42,8 @@
 
 - (NSArray*)getMatchesByTeamName:(NSString*)teamName competition:(Competition*)competition
 {
-    NSArray* matches = [self getMatchesByCompetitionFromCoreData:competition];
+    NSSet* matchesSet = competition.matches;
+    NSArray* matches = [matchesSet allObjects];
     NSMutableArray* results = [[NSMutableArray alloc] init];
 
     for (Match* match in matches) {
@@ -67,6 +68,12 @@
                 complete(results,nil);
             }
     }];
+}
+
+- (void)clearAllMatch
+{
+    [Match MR_truncateAll];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 @end
