@@ -54,10 +54,10 @@
     player.yellowCard = dictionary[@"yellowCard"];
     NSNumber* competitionId = dictionary[@"competitionId"];
     player.competition = [Competition MR_findFirstByAttribute:[Competition idAttributeStr] withValue:competitionId];
+#warning what if team no found?
     NSNumber* teamId = dictionary[@"teamId"];
     player.team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamId];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-
     return player;
 }
 

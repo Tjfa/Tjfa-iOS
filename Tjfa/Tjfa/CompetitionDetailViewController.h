@@ -23,6 +23,8 @@
 
 @property (nonatomic, strong) void (^completeBlock)(NSArray* array, NSError* error);
 
+- (void)getLasterData:(BOOL)isFirstEnter;
+
 /**
  *  template method
  */

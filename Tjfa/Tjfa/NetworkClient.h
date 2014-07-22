@@ -24,6 +24,8 @@
 
 + (NSString*)playerAddress;
 
++ (NSString*)teamAddress;
+
 /**
  *  complete block will call on main thread
  */

@@ -39,7 +39,9 @@
 
 - (void)getDataFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
-    [[MatchManager sharedMatchManager] getMatchesByCompetitionFromNetwork:competition complete:complete];
+    [[MatchManager sharedMatchManager] getMatchesByCompetitionFromNetwork:competition complete:^(NSArray* results, NSError* error) {
+        self.completeBlock(results,error);
+    }];
 }
 
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)compeition

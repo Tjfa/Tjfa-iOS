@@ -47,6 +47,11 @@ NSString* serverUrlStr = @"http://192.168.113.178/tjfa/";
     return @"player.php";
 }
 
++ (NSString*)teamAddress
+{
+    return @"team.php";
+}
+
 + (NetworkClient*)sharedNetworkClient
 {
     static NetworkClient* _networkClient = nil;

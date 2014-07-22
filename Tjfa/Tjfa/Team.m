@@ -44,7 +44,7 @@
     return @"teamId";
 }
 
-+ (Team*)updateBasePropertyWithDictionary:(NSDictionary*)dictionary competition:(Competition*)competition andMatch:(Match*)match
++(Team*)updateTeamWithDictionary:(NSDictionary *)dictionary competition:(Competition *)competition
 {
     Team* team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:dictionary[@"teamId"]];
     if (team == nil)
@@ -53,15 +53,12 @@
     team.emblemPath = dictionary[@"emblemPath"];
     team.groupNo = dictionary[@"groupNo"];
     team.goalCount = dictionary[@"goalCount"];
-    NSLog(@"%@",dictionary[@"goalCount"]);
-    NSLog(@"%@",dictionary[@"missCount"]);
-    team.missCount = @(2);
+    team.missCount = dictionary[@"missCount"];
     team.name = dictionary[@"name"];
     team.score = dictionary[@"score"];
     team.groupMissCount = dictionary[@"groupMissCount"];
     team.groupGoalCount = dictionary[@"groupGoalCount"];
     team.competition = competition;
-    [competition addTeamsObject:team];
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 
     return team;

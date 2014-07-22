@@ -19,8 +19,7 @@
 
 @end
 
-@implementation CompetitionDetailViewController {
-}
+@implementation CompetitionDetailViewController
 
 - (void)viewDidLoad
 {

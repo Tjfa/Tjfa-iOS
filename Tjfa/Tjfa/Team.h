@@ -77,7 +77,7 @@
  *
  *  @return 更新或者创建后的team
  */
-+ (Team*)updateBasePropertyWithDictionary:(NSDictionary*)dictionary competition:(Competition*)competition andMatch:(Match*)match;
++ (Team*)updateTeamWithDictionary:(NSDictionary*)dictionary competition:(Competition*)competition;
 
 + (NSString*)idAttribute;
 

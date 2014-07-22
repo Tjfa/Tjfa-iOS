@@ -28,6 +28,9 @@
 		24686C7E196E7DD000D8CF86 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C7D196E7DD000D8CF86 /* UserData.m */; };
 		24686C80196E870300D8CF86 /* welcome3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24686C7F196E870300D8CF86 /* welcome3.xib */; };
 		24686C83196E875600D8CF86 /* Welcome3.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C82196E875600D8CF86 /* Welcome3.m */; };
+		248BD093197E508D00419603 /* GroupScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 248BD092197E508D00419603 /* GroupScoreViewController.m */; };
+		248BD096197E593000419603 /* GroupScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 248BD095197E593000419603 /* GroupScoreCell.m */; };
+		248BD09A197E60C600419603 /* TeamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 248BD099197E60C600419603 /* TeamManager.m */; };
 		2495BA2719690C1F009BB60F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2619690C1F009BB60F /* NewsViewController.m */; };
 		2495BA2A19691E28009BB60F /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2919691E28009BB60F /* NewsCell.m */; };
 		2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495FA0C196D005C00319872 /* UIView+RefreshFooterView.m */; };
@@ -128,6 +131,12 @@
 		24686C7F196E870300D8CF86 /* welcome3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = welcome3.xib; sourceTree = "<group>"; };
 		24686C81196E875600D8CF86 /* Welcome3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Welcome3.h; sourceTree = "<group>"; };
 		24686C82196E875600D8CF86 /* Welcome3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Welcome3.m; sourceTree = "<group>"; };
+		248BD091197E508D00419603 /* GroupScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupScoreViewController.h; sourceTree = "<group>"; };
+		248BD092197E508D00419603 /* GroupScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupScoreViewController.m; sourceTree = "<group>"; };
+		248BD094197E593000419603 /* GroupScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupScoreCell.h; sourceTree = "<group>"; };
+		248BD095197E593000419603 /* GroupScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupScoreCell.m; sourceTree = "<group>"; };
+		248BD098197E60C600419603 /* TeamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamManager.h; sourceTree = "<group>"; };
+		248BD099197E60C600419603 /* TeamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamManager.m; sourceTree = "<group>"; };
 		2495BA2519690C1F009BB60F /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		2495BA2619690C1F009BB60F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		2495BA2819691E28009BB60F /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
@@ -396,6 +405,26 @@
 			name = UserData;
 			sourceTree = "<group>";
 		};
+		248BD090197E506A00419603 /* GroupScore */ = {
+			isa = PBXGroup;
+			children = (
+				248BD091197E508D00419603 /* GroupScoreViewController.h */,
+				248BD092197E508D00419603 /* GroupScoreViewController.m */,
+				248BD094197E593000419603 /* GroupScoreCell.h */,
+				248BD095197E593000419603 /* GroupScoreCell.m */,
+			);
+			name = GroupScore;
+			sourceTree = "<group>";
+		};
+		248BD097197E60A900419603 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				248BD098197E60C600419603 /* TeamManager.h */,
+				248BD099197E60C600419603 /* TeamManager.m */,
+			);
+			name = Team;
+			sourceTree = "<group>";
+		};
 		2495BA2419690BE5009BB60F /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +493,7 @@
 				24C84BC01976CADE00980720 /* RootViewController.m */,
 				24C84BC21976CFF700980720 /* MenuViewController.h */,
 				24C84BC31976CFF700980720 /* MenuViewController.m */,
+				248BD090197E506A00419603 /* GroupScore */,
 				24C84BB51976960600980720 /* Match */,
 				24B8C1C21977B47400B2FAD0 /* RedCard */,
 				24B8C1BE1977B44400B2FAD0 /* YellowCard */,
@@ -532,6 +562,7 @@
 				24CECC3318E2A3D700D43E0D /* NetworkClient.m */,
 				249F143D195D6F990038DF42 /* NewsManager */,
 				24E58E8918E815A4007BFFD8 /* Match */,
+				248BD097197E60A900419603 /* Team */,
 				243E779918E5847700644056 /* Player */,
 				249CF67518E16DA40084DDBB /* Competition */,
 				249CF66518E16A840084DDBB /* Database */,
@@ -818,6 +849,7 @@
 				2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */,
 				24686C7E196E7DD000D8CF86 /* UserData.m in Sources */,
 				246753C0196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.m in Sources */,
+				248BD093197E508D00419603 /* GroupScoreViewController.m in Sources */,
 				24B8C1C51977B7F800B2FAD0 /* MatchTableViewCell.m in Sources */,
 				2440F6DB195F1E4A00E00A70 /* AboutDeveloperViewController.m in Sources */,
 				24D42BCD197D013F0069F224 /* CompetitionDetailViewController.m in Sources */,
@@ -834,6 +866,7 @@
 				24B8C1BD1977B43F00B2FAD0 /* TopScoreViewController.m in Sources */,
 				240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */,
 				24686C6F196E562F00D8CF86 /* NewAboutViewController.m in Sources */,
+				248BD09A197E60C600419603 /* TeamManager.m in Sources */,
 				24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */,
 				24C6FE4B195E8574008B594C /* Player.m in Sources */,
 				240099EC196005600036EFF4 /* AboutProjectViewController.m in Sources */,
@@ -844,6 +877,7 @@
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
 				246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */,
 				ADEDA1E1195FE00D009B8D20 /* CompetitionViewController.m in Sources */,
+				248BD096197E593000419603 /* GroupScoreCell.m in Sources */,
 				240AE6DC195F0D5900F7820D /* AboutViewController.m in Sources */,
 				24C84BC41976CFF700980720 /* MenuViewController.m in Sources */,
 			);

@@ -12,6 +12,7 @@
 #import "NewsManager.h"
 #import "PlayerManager.h"
 #import "MatchManager.h"
+#import "TeamManager.h"
 
 @implementation DatabaseManager
 
@@ -27,10 +28,10 @@
 
 - (void)clearAllData
 {
-
     [[NewsManager sharedNewsManager] clearAllNews];
     [[CompetitionManager sharedCompetitionManager] clearAllCompetitions];
     [[MatchManager sharedMatchManager] clearAllMatch];
+    [[TeamManager sharedTeamManager] clearAllTeam];
     [[PlayerManager sharedPlayerManager] clearAllPlayer];
 }
 

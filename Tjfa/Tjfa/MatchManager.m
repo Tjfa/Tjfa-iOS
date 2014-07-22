@@ -22,7 +22,7 @@
     return _sharedMatchManager;
 }
 
-- (NSArray*)insertMatchesWitchArray:(NSArray*)array andCompetition:(Competition*)competition
+- (NSArray*)insertMatchesWithArray:(NSArray*)array andCompetition:(Competition*)competition
 {
     NSMutableArray* results = [[NSMutableArray alloc] init];
     for (NSDictionary* dictionary in array) {
@@ -64,7 +64,7 @@
             if (error){
                 complete(nil,error);
             }else{
-                results=[weakSelf insertMatchesWitchArray:results andCompetition:competition];
+                results=[weakSelf insertMatchesWithArray:results andCompetition:competition];
                 complete(results,nil);
             }
     }];

@@ -63,10 +63,8 @@
     match.scoreB = dictionary[@"scoreB"];
     match.winTeamId = dictionary[@"winTeamId"];
     match.competition = competition;
-    [competition addMatchesObject:match];
-
-    Team* teamA = [Team updateBasePropertyWithDictionary:dictionary[@"teamA"] competition:competition andMatch:match];
-    Team* teamB = [Team updateBasePropertyWithDictionary:dictionary[@"teamB"] competition:competition andMatch:match];
+    Team* teamA = [Team updateTeamWithDictionary:dictionary[@"teamA"] competition:competition];
+    Team* teamB = [Team updateTeamWithDictionary:dictionary[@"teamB"] competition:competition];
     match.teamA = teamA;
     match.teamB = teamB;
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
