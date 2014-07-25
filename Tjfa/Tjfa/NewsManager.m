@@ -40,7 +40,11 @@
         News* news = [News updateNewsWithDictionary:dictionary];
         [results insertObject:news atIndex:0];
     }
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError* error) {
+        if (error){
+            NSLog(@"%@",error);
+        }
+    }];
     return results;
 }
 

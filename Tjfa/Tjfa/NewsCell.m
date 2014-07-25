@@ -16,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet UILabel* dateLabel;
 
 @property (nonatomic, weak) IBOutlet UIView* markReadView;
+@property (nonatomic, weak) IBOutlet UIWebView* webContentView;
 
 @end
 
@@ -32,6 +33,10 @@
 {
     self.titleLabel.text = news.title;
     self.dateLabel.text = [news.date date2str];
+    self.webContentView.scrollView.scrollEnabled = NO;
+    self.webContentView.backgroundColor = [UIColor clearColor];
+    self.webContentView.opaque = NO;
+    [self.webContentView loadHTMLString:news.content baseURL:nil];
     if (![news.isRead boolValue]) {
         self.markReadView.hidden = NO;
         self.markReadView.layer.cornerRadius = self.markReadView.frame.size.width / 2;

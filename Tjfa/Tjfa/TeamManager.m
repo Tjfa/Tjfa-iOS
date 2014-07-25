@@ -48,7 +48,11 @@
         Team* team = [Team updateTeamWithDictionary:dictionary competition:competition];
         [results addObject:team];
     }
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError* error) {
+        if (error){
+            NSLog(@"%@",error);
+        }
+    }];
     return results;
 }
 
