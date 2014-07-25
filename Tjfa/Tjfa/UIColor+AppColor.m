@@ -54,4 +54,9 @@
     return [UIColor colorWith16Number:0xb8125c];
 }
 
++(UIColor*)appNavigationBarTintColor
+{
+    return [UIColor redColor];
+}
+
 @end

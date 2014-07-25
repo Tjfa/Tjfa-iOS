@@ -13,8 +13,8 @@
 @interface DashboardCell : UIView
 
 typedef NS_ENUM(NSInteger, DashboardLabelDirection) {
-    kLeft = 0,
-    kRight = 1,
+    kDashboardLabelLeft = 0,
+    kDashboardLabelRight = 1,
 };
 
 @property (nonatomic, strong) DashboardButton* dashboardButton;
@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, DashboardLabelDirection) {
  *  @param size      button的size  button将是圆形
  *
  */
-- (instancetype)initWithFrame:(CGRect)frame image:(UIImage*)image labelName:(NSString*)label color:(UIColor*)color direction:(DashboardLabelDirection)direction target:(id)target action:(SEL)action dashboardSize:(CGFloat)size;
+- (instancetype)initWithFrame:(CGRect)frame image:(UIImage*)image labelName:(NSString*)label direction:(DashboardLabelDirection)direction target:(id)target action:(SEL)action dashboardSize:(CGFloat)size;
 
 - (void)showWithAnimateComplete:(void (^)(BOOL finished))complete;
 

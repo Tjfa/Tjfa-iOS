@@ -45,5 +45,6 @@
 + (UIColor*)jiadingItemColor;
 + (UIColor*)newsItemColor;
 + (UIColor*)aboutItemColor;
++ (UIColor*)appNavigationBarTintColor;
 
 @end

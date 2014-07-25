@@ -11,7 +11,7 @@
 #import "CompetitionViewController.h"
 #import "UIColor+AppColor.h"
 
-@interface DashboardViewController () <UINavigationControllerDelegate>
+@interface DashboardViewController ()
 
 @property (nonatomic, strong) DashboardCell* newsView;
 @property (nonatomic, strong) DashboardCell* settingView;
@@ -20,11 +20,15 @@
 
 @property (nonatomic, strong) NSArray* dashBoardCellArray;
 
+@property (nonatomic, weak) IBOutlet UIView* rootView;
+
 @end
 
 @implementation DashboardViewController
 
 const CGFloat dashboardButtonSize = 100;
+const CGFloat labelHeight = 50;
+const CGFloat delayAnimate = 0.1;
 
 - (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
 {
@@ -38,8 +42,7 @@ const CGFloat dashboardButtonSize = 100;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationController.delegate = self;
-    self.view.backgroundColor = [UIColor appBackgroundColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor appNavigationBarTintColor];
     // Do any additional setup after loading the view.
 }
 
@@ -50,12 +53,12 @@ const CGFloat dashboardButtonSize = 100;
 
 - (CGFloat)getBaseHeightForDashboardButton
 {
-    return (self.view.frame.size.height - dashboardButtonSize * 4) / 2;
+    return (self.rootView.frame.size.height - dashboardButtonSize * 4) / 2;
 }
 
-- (CGFloat)heightSpace
+- (CGFloat)offsetY
 {
-    return dashboardButtonSize + 10;
+    return (self.rootView.frame.size.height / 2 - labelHeight - dashboardButtonSize) / 2;
 }
 
 /**
@@ -75,7 +78,7 @@ const CGFloat dashboardButtonSize = 100;
 {
     for (int i = 0; i < self.dashBoardCellArray.count; i++) {
         DashboardCell* cell = self.dashBoardCellArray[i];
-        [cell showWithAnimateAfterDelay:0.1 * i complete:nil];
+        [cell showWithAnimateAfterDelay:delayAnimate * i complete:nil];
     }
 }
 
@@ -84,10 +87,10 @@ const CGFloat dashboardButtonSize = 100;
 - (DashboardCell*)benbuButton
 {
     if (_benbuView == nil) {
-        CGRect cellFrame = CGRectMake(0, [self getBaseHeightForDashboardButton], self.view.frame.size.width, dashboardButtonSize);
+        CGRect cellFrame = CGRectMake(0, [self offsetY], self.rootView.frame.size.width / 2, dashboardButtonSize + labelHeight);
 
-        _benbuView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardBenbu"] labelName:@"本部" color:[UIColor benbuItemColor] direction:kRight target:self action:@selector(benbuClick:) dashboardSize:dashboardButtonSize];
-        [self.view addSubview:_benbuView];
+        _benbuView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardBenbu"] labelName:@"本 部" direction:kDashboardLabelLeft target:self action:@selector(benbuClick:) dashboardSize:dashboardButtonSize];
+        [self.rootView addSubview:_benbuView];
     }
     return _benbuView;
 }
@@ -96,10 +99,10 @@ const CGFloat dashboardButtonSize = 100;
 {
     if (_jiadingView == nil) {
 
-        CGRect cellFrame = CGRectMake(0, [self getBaseHeightForDashboardButton] + [self heightSpace], self.view.frame.size.width, dashboardButtonSize);
+        CGRect cellFrame = CGRectMake(self.rootView.frame.size.width / 2, [self offsetY], self.rootView.frame.size.width / 2, dashboardButtonSize + labelHeight);
 
-        _jiadingView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardJiading"] labelName:@"嘉定" color:[UIColor jiadingItemColor] direction:kLeft target:self action:@selector(jiadingClick:) dashboardSize:dashboardButtonSize];
-        [self.view addSubview:_jiadingView];
+        _jiadingView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardJiading"] labelName:@"嘉 定" direction:kDashboardLabelRight target:self action:@selector(jiadingClick:) dashboardSize:dashboardButtonSize];
+        [self.rootView addSubview:_jiadingView];
     }
     return _jiadingView;
 }
@@ -108,10 +111,10 @@ const CGFloat dashboardButtonSize = 100;
 {
     if (_newsView == nil) {
 
-        CGRect cellFrame = CGRectMake(0, [self getBaseHeightForDashboardButton] + [self heightSpace] * 2, self.view.frame.size.width, dashboardButtonSize);
+        CGRect cellFrame = CGRectMake(0, self.rootView.frame.size.height / 2 + [self offsetY], self.rootView.frame.size.width / 2, dashboardButtonSize + labelHeight);
 
-        _newsView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardNews"] labelName:@"新闻" color:[UIColor newsItemColor] direction:kRight target:self action:@selector(newsClick:) dashboardSize:dashboardButtonSize];
-        [self.view addSubview:_newsView];
+        _newsView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardNews"] labelName:@"新 闻" direction:kDashboardLabelLeft target:self action:@selector(newsClick:) dashboardSize:dashboardButtonSize];
+        [self.rootView addSubview:_newsView];
     }
     return _newsView;
 }
@@ -119,10 +122,10 @@ const CGFloat dashboardButtonSize = 100;
 - (DashboardCell*)settingButton
 {
     if (_settingView == nil) {
-        CGRect cellFrame = CGRectMake(0, [self getBaseHeightForDashboardButton] + [self heightSpace] * 3, self.view.frame.size.width, dashboardButtonSize);
+        CGRect cellFrame = CGRectMake(self.rootView.frame.size.width / 2, self.rootView.frame.size.height / 2 + [self offsetY], self.rootView.frame.size.width / 2, dashboardButtonSize + labelHeight);
 
-        _settingView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardSetting"] labelName:@"关于" color:[UIColor aboutItemColor] direction:kLeft target:self action:@selector(settingClick:) dashboardSize:dashboardButtonSize];
-        [self.view addSubview:_settingView];
+        _settingView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardSetting"] labelName:@"关 于" direction:kDashboardLabelRight target:self action:@selector(settingClick:) dashboardSize:dashboardButtonSize];
+        [self.rootView addSubview:_settingView];
     }
     return _settingView;
 }
@@ -160,13 +163,13 @@ const CGFloat dashboardButtonSize = 100;
     for (int i = 0; i < self.dashBoardCellArray.count; i++) {
         DashboardCell* cell = self.dashBoardCellArray[i];
         if (i == 0) {
-            [cell hideWithAnimateAfterDelay:0.1 * (self.dashBoardCellArray.count - i)complete:^(BOOL finished) {
+            [cell hideWithAnimateAfterDelay:delayAnimate * (self.dashBoardCellArray.count - i)complete:^(BOOL finished) {
                 if (finished){
                     [self.navigationController pushViewController:controller animated:YES];
                 }
             }];
         } else {
-            [cell hideWithAnimateAfterDelay:0.1 * (self.dashBoardCellArray.count - i)complete:nil];
+            [cell hideWithAnimateAfterDelay:delayAnimate * (self.dashBoardCellArray.count - i)complete:nil];
         }
     }
 }
@@ -214,17 +217,6 @@ const CGFloat dashboardButtonSize = 100;
     // UIViewController* settingController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingController"];
     UIViewController* settingController = [self.storyboard instantiateViewControllerWithIdentifier:@"newAbout"];
     [self hideWithAnimateSynCompleteToController:settingController];
-}
-
-#pragma mark - Navigation
-
-- (void)navigationController:(UINavigationController*)navigationController willShowViewController:(UIViewController*)viewController animated:(BOOL)animated
-{
-    if (viewController == self) {
-        [navigationController setNavigationBarHidden:YES animated:YES];
-    } else {
-        [navigationController setNavigationBarHidden:NO animated:YES];
-    }
 }
 
 @end
