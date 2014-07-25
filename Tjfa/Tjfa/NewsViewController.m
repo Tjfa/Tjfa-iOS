@@ -117,6 +117,7 @@
         _tableView = tableView;
         self.headerView.scrollView = _tableView;
         self.headerView.delegate = self;
+        _tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"newsBg"]];
         hasMore = YES;
         _tableView.tableFooterView = self.loadMoreFooterView;
     }
