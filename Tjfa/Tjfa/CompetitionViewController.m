@@ -313,4 +313,10 @@
     }
 }
 
+#pragma mark -- navigation pop
+
+- (IBAction)backButtonClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end

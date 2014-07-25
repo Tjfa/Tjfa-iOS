@@ -117,7 +117,6 @@
         _tableView = tableView;
         self.headerView.scrollView = _tableView;
         self.headerView.delegate = self;
-
         hasMore = YES;
         _tableView.tableFooterView = self.loadMoreFooterView;
     }
@@ -239,6 +238,13 @@
         [self getLatestNews];
     } else {
     }
+}
+
+#pragma mark - pop navigation
+
+- (IBAction)backButtonClick:(id)sender
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

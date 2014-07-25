@@ -68,7 +68,6 @@
     competition.time = dictionary[@"time"];
     competition.isStart = dictionary[@"isStart"];
     competition.number = dictionary[@"number"];
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return competition;
 }
 

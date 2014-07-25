@@ -46,5 +46,6 @@
 + (UIColor*)newsItemColor;
 + (UIColor*)aboutItemColor;
 + (UIColor*)appNavigationBarTintColor;
++ (UIColor*)appRedColor;
 
 @end

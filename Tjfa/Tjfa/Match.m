@@ -67,7 +67,6 @@
     Team* teamB = [Team updateTeamWithDictionary:dictionary[@"teamB"] competition:competition];
     match.teamA = teamA;
     match.teamB = teamB;
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 
     return match;
 }

@@ -54,9 +54,14 @@
     return [UIColor colorWith16Number:0xb8125c];
 }
 
-+(UIColor*)appNavigationBarTintColor
++ (UIColor*)appNavigationBarTintColor
 {
-    return [UIColor redColor];
+    return [UIColor colorWith16Number:0x910100];
+}
+
++ (UIColor*)appRedColor
+{
+    return [UIColor colorWith16Number:0x910100];
 }
 
 @end

@@ -29,6 +29,7 @@
         Match* match = [Match updateMatchWithDictionary:dictionary andCompetetion:competition];
         [results insertObject:match atIndex:0];
     }
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return results;
 }
 

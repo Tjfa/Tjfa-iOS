@@ -32,7 +32,7 @@ const CGFloat animateCacheDuration = 0.1;
 
 #pragma mark -  label
         self.nameLable = [UIButton buttonWithType:UIButtonTypeSystem];
-        [self.nameLable setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [self.nameLable setTitleColor:[UIColor appRedColor] forState:UIControlStateNormal];
         self.nameLable.titleLabel.font = [UIFont boldSystemFontOfSize:30];
         [self.nameLable setTitle:label forState:UIControlStateNormal];
         [self.nameLable addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];

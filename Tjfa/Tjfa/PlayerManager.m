@@ -46,6 +46,7 @@
         Player* player = [Player updatePlayerWithDictionary:dictionary];
         [results addObject:player];
     }
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return results;
 }
 

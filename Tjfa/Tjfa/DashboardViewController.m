@@ -30,19 +30,15 @@ const CGFloat dashboardButtonSize = 100;
 const CGFloat labelHeight = 50;
 const CGFloat delayAnimate = 0.1;
 
-- (id)initWithNibName:(NSString*)nibNameOrNil bundle:(NSBundle*)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dashboardTitle"]];
     self.navigationController.navigationBar.barTintColor = [UIColor appNavigationBarTintColor];
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    NSDictionary* titleDictionaryAttribute = @{ NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont boldSystemFontOfSize:18] };
+    self.navigationController.navigationBar.titleTextAttributes = titleDictionaryAttribute;
     // Do any additional setup after loading the view.
 }
 

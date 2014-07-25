@@ -33,7 +33,6 @@
     news.date = [NSDate str2Date:dictionary[@"date"]];
     //    news.content = dictionary[@"content"];
     news.title = dictionary[@"title"];
-    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return news;
 }
 

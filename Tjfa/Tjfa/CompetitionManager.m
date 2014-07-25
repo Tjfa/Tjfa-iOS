@@ -36,6 +36,7 @@
         Competition* competition = [Competition updateBasePropertyWithDictionary:obj];
         [results insertObject:competition atIndex:0];
     }
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
     return results;
 }
 
