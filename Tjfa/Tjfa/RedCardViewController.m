@@ -34,15 +34,16 @@
 
 - (void)getDataFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
+    __weak RedCardViewController* weakSelf = self;
     [[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromNetwork:competition complete:^(NSArray* result, NSError* error) {
         if (!error){
             NSArray* array=[result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player*b){
                 return [b.redCard compare:a.redCard];       //从高到低排序
             }];
-            self.completeBlock(array,nil);
+            weakSelf.completeBlock(array,nil);
         }
         else{
-            self.completeBlock(nil,error);
+            weakSelf.completeBlock(nil,error);
         }
     }];
 }

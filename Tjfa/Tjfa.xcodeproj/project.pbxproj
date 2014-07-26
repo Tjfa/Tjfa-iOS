@@ -37,6 +37,10 @@
 		249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67718E16DDE0084DDBB /* CompetitionManager.m */; };
 		249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F143F195D6FBB0038DF42 /* NewsManager.m */; };
 		24B1542619834CF4004F87DA /* CompetitionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B1542519834CF4004F87DA /* CompetitionCell.m */; };
+		24B154291983C234004F87DA /* YellowCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B154281983C234004F87DA /* YellowCardTableViewCell.m */; };
+		24B1542D1983C87E004F87DA /* TopScoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B1542C1983C87E004F87DA /* TopScoreTableViewCell.m */; };
+		24B154311983CD7E004F87DA /* TeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B154301983CD7E004F87DA /* TeamViewController.m */; };
+		24B154341983D8E0004F87DA /* TeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B154331983D8E0004F87DA /* TeamTableViewCell.m */; };
 		24B8C1BD1977B43F00B2FAD0 /* TopScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1BC1977B43F00B2FAD0 /* TopScoreViewController.m */; };
 		24B8C1C11977B46D00B2FAD0 /* YellowCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1C01977B46D00B2FAD0 /* YellowCardViewController.m */; };
 		24B8C1C51977B7F800B2FAD0 /* MatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1C41977B7F800B2FAD0 /* MatchTableViewCell.m */; };
@@ -150,6 +154,14 @@
 		249F143F195D6FBB0038DF42 /* NewsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsManager.m; sourceTree = "<group>"; };
 		24B1542419834CF4004F87DA /* CompetitionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionCell.h; sourceTree = "<group>"; };
 		24B1542519834CF4004F87DA /* CompetitionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionCell.m; sourceTree = "<group>"; };
+		24B154271983C234004F87DA /* YellowCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YellowCardTableViewCell.h; sourceTree = "<group>"; };
+		24B154281983C234004F87DA /* YellowCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YellowCardTableViewCell.m; sourceTree = "<group>"; };
+		24B1542B1983C87E004F87DA /* TopScoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoreTableViewCell.h; sourceTree = "<group>"; };
+		24B1542C1983C87E004F87DA /* TopScoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoreTableViewCell.m; sourceTree = "<group>"; };
+		24B1542F1983CD7E004F87DA /* TeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamViewController.h; sourceTree = "<group>"; };
+		24B154301983CD7E004F87DA /* TeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamViewController.m; sourceTree = "<group>"; };
+		24B154321983D8E0004F87DA /* TeamTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamTableViewCell.h; sourceTree = "<group>"; };
+		24B154331983D8E0004F87DA /* TeamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamTableViewCell.m; sourceTree = "<group>"; };
 		24B8C1BB1977B43F00B2FAD0 /* TopScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoreViewController.h; sourceTree = "<group>"; };
 		24B8C1BC1977B43F00B2FAD0 /* TopScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoreViewController.m; sourceTree = "<group>"; };
 		24B8C1BF1977B46D00B2FAD0 /* YellowCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YellowCardViewController.h; sourceTree = "<group>"; };
@@ -486,6 +498,17 @@
 			name = Category;
 			sourceTree = "<group>";
 		};
+		24B1542E1983CBA9004F87DA /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				24B1542F1983CD7E004F87DA /* TeamViewController.h */,
+				24B154301983CD7E004F87DA /* TeamViewController.m */,
+				24B154321983D8E0004F87DA /* TeamTableViewCell.h */,
+				24B154331983D8E0004F87DA /* TeamTableViewCell.m */,
+			);
+			name = Team;
+			sourceTree = "<group>";
+		};
 		24B8C1B91977B33300B2FAD0 /* CompetitionDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +519,7 @@
 				24C84BC01976CADE00980720 /* RootViewController.m */,
 				24C84BC21976CFF700980720 /* MenuViewController.h */,
 				24C84BC31976CFF700980720 /* MenuViewController.m */,
+				24B1542E1983CBA9004F87DA /* Team */,
 				248BD090197E506A00419603 /* GroupScore */,
 				24C84BB51976960600980720 /* Match */,
 				24B8C1C21977B47400B2FAD0 /* RedCard */,
@@ -510,6 +534,8 @@
 			children = (
 				24B8C1BB1977B43F00B2FAD0 /* TopScoreViewController.h */,
 				24B8C1BC1977B43F00B2FAD0 /* TopScoreViewController.m */,
+				24B1542B1983C87E004F87DA /* TopScoreTableViewCell.h */,
+				24B1542C1983C87E004F87DA /* TopScoreTableViewCell.m */,
 			);
 			name = TopScore;
 			sourceTree = "<group>";
@@ -519,6 +545,8 @@
 			children = (
 				24B8C1BF1977B46D00B2FAD0 /* YellowCardViewController.h */,
 				24B8C1C01977B46D00B2FAD0 /* YellowCardViewController.m */,
+				24B154271983C234004F87DA /* YellowCardTableViewCell.h */,
+				24B154281983C234004F87DA /* YellowCardTableViewCell.m */,
 			);
 			name = YellowCard;
 			sourceTree = "<group>";
@@ -842,6 +870,8 @@
 				24D42BCA197CDC200069F224 /* RedCardTableViewCell.m in Sources */,
 				241D4A4F196E917C00E3FC02 /* UIApplication+MainNav.m in Sources */,
 				24D42BC7197CD79A0069F224 /* RedCardViewController.m in Sources */,
+				24B1542D1983C87E004F87DA /* TopScoreTableViewCell.m in Sources */,
+				24B154291983C234004F87DA /* YellowCardTableViewCell.m in Sources */,
 				ADEDA1F2195FED5C009B8D20 /* MJRefreshHeaderView.m in Sources */,
 				ADEDA1EF195FED5C009B8D20 /* MJRefreshBaseView.m in Sources */,
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
@@ -852,8 +882,10 @@
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
 				24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */,
 				249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */,
+				24B154311983CD7E004F87DA /* TeamViewController.m in Sources */,
 				2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */,
 				24686C7E196E7DD000D8CF86 /* UserData.m in Sources */,
+				24B154341983D8E0004F87DA /* TeamTableViewCell.m in Sources */,
 				246753C0196BF25D007BDE90 /* UIAlertView+NetWorkErrorView.m in Sources */,
 				248BD093197E508D00419603 /* GroupScoreViewController.m in Sources */,
 				24B8C1C51977B7F800B2FAD0 /* MatchTableViewCell.m in Sources */,

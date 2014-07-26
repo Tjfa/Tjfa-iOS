@@ -59,6 +59,11 @@
 @property (nonatomic, retain) NSNumber* score;
 
 /**
+ *  最高排名  1234 前4名   8 八强  16 16强 0小组赛 100附加赛
+ */
+@property (nonatomic, retain) NSNumber* rank;
+
+/**
  *  所属赛事 方便统计某个赛事的参加球队
  */
 @property (nonatomic, retain) Competition* competition;

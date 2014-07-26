@@ -38,10 +38,17 @@
     self.teamNameA.text = match.teamA.name;
     self.teamNameB.text = match.teamB.name;
     self.date.text = [match.date date2str];
-    if ([match.matchProperty intValue] == 0) {
+    int matchProperty = [match.matchProperty intValue];
+    if (matchProperty == 0) {
         self.matchProperty.text = @"小组赛";
+    } else if (matchProperty == 100) {
+        self.matchProperty.text = @"附加赛";
+    } else if (matchProperty == 1) {
+        self.matchProperty.text = @"决赛";
+    } else if (matchProperty == 2) {
+        self.matchProperty.text = @"半决赛";
     } else {
-        self.matchProperty.text = @"淘汰赛";
+        self.matchProperty.text = [NSString stringWithFormat:@"1/%d 决赛", matchProperty];
     }
 
     self.dateTime.text = [match.date date2CompetitionStr];

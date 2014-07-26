@@ -36,6 +36,11 @@
  */
 @property (nonatomic, retain) NSNumber* isRead;
 
+/**
+ *  预览文字内容 
+ */
+@property (nonatomic, retain) NSString* precontent;
+
 + (NSString*)idAttribute;
 
 /**

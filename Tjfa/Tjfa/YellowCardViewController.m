@@ -7,6 +7,8 @@
 //
 
 #import "YellowCardViewController.h"
+#import "PlayerManager.h"
+#import "YellowCardTableViewCell.h"
 
 @interface YellowCardViewController ()
 
@@ -14,36 +16,51 @@
 
 @implementation YellowCardViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - set cell
+- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    static NSString* yellowCardCellIdentifier = @"YellowCardTableViewCell";
+    YellowCardTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:yellowCardCellIdentifier];
+    [cell setCellWithPlayer:self.data[indexPath.row]];
+    return cell;
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - implement super class method
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)getDataFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    __weak YellowCardViewController* weakSelf = self;
+    [[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromNetwork:competition complete:^(NSArray* result, NSError* error) {
+        if (!error){
+            NSArray* array=[result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player*b){
+                return [b.yellowCard compare:a.yellowCard];       //从高到低排序
+            }];
+            weakSelf.completeBlock(array,nil);
+        }
+        else{
+            weakSelf.completeBlock(nil,error);
+        }
+    }];
 }
-*/
+
+- (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition
+{
+    return [[[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromCoreData:competition] sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
+        return [b.yellowCard compare:a.yellowCard];
+    }];
+}
+
+- (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition whenSearch:(NSString*)key
+{
+    return [[[PlayerManager sharedPlayerManager] getPlayersByKey:key competition:competition] sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
+        return [b.yellowCard compare:a.yellowCard];
+    }];
+}
 
 @end

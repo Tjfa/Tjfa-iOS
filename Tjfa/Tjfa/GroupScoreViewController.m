@@ -70,6 +70,33 @@
     return _data;
 }
 
+- (NSComparisonResult)comparedTeam:(Team*)a andTeam:(Team*)b
+{
+    if (![a.score isEqual:b.score]) {
+        return [b.score compare:a.score];
+    } else {
+        int goalA = [a.groupGoalCount intValue];
+        int goalB = [b.groupGoalCount intValue];
+        int missA = [a.groupGoalCount intValue];
+        int missB = [b.groupGoalCount intValue];
+        if (goalA - missA != missA - missB) {
+            int winA = goalA - missA;
+            int winB = goalB - missB;
+            if (winA > winB)
+                return NSOrderedDescending;
+            else
+                return NSOrderedAscending;
+        } else {
+            if (goalA > goalB)
+                return NSOrderedDescending;
+            else if (goalA == goalB)
+                return NSOrderedSame;
+            else
+                return NSOrderedAscending;
+        }
+    }
+}
+
 - (void)setData:(NSArray*)data
 {
     if (_data != data) {
@@ -88,28 +115,12 @@
         self.keyData = [[self.groupData allKeys] sortedArrayUsingComparator:^NSComparisonResult(NSString* a, NSString* b) {
             return [a compare:b];
         }];
+
+        __weak GroupScoreViewController* weakSelf = self;
         for (NSString* key in self.keyData) {
             NSMutableArray* data = self.groupData[key];
             [data sortUsingComparator:^NSComparisonResult(Team* a, Team* b) {
-                if (![a.score isEqual:b.score]){
-                    return [b.score compare:a.score];
-                }else{
-                    int goalA=[a.groupGoalCount intValue];
-                    int goalB=[b.groupGoalCount intValue];
-                    int missA=[a.groupGoalCount intValue];
-                    int missB=[b.groupGoalCount intValue];
-                    if (goalA-missA!=missA-missB){
-                        int winA=goalA-missA;
-                        int winB=goalB-missB;
-                        if (winA>winB) return NSOrderedDescending;
-                        else return NSOrderedAscending;
-                    }
-                    else{
-                        if (goalA>goalB) return NSOrderedDescending;
-                        else if (goalA==goalB) return NSOrderedSame;
-                        else return NSOrderedAscending;
-                    }
-                }
+                return [weakSelf comparedTeam:a andTeam:b];
             }];
         }
     }
@@ -155,19 +166,29 @@
 
 - (void)getDataFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
+    __weak GroupScoreViewController* weakSelf = self;
     [[TeamManager sharedTeamManager] getTeamsFromNetwork:competition complete:^(NSArray* results, NSError* error) {
-        self.completeBlock(results,error);
+        weakSelf.completeBlock(results,error);
     }];
 }
 
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)compeition
 {
-    return [[TeamManager sharedTeamManager] getTeamsFromCoreDataWithCompetition:compeition];
+    NSArray* array = [[TeamManager sharedTeamManager] getTeamsFromCoreDataWithCompetition:compeition];
+
+    __weak GroupScoreViewController* weakSelf = self;
+    return [array sortedArrayUsingComparator:^NSComparisonResult(Team* a, Team* b) {
+        return [weakSelf comparedTeam:a andTeam:b];
+    }];
 }
 
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition whenSearch:(NSString*)key
 {
-    return [[TeamManager sharedTeamManager] getTeamsByKey:key competition:competition];
+    NSArray* array = [[TeamManager sharedTeamManager] getTeamsByKey:key competition:competition];
+    __weak GroupScoreViewController* weakSelf = self;
+    return [array sortedArrayUsingComparator:^NSComparisonResult(Team* a, Team* b) {
+        return [weakSelf comparedTeam:a andTeam:b];
+    }];
 }
 
 @end

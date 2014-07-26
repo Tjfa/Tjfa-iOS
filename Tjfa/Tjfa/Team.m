@@ -24,6 +24,7 @@
 @dynamic players;
 @dynamic groupGoalCount;
 @dynamic groupMissCount;
+@dynamic rank;
 
 - (NSString*)description
 {
@@ -56,6 +57,7 @@
     team.missCount = dictionary[@"missCount"];
     team.name = dictionary[@"name"];
     team.score = dictionary[@"score"];
+    team.rank = dictionary[@"rank"];
     team.groupMissCount = dictionary[@"groupMissCount"];
     team.groupGoalCount = dictionary[@"groupGoalCount"];
     team.competition = competition;

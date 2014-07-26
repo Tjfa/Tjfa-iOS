@@ -42,8 +42,6 @@
     self.competitionList = [[NSMutableArray alloc] init];
     self.durationList = [[NSMutableArray alloc] init];
 
-    // 注册上拉下拉刷新控件
-
     [self getLocalData];
 }
 
@@ -102,7 +100,7 @@
     CompetitionCell* cell = [self.tableView dequeueReusableCellWithIdentifier:competitionTableViewIdentifier];
     [cell setCellWithCompetition:self.competitionList[indexPath.section][indexPath.row] forIndexPath:indexPath];
     if (hasMore && indexPath.section == self.durationList.count - 1 && indexPath.row == [[self.competitionList lastObject] count] - 1) {
-        [self pullupGetMore];
+        [self getEarlierData];
     }
 
     return cell;
@@ -119,9 +117,19 @@
     }
 }
 
-// 获取数据
-// drop-down refresh --- get latest data from server
-- (void)dropdownRefresh
+- (void)getLocalData
+{
+    NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:self.campusType];
+
+    if ([results count] == 0) {
+        [self.progressView show:YES];
+        [self getLatestData];
+    } else {
+        [self handleCompetitionDataList:results resetSign:YES];
+    }
+}
+
+- (void)getLatestData
 {
     [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:self.campusType limit:10 complete:^(NSArray* results, NSError* error) {
         [self.progressView removeFromSuperview];
@@ -134,42 +142,26 @@
     }];
 }
 
-// get local data --- when first enter this page
-- (void)getLocalData
+- (void)getEarlierData
 {
-    NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:self.campusType];
-
-    if ([results count] == 0) {
-        [self.progressView show:YES];
-        [self dropdownRefresh];
-    } else {
-        [self handleCompetitionDataList:results resetSign:YES];
-    }
-}
-
-// pull-up get more --- get earlier server data
-- (void)pullupGetMore
-{
-    Competition* lastCompetition = [[[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:self.campusType] lastObject];
-
+    __weak CompetitionViewController* weakSelf = self;
+    Competition* lastCompetition = [[self.competitionList lastObject] lastObject];
     if (lastCompetition == nil) {
-        hasMore = NO;
-    } else {
-        [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:[lastCompetition competitionId] withType:@(1) limit:10 complete:^(NSArray* results, NSError* error) {
-            
-            if (error) {
-                hasMore=NO;
-                NSLog(@"%@",error);
-            } else {
-                if (results.count == 0) {
-                    hasMore = YES;
-                } else {
-                    [self handleCompetitionDataList:results resetSign:false];
-                }
-            }
-            [header endRefreshing];
-        }];
+        return;
     }
+    [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:[lastCompetition competitionId] withType:@(1) limit:10 complete:^(NSArray* results, NSError* error) {
+        
+        if (error) {
+            hasMore=NO;
+        } else {
+            if (results.count == 0) {
+                hasMore = YES;
+            } else {
+                [weakSelf handleCompetitionDataList:results resetSign:false];
+            }
+        }
+        [header endRefreshing];
+    }];
 }
 
 - (void)handleCompetitionDataList:(NSArray*)dataList resetSign:(BOOL)sign
@@ -215,15 +207,17 @@
 
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView*)refreshView
 {
-    [self dropdownRefresh];
+    [self getLatestData];
 }
 
-#pragma mark-- navigation pop
+#pragma mark - navigation pop
 
 - (IBAction)backButtonClick:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - delloc
 
 - (void)dealloc
 {

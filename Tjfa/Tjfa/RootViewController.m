@@ -29,14 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.clipsToBounds=YES;
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.view.clipsToBounds = YES;
 }
 
 - (IBAction)toggleMenu:(id)sender
@@ -47,6 +40,8 @@
         [self presentRightMenuViewController];
     }
 }
+
+#pragma mark - RESide menu delegate
 
 - (void)sideMenu:(RESideMenu*)sideMenu didShowMenuViewController:(UIViewController*)menuViewController
 {

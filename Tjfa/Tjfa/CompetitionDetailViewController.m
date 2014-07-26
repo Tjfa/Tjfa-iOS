@@ -98,6 +98,17 @@
     return _mbProgressHud;
 }
 
+- (void)setSearchBar:(UISearchBar*)searchBar
+{
+    if (searchBar != _searchBar) {
+        _searchBar = searchBar;
+        _searchBar.backgroundColor=[UIColor appRedColor];
+        _searchBar.barTintColor=[UIColor appRedColor];
+        UITextField* searchField = [_searchBar valueForKey:@"_searchField"];
+        searchField.textColor = [UIColor appRedColor];
+    }
+}
+
 #pragma mark - tableview delegate & datasource
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section

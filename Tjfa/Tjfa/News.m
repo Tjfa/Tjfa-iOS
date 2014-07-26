@@ -16,6 +16,7 @@
 @dynamic newsId;
 @dynamic title;
 @dynamic isRead;
+@dynamic precontent;
 
 + (NSString*)idAttribute
 {

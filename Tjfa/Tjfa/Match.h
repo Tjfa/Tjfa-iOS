@@ -29,7 +29,7 @@
 @property (nonatomic, retain) NSNumber* isStart;
 
 /**
- *  比赛性质 0 小组赛  1 淘汰赛
+ *  比赛性质 0:小组赛  1:决赛 2:半决赛 4:1/4 8:1/8 16:1/16 32:1/32 100：附加赛 
  */
 @property (nonatomic, retain) NSNumber* matchProperty;
 
