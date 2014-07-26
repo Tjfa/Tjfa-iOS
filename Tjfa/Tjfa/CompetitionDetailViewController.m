@@ -168,4 +168,11 @@
     return;
 }
 
+#pragma mark - delloc
+
+- (void)dealloc
+{
+    [self.header free];
+}
+
 @end

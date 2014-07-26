@@ -225,4 +225,9 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)dealloc
+{
+    [header free];
+}
+
 @end
