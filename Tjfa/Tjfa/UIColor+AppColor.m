@@ -64,4 +64,9 @@
     return [UIColor colorWith16Number:0x910100];
 }
 
++ (UIColor*)appTableViewSectionColor
+{
+    return [UIColor colorWith16Number:0x5f100f];
+}
+
 @end

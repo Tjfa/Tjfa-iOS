@@ -47,5 +47,6 @@
 + (UIColor*)aboutItemColor;
 + (UIColor*)appNavigationBarTintColor;
 + (UIColor*)appRedColor;
++ (UIColor*)appTableViewSectionColor;
 
 @end

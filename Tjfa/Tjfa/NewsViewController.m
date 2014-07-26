@@ -22,10 +22,6 @@
 
 @property (nonatomic, strong) MBProgressHUD* loadProgress;
 
-@property (nonatomic, strong) UIView* loadMoreFooterView;
-
-@property (nonatomic, strong) UIView* noMoreFooterView;
-
 @property (nonatomic, strong) MJRefreshHeaderView* headerView;
 
 @end
@@ -95,31 +91,14 @@
     return _headerView;
 }
 
-- (UIView*)loadMoreFooterView
-{
-    if (_loadMoreFooterView == nil) {
-        _loadMoreFooterView = [UIView loadMoreFooterView];
-    }
-    return _loadMoreFooterView;
-}
-
-- (UIView*)noMoreFooterView
-{
-    if (_noMoreFooterView == nil) {
-        _noMoreFooterView = [UIView noMoreFotterView];
-    }
-    return _noMoreFooterView;
-}
-
 - (void)setTableView:(UITableView*)tableView
 {
     if (_tableView != tableView) {
         _tableView = tableView;
         self.headerView.scrollView = _tableView;
         self.headerView.delegate = self;
-        _tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"newsBg"]];
+        _tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"newsBg"]];
         hasMore = YES;
-        _tableView.tableFooterView = self.loadMoreFooterView;
     }
 }
 
@@ -146,7 +125,7 @@
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    NewsCell* cell = [tableView dequeueReusableCellWithIdentifier:@"newsCell"];
+    NewsCell* cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell"];
     [cell setCellWithNews:self.data[indexPath.row]];
     if (hasMore && indexPath.row == self.data.count - 1) {
         [self getEarlierNews:[self.data lastObject]];
@@ -193,15 +172,16 @@
 
 - (void)getLatestNews
 {
+    __weak NewsViewController* weakSelf = self;
     [[NewsManager sharedNewsManager] getLatestNewsFromNetworkWithLimit:10 complete:^(NSArray* newsArray, NSError* error) {
-        [self.headerView endRefreshing];
+        [weakSelf.headerView endRefreshing];
 
         if (error){
         }
         else{
-            self.data=[newsArray mutableCopy];
-            [self.tableView reloadData];
-            [self.headerView endRefreshing];
+            weakSelf.data=[newsArray mutableCopy];
+            [weakSelf.tableView reloadData];
+            [weakSelf.headerView endRefreshing];
         }
     }];
 }
@@ -210,23 +190,23 @@
 {
     if (lastNews == nil)
         return;
+    __weak NewsViewController* weakSelf = self;
     [[NewsManager sharedNewsManager] getEarlierNewsFromNetworkWithId:lastNews.newsId andLimit:10 complete:^(NSArray* results, NSError* error) {
         if (error){
             
         }else{
             
             if (results==nil || results.count==0){
-                self.tableView.tableFooterView=self.noMoreFooterView;
                 hasMore=NO;
                 return ;
             }
             
             NSMutableArray* indexPaths=[[NSMutableArray alloc] init];
             for (int i=0; i<results.count; i++){
-                [indexPaths addObject:[NSIndexPath indexPathForRow:self.data.count inSection:0]];
-                [self.data addObject:results[i]];
+                [indexPaths addObject:[NSIndexPath indexPathForRow:weakSelf.data.count inSection:0]];
+                [weakSelf.data addObject:results[i]];
             }
-            [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
+            [weakSelf.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationNone];
         }
     }];
 }
@@ -246,6 +226,11 @@
 - (IBAction)backButtonClick:(id)sender
 {
     [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)dealloc
+{
+    [self.headerView free];
 }
 
 @end

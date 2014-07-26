@@ -16,18 +16,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="6" sectionFooterHeight="6" translatesAutoresizingMaskIntoConstraints="NO" id="aza-C6-Jgo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aza-C6-Jgo">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
-                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CompetitionTableViewIdentifier" id="mjW-CH-Ske">
-                                        <rect key="frame" x="0.0" y="119" width="320" height="44"/>
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CompetitionCell" rowHeight="60" id="mjW-CH-Ske" customClass="CompetitionCell">
+                                        <rect key="frame" x="0.0" y="86" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mjW-CH-Ske" id="mEh-uq-ZWa">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="indicator" translatesAutoresizingMaskIntoConstraints="NO" id="EC4-tg-cD4">
+                                                    <rect key="frame" x="288" y="21" width="12" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="competitionCup0" translatesAutoresizingMaskIntoConstraints="NO" id="cmt-YD-lgC" userLabel="cup">
+                                                    <rect key="frame" x="20" y="15" width="24" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="足 协 杯" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzb-6q-8om" userLabel="title">
+                                                    <rect key="frame" x="60" y="0.0" width="210" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="cupView" destination="cmt-YD-lgC" id="LII-7I-mTH"/>
+                                            <outlet property="title" destination="Hzb-6q-8om" id="KrH-gn-wPB"/>
                                             <segue destination="Fj6-dn-b1P" kind="push" id="OLf-dH-Oa7"/>
                                         </connections>
                                     </tableViewCell>
@@ -40,14 +61,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aza-C6-Jgo" firstAttribute="leading" secondItem="dEc-Xl-vJY" secondAttribute="leading" id="So7-dQ-Frl"/>
-                            <constraint firstItem="aza-C6-Jgo" firstAttribute="top" secondItem="q4j-9w-wEW" secondAttribute="bottom" constant="-64" id="U7E-6y-8qg"/>
-                            <constraint firstItem="aza-C6-Jgo" firstAttribute="leading" secondItem="dEc-Xl-vJY" secondAttribute="leading" id="Zik-5p-EcX"/>
-                            <constraint firstAttribute="trailing" secondItem="aza-C6-Jgo" secondAttribute="trailing" id="aF3-c8-QMr"/>
-                            <constraint firstItem="UVN-Mh-AIi" firstAttribute="top" secondItem="aza-C6-Jgo" secondAttribute="bottom" id="b20-Ie-CyL"/>
-                            <constraint firstItem="UVN-Mh-AIi" firstAttribute="top" secondItem="aza-C6-Jgo" secondAttribute="bottom" id="bxP-In-911"/>
-                            <constraint firstAttribute="trailing" secondItem="aza-C6-Jgo" secondAttribute="trailing" id="dta-pq-J52"/>
-                            <constraint firstItem="aza-C6-Jgo" firstAttribute="top" secondItem="q4j-9w-wEW" secondAttribute="bottom" constant="-64" id="sNH-Kq-TWI"/>
+                            <constraint firstItem="aza-C6-Jgo" firstAttribute="leading" secondItem="dEc-Xl-vJY" secondAttribute="leading" id="8A6-s4-Zlj"/>
+                            <constraint firstItem="aza-C6-Jgo" firstAttribute="top" secondItem="dEc-Xl-vJY" secondAttribute="top" id="MBj-YM-AH7"/>
+                            <constraint firstItem="UVN-Mh-AIi" firstAttribute="top" secondItem="aza-C6-Jgo" secondAttribute="bottom" id="dJG-BG-gA3"/>
+                            <constraint firstAttribute="trailing" secondItem="aza-C6-Jgo" secondAttribute="trailing" id="kY7-6B-e5w"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="赛事" id="vli-Qe-bOd">
@@ -114,19 +131,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view appearanceType="aqua" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNK-7N-Xja">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="match" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2p-eb-eYb">
-                                        <rect key="frame" x="152" y="0.0" width="48" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.94293707770000001" green="0.04734268548" blue="0.1197215814" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IBs-HI-Pen">
-                                <rect key="frame" x="0.0" y="44" width="320" height="480"/>
+                            <tableView appearanceType="aqua" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="IBs-HI-Pen">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" appearanceType="aqua" contentMode="redraw" placeholder="输入关注的球队名称" id="L7A-DC-Ugx">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -226,14 +232,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IBs-HI-Pen" firstAttribute="top" secondItem="YNK-7N-Xja" secondAttribute="bottom" id="6UQ-fN-gmw"/>
-                            <constraint firstItem="YNK-7N-Xja" firstAttribute="top" secondItem="Ygj-yM-kJh" secondAttribute="top" id="NRk-2R-Ba4"/>
-                            <constraint firstItem="YNK-7N-Xja" firstAttribute="trailing" secondItem="IBs-HI-Pen" secondAttribute="trailing" id="Uc3-MG-U4D"/>
-                            <constraint firstAttribute="trailing" secondItem="YNK-7N-Xja" secondAttribute="trailing" id="YuD-BO-JmX"/>
-                            <constraint firstItem="LOC-m2-W8M" firstAttribute="top" secondItem="IBs-HI-Pen" secondAttribute="bottom" id="eHF-MS-1LR"/>
-                            <constraint firstAttribute="bottom" secondItem="YNK-7N-Xja" secondAttribute="bottom" constant="504" id="gW6-3O-hdd"/>
-                            <constraint firstItem="YNK-7N-Xja" firstAttribute="leading" secondItem="Ygj-yM-kJh" secondAttribute="leading" id="m5t-B5-xwG"/>
-                            <constraint firstItem="YNK-7N-Xja" firstAttribute="leading" secondItem="IBs-HI-Pen" secondAttribute="leading" id="w1I-Qw-UPp"/>
+                            <constraint firstItem="LOC-m2-W8M" firstAttribute="top" secondItem="IBs-HI-Pen" secondAttribute="bottom" id="7lR-5O-5bG"/>
+                            <constraint firstItem="IBs-HI-Pen" firstAttribute="top" secondItem="Ygj-yM-kJh" secondAttribute="top" id="BUr-5q-a1c"/>
+                            <constraint firstItem="IBs-HI-Pen" firstAttribute="leading" secondItem="Ygj-yM-kJh" secondAttribute="leading" id="hVz-nF-7JM"/>
+                            <constraint firstAttribute="trailing" secondItem="IBs-HI-Pen" secondAttribute="trailing" id="hv2-cU-5WH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="比赛" id="6kn-sK-Wnd"/>
@@ -779,7 +781,7 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
-                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="80" id="fNm-bp-NNJ" customClass="NewsCell">
+                                    <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="80" id="fNm-bp-NNJ" customClass="NewsCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fNm-bp-NNJ" id="hQH-hH-5sn">
@@ -1317,6 +1319,7 @@
     </scenes>
     <resources>
         <image name="backToDashboard" width="44" height="44"/>
+        <image name="competitionCup0" width="24" height="24"/>
         <image name="contect" width="100" height="100"/>
         <image name="dashboardBenbu" width="91" height="59"/>
         <image name="dashboardBg" width="640" height="1136"/>

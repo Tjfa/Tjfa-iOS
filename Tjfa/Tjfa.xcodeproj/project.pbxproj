@@ -36,6 +36,7 @@
 		2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495FA0C196D005C00319872 /* UIView+RefreshFooterView.m */; };
 		249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67718E16DDE0084DDBB /* CompetitionManager.m */; };
 		249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F143F195D6FBB0038DF42 /* NewsManager.m */; };
+		24B1542619834CF4004F87DA /* CompetitionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B1542519834CF4004F87DA /* CompetitionCell.m */; };
 		24B8C1BD1977B43F00B2FAD0 /* TopScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1BC1977B43F00B2FAD0 /* TopScoreViewController.m */; };
 		24B8C1C11977B46D00B2FAD0 /* YellowCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1C01977B46D00B2FAD0 /* YellowCardViewController.m */; };
 		24B8C1C51977B7F800B2FAD0 /* MatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1C41977B7F800B2FAD0 /* MatchTableViewCell.m */; };
@@ -147,6 +148,8 @@
 		249CF67718E16DDE0084DDBB /* CompetitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionManager.m; sourceTree = "<group>"; };
 		249F143E195D6FBB0038DF42 /* NewsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsManager.h; sourceTree = "<group>"; };
 		249F143F195D6FBB0038DF42 /* NewsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsManager.m; sourceTree = "<group>"; };
+		24B1542419834CF4004F87DA /* CompetitionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionCell.h; sourceTree = "<group>"; };
+		24B1542519834CF4004F87DA /* CompetitionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionCell.m; sourceTree = "<group>"; };
 		24B8C1BB1977B43F00B2FAD0 /* TopScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoreViewController.h; sourceTree = "<group>"; };
 		24B8C1BC1977B43F00B2FAD0 /* TopScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoreViewController.m; sourceTree = "<group>"; };
 		24B8C1BF1977B46D00B2FAD0 /* YellowCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YellowCardViewController.h; sourceTree = "<group>"; };
@@ -663,6 +666,8 @@
 			children = (
 				ADEDA1DF195FE00D009B8D20 /* CompetitionViewController.h */,
 				ADEDA1E0195FE00D009B8D20 /* CompetitionViewController.m */,
+				24B1542419834CF4004F87DA /* CompetitionCell.h */,
+				24B1542519834CF4004F87DA /* CompetitionCell.m */,
 			);
 			name = Competition;
 			sourceTree = "<group>";
@@ -833,6 +838,7 @@
 				24C6FE4E195E8574008B594C /* News.m in Sources */,
 				240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */,
 				24C6FE4F195E8574008B594C /* Team.m in Sources */,
+				24B1542619834CF4004F87DA /* CompetitionCell.m in Sources */,
 				24D42BCA197CDC200069F224 /* RedCardTableViewCell.m in Sources */,
 				241D4A4F196E917C00E3FC02 /* UIApplication+MainNav.m in Sources */,
 				24D42BC7197CD79A0069F224 /* RedCardViewController.m in Sources */,

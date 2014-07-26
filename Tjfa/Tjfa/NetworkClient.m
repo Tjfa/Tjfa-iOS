@@ -64,28 +64,27 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
     return _networkClient;
 }
 
-- (NSURLSessionDataTask*)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parameters complete:(void (^)(id, NSError*))complete
+- (void)searchForAddress:(NSString*)address withParameters:(NSDictionary*)parameters complete:(void (^)(id, NSError*))complete
 {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 
-    NSURLSessionDataTask* task = [self POST:address parameters:parameters success:^(NSURLSessionDataTask* task, id responseObject) {
-            
+    [self POST:address parameters:parameters success:^(NSURLSessionDataTask* task, id responseObject) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             NSLog(@"successful");
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
             if (httpResponse.statusCode == 200)     //200是成功返回
             {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    NSLog(@"%@",responseObject);
-                    complete(responseObject,nil);
-                });
-            }else{
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    NSError* error=[[NSError alloc] init];
-                    complete(nil, error);
-                });
-            }
-    }
+                NSLog(@"%@",responseObject);
+                complete(responseObject,nil);
+            });
+                }else{
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSError* error=[[NSError alloc] init];
+                        complete(nil, error);
+                    });
+                }
+        }
         failure:^(NSURLSessionDataTask* task, NSError* error) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             NSLog(@"fail");
@@ -94,7 +93,6 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
                 complete(nil, error);
             });
         }];
-    return task;
 }
 
 @end

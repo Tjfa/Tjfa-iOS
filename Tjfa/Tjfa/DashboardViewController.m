@@ -33,13 +33,15 @@ const CGFloat delayAnimate = 0.1;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dashboardTitle"]];
+
     self.navigationController.navigationBar.barTintColor = [UIColor appNavigationBarTintColor];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    NSDictionary* titleDictionaryAttribute = @{ NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont boldSystemFontOfSize:18] };
+
+    NSDictionary* titleDictionaryAttribute = @{ NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont boldSystemFontOfSize:22] };
     self.navigationController.navigationBar.titleTextAttributes = titleDictionaryAttribute;
-    // Do any additional setup after loading the view.
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -184,7 +186,7 @@ const CGFloat delayAnimate = 0.1;
     NSLog(@"benbu click");
     [self closeDashboardCellUserInterface];
     CompetitionViewController* benbuController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
-    [benbuController setCampusType:1];
+    [benbuController setCampusType:@(1)];
     [self hideWithAnimateSynCompleteToController:benbuController];
 }
 
@@ -193,7 +195,7 @@ const CGFloat delayAnimate = 0.1;
     NSLog(@"jiading click");
     [self closeDashboardCellUserInterface];
     CompetitionViewController* jiadingController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
-    [jiadingController setCampusType:2];
+    [jiadingController setCampusType:@(2)];
     [self hideWithAnimateSynCompleteToController:jiadingController];
 }
 

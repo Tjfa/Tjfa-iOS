@@ -10,12 +10,12 @@
 
 @interface UIView (RefreshFooterView)
 
-+ (UIView*)loadMoreFooterView;
+//+ (UIView*)loadMoreFooterView;
 
-+ (UIView*)noMoreFotterView;
+//+ (UIView*)noMoreFotterView;
 
-+ (UIView*)loadMoreFooterViewWithFrame:(CGRect)frame;
+//+ (UIView*)loadMoreFooterViewWithFrame:(CGRect)frame;
 
-+ (UIView*)noMoreFotterViewWithFrame:(CGRect)frame;
+//+ (UIView*)noMoreFotterViewWithFrame:(CGRect)frame;
 
 @end

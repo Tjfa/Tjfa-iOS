@@ -11,7 +11,7 @@
 
 @interface CompetitionViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, MJRefreshBaseViewDelegate>
 
-@property (readwrite, nonatomic) int campusType; // 1-本部 2-嘉定
+@property (readwrite, nonatomic) NSNumber* campusType; // 1-本部 2-嘉定
 
 @property (weak, nonatomic) IBOutlet UITableView* tableView;
 @end
