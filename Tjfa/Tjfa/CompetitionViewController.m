@@ -194,7 +194,10 @@
     /**
      *  bug here  当没有数据的时候 这里 还是会加入一个数据
      */
-    [self.durationList addObject:[self convertTimetoString:tempCompetitionDuration]];
+    NSString* timeStr = [self convertTimetoString:tempCompetitionDuration];
+    if (timeStr) {
+        [self.durationList addObject:timeStr];
+    }
 
     [self.tableView reloadData];
 }
@@ -203,7 +206,7 @@
 {
     if (time == nil || [time isEqualToString:@""])
         return nil;
-    
+
     if ([[time substringFromIndex:[time length] - 1] isEqualToString:@"1"]) {
         return [NSString stringWithFormat:@"%@ 年上学期", [time substringToIndex:[time length] - 1]];
     } else {
