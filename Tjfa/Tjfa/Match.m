@@ -23,6 +23,8 @@
 @dynamic competition;
 @dynamic teamA;
 @dynamic teamB;
+@dynamic penaltyA;
+@dynamic penaltyB;
 
 - (NSString*)description
 {

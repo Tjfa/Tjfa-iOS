@@ -49,6 +49,16 @@
 @property (nonatomic, retain) NSNumber* winTeamId;
 
 /**
+ *  点球大战 a队得分
+ */
+@property (nonatomic, retain) NSNumber* penaltyA;
+
+/**
+ *  点球大战b队得分
+ */
+@property (nonatomic, retain) NSNumber* penaltyB;
+
+/**
  *  所属的赛事
  */
 @property (nonatomic, retain) Competition* competition;
