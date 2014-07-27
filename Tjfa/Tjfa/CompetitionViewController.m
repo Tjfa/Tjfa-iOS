@@ -14,12 +14,18 @@
 #import "RootViewController.h"
 #import "UIColor+AppColor.h"
 #import "CompetitionCell.h"
+#import "UIAlertView+NetWorkErrorView.h"
 
 @interface CompetitionViewController () {
     MJRefreshHeaderView* header;
     BOOL hasMore;
+    __weak Competition* lastCompetition;
 }
+
+//section
 @property (nonatomic, strong) NSMutableArray* durationList;
+
+//row
 @property (nonatomic, strong) NSMutableArray* competitionList;
 
 @property (nonatomic, strong) MBProgressHUD* progressView;
@@ -37,12 +43,6 @@
     } else {
         self.navigationItem.title = @"嘉  定";
     }
-
-    hasMore = YES;
-    self.competitionList = [[NSMutableArray alloc] init];
-    self.durationList = [[NSMutableArray alloc] init];
-
-    [self getLocalData];
 }
 
 #pragma mark - getter & setter
@@ -65,6 +65,24 @@
         header.delegate = self;
         header.scrollView = _tableView;
     }
+}
+
+- (NSMutableArray*)competitionList
+{
+    if (_competitionList == nil) {
+        _competitionList = [[NSMutableArray alloc] init];
+    }
+    return _competitionList;
+}
+
+- (NSMutableArray*)durationList
+{
+    if (_durationList == nil) {
+        _durationList = [[NSMutableArray alloc] init];
+        [self getLocalData];
+        hasMore = YES;
+    }
+    return _durationList;
 }
 
 #pragma mark - tableview
@@ -98,7 +116,11 @@
 {
     static NSString* competitionTableViewIdentifier = @"CompetitionCell";
     CompetitionCell* cell = [self.tableView dequeueReusableCellWithIdentifier:competitionTableViewIdentifier];
-    [cell setCellWithCompetition:self.competitionList[indexPath.section][indexPath.row] forIndexPath:indexPath];
+    Competition* competition = self.competitionList[indexPath.section][indexPath.row];
+    if (lastCompetition == nil || competition.competitionId < lastCompetition.competitionId) {
+        lastCompetition = competition;
+    }
+    [cell setCellWithCompetition:competition forIndexPath:indexPath];
     if (hasMore && indexPath.section == self.durationList.count - 1 && indexPath.row == [[self.competitionList lastObject] count] - 1) {
         [self getEarlierData];
     }
@@ -107,6 +129,7 @@
 }
 
 #pragma mark - Navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
     if ([sender isKindOfClass:[UITableViewCell class]]) {
@@ -117,6 +140,8 @@
     }
 }
 
+#pragma mark - getData
+
 - (void)getLocalData
 {
     NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:self.campusType];
@@ -125,18 +150,27 @@
         [self.progressView show:YES];
         [self getLatestData];
     } else {
-        [self handleCompetitionDataList:results resetSign:YES];
+        [self resetData:results];
     }
 }
 
 - (void)getLatestData
 {
-    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:self.campusType limit:10 complete:^(NSArray* results, NSError* error) {
+    lastCompetition = nil;
+    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:self.campusType limit:DEFAULT_LIMIT complete:^(NSArray* results, NSError* error) {
         [self.progressView removeFromSuperview];
         if (error) {
             hasMore=NO;
+            UIAlertView* alert=[UIAlertView alertViewWithErrorNetWork];
+            [alert show];
         } else {
-            [self handleCompetitionDataList:results resetSign:YES];
+            if (results.count<DEFAULT_LIMIT){
+                hasMore=NO;
+            }else{
+                hasMore=YES;
+            }
+            
+            [self resetData:results];
         }
         [header endRefreshing];
     }];
@@ -145,60 +179,42 @@
 - (void)getEarlierData
 {
     __weak CompetitionViewController* weakSelf = self;
-    Competition* lastCompetition = [[self.competitionList lastObject] lastObject];
-    if (lastCompetition == nil) {
-        return;
-    }
-    [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:[lastCompetition competitionId] withType:@(1) limit:10 complete:^(NSArray* results, NSError* error) {
+    [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:lastCompetition.competitionId withType:self.campusType limit:DEFAULT_LIMIT complete:^(NSArray* results, NSError* error) {
         
         if (error) {
             hasMore=NO;
         } else {
-            if (results.count == 0) {
-                hasMore = YES;
-            } else {
-                [weakSelf handleCompetitionDataList:results resetSign:false];
+            if (results.count<DEFAULT_LIMIT){
+                hasMore=NO;
             }
+            for (Competition* competition in results){
+                [weakSelf addCompetitionToCompetitionList:competition];
+            }
+            [weakSelf.tableView reloadData];
         }
-        [header endRefreshing];
     }];
 }
 
-- (void)handleCompetitionDataList:(NSArray*)dataList resetSign:(BOOL)sign
+- (void)addCompetitionToCompetitionList:(Competition*)competition
 {
-    BOOL firstGroupSign = YES;
-    NSString* tempCompetitionDuration;
-    NSMutableArray* tempComptitionArray = [[NSMutableArray alloc] init];
-
-    if (sign) {
-        hasMore = YES;
-        [self.competitionList removeAllObjects];
-        [self.durationList removeAllObjects];
+    NSUInteger index = [self.durationList indexOfObject:[self convertTimetoString:competition.time]];
+    if (index == NSNotFound) {
+        [self.durationList addObject:[self convertTimetoString:competition.time]];
+        NSMutableArray* arr = [[NSMutableArray alloc] initWithObjects:competition, nil];
+        [self.competitionList addObject:arr];
+    } else {
+        NSMutableArray* arr = self.competitionList[index];
+        [arr addObject:competition];
     }
+}
 
-    for (Competition* competition in dataList) {
-        if (![tempCompetitionDuration isEqualToString:[competition time]]) {
-            if (firstGroupSign) {
-                firstGroupSign = NO;
-            } else {
-                [self.competitionList addObject:tempComptitionArray];
-                [self.durationList addObject:[self convertTimetoString:tempCompetitionDuration]];
-            }
-            tempCompetitionDuration = [competition time];
-            tempComptitionArray = [[NSMutableArray alloc] init];
-        }
-        [tempComptitionArray addObject:competition];
+- (void)resetData:(NSArray*)data
+{
+    [self.competitionList removeAllObjects];
+    [self.durationList removeAllObjects];
+    for (Competition* competition in data) {
+        [self addCompetitionToCompetitionList:competition];
     }
-
-    [self.competitionList addObject:tempComptitionArray];
-    /**
-     *  bug here  当没有数据的时候 这里 还是会加入一个数据
-     */
-    NSString* timeStr = [self convertTimetoString:tempCompetitionDuration];
-    if (timeStr) {
-        [self.durationList addObject:timeStr];
-    }
-
     [self.tableView reloadData];
 }
 

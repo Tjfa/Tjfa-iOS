@@ -13,6 +13,7 @@
 #import "MBProgressHUD+AppProgressView.h"
 #import "MJRefresh.h"
 #import "UIView+RefreshFooterView.h"
+#import "UIAlertView+NetWorkErrorView.h"
 
 @interface NewsViewController () <UITableViewDataSource, UITableViewDelegate, MJRefreshBaseViewDelegate>
 
@@ -173,12 +174,16 @@
 - (void)getLatestNews
 {
     __weak NewsViewController* weakSelf = self;
-    [[NewsManager sharedNewsManager] getLatestNewsFromNetworkWithLimit:10 complete:^(NSArray* newsArray, NSError* error) {
+    [[NewsManager sharedNewsManager] getLatestNewsFromNetworkWithLimit:DEFAULT_LIMIT complete:^(NSArray* newsArray, NSError* error) {
         [weakSelf.headerView endRefreshing];
 
         if (error){
+            hasMore=NO;
+            UIAlertView* alert=[UIAlertView alertViewWithErrorNetWork];
+            [alert show];
         }
         else{
+            if (newsArray.count<DEFAULT_LIMIT) hasMore=NO;
             weakSelf.data=[newsArray mutableCopy];
             [weakSelf.tableView reloadData];
             [weakSelf.headerView endRefreshing];
@@ -191,15 +196,15 @@
     if (lastNews == nil)
         return;
     __weak NewsViewController* weakSelf = self;
-    [[NewsManager sharedNewsManager] getEarlierNewsFromNetworkWithId:lastNews.newsId andLimit:10 complete:^(NSArray* results, NSError* error) {
+    [[NewsManager sharedNewsManager] getEarlierNewsFromNetworkWithId:lastNews.newsId andLimit:DEFAULT_LIMIT complete:^(NSArray* results, NSError* error) {
         if (error){
-            
+            hasMore=NO;
+            UIAlertView* alert=[UIAlertView alertViewWithErrorNetWork];
+            [alert show];
+
         }else{
-            
-            if (results==nil || results.count==0){
-                hasMore=NO;
-                return ;
-            }
+            if (results.count<DEFAULT_LIMIT) hasMore=NO;
+            if (!results || results.count==0) return ;
             
             NSMutableArray* indexPaths=[[NSMutableArray alloc] init];
             for (int i=0; i<results.count; i++){

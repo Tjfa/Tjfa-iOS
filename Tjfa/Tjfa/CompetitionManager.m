@@ -41,6 +41,9 @@
             NSLog(@"%@",error);
         }
     }];
+    [results sortUsingComparator:^NSComparisonResult(Competition* a, Competition* b) {
+        return [b.competitionId compare:a.competitionId];
+    }];
     return results;
 }
 
