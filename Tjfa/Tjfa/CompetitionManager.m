@@ -51,6 +51,7 @@
 
 - (void)getEarlierCompetitionsFromNetwork:(NSNumber*)competitionId withType:(NSNumber*)type limit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
 {
+    NSLog(@"%@ %@", type, competitionId);
     NSDictionary* parameterDictionary = @{ @"type" : type,
                                            @"competitionId" : competitionId,
                                            @"limit" : @(limit) };

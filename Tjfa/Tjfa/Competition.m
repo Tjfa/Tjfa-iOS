@@ -58,25 +58,27 @@
 
 + (Competition*)updateBasePropertyWithDictionary:(NSDictionary*)dictionary
 {
-    Competition* competition = [Competition MR_findFirstByAttribute:[Competition idAttributeStr] withValue:dictionary[@"competitionId"]];
+    NSNumber* competitionId = [self assignValue:dictionary[@"competitionId"]];
+
+    Competition* competition = [Competition MR_findFirstByAttribute:[Competition idAttributeStr] withValue:competitionId];
     if (competition == nil)
         competition = [Competition MR_createEntity]; //create an new if doesn't exist
 
-    [self assignValue:competition.competitionId toNumber:dictionary[@"competitionId"]];
-    [self assignValue:competition.type toNumber:dictionary[@"type"]];
+    competition.competitionId = competitionId;
+    competition.type = [self assignValue:dictionary[@"type"]];
     competition.name = dictionary[@"name"];
     competition.time = dictionary[@"time"];
-    [self assignValue:competition.isStart toNumber:dictionary[@"isStart"]];
-    [self assignValue:competition.number toNumber:dictionary[@"number"]];
+    competition.isStart = [self assignValue:dictionary[@"isStart"]];
+    competition.number = [self assignValue:dictionary[@"number"]];
     return competition;
 }
 
-+ (void)assignValue:(id)value toNumber:(NSNumber*)number
++ (NSNumber*)assignValue:(id)value
 {
     if ([value isKindOfClass:[NSString class]]) {
-        number = @([value intValue]);
+        return @([value intValue]);
     } else {
-        number = value;
+        return value;
     }
 }
 
