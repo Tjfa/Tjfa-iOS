@@ -11,7 +11,7 @@
 
 @interface TeamTableViewCell ()
 
-@property (nonatomic, weak) IBOutlet UIImageView* image;
+@property (nonatomic, weak) IBOutlet UIImageView* emblemPath;
 @property (nonatomic, weak) IBOutlet UILabel* name;
 @property (nonatomic, weak) IBOutlet UILabel* goalCount;
 @property (nonatomic, weak) IBOutlet UILabel* missCount;
@@ -24,10 +24,10 @@
 - (void)setCellWithTeam:(Team*)team
 {
     self.name.text = team.name;
-    self.goalCount.text = [NSString stringWithFormat:@"%@", team.goalCount];
-    self.missCount.text = [NSString stringWithFormat:@"%@", team.missCount];
-    self.group.text = team.groupNo;
-    [self.imageView setImageWithURL:[NSURL URLWithString:team.emblemPath] placeholderImage:[UIImage imageNamed:@"qiufeng"]];
+    self.goalCount.text = [NSString stringWithFormat:@"进 %@", team.goalCount];
+    self.missCount.text = [NSString stringWithFormat:@"失 %@", team.missCount];
+    self.group.text = [NSString stringWithFormat:@"组 %@", team.groupNo];
+    [self.emblemPath setImageWithURL:[NSURL URLWithString:team.emblemPath] placeholderImage:[UIImage imageNamed:@"qiufeng"]];
     int rank = [team.rank intValue];
 
     if (rank == 100) {

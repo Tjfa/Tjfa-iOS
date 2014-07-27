@@ -34,10 +34,20 @@
 #pragma mark - compare
 - (NSComparisonResult)comparedRank:(Team*)a andTeamB:(Team*)b
 {
-    if ([a.rank intValue] == 100) {
-        return NSOrderedDescending;
+    if ([a.rank isEqual:b.rank]) {
+        return [a.teamId compare:b.teamId];
     } else {
-        return [a.rank compare:b.rank];
+        if ([a.rank intValue] == 100) {
+            return NSOrderedAscending;
+        } else if ([b.rank intValue] == 100) {
+            return NSOrderedDescending;
+        } else if ([a.rank intValue] == 0) {
+            return NSOrderedAscending;
+        } else if ([b.rank intValue] == 0) {
+            return NSOrderedDescending;
+        } else {
+            return [a.rank compare:b.rank];
+        }
     }
 }
 
