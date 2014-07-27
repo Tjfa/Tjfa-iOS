@@ -62,13 +62,22 @@
     if (competition == nil)
         competition = [Competition MR_createEntity]; //create an new if doesn't exist
 
-    competition.competitionId = dictionary[@"competitionId"];
-    competition.type = dictionary[@"type"];
+    [self assignValue:competition.competitionId toNumber:dictionary[@"competitionId"]];
+    [self assignValue:competition.type toNumber:dictionary[@"type"]];
     competition.name = dictionary[@"name"];
     competition.time = dictionary[@"time"];
-    competition.isStart = dictionary[@"isStart"];
-    competition.number = dictionary[@"number"];
+    [self assignValue:competition.isStart toNumber:dictionary[@"isStart"]];
+    [self assignValue:competition.number toNumber:dictionary[@"number"]];
     return competition;
+}
+
++ (void)assignValue:(id)value toNumber:(NSNumber*)number
+{
+    if ([value isKindOfClass:[NSString class]]) {
+        number = @([value intValue]);
+    } else {
+        number = value;
+    }
 }
 
 @end

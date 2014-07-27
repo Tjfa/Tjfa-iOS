@@ -12,10 +12,10 @@
 @implementation NetworkClient
 
 //localhost in QiuFeng
-//NSString* serverUrlStr = @"http://192.168.113.178/tjfa/";
+NSString* serverUrlStr = @"http://192.168.16.102/TJFA_SERVER_API/";
 
 //word
-NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
+//NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
 
 + (NSURL*)serverUrl
 {
@@ -84,7 +84,7 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
                         complete(nil, error);
                     });
                 }
-        }
+    }
         failure:^(NSURLSessionDataTask* task, NSError* error) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             NSLog(@"fail");
