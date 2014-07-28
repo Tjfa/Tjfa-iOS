@@ -49,6 +49,31 @@
 @property (nonatomic, retain) NSNumber* missCount;
 
 /**
+ *  小组赛获胜场次
+ */
+@property (nonatomic, retain) NSNumber* groupWinCount;
+
+/**
+ *  小组赛平局场次
+ */
+@property (nonatomic, retain) NSNumber* groupDrawCount;
+
+/**
+ *  小组赛失利场次
+ */
+@property (nonatomic, retain) NSNumber* groupLostCount;
+
+/**
+ *  总共获胜场次
+ */
+@property (nonatomic, retain) NSNumber* winCount;
+
+/**
+ *  总共失利场次
+ */
+@property (nonatomic, retain) NSNumber* lostCount;
+
+/**
  *  队伍名字
  */
 @property (nonatomic, retain) NSString* name;

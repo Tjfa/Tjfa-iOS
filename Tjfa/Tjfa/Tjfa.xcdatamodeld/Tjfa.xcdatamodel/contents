@@ -45,14 +45,19 @@
     <entity name="Team" representedClassName="Team" syncable="YES">
         <attribute name="emblemPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="goalCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="groupDrawCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="groupGoalCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="groupLostCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="groupMissCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="groupNo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="groupWinCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lostCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="missCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rank" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="teamId" optional="YES" attributeType="Integer 32" defaultValueString="0" indexed="YES" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="winCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="competition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Competition" inverseName="teams" inverseEntity="Competition" syncable="YES"/>
         <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="team" inverseEntity="Player" syncable="YES"/>
     </entity>
@@ -61,6 +66,6 @@
         <element name="Match" positionX="-126" positionY="-45" width="128" height="225"/>
         <element name="News" positionX="-459" positionY="50" width="128" height="135"/>
         <element name="Player" positionX="-333" positionY="-369" width="128" height="150"/>
-        <element name="Team" positionX="-146" positionY="-324" width="128" height="225"/>
+        <element name="Team" positionX="-146" positionY="-324" width="128" height="300"/>
     </elements>
 </model>

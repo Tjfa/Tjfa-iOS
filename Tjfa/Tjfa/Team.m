@@ -24,6 +24,11 @@
 @dynamic players;
 @dynamic groupGoalCount;
 @dynamic groupMissCount;
+@dynamic groupWinCount;
+@dynamic groupDrawCount;
+@dynamic groupLostCount;
+@dynamic winCount;
+@dynamic lostCount;
 @dynamic rank;
 
 - (NSString*)description
