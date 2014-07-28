@@ -11,6 +11,8 @@
 
 @implementation NetworkClient
 
+//NSString* serverUrlStr = @"http://192.168.160.102/TJFA_SERVER_API/";
+
 //localhost in QiuFeng
 NSString* serverUrlStr = @"http://192.168.16.102/TJFA_SERVER_API/";
 

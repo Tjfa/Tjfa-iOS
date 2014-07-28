@@ -102,6 +102,13 @@
     return 44;
 }
 
+- (UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.sectionFooterHeight)];
+    view.backgroundColor = [UIColor appTableViewSectionColor];
+    return view;
+}
+
 - (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
 {
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.sectionHeaderHeight)];

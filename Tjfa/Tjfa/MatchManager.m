@@ -8,7 +8,7 @@
 
 #import "MatchManager.h"
 #import "NetworkClient.h"
-#import "Team.h"
+#import "TeamManager.h"
 
 @implementation MatchManager
 
@@ -65,12 +65,13 @@
     NSDictionary* parameters = @{ @"competitionId" : competition.competitionId };
 
     __weak MatchManager* weakSelf = self;
-    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient matchAdderss] withParameters:parameters complete:^(NSArray* results, NSError* error) {
+    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient matchAdderss] withParameters:parameters complete:^(NSDictionary* results, NSError* error) {
             if (error){
                 complete(nil,error);
             }else{
-                results=[weakSelf insertMatchesWithArray:results andCompetition:competition];
-                complete(results,nil);
+                [[TeamManager sharedTeamManager] insertTeamsWithArray:results[@"teams"] andCompetition:competition];
+                NSArray* matches=[weakSelf insertMatchesWithArray:results[@"matches"] andCompetition:competition];
+                complete(matches,nil);
             }
     }];
 }

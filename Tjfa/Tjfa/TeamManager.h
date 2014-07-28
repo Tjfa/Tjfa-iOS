@@ -21,4 +21,6 @@
 
 - (void)getTeamsFromNetwork:(Competition*)competition complete:(void (^)(NSArray* results, NSError* error))complete;
 
+- (NSArray*)insertTeamsWithArray:(NSArray*)arr andCompetition:(Competition*)competition;
+
 @end

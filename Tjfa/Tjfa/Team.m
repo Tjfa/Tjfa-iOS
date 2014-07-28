@@ -10,6 +10,7 @@
 #import "Competition.h"
 #import "Match.h"
 #import "Player.h"
+#import "NSNumber+Assign.h"
 
 @implementation Team
 
@@ -52,19 +53,32 @@
 
 + (Team*)updateTeamWithDictionary:(NSDictionary*)dictionary competition:(Competition*)competition
 {
-    Team* team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:dictionary[@"teamId"]];
+    NSNumber* teamId = [NSNumber assignValue:dictionary[@"teamId"]];
+
+    Team* team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamId];
     if (team == nil)
         team = [Team MR_createEntity];
-    team.teamId = dictionary[@"teamId"];
+
+    team.teamId = teamId;
     team.emblemPath = dictionary[@"emblemPath"];
     team.groupNo = dictionary[@"groupNo"];
-    team.goalCount = dictionary[@"goalCount"];
-    team.missCount = dictionary[@"missCount"];
+
+    team.groupGoalCount = [NSNumber assignValue:dictionary[@"groupGoalCount"]];
+    team.groupMissCount = [NSNumber assignValue:dictionary[@"groupMissCount"]];
+    team.goalCount = [NSNumber assignValue:dictionary[@"goalCount"]];
+    team.missCount = [NSNumber assignValue:dictionary[@"missCount"]];
+
+    team.groupWinCount = [NSNumber assignValue:dictionary[@"groupWinCount"]];
+    team.groupLostCount = [NSNumber assignValue:dictionary[@"groupLostCount"]];
+    team.groupDrawCount = [NSNumber assignValue:dictionary[@"groupDrawCount"]];
+
+    team.winCount = [NSNumber assignValue:dictionary[@"winCount"]];
+    team.lostCount = [NSNumber assignValue:dictionary[@"lostCount"]];
+
     team.name = dictionary[@"name"];
-    team.score = dictionary[@"score"];
-    team.rank = dictionary[@"rank"];
-    team.groupMissCount = dictionary[@"groupMissCount"];
-    team.groupGoalCount = dictionary[@"groupGoalCount"];
+    team.score = [NSNumber assignValue:dictionary[@"score"]];
+    team.rank = [NSNumber assignValue:dictionary[@"rank"]];
+
     team.competition = competition;
 
     return team;

@@ -10,6 +10,7 @@
 #import "Match.h"
 #import "Player.h"
 #import "Team.h"
+#import "NSNumber+Assign.h"
 
 @implementation Competition
 
@@ -58,28 +59,19 @@
 
 + (Competition*)updateBasePropertyWithDictionary:(NSDictionary*)dictionary
 {
-    NSNumber* competitionId = [self assignValue:dictionary[@"competitionId"]];
+    NSNumber* competitionId = [NSNumber assignValue:dictionary[@"competitionId"]];
 
     Competition* competition = [Competition MR_findFirstByAttribute:[Competition idAttributeStr] withValue:competitionId];
     if (competition == nil)
         competition = [Competition MR_createEntity]; //create an new if doesn't exist
 
     competition.competitionId = competitionId;
-    competition.type = [self assignValue:dictionary[@"type"]];
+    competition.type = [NSNumber assignValue:dictionary[@"type"]];
     competition.name = dictionary[@"name"];
     competition.time = dictionary[@"time"];
-    competition.isStart = [self assignValue:dictionary[@"isStart"]];
-    competition.number = [self assignValue:dictionary[@"number"]];
+    competition.isStart = [NSNumber assignValue:dictionary[@"isStart"]];
+    competition.number = [NSNumber assignValue:dictionary[@"number"]];
     return competition;
-}
-
-+ (NSNumber*)assignValue:(id)value
-{
-    if ([value isKindOfClass:[NSString class]]) {
-        return @([value intValue]);
-    } else {
-        return value;
-    }
 }
 
 @end
