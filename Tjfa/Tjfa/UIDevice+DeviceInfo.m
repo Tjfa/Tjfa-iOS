@@ -14,12 +14,19 @@
 + (NSString*)deviceInfo
 {
     UIDevice* device = [UIDevice currentDevice];
-    NSDictionary* dictionary = @{ @"name" : device.name,
-                                  @"systemName" : device.systemName,
-                                  @"systemVersion" : device.systemVersion,
-                                  @"model" : device.model,
-                                  @"version" : [AppInfo appVersion] };
-    return [dictionary description];
+
+    /**
+     *  用dictionary 转的话 在console页面显示unicode编码 在邮箱那边也是 所以 只能自己手动转
+     */
+    
+//    NSDictionary* dictionary = @{ @"name" : device.name,
+//                                  @"systemName" : device.systemName,
+//                                  @"systemVersion" : device.systemVersion,
+//                                  @"model" : device.model,
+//                                  @"version" : [AppInfo appVersion] };
+//    return [dictionary description];
+    return [NSString stringWithFormat:@"{\nname : %@;\n systemName : %@;\n systemVersion : %@;\n model : %@;\n version : %@;\n}",device.name,device.systemName,device.systemVersion,device.model,[AppInfo appVersion]];
+
 }
 
 @end

@@ -67,7 +67,6 @@
 		24F1D1EC18E063E1007E2309 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D1EB18E063E1007E2309 /* main.m */; };
 		24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D1EF18E063E1007E2309 /* AppDelegate.m */; };
 		24F1D1F318E063E1007E2309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D1F118E063E1007E2309 /* Main.storyboard */; };
-		24F1D1F618E063E1007E2309 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D1F518E063E1007E2309 /* ViewController.m */; };
 		24F1D1F818E063E1007E2309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D1F718E063E1007E2309 /* Images.xcassets */; };
 		24F1D1FF18E063E1007E2309 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1FE18E063E1007E2309 /* XCTest.framework */; };
 		24F1D20018E063E1007E2309 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1DF18E063E0007E2309 /* Foundation.framework */; };
@@ -213,8 +212,6 @@
 		24F1D1EE18E063E1007E2309 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		24F1D1EF18E063E1007E2309 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		24F1D1F218E063E1007E2309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		24F1D1F418E063E1007E2309 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		24F1D1F518E063E1007E2309 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		24F1D1F718E063E1007E2309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		24F1D1FD18E063E1007E2309 /* TjfaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TjfaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F1D1FE18E063E1007E2309 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -664,8 +661,6 @@
 				24F1D1EE18E063E1007E2309 /* AppDelegate.h */,
 				24F1D1EF18E063E1007E2309 /* AppDelegate.m */,
 				24F1D1F118E063E1007E2309 /* Main.storyboard */,
-				24F1D1F418E063E1007E2309 /* ViewController.h */,
-				24F1D1F518E063E1007E2309 /* ViewController.m */,
 				24F1D1F718E063E1007E2309 /* Images.xcassets */,
 				24686C7B196E7DAF00D8CF86 /* UserData */,
 				240AE6C9195EC1FA00F7820D /* UILayer */,
@@ -872,7 +867,6 @@
 			files = (
 				249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */,
 				24E58E8C18E815C1007BFFD8 /* MatchManager.m in Sources */,
-				24F1D1F618E063E1007E2309 /* ViewController.m in Sources */,
 				2495BA2A19691E28009BB60F /* NewsCell.m in Sources */,
 				240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */,
 				24686C7A196E7B4C00D8CF86 /* WelcomeViewController.m in Sources */,

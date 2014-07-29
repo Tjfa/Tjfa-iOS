@@ -49,14 +49,14 @@
         //[mail setCcRecipients:ccAddress];
         //设置邮件内容
         [mail setMessageBody:[NSString stringWithFormat:@"%@\n请在分割线下面写下您的建议，或者遇到的问题:\n\n-------------------------------------------\n\n", [UIDevice deviceInfo]] isHTML:NO];
-
+        NSLog(@"%@",[UIDevice deviceInfo]);
         //设置邮件主题
         [mail setSubject:@"TJFA建议"];
 
         [self.instanceController presentViewController:mail animated:YES completion:nil];
     } else {
         [self sendEmailFail:@"您的设备不支持邮件发送，检查是否设置了邮件账户。如果一切正常，建议您更新设备"];
-    }
+    } 
 }
 
 - (void)sendEmailFail:(NSString*)errorMessage
