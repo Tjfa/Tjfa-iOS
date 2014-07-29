@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 #import <RESideMenu.h>
+#import "CompetitionDetailViewController.h"
 
 #import "UIViewController+Identifier.h"
 
@@ -32,30 +33,39 @@
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
+    CompetitionDetailViewController* viewController;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == MATCH_VIEW_CONTROLLER_INDEX) {
-        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]] animated:YES];
-        self.sideMenuViewController.navigationItem.title= @"比 赛";
-        [self.sideMenuViewController hideMenuViewController];
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]];
+        self.sideMenuViewController.navigationItem.title = @"比 赛";
+
     } else if (indexPath.row == SCORE_LIST_VIEW_CONTROLLER_INDEX) {
-        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController scoreListViewControllerIdentifier]] animated:YES];
+
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController scoreListViewControllerIdentifier]];
         self.sideMenuViewController.navigationItem.title = @"射手榜";
-        [self.sideMenuViewController hideMenuViewController];
+
     } else if (indexPath.row == YELLOW_CARD_VIEW_CONTROLLER_INDEX) {
-        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController yellowCardViewControllerIdentifier]] animated:YES];
+
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController yellowCardViewControllerIdentifier]];
         self.sideMenuViewController.navigationItem.title = @"黄 牌";
-        [self.sideMenuViewController hideMenuViewController];
+
     } else if (indexPath.row == RED_CARD_VIEW_CONTROLLER_INDEX) {
-        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController redCardViewControllerIdentifier]] animated:YES];
-        self.sideMenuViewController.navigationItem.title= @"红 牌";
-        [self.sideMenuViewController hideMenuViewController];
+
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController redCardViewControllerIdentifier]];
+        self.sideMenuViewController.navigationItem.title = @"红 牌";
+
     } else if (indexPath.row == GROUP_SCORE_VIEW_CONTROLLER_INDEX) {
-        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController groupScoreViewController]] animated:YES];
-        self.sideMenuViewController.navigationItem.title = @"小 组";
-        [self.sideMenuViewController hideMenuViewController];
+
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController groupScoreViewController]];
+        self.sideMenuViewController.navigationItem.title = @"积 分";
+
     } else if (indexPath.row == TEAM_VIEW_CONTROLLER_INDEX) {
-        [self.sideMenuViewController setContentViewController:[self.storyboard instantiateViewControllerWithIdentifier:[UIViewController teamViewController]] animated:YES];
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController teamViewController]];
         self.sideMenuViewController.navigationItem.title = @"球 队";
+    }
+
+    if (viewController) {
+        [self.sideMenuViewController setContentViewController:viewController animated:YES];
         [self.sideMenuViewController hideMenuViewController];
     }
 }

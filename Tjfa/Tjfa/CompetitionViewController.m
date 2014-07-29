@@ -16,7 +16,7 @@
 #import "CompetitionCell.h"
 #import "UIAlertView+NetWorkErrorView.h"
 
-@interface CompetitionViewController () {
+@interface CompetitionViewController () <UIGestureRecognizerDelegate> {
     MJRefreshHeaderView* header;
     BOOL hasMore;
     __weak Competition* lastCompetition;
@@ -37,7 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     if ([self.campusType intValue] == 1) {
         self.navigationItem.title = @"本  部";
     } else {

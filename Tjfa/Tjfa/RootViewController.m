@@ -9,7 +9,7 @@
 #import "RootViewController.h"
 #import "UIViewController+Identifier.h"
 
-@interface RootViewController () <RESideMenuDelegate>
+@interface RootViewController () <RESideMenuDelegate, UIGestureRecognizerDelegate>
 
 @end
 
@@ -20,11 +20,11 @@
 - (void)awakeFromNib
 {
     self.menuPreferredStatusBarStyle = UIStatusBarStyleLightContent;
-
     self.rightMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController menuViewControllerIdentifier]];
-    self.contentViewInPortraitOffsetCenterX=-80;
+    self.contentViewInPortraitOffsetCenterX = -80;
     self.contentViewController = [[UIViewController alloc] init];
     self.delegate = self;
+    self.view.backgroundColor=[UIColor blackColor];
 }
 
 - (void)viewDidLoad
@@ -36,8 +36,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]];
+    UIViewController<UIGestureRecognizerDelegate>* viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]];
     self.contentViewController = viewController;
+    UITableViewController* rightViewController = (UITableViewController*)self.rightMenuViewController;
+    rightViewController.tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"groupBg"]];
 }
 
 - (IBAction)toggleMenu:(id)sender

@@ -12,7 +12,7 @@
 #import <MBProgressHUD.h>
 #import "Competition.h"
 
-@interface CompetitionDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, MJRefreshBaseViewDelegate> {
+@interface CompetitionDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, MJRefreshBaseViewDelegate, UIGestureRecognizerDelegate> {
 }
 
 @property (nonatomic, weak) IBOutlet UITableView* tableView;

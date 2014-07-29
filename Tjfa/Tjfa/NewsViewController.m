@@ -15,7 +15,7 @@
 #import "UIView+RefreshFooterView.h"
 #import "UIAlertView+NetWorkErrorView.h"
 
-@interface NewsViewController () <UITableViewDataSource, UITableViewDelegate, MJRefreshBaseViewDelegate>
+@interface NewsViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, MJRefreshBaseViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray* data;
 
@@ -36,6 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     if (self.data.count == 0) {
         [self refreshLatestNewsWithProgress:YES];
     }

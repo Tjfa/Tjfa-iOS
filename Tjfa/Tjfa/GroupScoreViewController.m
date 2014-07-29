@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"groupBg"]];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"groupBg"]];
     // Do any additional setup after loading the view.
 }
 
@@ -143,15 +143,29 @@
 
 - (CGFloat)tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 20;
+    return 30;
+}
+
+- (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1;
 }
 
 - (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView* view = [[UIView alloc] init];
-    UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 320 - 15, 20)];
+    view.backgroundColor = [UIColor appRedColor];
+    UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 320 - 15, 30)];
+    title.textColor = [UIColor whiteColor];
     title.text = self.keyData[section];
     [view addSubview:title];
+    return view;
+}
+
+- (UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView* view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor appRedColor];
     return view;
 }
 

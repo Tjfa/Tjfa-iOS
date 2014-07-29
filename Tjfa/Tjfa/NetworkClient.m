@@ -11,10 +11,10 @@
 
 @implementation NetworkClient
 
-NSString* serverUrlStr = @"http://192.168.113.178/TJFA_SERVER_API/";
+//NSString* serverUrlStr = @"http://192.168.113.178/TJFA_SERVER_API/";
 
 //localhost in QiuFeng
-//NSString* serverUrlStr = @"http://192.168.16.102/TJFA_SERVER_API/";
+NSString* serverUrlStr = @"http://192.168.16.102/TJFA_SERVER_API/";
 
 //release
 //NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";

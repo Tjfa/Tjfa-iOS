@@ -12,7 +12,7 @@
 #import "AboutManager.h"
 #import <iCarousel.h>
 
-@interface NewAboutViewController ()
+@interface NewAboutViewController () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet iCarousel* carouselView;
 
@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor appBackgroundColor];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
     // Do any additional setup after loading the view.
 }
 
@@ -199,6 +199,10 @@
     AboutManager* aboutManager = [AboutManager sharedAboutManager];
     aboutManager.instanceController = self;
     [aboutManager sharedWithMessage];
+}
+- (IBAction)backButtonClick:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
