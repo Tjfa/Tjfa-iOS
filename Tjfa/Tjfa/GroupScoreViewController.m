@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"groupBg"]];
     // Do any additional setup after loading the view.
 }
 

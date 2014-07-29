@@ -19,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"teamBg"]];
     // Do any additional setup after loading the view.
 }
 
