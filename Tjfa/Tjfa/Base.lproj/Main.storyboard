@@ -705,7 +705,7 @@
             </objects>
             <point key="canvasLocation" x="2390" y="92"/>
         </scene>
-        <!--Root View Controller - Title-->
+        <!--Root View Controller - 比赛-->
         <scene sceneID="cOH-9H-oaX">
             <objects>
                 <viewController id="Fj6-dn-b1P" customClass="RootViewController" sceneMemberID="viewController">
@@ -718,7 +718,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="kDr-L4-Lu4">
+                    <navigationItem key="navigationItem" title="比赛" id="kDr-L4-Lu4">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="4bP-Fv-TWi">
                             <connections>
                                 <action selector="toggleMenu:" destination="Fj6-dn-b1P" id="wQQ-Za-ldU"/>

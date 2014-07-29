@@ -57,6 +57,6 @@
 
 + (NSString*)goalCountAttributeStr;
 
-+ (Player*)updatePlayerWithDictionary:(NSDictionary*)dictionary;
++ (Player*)updatePlayerWithDictionary:(NSDictionary*)dictionary competition:(Competition*)competition;
 
 @end

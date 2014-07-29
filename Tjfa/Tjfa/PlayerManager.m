@@ -8,6 +8,7 @@
 
 #import "PlayerManager.h"
 #import "NetworkClient.h"
+#import "TeamManager.h"
 
 @implementation PlayerManager
 
@@ -39,11 +40,11 @@
     }];
 }
 
-- (NSArray*)insertPlayersWithArray:(NSArray*)array
+- (NSArray*)insertPlayersWithArray:(NSArray*)array competition:(Competition*)competition
 {
     NSMutableArray* results = [[NSMutableArray alloc] init];
     for (NSDictionary* dictionary in array) {
-        Player* player = [Player updatePlayerWithDictionary:dictionary];
+        Player* player = [Player updatePlayerWithDictionary:dictionary competition:competition];
         [results addObject:player];
     }
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError* error) {
@@ -56,14 +57,15 @@
 
 - (void)getPlayersByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
-    NSDictionary* dictionary = @{ @"competitionId" : competition.competitionId,
-                                  @"limit" : @(20) };
-    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient playerAddress] withParameters:dictionary complete:^(NSArray* results, NSError* error) {
+    NSDictionary* dictionary = @{ @"competitionId" : competition.competitionId };
+
+    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient playerAddress] withParameters:dictionary complete:^(NSDictionary* results, NSError* error) {
         if (error){
             complete(nil,error);
         }
         else{
-            NSArray* players=[self insertPlayersWithArray:results];
+            [[TeamManager sharedTeamManager] insertTeamsWithArray:results[@"teams"] andCompetition:competition];
+            NSArray* players=[self insertPlayersWithArray:results[@"players"] competition:competition];
             complete(players,nil);
         }
     }];

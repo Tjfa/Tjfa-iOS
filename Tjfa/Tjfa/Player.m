@@ -9,6 +9,7 @@
 #import "Player.h"
 #import "Team.h"
 #import "Competition.h"
+#import "NSNumber+Assign.h"
 
 @implementation Player
 
@@ -40,22 +41,22 @@
     return @"goalCount";
 }
 
-+ (Player*)updatePlayerWithDictionary:(NSDictionary*)dictionary
++ (Player*)updatePlayerWithDictionary:(NSDictionary*)dictionary competition:(Competition*)competition;
 {
-    NSNumber* playerId = dictionary[@"playerId"];
+
+    NSNumber* playerId = [NSNumber assignValue:dictionary[@"playerId"]];
     Player* player = [Player MR_findFirstByAttribute:[self idAttributeStr] withValue:playerId];
     if (player == nil) {
         player = [Player MR_createEntity];
     }
     player.playerId = playerId;
-    player.goalCount = dictionary[@"goalCount"];
+    player.goalCount = [NSNumber assignValue:dictionary[@"goalCount"]];
     player.name = dictionary[@"name"];
-    player.redCard = dictionary[@"redCard"];
-    player.yellowCard = dictionary[@"yellowCard"];
-    NSNumber* competitionId = dictionary[@"competitionId"];
-    player.competition = [Competition MR_findFirstByAttribute:[Competition idAttributeStr] withValue:competitionId];
-#warning what if team no found?
-    NSNumber* teamId = dictionary[@"teamId"];
+    player.redCard = [NSNumber assignValue:dictionary[@"redCard"]];
+    player.yellowCard = [NSNumber assignValue:dictionary[@"yellowCard"]];
+
+    player.competition = competition;
+    NSNumber* teamId = [NSNumber assignValue:dictionary[@"teamId"]];
     player.team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamId];
     return player;
 }

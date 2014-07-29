@@ -47,14 +47,13 @@
 
 - (NSArray*)getMatchesByTeamName:(NSString*)teamName competition:(Competition*)competition
 {
-    NSSet* matchesSet = competition.matches;
-    NSArray* matches = [matchesSet allObjects];
+    NSArray* matches = [competition.matches allObjects];
     NSMutableArray* results = [[NSMutableArray alloc] init];
 
     for (Match* match in matches) {
-        if ([match.teamA.name rangeOfString:teamName].location != NSNotFound || [match.teamB.name rangeOfString:teamName].location != NSNotFound)
+        if ([match.teamA.name.lowercaseString rangeOfString:teamName.lowercaseString].location != NSNotFound || [match.teamB.name.lowercaseString rangeOfString:teamName.lowercaseString].location != NSNotFound) {
             [results addObject:match];
-        break;
+        }
     }
 
     return results;

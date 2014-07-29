@@ -30,6 +30,14 @@
     return cell;
 }
 
+- (NSComparisonResult)comparedPlayer:(Player*)a withB:(Player*)b
+{
+    if ([b.yellowCard isEqual:a.yellowCard]) {
+        return [a.playerId compare:b.playerId];
+    } else
+        return [b.redCard compare:a.redCard];
+}
+
 #pragma mark - implement super class method
 
 - (void)getDataFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
@@ -38,7 +46,7 @@
     [[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromNetwork:competition complete:^(NSArray* result, NSError* error) {
         if (!error){
             NSArray* array=[result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player*b){
-                return [b.redCard compare:a.redCard];       //从高到低排序
+                return [weakSelf comparedPlayer:a withB:b];
             }];
             weakSelf.completeBlock(array,nil);
         }
@@ -50,15 +58,17 @@
 
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition
 {
+    __weak RedCardViewController* weakSelf = self;
     return [[[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromCoreData:competition] sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
-        return [b.redCard compare:a.redCard];
+        return [weakSelf comparedPlayer:a withB:b];
     }];
 }
 
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition whenSearch:(NSString*)key
 {
+    __weak RedCardViewController* weakSelf = self;
     return [[[PlayerManager sharedPlayerManager] getPlayersByKey:key competition:competition] sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
-        return [b.redCard compare:a.redCard];
+        return [weakSelf comparedPlayer:a withB:b];
     }];
 }
 

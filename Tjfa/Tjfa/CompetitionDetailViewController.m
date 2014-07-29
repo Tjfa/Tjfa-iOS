@@ -24,19 +24,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.header.scrollView = self.tableView;
+    [self header];
     // Do any additional setup after loading the view.
 }
 
 - (void)getLasterData:(BOOL)isFirstEnter
 {
     __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
-
     if (isFirstEnter) {
         [self.mbProgressHud show:YES];
     }
-
     [self getDataFromNetwork:rootViewController.competition complete:self.completeBlock];
 }
 
@@ -70,10 +67,11 @@
 
 - (NSArray*)data
 {
-    __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
     if (_data == nil) {
+        __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
         _data = [self getDataFromCoreDataCompetition:rootViewController.competition];
         if (_data == nil || _data.count == 0) {
+            _data = [[NSArray alloc] init];
             [self getLasterData:YES];
         }
     }
@@ -84,7 +82,8 @@
 {
     if (_header == nil) {
         _header = [[MJRefreshHeaderView alloc] init];
-        self.header.delegate = self;
+        _header.delegate = self;
+        _header.scrollView = self.tableView;
     }
     return _header;
 }
@@ -102,8 +101,8 @@
 {
     if (searchBar != _searchBar) {
         _searchBar = searchBar;
-        _searchBar.backgroundColor=[UIColor appRedColor];
-        _searchBar.barTintColor=[UIColor appRedColor];
+        _searchBar.backgroundColor = [UIColor appRedColor];
+        _searchBar.barTintColor = [UIColor appRedColor];
         UITextField* searchField = [_searchBar valueForKey:@"_searchField"];
         searchField.textColor = [UIColor appRedColor];
     }

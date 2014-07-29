@@ -60,8 +60,9 @@
 
 - (NSArray*)data
 {
-    __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
+
     if (_data == nil) {
+        __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
         [self setData:[self getDataFromCoreDataCompetition:rootViewController.competition]];
         if (_data == nil || _data.count == 0) {
             [self getLasterData:YES];

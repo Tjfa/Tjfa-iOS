@@ -20,9 +20,9 @@
 - (void)awakeFromNib
 {
     self.menuPreferredStatusBarStyle = UIStatusBarStyleLightContent;
-    UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]];
+
     self.rightMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController menuViewControllerIdentifier]];
-    self.contentViewController = viewController;
+    self.contentViewController = [[UIViewController alloc] init];
     self.delegate = self;
 }
 
@@ -30,6 +30,13 @@
 {
     [super viewDidLoad];
     self.view.clipsToBounds = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    UIViewController* viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]];
+    self.contentViewController = viewController;
 }
 
 - (IBAction)toggleMenu:(id)sender

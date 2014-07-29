@@ -28,9 +28,7 @@
     static NSString* cellIdentifier = @"MatchTableViewCell";
 
     MatchTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[MatchTableViewCell alloc] init];
-    }
+
     [cell setCellWithMatch:self.data[indexPath.row]];
     return cell;
 }
@@ -39,8 +37,9 @@
 
 - (void)getDataFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
+    __weak MatchViewController* weakSelf = self;
     [[MatchManager sharedMatchManager] getMatchesByCompetitionFromNetwork:competition complete:^(NSArray* results, NSError* error) {
-        self.completeBlock(results,error);
+        weakSelf.completeBlock(results,error);
     }];
 }
 
