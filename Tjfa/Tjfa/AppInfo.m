@@ -24,7 +24,7 @@
 
 + (NSString*)appId
 {
-    NSString* appid = @"";
+    NSString* appid = @"904654597";
     return appid;
 }
 
@@ -33,7 +33,6 @@
     NSDictionary* infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString* app_Version = [infoDictionary objectForKey:@"CFBundleVersion"];
     return app_Version;
-    
 }
 
 @end
