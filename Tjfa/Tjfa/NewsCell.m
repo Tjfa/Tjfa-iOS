@@ -22,15 +22,9 @@
 
 @implementation NewsCell
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 - (void)setCellWithNews:(News*)news
 {
+    NSLog(@"%@",news.newsId);
     self.titleLabel.text = news.title;
     self.dateLabel.text = [news.date date2str];
     self.preContent.text = news.precontent;

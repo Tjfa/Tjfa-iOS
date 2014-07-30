@@ -35,6 +35,7 @@
     news.newsId = newsId;
     news.date = [NSDate str2Date:dictionary[@"date"]];
     news.title = dictionary[@"title"];
+    news.precontent = dictionary[@"preContent"];
     return news;
 }
 

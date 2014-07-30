@@ -140,14 +140,13 @@ const CGFloat delayAnimate = 0.1;
 
 - (void)hideWithAnimateAsynCompleteToController:(UIViewController*)controller
 {
-
+    __weak DashboardViewController* weakSelf = self;
     for (int i = 0; i < self.dashBoardCellArray.count; i++) {
         DashboardCell* cell = self.dashBoardCellArray[i];
         if (i == self.dashBoardCellArray.count - 1) {
             [cell hideWithAnimateComplete:^(BOOL finished) {
                 if (finished){
-                            self.navigationController.navigationBar.hidden = NO;
-                    [self.navigationController pushViewController:controller animated:YES];
+                    [weakSelf.navigationController pushViewController:controller animated:YES];
                 }
             }];
         } else {
@@ -158,12 +157,13 @@ const CGFloat delayAnimate = 0.1;
 
 - (void)hideWithAnimateSynCompleteToController:(UIViewController*)controller
 {
+    __weak DashboardViewController* weakSelf = self;
     for (int i = 0; i < self.dashBoardCellArray.count; i++) {
         DashboardCell* cell = self.dashBoardCellArray[i];
         if (i == 0) {
             [cell hideWithAnimateAfterDelay:delayAnimate * (self.dashBoardCellArray.count - i)complete:^(BOOL finished) {
                 if (finished){
-                    [self.navigationController pushViewController:controller animated:YES];
+                    [weakSelf.navigationController pushViewController:controller animated:YES];
                 }
             }];
         } else {
@@ -212,7 +212,6 @@ const CGFloat delayAnimate = 0.1;
 {
     NSLog(@"setting click");
     [self closeDashboardCellUserInterface];
-    // UIViewController* settingController = [self.storyboard instantiateViewControllerWithIdentifier:@"settingController"];
     UIViewController* settingController = [self.storyboard instantiateViewControllerWithIdentifier:@"newAbout"];
     [self hideWithAnimateSynCompleteToController:settingController];
 }

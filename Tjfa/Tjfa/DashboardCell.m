@@ -21,7 +21,6 @@ const CGFloat animateCacheDuration = 0.1;
 - (instancetype)initWithFrame:(CGRect)frame image:(UIImage*)image labelName:(NSString*)label direction:(DashboardLabelDirection)direction target:(id)target action:(SEL)action dashboardSize:(CGFloat)size
 {
     if (self = [super initWithFrame:frame]) {
-        NSLog(@"%f %f %f", frame.size.width, frame.size.height, size);
         dashboardButtonSize = size;
         dahboardLableDirection = direction;
 
@@ -98,15 +97,16 @@ const CGFloat animateCacheDuration = 0.1;
 
 - (void)showWithAnimateComplete:(void (^)(BOOL))complete
 {
+    __weak DashboardCell* weakSelf = self;
     [self showAnimateInit];
     [UIView animateWithDuration:0.3 animations:^() {
     } completion:^(BOOL finished) {
-        [self setShowCacheFrame];
+        [weakSelf setShowCacheFrame];
         
         [UIView animateWithDuration:animateCacheDuration animations:^(){
-            [self setShowFrame];
+            [weakSelf setShowFrame];
         }completion:^(BOOL finished){
-            self.userInteractionEnabled=YES;
+            weakSelf.userInteractionEnabled=YES;
             if (complete){
                 complete(finished);
             }
@@ -116,14 +116,15 @@ const CGFloat animateCacheDuration = 0.1;
 
 - (void)showWithAnimateAfterDelay:(NSTimeInterval)delay complete:(void (^)(BOOL))complete
 {
+    __weak DashboardCell* weakSelf = self;
     [self showAnimateInit];
     [UIView animateWithDuration:animateDuration delay:delay options:0 animations:^(void) {
-        [self setShowCacheFrame];
+        [weakSelf setShowCacheFrame];
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:animateCacheDuration animations:^(){
-            [self setShowFrame];
+            [weakSelf setShowFrame];
         }completion:^(BOOL finished){
-            self.userInteractionEnabled=YES;
+            weakSelf.userInteractionEnabled=YES;
             if (complete){
                 complete(finished);
             }
@@ -133,15 +134,16 @@ const CGFloat animateCacheDuration = 0.1;
 
 - (void)hideWithAnimateComplete:(void (^)(BOOL))complete
 {
+    __weak DashboardCell* weakSelf = self;
     self.userInteractionEnabled = NO;
     [UIView animateWithDuration:animateCacheDuration animations:^() {
-        [self setHideCacheFrame];
+        [weakSelf setHideCacheFrame];
     } completion:^(BOOL finished) {
         
         [UIView animateWithDuration:animateDuration animations:^(){
-            [self setHideFrame];
+            [weakSelf setHideFrame];
         }completion:^(BOOL finished){
-            self.userInteractionEnabled=YES;
+            weakSelf.userInteractionEnabled=YES;
             if (complete){
                 complete(finished);
             }
@@ -151,14 +153,16 @@ const CGFloat animateCacheDuration = 0.1;
 
 - (void)hideWithAnimateAfterDelay:(NSTimeInterval)delay complete:(void (^)(BOOL))complete
 {
+
+    __weak DashboardCell* weakSelf = self;
     [UIView animateWithDuration:animateCacheDuration delay:delay options:0 animations:^(void) {
-        [self setHideCacheFrame];
+        [weakSelf setHideCacheFrame];
     } completion:^(BOOL finished) {
         
         [UIView animateWithDuration:animateDuration animations:^(){
-            [self setHideFrame];
+            [weakSelf setHideFrame];
         }completion:^(BOOL finished){
-            self.userInteractionEnabled=YES;
+            weakSelf.userInteractionEnabled=YES;
             if (complete){
                 complete(finished);
             }

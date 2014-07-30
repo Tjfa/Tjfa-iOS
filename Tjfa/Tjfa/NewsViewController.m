@@ -150,6 +150,7 @@
     NSIndexPath* indexPath = [self.tableView indexPathForCell:cell];
     NewsContentViewController* newsContentViewController = segue.destinationViewController;
     [[NewsManager sharedNewsManager] markNewsToRead:self.data[indexPath.row]];
+    [self.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationNone];
     newsContentViewController.news = self.data[indexPath.row];
 }
 
@@ -173,6 +174,7 @@
         }
         else{
             if (newsArray.count<DEFAULT_LIMIT) hasMore=NO;
+            else hasMore=YES;
             weakSelf.data=[newsArray mutableCopy];
             [weakSelf.tableView reloadData];
             [weakSelf.headerView endRefreshing];

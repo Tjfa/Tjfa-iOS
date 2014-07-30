@@ -45,7 +45,10 @@
             NSLog(@"%@",error);
         }
     }];
-    return results;
+
+    return [results sortedArrayUsingComparator:^NSComparisonResult(News* a, News* b) {
+        return [b.newsId compare:a.newsId];
+    }];
 }
 
 - (void)getEarlierNewsFromNetworkWithId:(NSNumber*)newsId andLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
@@ -77,7 +80,7 @@
         return;
 
     if (news.content == nil || [news.content isEqualToString:@""]) {
-        NSDictionary* dictionary = @{ @"newId" : news.newsId };
+        NSDictionary* dictionary = @{ @"newsId" : news.newsId };
         [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSDictionary* content, NSError* error) {
             if (error){
                     complete(nil,error);

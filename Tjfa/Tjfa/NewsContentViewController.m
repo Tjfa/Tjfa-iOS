@@ -43,21 +43,17 @@
 
 - (void)loadContent
 {
-    if (self.news.content && ![self.news.content isEqualToString:@""]) {
-        [self.contentView loadHTMLString:self.news.content baseURL:nil];
-    } else {
-        [self.progressView show:YES];
-        __weak NewsContentViewController* weakSelf = self;
-        [[NewsManager sharedNewsManager] getNewsContentWithNews:self.news complete:^(News* news, NSError* error) {
-            [weakSelf.contentView removeFromSuperview];
+    [self.progressView show:YES];
+    __weak NewsContentViewController* weakSelf = self;
+    [[NewsManager sharedNewsManager] getNewsContentWithNews:self.news complete:^(News* news, NSError* error) {
+            [weakSelf.progressView removeFromSuperview];
             if (error){
                 [MBProgressHUD showWhenNetworkErrorInView:weakSelf.view];
             }
             else{
                 [self.contentView loadHTMLString:news.content baseURL:nil];
             }
-        }];
-    }
+    }];
 }
 
 @end

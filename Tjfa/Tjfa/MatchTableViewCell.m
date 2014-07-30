@@ -37,7 +37,10 @@
     self.scoreB.text = [NSString stringWithFormat:@"%@", match.scoreB];
     self.teamNameA.text = match.teamA.name;
     self.teamNameB.text = match.teamB.name;
-    self.date.text = [match.date date2str];
+    NSString* dateStr = [match.date date2str];
+    NSInteger index = [dateStr rangeOfString:@" "].location;
+    self.date.text = [dateStr substringToIndex:index];
+    self.dateTime.text = [dateStr substringFromIndex:index+1];
     int matchProperty = [match.matchProperty intValue];
     if (matchProperty == 0) {
         self.matchProperty.text = @"小组赛";
@@ -51,7 +54,6 @@
         self.matchProperty.text = [NSString stringWithFormat:@"1/%d 决赛", matchProperty];
     }
 
-    self.dateTime.text = [match.date date2CompetitionStr];
     if ([match.isStart intValue] == 0) {
         self.isFinish.text = @"未开始";
     } else {
