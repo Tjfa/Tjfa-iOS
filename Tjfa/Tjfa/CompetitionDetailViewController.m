@@ -8,7 +8,6 @@
 
 #import "CompetitionDetailViewController.h"
 #import "RootViewController.h"
-#import "UIAlertView+NetWorkErrorView.h"
 #import "MBProgressHUD+AppProgressView.h"
 
 @interface CompetitionDetailViewController ()
@@ -45,7 +44,7 @@
         __weak CompetitionDetailViewController* weakSelf = self;
         _completeBlock = ^(NSArray* array, NSError* error) {
             if (error) {
-                [[UIAlertView alertViewWithErrorNetWork] show];
+                [MBProgressHUD showWhenNetworkErrorInView:weakSelf.view];
             } else {
                 weakSelf.data = array;
                 [weakSelf.tableView reloadData];

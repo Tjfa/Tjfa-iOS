@@ -24,7 +24,7 @@
     self.contentViewInPortraitOffsetCenterX = -80;
     self.contentViewController = [[UIViewController alloc] init];
     self.delegate = self;
-    self.view.backgroundColor=[UIColor blackColor];
+    self.view.backgroundColor=[UIColor appRedColor];
 }
 
 - (void)viewDidLoad

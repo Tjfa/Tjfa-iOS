@@ -13,7 +13,6 @@
 #import "MBProgressHUD+AppProgressView.h"
 #import "MJRefresh.h"
 #import "UIView+RefreshFooterView.h"
-#import "UIAlertView+NetWorkErrorView.h"
 
 @interface NewsViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, MJRefreshBaseViewDelegate>
 
@@ -47,24 +46,8 @@
 {
     if (progress) {
         [self.loadProgress show:YES];
-        self.tableView.hidden = YES;
     }
-
-    __weak NewsViewController* weakSelf = self;
-    [[NewsManager sharedNewsManager] getLatestNewsFromNetworkWithLimit:10 complete:^(NSArray* result, NSError* error) {
-    
-        if (progress){
-            weakSelf.tableView.hidden=NO;
-            [weakSelf.loadProgress removeFromSuperview];
-            weakSelf.loadProgress=nil;
-        }
-        
-        if (error){
-            
-        }else{
-            weakSelf.data=[result mutableCopy];
-        }
-    }];
+    [self getLatestNews:self.loadProgress];
 }
 
 #pragma mark - getter & setter
@@ -172,16 +155,21 @@
 
 #pragma mark - refresh
 
-- (void)getLatestNews
+- (void)getLatestNews:(MBProgressHUD*)progress
 {
     __weak NewsViewController* weakSelf = self;
     [[NewsManager sharedNewsManager] getLatestNewsFromNetworkWithLimit:DEFAULT_LIMIT complete:^(NSArray* newsArray, NSError* error) {
         [weakSelf.headerView endRefreshing];
+        
+        if (progress){
+            weakSelf.tableView.hidden=NO;
+            [weakSelf.loadProgress removeFromSuperview];
+            weakSelf.loadProgress=nil;
+        }
 
         if (error){
             hasMore=NO;
-            UIAlertView* alert=[UIAlertView alertViewWithErrorNetWork];
-            [alert show];
+            [MBProgressHUD showWhenNetworkErrorInView:weakSelf.view];
         }
         else{
             if (newsArray.count<DEFAULT_LIMIT) hasMore=NO;
@@ -200,9 +188,6 @@
     [[NewsManager sharedNewsManager] getEarlierNewsFromNetworkWithId:lastNews.newsId andLimit:DEFAULT_LIMIT complete:^(NSArray* results, NSError* error) {
         if (error){
             hasMore=NO;
-            UIAlertView* alert=[UIAlertView alertViewWithErrorNetWork];
-            [alert show];
-
         }else{
             if (results.count<DEFAULT_LIMIT) hasMore=NO;
             if (!results || results.count==0) return ;
@@ -222,8 +207,7 @@
 - (void)refreshViewBeginRefreshing:(MJRefreshBaseView*)refreshView
 {
     if (refreshView == self.headerView) {
-        [self getLatestNews];
-    } else {
+        [self getLatestNews:nil];
     }
 }
 

@@ -8,6 +8,7 @@
 
 #import "News.h"
 #import "NSDate+Date2Str.h"
+#import "NSNumber+Assign.h"
 
 @implementation News
 
@@ -25,14 +26,14 @@
 
 + (News*)updateNewsWithDictionary:(NSDictionary*)dictionary
 {
-    News* news = [News MR_findFirstByAttribute:[News idAttribute] withValue:dictionary[@"newsId"]];
+    NSNumber* newsId = [NSNumber assignValue:dictionary[@"newsId"]];
+    News* news = [News MR_findFirstByAttribute:[News idAttribute] withValue:newsId];
     if (news == nil) {
         news = [News MR_createEntity];
         news.isRead = @(NO);
     }
-    news.newsId = dictionary[@"newsId"];
+    news.newsId = newsId;
     news.date = [NSDate str2Date:dictionary[@"date"]];
-    news.content = dictionary[@"content"];
     news.title = dictionary[@"title"];
     return news;
 }

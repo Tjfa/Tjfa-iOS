@@ -10,11 +10,12 @@
 #import "NewsManager.h"
 #import <MBProgressHUD.h>
 #import "MBProgressHUD+AppProgressView.h"
-#import "UIAlertView+NetWorkErrorView.h"
 
 @interface NewsContentViewController ()
 
 @property (nonatomic, weak) IBOutlet UIWebView* contentView;
+
+@property (nonatomic, weak) MBProgressHUD* progressView;
 
 @end
 
@@ -29,11 +30,34 @@
     [self loadContent];
 }
 
+- (MBProgressHUD*)progressView
+{
+    if (_progressView == nil) {
+        _progressView = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
+        [self.view addSubview:_progressView];
+    }
+    return _progressView;
+}
+
 #pragma mark - load content
 
 - (void)loadContent
 {
-    [self.contentView loadHTMLString:self.news.content baseURL:nil];
+    if (self.news.content && ![self.news.content isEqualToString:@""]) {
+        [self.contentView loadHTMLString:self.news.content baseURL:nil];
+    } else {
+        [self.progressView show:YES];
+        __weak NewsContentViewController* weakSelf = self;
+        [[NewsManager sharedNewsManager] getNewsContentWithNews:self.news complete:^(News* news, NSError* error) {
+            [weakSelf.contentView removeFromSuperview];
+            if (error){
+                [MBProgressHUD showWhenNetworkErrorInView:weakSelf.view];
+            }
+            else{
+                [self.contentView loadHTMLString:news.content baseURL:nil];
+            }
+        }];
+    }
 }
 
 @end

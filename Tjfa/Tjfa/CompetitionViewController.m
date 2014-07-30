@@ -14,7 +14,6 @@
 #import "RootViewController.h"
 #import "UIColor+AppColor.h"
 #import "CompetitionCell.h"
-#import "UIAlertView+NetWorkErrorView.h"
 
 @interface CompetitionViewController () <UIGestureRecognizerDelegate> {
     MJRefreshHeaderView* header;
@@ -164,12 +163,12 @@
 - (void)getLatestData
 {
     lastCompetition = nil;
+    __weak CompetitionViewController* weakSelf = self;
     [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:self.campusType limit:DEFAULT_LIMIT complete:^(NSArray* results, NSError* error) {
         [self.progressView removeFromSuperview];
         if (error) {
             hasMore=NO;
-            UIAlertView* alert=[UIAlertView alertViewWithErrorNetWork];
-            [alert show];
+            [MBProgressHUD showWhenNetworkErrorInView:weakSelf.view];
         } else {
             if (results.count<DEFAULT_LIMIT){
                 hasMore=NO;
@@ -177,7 +176,7 @@
                 hasMore=YES;
             }
             
-            [self resetData:results];
+            [weakSelf resetData:results];
         }
         [header endRefreshing];
     }];
