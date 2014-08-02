@@ -12,7 +12,8 @@
 
 + (NSString*)appName
 {
-    return @"同济足协";
+    NSDictionary* infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    return [infoDictionary objectForKey:@"CFBundleDisplayName"];
 }
 
 + (NSString*)appDownloadAddress
@@ -33,6 +34,11 @@
     NSDictionary* infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString* app_Version = [infoDictionary objectForKey:@"CFBundleVersion"];
     return app_Version;
+}
+
++ (NSString*)sharedMessage
+{
+    return [NSString stringWithFormat:@"hi~~我亲爱的小伙伴～～我发现了关于同济足球的一个很棒的App,叫做\"%@\",地址在%@,快去下载吧～～", [AppInfo appName], [AppInfo appDownloadAddress]];
 }
 
 @end

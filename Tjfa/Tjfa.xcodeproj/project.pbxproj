@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		240099EC196005600036EFF4 /* AboutProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099EB196005600036EFF4 /* AboutProjectViewController.m */; };
 		240099EE19600B160036EFF4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240099ED19600B160036EFF4 /* MessageUI.framework */; };
 		240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */; };
 		240099F9196024BE0036EFF4 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F8196024BE0036EFF4 /* AppInfo.m */; };
@@ -15,10 +14,8 @@
 		240AE6D0195EC52300F7820D /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6CF195EC52300F7820D /* DashboardViewController.m */; };
 		240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6D4195EC5F100F7820D /* DashboardButton.m */; };
 		240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6D7195EDCC600F7820D /* DashboardCell.m */; };
-		240AE6DC195F0D5900F7820D /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6DB195F0D5900F7820D /* AboutViewController.m */; };
 		241D4A4F196E917C00E3FC02 /* UIApplication+MainNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 241D4A4E196E917C00E3FC02 /* UIApplication+MainNav.m */; };
-		2440F6D8195F1A0300E00A70 /* Developer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440F6D7195F1A0300E00A70 /* Developer.m */; };
-		2440F6DB195F1E4A00E00A70 /* AboutDeveloperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2440F6DA195F1E4A00E00A70 /* AboutDeveloperViewController.m */; };
+		2447B3AA198CAA7300B297BB /* Developer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2447B3A9198CAA7300B297BB /* Developer.m */; };
 		246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753B6196BE2BA007BDE90 /* NewsContentViewController.m */; };
 		246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */; };
 		24686C6F196E562F00D8CF86 /* NewAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C6E196E562F00D8CF86 /* NewAboutViewController.m */; };
@@ -95,8 +92,6 @@
 
 /* Begin PBXFileReference section */
 		22EAFC87A20242C8AE3E0037 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		240099EA1960055F0036EFF4 /* AboutProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutProjectViewController.h; sourceTree = "<group>"; };
-		240099EB196005600036EFF4 /* AboutProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutProjectViewController.m; sourceTree = "<group>"; };
 		240099ED19600B160036EFF4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		240099F319600BF60036EFF4 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
@@ -110,14 +105,10 @@
 		240AE6D4195EC5F100F7820D /* DashboardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardButton.m; sourceTree = "<group>"; };
 		240AE6D6195EDCC600F7820D /* DashboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardCell.h; sourceTree = "<group>"; };
 		240AE6D7195EDCC600F7820D /* DashboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardCell.m; sourceTree = "<group>"; };
-		240AE6DA195F0D5900F7820D /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		240AE6DB195F0D5900F7820D /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		241D4A4D196E917C00E3FC02 /* UIApplication+MainNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+MainNav.h"; sourceTree = "<group>"; };
 		241D4A4E196E917C00E3FC02 /* UIApplication+MainNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+MainNav.m"; sourceTree = "<group>"; };
-		2440F6D6195F1A0300E00A70 /* Developer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Developer.h; sourceTree = "<group>"; };
-		2440F6D7195F1A0300E00A70 /* Developer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Developer.m; sourceTree = "<group>"; };
-		2440F6D9195F1E4A00E00A70 /* AboutDeveloperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutDeveloperViewController.h; sourceTree = "<group>"; };
-		2440F6DA195F1E4A00E00A70 /* AboutDeveloperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutDeveloperViewController.m; sourceTree = "<group>"; };
+		2447B3A8198CAA7300B297BB /* Developer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Developer.h; sourceTree = "<group>"; };
+		2447B3A9198CAA7300B297BB /* Developer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Developer.m; sourceTree = "<group>"; };
 		246753B5196BE2BA007BDE90 /* NewsContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsContentViewController.h; sourceTree = "<group>"; };
 		246753B6196BE2BA007BDE90 /* NewsContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentViewController.m; sourceTree = "<group>"; };
 		246753BB196BE52A007BDE90 /* MBProgressHUD+AppProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+AppProgressView.h"; sourceTree = "<group>"; };
@@ -329,7 +320,6 @@
 			children = (
 				240099F219600BE30036EFF4 /* Category */,
 				24686C76196E674100D8CF86 /* NewAbout */,
-				24686C75196E673400D8CF86 /* OldAbout */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -352,15 +342,19 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
-		2440F6CF195F184700E00A70 /* AboutDeveloper */ = {
+		2447B3A6198CA07A00B297BB /* WeiXin */ = {
 			isa = PBXGroup;
 			children = (
-				2440F6D6195F1A0300E00A70 /* Developer.h */,
-				2440F6D7195F1A0300E00A70 /* Developer.m */,
-				2440F6D9195F1E4A00E00A70 /* AboutDeveloperViewController.h */,
-				2440F6DA195F1E4A00E00A70 /* AboutDeveloperViewController.m */,
 			);
-			name = AboutDeveloper;
+			name = WeiXin;
+			sourceTree = "<group>";
+		};
+		2447B3A7198CA08600B297BB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2447B3A6198CA07A00B297BB /* WeiXin */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 		24686C71196E66B600D8CF86 /* About */ = {
@@ -372,21 +366,11 @@
 			name = About;
 			sourceTree = "<group>";
 		};
-		24686C75196E673400D8CF86 /* OldAbout */ = {
-			isa = PBXGroup;
-			children = (
-				240AE6DA195F0D5900F7820D /* AboutViewController.h */,
-				240AE6DB195F0D5900F7820D /* AboutViewController.m */,
-				240099EA1960055F0036EFF4 /* AboutProjectViewController.h */,
-				240099EB196005600036EFF4 /* AboutProjectViewController.m */,
-				2440F6CF195F184700E00A70 /* AboutDeveloper */,
-			);
-			name = OldAbout;
-			sourceTree = "<group>";
-		};
 		24686C76196E674100D8CF86 /* NewAbout */ = {
 			isa = PBXGroup;
 			children = (
+				2447B3A8198CAA7300B297BB /* Developer.h */,
+				2447B3A9198CAA7300B297BB /* Developer.m */,
 				24686C6D196E562F00D8CF86 /* NewAboutViewController.h */,
 				24686C6E196E562F00D8CF86 /* NewAboutViewController.m */,
 			);
@@ -590,6 +574,7 @@
 		24CFD62518E1517100D706D1 /* LogicalLayer */ = {
 			isa = PBXGroup;
 			children = (
+				2447B3A7198CA08600B297BB /* Shared */,
 				24FED22B195A774900A9F0DA /* DatabaseManager.h */,
 				24FED22C195A774900A9F0DA /* DatabaseManager.m */,
 				24CECC3218E2A3D700D43E0D /* NetworkClient.h */,
@@ -878,6 +863,7 @@
 				ADEDA1EF195FED5C009B8D20 /* MJRefreshBaseView.m in Sources */,
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
 				246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */,
+				2447B3AA198CAA7300B297BB /* Developer.m in Sources */,
 				24C84BC11976CADE00980720 /* RootViewController.m in Sources */,
 				24C6FE4C195E8574008B594C /* Match.m in Sources */,
 				24686C83196E875600D8CF86 /* Welcome3.m in Sources */,
@@ -890,12 +876,10 @@
 				24B154341983D8E0004F87DA /* TeamTableViewCell.m in Sources */,
 				248BD093197E508D00419603 /* GroupScoreViewController.m in Sources */,
 				24B8C1C51977B7F800B2FAD0 /* MatchTableViewCell.m in Sources */,
-				2440F6DB195F1E4A00E00A70 /* AboutDeveloperViewController.m in Sources */,
 				24D42BCD197D013F0069F224 /* CompetitionDetailViewController.m in Sources */,
 				24686C74196E66DC00D8CF86 /* AboutManager.m in Sources */,
 				24B8C1C11977B46D00B2FAD0 /* YellowCardViewController.m in Sources */,
 				24C84BBE1976BC0E00980720 /* MatchViewController.m in Sources */,
-				2440F6D8195F1A0300E00A70 /* Developer.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
 				ADEDA1F1195FED5C009B8D20 /* MJRefreshFooterView.m in Sources */,
 				240099F9196024BE0036EFF4 /* AppInfo.m in Sources */,
@@ -908,7 +892,6 @@
 				248BD09A197E60C600419603 /* TeamManager.m in Sources */,
 				24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */,
 				24C6FE4B195E8574008B594C /* Player.m in Sources */,
-				240099EC196005600036EFF4 /* AboutProjectViewController.m in Sources */,
 				240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */,
 				24A3B4931986ACDB00F6D263 /* NSNumber+Assign.m in Sources */,
 				2495BA2719690C1F009BB60F /* NewsViewController.m in Sources */,
@@ -918,7 +901,6 @@
 				246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */,
 				ADEDA1E1195FE00D009B8D20 /* CompetitionViewController.m in Sources */,
 				248BD096197E593000419603 /* GroupScoreCell.m in Sources */,
-				240AE6DC195F0D5900F7820D /* AboutViewController.m in Sources */,
 				24C84BC41976CFF700980720 /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

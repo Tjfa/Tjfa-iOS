@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"teamBg"]];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"teamBg"]];
     // Do any additional setup after loading the view.
 }
 
@@ -36,7 +36,7 @@
 - (NSComparisonResult)comparedRank:(Team*)a andTeamB:(Team*)b
 {
     if ([a.rank isEqual:b.rank]) {
-        return NSOrderedSame;
+        return [a.teamId compare:b.teamId];
     } else {
         NSLog(@"%d", a.rank.intValue);
         if ([a.rank intValue] == 100) {

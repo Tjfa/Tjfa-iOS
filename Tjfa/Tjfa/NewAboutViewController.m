@@ -10,11 +10,8 @@
 #import "Developer.h"
 #import "UIColor+AppColor.h"
 #import "AboutManager.h"
-#import <iCarousel.h>
 
-@interface NewAboutViewController () <UIGestureRecognizerDelegate>
-
-@property (nonatomic, weak) IBOutlet iCarousel* carouselView;
+@interface NewAboutViewController () <UIGestureRecognizerDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel* nameLabel;
 
@@ -56,104 +53,11 @@
     return _data;
 }
 
-- (void)setCarouselView:(iCarousel*)carouselView
-{
-    if (_carouselView != carouselView) {
-        _carouselView = carouselView;
-        _carouselView.type = iCarouselTypeRotary;
-        _carouselView.clipsToBounds = YES;
-    }
-}
-
 - (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView* view = [[UIView alloc] init];
     view.backgroundColor = [UIColor clearColor];
     return view;
-}
-
-#pragma mark iCarousel methods
-
-- (NSUInteger)numberOfItemsInCarousel:(iCarousel*)carousel
-{
-    return [self.data count];
-}
-
-- (NSUInteger)numberOfVisibleItemsInCarousel:(iCarousel*)carousel
-{
-    //limit the number of items views loaded concurrently (for performance reasons)
-    //this also affects the appearance of circular-type carousels
-    return self.data.count;
-}
-
-- (UIView*)carousel:(iCarousel*)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView*)view
-{
-    if (view == nil) {
-        Developer* developer = self.data[index];
-
-        CGFloat size = 160;
-        CGFloat imageSize = 130;
-        CGFloat yPosition = 10;
-
-        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, size, size)];
-
-        UIView* borderView = [[UIView alloc] initWithFrame:CGRectMake((size - imageSize) / 2 - 5, yPosition - 5, imageSize + 10, imageSize + 10)];
-        borderView.layer.cornerRadius = (imageSize + 10) / 2;
-        borderView.backgroundColor = [UIColor whiteColor];
-
-        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake((size - imageSize) / 2, yPosition, imageSize, imageSize)];
-        imageView.image = developer.image;
-        imageView.layer.cornerRadius = imageSize / 2;
-        imageView.clipsToBounds = YES;
-
-        [view addSubview:borderView];
-        [view addSubview:imageView];
-    }
-    return view;
-}
-
-- (CGFloat)carouselItemWidth:(iCarousel*)carousel
-{
-    return 180;
-}
-
-- (CATransform3D)carousel:(iCarousel*)_carousel itemTransformForOffset:(CGFloat)offset baseTransform:(CATransform3D)transform
-{
-    //implement 'flip3D' style carousel
-    transform = CATransform3DRotate(transform, M_PI / 8.0f, 0.0f, 1.0f, 0.0f);
-    return CATransform3DTranslate(transform, 0.0f, 0.0f, offset * self.carouselView.itemWidth);
-}
-
-//- (CGFloat)carousel:(iCarousel*)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
-//{
-//    switch (option) {
-//    case iCarouselOptionRadius: {
-//        return value;
-//    }
-//    case iCarouselOptionTilt: {
-//        return 0.8;
-//    }
-//    case iCarouselOptionSpacing: {
-//        return 0.8;
-//    }
-//    default: {
-//        return value;
-//    }
-//    }
-//}
-
-- (void)carouselDidScroll:(iCarousel*)carousel
-{
-    int index = (int)round(carousel.scrollOffset);
-    Developer* developer = self.data[index % self.data.count];
-    self.nameLabel.text = developer.name;
-}
-
-- (void)carouselDidEndScrollingAnimation:(iCarousel*)carousel
-{
-    int index = (int)round(carousel.scrollOffset);
-    Developer* developer = self.data[index % self.data.count];
-    self.nameLabel.text = developer.name;
 }
 
 #pragma mark - tableView delegate & select action
@@ -169,7 +73,7 @@
     } else if ([cell.textLabel.text isEqualToString:@"删除本地数据"]) {
         [self deleteLocalData];
     } else if ([cell.textLabel.text isEqualToString:@"告诉朋友"]) {
-        [self sharedWithMessage];
+        [self shared];
     }
 }
 
@@ -194,15 +98,42 @@
     [aboutManager gotoSuggestion];
 }
 
+- (void)shared
+{
+    UIActionSheet* sharedActionSheet = [[UIActionSheet alloc] initWithTitle:@"我要分享" delegate:self cancelButtonTitle:@"手残。。点错了" destructiveButtonTitle:nil otherButtonTitles:@"短信分享给好友", @"微信分享到朋友圈", nil];
+    [sharedActionSheet showInView:self.view];
+}
+
+- (IBAction)backButtonClick:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - actionSheet delegate
+
+#define MESSAGE_SHARED 0
+#define WEIXIN_SHARED 1
+- (void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == WEIXIN_SHARED) {
+        [self sharedWithWeiXin];
+    } else if (buttonIndex == MESSAGE_SHARED) {
+        [self sharedWithMessage];
+    }
+}
+
 - (void)sharedWithMessage
 {
     AboutManager* aboutManager = [AboutManager sharedAboutManager];
     aboutManager.instanceController = self;
     [aboutManager sharedWithMessage];
 }
-- (IBAction)backButtonClick:(id)sender
+
+- (void)sharedWithWeiXin
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    AboutManager* aboutManager = [AboutManager sharedAboutManager];
+    aboutManager.instanceController = self;
+    [aboutManager sharedWithWeiXin];
 }
 
 @end

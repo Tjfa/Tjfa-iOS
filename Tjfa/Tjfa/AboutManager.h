@@ -38,6 +38,11 @@
 - (void)sharedWithMessage;
 
 /**
+ *  微信分享到朋友圈
+ */
+- (void)sharedWithWeiXin;
+
+/**
  *  为我提意见
  */
 - (void)gotoSuggestion;

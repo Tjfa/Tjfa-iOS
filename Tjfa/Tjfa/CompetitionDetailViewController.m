@@ -181,6 +181,7 @@
 
 - (void)dealloc
 {
+    NSLog(@"delloc");
     [self.header free];
 }
 

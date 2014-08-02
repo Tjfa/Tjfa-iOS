@@ -9,11 +9,11 @@
 #import "MJRefreshFooterView.h"
 #import "MJRefreshConst.h"
 
-@interface MJRefreshFooterView()
-//{
-//    BOOL _withoutIdle;
-//}
-{
+@interface MJRefreshFooterView ()
+    //{
+    //    BOOL _withoutIdle;
+    //}
+    {
     int _lastRefreshCount;
 }
 @end
@@ -26,11 +26,9 @@
 }
 
 #pragma mark - 初始化
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame: frame]) {
-        // 移除刷新时间
-		[_lastUpdateTimeLabel removeFromSuperview];
-        _lastUpdateTimeLabel = nil;
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
     }
     return self;
 }
@@ -38,7 +36,7 @@
 - (void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
-    
+
     CGFloat h = frame.size.height;
     if (_statusLabel.center.y != h * 0.5) {
         CGFloat w = frame.size.width;
@@ -48,27 +46,28 @@
 
 #pragma mark - UIScrollView相关
 #pragma mark 重写设置ScrollView
-- (void)setScrollView:(UIScrollView *)scrollView
+- (void)setScrollView:(UIScrollView*)scrollView
 {
     // 1.移除以前的监听器
     [_scrollView removeObserver:self forKeyPath:MJRefreshContentSize context:nil];
     // 2.监听contentSize
     [scrollView addObserver:self forKeyPath:MJRefreshContentSize options:NSKeyValueObservingOptionNew context:nil];
-    
+
     // 3.父类的方法
     [super setScrollView:scrollView];
-    
+
     // 4.重新调整frame
     [self adjustFrame];
 }
 
 #pragma mark 监听UIScrollView的属性
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void)observeValueForKeyPath:(NSString*)keyPath ofObject:(id)object change:(NSDictionary*)change context:(void*)context
 {
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    
-    if (!self.userInteractionEnabled || self.alpha <= 0.01 || self.hidden) return;
-    
+
+    if (!self.userInteractionEnabled || self.alpha <= 0.01 || self.hidden)
+        return;
+
     if ([MJRefreshContentSize isEqualToString:keyPath]) {
         [self adjustFrame];
     }
@@ -90,64 +89,61 @@
 #pragma mark 设置状态
 - (void)setState:(MJRefreshState)state
 {
-    if (_state == state) return;
+    if (_state == state)
+        return;
     MJRefreshState oldState = _state;
-    
+
     [super setState:state];
-    
-	switch (state)
-    {
-		case MJRefreshStatePulling:
-        {
-            _statusLabel.text = MJRefreshFooterReleaseToRefresh;
-            
-            [UIView animateWithDuration:MJRefreshAnimationDuration animations:^{
+
+    switch (state) {
+    case MJRefreshStatePulling: {
+        _statusLabel.text = MJRefreshFooterReleaseToRefresh;
+
+        [UIView animateWithDuration:MJRefreshAnimationDuration animations:^{
                 _arrowImage.transform = CGAffineTransformIdentity;
                 UIEdgeInsets inset = _scrollView.contentInset;
                 inset.bottom = _scrollViewInitInset.bottom;
                 _scrollView.contentInset = inset;
-            }];
-			break;
+        }];
+        break;
+    }
+
+    case MJRefreshStateNormal: {
+        _statusLabel.text = MJRefreshFooterPullToRefresh;
+
+        // 刚刷新完毕
+        CGFloat animDuration = MJRefreshAnimationDuration;
+        CGFloat deltaH = [self contentBreakView];
+        CGPoint tempOffset;
+
+        int currentCount = [self totalDataCountInScrollView];
+        if (MJRefreshStateRefreshing == oldState && deltaH > 0 && currentCount != _lastRefreshCount) {
+            tempOffset = _scrollView.contentOffset;
+            animDuration = 0;
+        } else {
+            tempOffset = CGPointMake(0, 0);
         }
-            
-		case MJRefreshStateNormal:
-        {
-            _statusLabel.text = MJRefreshFooterPullToRefresh;
-            
-            // 刚刷新完毕
-            CGFloat animDuration = MJRefreshAnimationDuration;
-            CGFloat deltaH = [self contentBreakView];
-            CGPoint tempOffset;
-            
-            int currentCount = [self totalDataCountInScrollView];
-            if (MJRefreshStateRefreshing == oldState && deltaH > 0 && currentCount != _lastRefreshCount) {
-                tempOffset = _scrollView.contentOffset;
-                animDuration = 0;
-            }else{
-                tempOffset = CGPointMake(0, 0);
-            }
-            
-            [UIView animateWithDuration:animDuration animations:^{
+
+        [UIView animateWithDuration:animDuration animations:^{
                 _arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
                 UIEdgeInsets inset = _scrollView.contentInset;
                 inset.bottom = _scrollViewInitInset.bottom;
                 _scrollView.contentInset = inset;
-            }];
-            
-            if (animDuration == 0) {
-                _scrollView.contentOffset = tempOffset;
-            }
-			break;
+        }];
+
+        if (animDuration == 0) {
+            _scrollView.contentOffset = tempOffset;
         }
-            
-        case MJRefreshStateRefreshing:
-        {
-            // 记录刷新前的数量
-            _lastRefreshCount = [self totalDataCountInScrollView];
-            
-            _statusLabel.text = MJRefreshFooterRefreshing;
-            _arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
-            [UIView animateWithDuration:MJRefreshAnimationDuration animations:^{
+        break;
+    }
+
+    case MJRefreshStateRefreshing: {
+        // 记录刷新前的数量
+        _lastRefreshCount = [self totalDataCountInScrollView];
+
+        _statusLabel.text = MJRefreshFooterRefreshing;
+        _arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
+        [UIView animateWithDuration:MJRefreshAnimationDuration animations:^{
                 UIEdgeInsets inset = _scrollView.contentInset;
                 CGFloat bottom = MJRefreshViewHeight + _scrollViewInitInset.bottom;
                 CGFloat deltaH = [self contentBreakView];
@@ -156,13 +152,13 @@
                 }
                 inset.bottom = bottom;
                 _scrollView.contentInset = inset;
-            }];
-			break;
-        }
-            
-        default:
-            break;
-	}
+        }];
+        break;
+    }
+
+    default:
+        break;
+    }
 }
 
 //- (void)endRefreshingWithoutIdle
@@ -185,7 +181,7 @@
 {
     CGFloat deltaH = [self contentBreakView];
     if (deltaH > 0) {
-        return deltaH -_scrollViewInitInset.top;
+        return deltaH - _scrollViewInitInset.top;
     } else {
         return -_scrollViewInitInset.top;
     }

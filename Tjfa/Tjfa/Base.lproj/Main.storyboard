@@ -1165,7 +1165,7 @@
         <!--New About View Controller - 关于-->
         <scene sceneID="erZ-IX-lU4">
             <objects>
-                <tableViewController storyboardIdentifier="newAbout" id="ET9-lm-tC4" customClass="NewAboutViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="newAboutController" id="ET9-lm-tC4" customClass="NewAboutViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ile-Up-D6N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1187,13 +1187,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LjY-AC-2yu" customClass="iCarousel">
+                                <view appearanceType="aqua" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LjY-AC-2yu">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <connections>
-                                        <outlet property="dataSource" destination="ET9-lm-tC4" id="QuU-AH-Utc"/>
-                                        <outlet property="delegate" destination="ET9-lm-tC4" id="GZx-Ah-DEq"/>
-                                    </connections>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1295,8 +1291,8 @@
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="ET9-lm-tC4" id="ehC-9V-xpz"/>
-                            <outlet property="delegate" destination="ET9-lm-tC4" id="h9U-vg-vSP"/>
+                            <outlet property="dataSource" destination="ET9-lm-tC4" id="qkd-U2-nIU"/>
+                            <outlet property="delegate" destination="ET9-lm-tC4" id="yzp-66-Gv8"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="关于" id="Qsl-4O-rkY">
@@ -1306,10 +1302,6 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="carouselView" destination="LjY-AC-2yu" id="Y9s-YO-4SF"/>
-                        <outlet property="nameLabel" destination="AmA-sX-ocL" id="wk1-8n-T5g"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYc-1y-5KS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

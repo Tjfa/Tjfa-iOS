@@ -8,21 +8,49 @@
 
 #import "AppDelegate.h"
 #import <NewRelic.h>
+#import "AppInfo.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
+
     [MagicalRecord setupCoreDataStack];
+
+#pragma mark - NewRelic
     [NewRelicAgent startWithApplicationToken:@"AA01c89510950c44d5eb52e03ed96dba90b59798e3"];
+
+#pragma mark - weixin
+    [WXApi registerApp:@"wx6cba695c52dfdeb0"];
     // Override point for customization after application launch.
     return YES;
+}
+
+- (BOOL)application:(UIApplication*)application handleOpenURL:(NSURL*)url
+{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication*)application openURL:(NSURL*)url sourceApplication:(NSString*)sourceApplication annotation:(id)annotation
+{
+    return [WXApi handleOpenURL:url delegate:self];
 }
 
 - (void)applicationWillResignActive:(UIApplication*)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+}
+
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)userInfo
+{
+    NSLog(@"%@", userInfo);
+}
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    NSLog(@"%@", deviceToken);
 }
 
 - (void)applicationDidEnterBackground:(UIApplication*)application
@@ -45,6 +73,22 @@
 {
     [MagicalRecord cleanUp];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - weixin
+
+/**
+ *  onReq是微信终端向第三方程序发起请求，要求第三方程序响应。第三方程序响应完后必须调用sendRsp返回。在调用sendRsp返回时，会切回到微信终端程序界面。
+ */
+- (void)onReq:(BaseReq*)req
+{
+}
+
+/**
+ *  如果第三方程序向微信发送了sendReq的请求，那么onResp会被回调。sendReq请求调用后，会切到微信终端程序界面。
+ */
+- (void)onResp:(BaseResp*)resp
+{
 }
 
 @end

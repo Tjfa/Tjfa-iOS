@@ -212,7 +212,7 @@ const CGFloat delayAnimate = 0.1;
 {
     NSLog(@"setting click");
     [self closeDashboardCellUserInterface];
-    UIViewController* settingController = [self.storyboard instantiateViewControllerWithIdentifier:@"newAbout"];
+    UIViewController* settingController = [self.storyboard instantiateViewControllerWithIdentifier:@"newAboutController"];
     [self hideWithAnimateSynCompleteToController:settingController];
 }
 
