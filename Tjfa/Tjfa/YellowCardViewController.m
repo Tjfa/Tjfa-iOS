@@ -46,14 +46,16 @@
 {
     __weak YellowCardViewController* weakSelf = self;
     [[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromNetwork:competition complete:^(NSArray* result, NSError* error) {
-        if (!error){
-            NSArray* array=[result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player*b){
-                return [weakSelf comparedPlayer:a withB:b];
-            }];
-            weakSelf.completeBlock(array,nil);
-        }
-        else{
-            weakSelf.completeBlock(nil,error);
+        if (weakSelf){
+            if (!error){
+                NSArray* array=[result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player*b){
+                    return [weakSelf comparedPlayer:a withB:b];
+                }];
+                weakSelf.completeBlock(array,nil);
+            }
+            else{
+                weakSelf.completeBlock(nil,error);
+            }
         }
     }];
 }

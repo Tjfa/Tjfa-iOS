@@ -73,7 +73,7 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
             NSLog(@"successful");
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
             if (httpResponse.statusCode == 200){
-                dispatch_async(dispatch_get_main_queue(), ^{
+                dispatch_async(dispatch_get_main_queue(), ^{      
                     NSLog(@"%@",responseObject);
                     complete(responseObject,nil);
                 });

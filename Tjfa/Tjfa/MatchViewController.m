@@ -19,7 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"matchBg"]];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"matchBg"]];
 }
 
 #pragma mark - set cell
@@ -40,7 +40,9 @@
 {
     __weak MatchViewController* weakSelf = self;
     [[MatchManager sharedMatchManager] getMatchesByCompetitionFromNetwork:competition complete:^(NSArray* results, NSError* error) {
-        weakSelf.completeBlock(results,error);
+        if (weakSelf){
+            weakSelf.completeBlock(results,error);
+        }
     }];
 }
 

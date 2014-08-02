@@ -184,7 +184,9 @@
 {
     __weak GroupScoreViewController* weakSelf = self;
     [[TeamManager sharedTeamManager] getTeamsFromNetwork:competition complete:^(NSArray* results, NSError* error) {
-        weakSelf.completeBlock(results,error);
+        if (weakSelf){
+            weakSelf.completeBlock(results,error);
+        }
     }];
 }
 

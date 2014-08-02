@@ -59,15 +59,17 @@
 {
     __weak TeamViewController* weakSelf = self;
     [[TeamManager sharedTeamManager] getTeamsFromNetwork:competition complete:^(NSArray* results, NSError* error) {
-        if (!error){
-            NSArray* array=[results sortedArrayUsingComparator:^NSComparisonResult(Team* a, Team* b){
-                return [weakSelf comparedRank:a andTeamB:b];
+        if (weakSelf){
+            if (!error){
+                NSArray* array=[results sortedArrayUsingComparator:^NSComparisonResult(Team* a, Team* b){
+                    return [weakSelf comparedRank:a andTeamB:b];
      
-            }];
-            weakSelf.completeBlock(array,nil);
-        }
-        else{
-            weakSelf.completeBlock(nil,error);
+                }];
+                weakSelf.completeBlock(array,nil);
+            }
+            else{
+                weakSelf.completeBlock(nil,error);
+            }
         }
     }];
 }
