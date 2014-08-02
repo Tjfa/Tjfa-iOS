@@ -48,10 +48,10 @@
     case MJRefreshStatePulling: // 松开可立即刷新
     {
         // 设置文字
-        _statusLabel.text = MJRefreshHeaderReleaseToRefresh;
+        // _statusLabel.text = MJRefreshHeaderReleaseToRefresh;
         // 执行动画
         [UIView animateWithDuration:MJRefreshAnimationDuration animations:^{
-                _arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
+               // _arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
                 UIEdgeInsets inset = _scrollView.contentInset;
                 inset.top = _scrollViewInitInset.top;
                 _scrollView.contentInset = inset;
@@ -62,10 +62,11 @@
     case MJRefreshStateNormal: // 下拉可以刷新
     {
         // 设置文字
-        _statusLabel.text = MJRefreshHeaderPullToRefresh;
+        //_statusLabel.text = MJRefreshHeaderPullToRefresh;
         // 执行动画
         [UIView animateWithDuration:MJRefreshAnimationDuration animations:^{
-                _arrowImage.transform = CGAffineTransformIdentity;
+                //_arrowImage.transform = CGAffineTransformIdentity;
+          
                 UIEdgeInsets inset = _scrollView.contentInset;
                 inset.top = _scrollViewInitInset.top;
                 _scrollView.contentInset = inset;
@@ -80,10 +81,10 @@
     case MJRefreshStateRefreshing: // 正在刷新中
     {
         // 设置文字
-        _statusLabel.text = MJRefreshHeaderRefreshing;
+        //_statusLabel.text = MJRefreshHeaderRefreshing;
         // 执行动画
         [UIView animateWithDuration:MJRefreshAnimationDuration animations:^{
-                _arrowImage.transform = CGAffineTransformIdentity;
+               // _arrowImage.transform = CGAffineTransformIdentity;
                 // 1.增加65的滚动区域
                 UIEdgeInsets inset = _scrollView.contentInset;
                 inset.top = _scrollViewInitInset.top + MJRefreshViewHeight;

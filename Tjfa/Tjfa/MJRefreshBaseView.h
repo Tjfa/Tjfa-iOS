@@ -59,10 +59,10 @@ typedef void (^RefreshStateChangeBlock)(MJRefreshBaseView* refreshView, MJRefres
     __weak UIScrollView* _scrollView;
 
     // 子控件
-    __weak UILabel* _statusLabel;
-    __weak UIImageView* _arrowImage;
-    __weak UIActivityIndicatorView* _activityView;
-
+    //__weak UILabel* _statusLabel;
+    //__weak UIImageView* _arrowImage;
+    //__weak UIActivityIndicatorView* _activityView;
+    __weak UIImageView* _activityView;
     // 状态
     MJRefreshState _state;
 }

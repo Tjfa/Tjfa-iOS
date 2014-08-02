@@ -37,11 +37,11 @@
 {
     [super setFrame:frame];
 
-    CGFloat h = frame.size.height;
-    if (_statusLabel.center.y != h * 0.5) {
-        CGFloat w = frame.size.width;
-        _statusLabel.center = CGPointMake(w * 0.5, h * 0.5);
-    }
+    //CGFloat h = frame.size.height;
+    //    if (_statusLabel.center.y != h * 0.5) {
+    //        CGFloat w = frame.size.width;
+    //        _statusLabel.center = CGPointMake(w * 0.5, h * 0.5);
+    //    }
 }
 
 #pragma mark - UIScrollView相关
@@ -97,10 +97,10 @@
 
     switch (state) {
     case MJRefreshStatePulling: {
-        _statusLabel.text = MJRefreshFooterReleaseToRefresh;
+        // _statusLabel.text = MJRefreshFooterReleaseToRefresh;
 
         [UIView animateWithDuration:MJRefreshAnimationDuration animations:^{
-                _arrowImage.transform = CGAffineTransformIdentity;
+         //       _arrowImage.transform = CGAffineTransformIdentity;
                 UIEdgeInsets inset = _scrollView.contentInset;
                 inset.bottom = _scrollViewInitInset.bottom;
                 _scrollView.contentInset = inset;
@@ -109,7 +109,7 @@
     }
 
     case MJRefreshStateNormal: {
-        _statusLabel.text = MJRefreshFooterPullToRefresh;
+        // _statusLabel.text = MJRefreshFooterPullToRefresh;
 
         // 刚刷新完毕
         CGFloat animDuration = MJRefreshAnimationDuration;
@@ -125,7 +125,7 @@
         }
 
         [UIView animateWithDuration:animDuration animations:^{
-                _arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
+                //_arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
                 UIEdgeInsets inset = _scrollView.contentInset;
                 inset.bottom = _scrollViewInitInset.bottom;
                 _scrollView.contentInset = inset;
@@ -141,8 +141,8 @@
         // 记录刷新前的数量
         _lastRefreshCount = [self totalDataCountInScrollView];
 
-        _statusLabel.text = MJRefreshFooterRefreshing;
-        _arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
+        // _statusLabel.text = MJRefreshFooterRefreshing;
+        // _arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
         [UIView animateWithDuration:MJRefreshAnimationDuration animations:^{
                 UIEdgeInsets inset = _scrollView.contentInset;
                 CGFloat bottom = MJRefreshViewHeight + _scrollViewInitInset.bottom;
