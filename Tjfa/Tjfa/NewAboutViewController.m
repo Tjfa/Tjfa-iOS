@@ -10,10 +10,11 @@
 #import "Developer.h"
 #import "UIColor+AppColor.h"
 #import "AboutManager.h"
+#import "AppInfo.h"
 
 @interface NewAboutViewController () <UIGestureRecognizerDelegate, UIActionSheetDelegate>
 
-@property (nonatomic, weak) IBOutlet UILabel* nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel* versionLable;
 
 @property (nonatomic, strong) NSMutableArray* data;
 
@@ -25,6 +26,7 @@
 {
     [super viewDidLoad];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"aboutBg"]];
     // Do any additional setup after loading the view.
 }
 
@@ -60,20 +62,34 @@
     return view;
 }
 
+- (void)setVersionLable:(UILabel*)versionLable
+{
+    if (_versionLable != versionLable) {
+        _versionLable = versionLable;
+        _versionLable.text = [NSString stringWithFormat:@"V %@", [AppInfo appVersion]];
+    }
+}
+
 #pragma mark - tableView delegate & select action
+
+#define TELL_FRIEND 0
+#define EVALUATE_INDEX 1
+#define QUESTION 2
 
 - (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
-    if ([cell.textLabel.text isEqualToString:@"为我评分"]) {
-        [self evaluate];
-    } else if ([cell.textLabel.text isEqualToString:@"问题与反馈"]) {
-        [self gotoSuggestion];
-    } else if ([cell.textLabel.text isEqualToString:@"删除本地数据"]) {
-        [self deleteLocalData];
-    } else if ([cell.textLabel.text isEqualToString:@"告诉朋友"]) {
-        [self shared];
+    if (indexPath.section == 0) {
+        if (indexPath.row == TELL_FRIEND) {
+            [self shared];
+        } else if (indexPath.row == QUESTION) {
+            [self gotoSuggestion];
+        } else if (indexPath.row == EVALUATE_INDEX) {
+            [self evaluate];
+        }
+    } else {
+        if (indexPath.row == 0) {
+            [self deleteLocalData];
+        }
     }
 }
 

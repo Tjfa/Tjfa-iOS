@@ -20,28 +20,30 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FlurrySDK (5.2.0):
+    - FlurrySDK/FlurrySDK
+  - FlurrySDK/FlurrySDK (5.2.0)
   - libWeChatSDK (1.4.2.1)
   - MagicalRecord (2.2):
     - MagicalRecord/Core
   - MagicalRecord/Core (2.2)
   - MBProgressHUD (0.8)
-  - NewRelicAgent (3.343)
   - RESideMenu (4.0.5)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.3.1)
+  - FlurrySDK (~> 5.2.0)
   - libWeChatSDK (~> 1.4.2.1)
   - MagicalRecord (~> 2.2)
   - MBProgressHUD (~> 0.8)
-  - NewRelicAgent (~> 3.343)
   - RESideMenu (~> 4.0.5)
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
+  FlurrySDK: 5322b9eb0d0b538f1a1983a6717f3a2e2ba03047
   libWeChatSDK: 566fcb1c7b724cc3306fa83667094c5f0743477a
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
-  NewRelicAgent: 95b45c10c8f53738fb8a65034e6d6ae72e90570f
   RESideMenu: 0a6f20a11412975d683fab9db2d255865d0aaeee
 
 COCOAPODS: 0.33.1

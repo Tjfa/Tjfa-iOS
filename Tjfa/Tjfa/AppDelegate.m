@@ -7,19 +7,20 @@
 //
 
 #import "AppDelegate.h"
-#import <NewRelic.h>
 #import "AppInfo.h"
+#import <Flurry.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
-    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
 
+#pragma mark - flurry
+    [Flurry startSession:@"9BTNDJ79TJ5JST5TTF2B"];
+    [Flurry setCrashReportingEnabled:YES];
+
+#pragma mark - magical record
     [MagicalRecord setupCoreDataStack];
-
-#pragma mark - NewRelic
-    [NewRelicAgent startWithApplicationToken:@"AA01c89510950c44d5eb52e03ed96dba90b59798e3"];
 
 #pragma mark - weixin
     [WXApi registerApp:@"wx6cba695c52dfdeb0"];
