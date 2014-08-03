@@ -15,7 +15,7 @@
 {
     static UserData* _sharedUserData = nil;
     static dispatch_once_t userDataToken;
-    dispatch_once(&userDataToken, ^() {
+    dispatch_once(&userDataToken, ^{
         _sharedUserData=[[UserData alloc] init];
     });
     return _sharedUserData;
@@ -23,7 +23,7 @@
 
 - (BOOL)isFirstLaunch
 {
-
+    return NO;
 #if DEBUG
     NSLog(@"I'm in debug model, So welcome will hide");
     return NO;

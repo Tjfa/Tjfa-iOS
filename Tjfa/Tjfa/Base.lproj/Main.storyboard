@@ -1179,7 +1179,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view key="tableFooterView" appearanceType="aqua" contentMode="scaleToFill" id="Jpm-tw-1pm">
-                            <rect key="frame" x="0.0" y="437" width="320" height="47"/>
+                            <rect key="frame" x="0.0" y="557" width="320" height="47"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label appearanceType="aqua" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Copyright © 同济大学苹果俱乐部 All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yce-nW-tdy">
@@ -1200,10 +1200,68 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <sections>
+                            <tableViewSection id="Wlq-1p-ld8">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="YUS-qS-zgI">
+                                        <rect key="frame" x="0.0" y="217" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YUS-qS-zgI" id="EOM-38-xdd">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qiufeng" translatesAutoresizingMaskIntoConstraints="NO" id="3NS-AC-pRL">
+                                                    <rect key="frame" x="20" y="5" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vina" translatesAutoresizingMaskIntoConstraints="NO" id="aBM-Lh-eMi">
+                                                    <rect key="frame" x="90" y="5" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yujiajia" translatesAutoresizingMaskIntoConstraints="NO" id="vDb-s5-wNS">
+                                                    <rect key="frame" x="180" y="5" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ssN-WR-ZD2">
+                                                    <rect key="frame" x="250" y="5" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="60" id="cqb-RV-LvP">
+                                        <rect key="frame" x="0.0" y="277" width="320" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cqb-RV-LvP" id="gRm-OU-bpz">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="liangsong" translatesAutoresizingMaskIntoConstraints="NO" id="sUK-xX-NMN">
+                                                    <rect key="frame" x="20" y="5" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="chengzhiming" translatesAutoresizingMaskIntoConstraints="NO" id="i0h-56-h1F">
+                                                    <rect key="frame" x="90" y="5" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="caomeilun" translatesAutoresizingMaskIntoConstraints="NO" id="Ppx-fq-VlA">
+                                                    <rect key="frame" x="180" y="5" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                                <imageView appearanceType="aqua" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yejianquan" translatesAutoresizingMaskIntoConstraints="NO" id="isD-fZ-hgI">
+                                                    <rect key="frame" x="250" y="5" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle=" " id="59h-PR-n8a">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="goD-CN-wrl">
-                                        <rect key="frame" x="0.0" y="239" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="359" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="goD-CN-wrl" id="Ry0-7E-8NU">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1229,7 +1287,7 @@
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nX6-qs-hck">
-                                        <rect key="frame" x="0.0" y="283" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="403" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nX6-qs-hck" id="qtR-59-DN8">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1254,7 +1312,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell appearanceType="aqua" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="CYE-Mj-9zZ">
-                                        <rect key="frame" x="0.0" y="327" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="447" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CYE-Mj-9zZ" id="3ZM-tM-7Il">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1282,8 +1340,8 @@
                             </tableViewSection>
                             <tableViewSection headerTitle=" " id="O4P-nA-hFn">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="JtC-C4-wOm" style="IBUITableViewCellStyleDefault" id="85d-r5-89g">
-                                        <rect key="frame" x="0.0" y="393" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="JtC-C4-wOm" style="IBUITableViewCellStyleDefault" id="85d-r5-89g">
+                                        <rect key="frame" x="0.0" y="513" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="85d-r5-89g" id="pIe-pQ-mO3">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -1442,10 +1500,13 @@
     </scenes>
     <resources>
         <image name="backMenu" width="8" height="14"/>
+        <image name="caomeilun" width="50" height="50"/>
+        <image name="chengzhiming" width="50" height="50"/>
         <image name="competitionCup0" width="24" height="24"/>
         <image name="contect" width="100" height="100"/>
         <image name="dashboardBg" width="320" height="480"/>
         <image name="indicator" width="12" height="18"/>
+        <image name="liangsong" width="50" height="50"/>
         <image name="menuBarItem" width="24" height="18"/>
         <image name="menuGroup" width="355" height="312"/>
         <image name="menuMatch" width="64" height="64"/>
@@ -1453,8 +1514,12 @@
         <image name="menuTeam" width="294" height="224"/>
         <image name="menuTopList" width="275" height="130"/>
         <image name="menuYellowCard" width="64" height="64"/>
+        <image name="qiufeng" width="50" height="50"/>
         <image name="score" width="100" height="100"/>
         <image name="tell" width="100" height="100"/>
+        <image name="vina" width="50" height="50"/>
+        <image name="yejianquan" width="50" height="50"/>
+        <image name="yujiajia" width="50" height="50"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

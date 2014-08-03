@@ -185,7 +185,10 @@
     __weak GroupScoreViewController* weakSelf = self;
     [[TeamManager sharedTeamManager] getTeamsFromNetwork:competition complete:^(NSArray* results, NSError* error) {
         if (weakSelf){
-            weakSelf.completeBlock(results,error);
+            NSArray* arr=[results sortedArrayUsingComparator:^NSComparisonResult(Team* a, Team*b){
+                return [self comparedTeam:a andTeam:b];
+            }];
+            weakSelf.completeBlock(arr,error);
         }
     }];
 }
