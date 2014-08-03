@@ -23,12 +23,6 @@
 
 - (BOOL)isFirstLaunch
 {
-    return NO;
-#if DEBUG
-    NSLog(@"I'm in debug model, So welcome will hide");
-    return NO;
-#endif
-
     BOOL launchAlready = [[[NSUserDefaults standardUserDefaults] objectForKey:@"launchAlready"] boolValue];
     NSString* currentVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentVersion"];
 

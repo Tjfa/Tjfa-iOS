@@ -24,7 +24,7 @@
     self.contentViewInPortraitOffsetCenterX = -80;
     self.contentViewController = [[UIViewController alloc] init];
     self.delegate = self;
-    self.view.backgroundColor=[UIColor appRedColor];
+    self.view.backgroundColor = [UIColor appRedColor];
 }
 
 - (void)viewDidLoad
@@ -39,7 +39,7 @@
     UIViewController<UIGestureRecognizerDelegate>* viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]];
     self.contentViewController = viewController;
     UITableViewController* rightViewController = (UITableViewController*)self.rightMenuViewController;
-    rightViewController.tableView.backgroundView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"groupBg"]];
+    rightViewController.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backBg"]];
 }
 
 - (IBAction)toggleMenu:(id)sender

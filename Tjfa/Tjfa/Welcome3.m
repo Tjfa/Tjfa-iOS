@@ -9,15 +9,40 @@
 #import "Welcome3.h"
 #import "UIApplication+MainNav.h"
 
+@interface Welcome3 ()
+@property (strong, nonatomic) UIButton* welcomeStart;
+
+@end
+
 @implementation Welcome3
 
 + (Welcome3*)getInstance
 {
     NSArray* arr = [[NSBundle mainBundle] loadNibNamed:@"welcome3" owner:nil options:nil];
-    return arr[0];
+    Welcome3* welcome3 = arr[0];
+    [welcome3 addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"welcome3"]]];
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    welcome3.frame = CGRectMake(0, 0, screenSize.width, screenSize.height);
+    [welcome3 addSubview:welcome3.welcomeStart];
+    return welcome3;
 }
 
-- (IBAction)startToShowDashboard:(UIButton*)sender
+- (UIButton*)welcomeStart
+{
+    if (_welcomeStart == nil) {
+        if (iPhone5){
+        _welcomeStart = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width - 95) / 2, self.frame.size.height - 100, 95, 44)];
+        }
+        else{
+            _welcomeStart = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width - 95) / 2, self.frame.size.height - 80, 95, 44)];
+        }
+        [_welcomeStart setImage:[UIImage imageNamed:@"welcomeStart"] forState:UIControlStateNormal];
+        [_welcomeStart addTarget:self action:@selector(startToShowDashboard:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _welcomeStart;
+}
+
+- (void)startToShowDashboard:(UIButton*)sender
 {
     if (self.rootView) {
         self.rootView.userInteractionEnabled = NO;
@@ -45,11 +70,11 @@
 
 - (void)animationDidStop:(CAAnimation*)anim finished:(BOOL)flag
 {
-    if (self.rootView) {
-        [self.rootView removeFromSuperview];
-    } else {
-        [self removeFromSuperview];
-    }
+    //    if (self.rootView) {
+    //        [self.rootView removeFromSuperview];
+    //    } else {
+    //        [self removeFromSuperview];
+    //    }
     dispatch_time_t delayNanoSeconds = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 0.2);
     dispatch_after(delayNanoSeconds, dispatch_get_main_queue(), ^() {
         [UIApplication showMain];

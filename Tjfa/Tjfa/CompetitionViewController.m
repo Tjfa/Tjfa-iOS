@@ -59,7 +59,12 @@
 {
     if (_tableView != tableView) {
         _tableView = tableView;
-        _tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"competitionBg"]];
+        if (self.campusType.intValue == 1) {
+            _tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"competitionBgBenBu"]];
+        } else {
+            _tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"competitionBgJiaDing"]];
+        }
+
         header = [[MJRefreshHeaderView alloc] init];
         header.delegate = self;
         header.scrollView = _tableView;

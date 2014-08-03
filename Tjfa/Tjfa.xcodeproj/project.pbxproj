@@ -16,6 +16,10 @@
 		240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6D7195EDCC600F7820D /* DashboardCell.m */; };
 		241D4A4F196E917C00E3FC02 /* UIApplication+MainNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 241D4A4E196E917C00E3FC02 /* UIApplication+MainNav.m */; };
 		2447B3AA198CAA7300B297BB /* Developer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2447B3A9198CAA7300B297BB /* Developer.m */; };
+		244ACBC3198E8C55003E640A /* Welcome1.m in Sources */ = {isa = PBXBuildFile; fileRef = 244ACBC2198E8C55003E640A /* Welcome1.m */; };
+		244ACBC5198E8C72003E640A /* welcome1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244ACBC4198E8C72003E640A /* welcome1.xib */; };
+		244ACBC8198E8CED003E640A /* welcome2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244ACBC7198E8CED003E640A /* welcome2.xib */; };
+		244ACBCB198E8CFD003E640A /* Welcome2.m in Sources */ = {isa = PBXBuildFile; fileRef = 244ACBCA198E8CFD003E640A /* Welcome2.m */; };
 		246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753B6196BE2BA007BDE90 /* NewsContentViewController.m */; };
 		246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */; };
 		24686C6F196E562F00D8CF86 /* NewAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C6E196E562F00D8CF86 /* NewAboutViewController.m */; };
@@ -108,6 +112,12 @@
 		241D4A4E196E917C00E3FC02 /* UIApplication+MainNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+MainNav.m"; sourceTree = "<group>"; };
 		2447B3A8198CAA7300B297BB /* Developer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Developer.h; sourceTree = "<group>"; };
 		2447B3A9198CAA7300B297BB /* Developer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Developer.m; sourceTree = "<group>"; };
+		244ACBC1198E8C55003E640A /* Welcome1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Welcome1.h; sourceTree = "<group>"; };
+		244ACBC2198E8C55003E640A /* Welcome1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Welcome1.m; sourceTree = "<group>"; };
+		244ACBC4198E8C72003E640A /* welcome1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = welcome1.xib; sourceTree = "<group>"; };
+		244ACBC7198E8CED003E640A /* welcome2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = welcome2.xib; sourceTree = "<group>"; };
+		244ACBC9198E8CFD003E640A /* Welcome2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Welcome2.h; sourceTree = "<group>"; };
+		244ACBCA198E8CFD003E640A /* Welcome2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Welcome2.m; sourceTree = "<group>"; };
 		246753B5196BE2BA007BDE90 /* NewsContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsContentViewController.h; sourceTree = "<group>"; };
 		246753B6196BE2BA007BDE90 /* NewsContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentViewController.m; sourceTree = "<group>"; };
 		246753BB196BE52A007BDE90 /* MBProgressHUD+AppProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+AppProgressView.h"; sourceTree = "<group>"; };
@@ -384,6 +394,12 @@
 				24686C7F196E870300D8CF86 /* welcome3.xib */,
 				24686C81196E875600D8CF86 /* Welcome3.h */,
 				24686C82196E875600D8CF86 /* Welcome3.m */,
+				244ACBC1198E8C55003E640A /* Welcome1.h */,
+				244ACBC2198E8C55003E640A /* Welcome1.m */,
+				244ACBC4198E8C72003E640A /* welcome1.xib */,
+				244ACBC9198E8CFD003E640A /* Welcome2.h */,
+				244ACBCA198E8CFD003E640A /* Welcome2.m */,
+				244ACBC7198E8CED003E640A /* welcome2.xib */,
 			);
 			name = Welcome;
 			sourceTree = "<group>";
@@ -759,6 +775,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "邱峰";
 				TargetAttributes = {
+					24F1D1DB18E063E0007E2309 = {
+						DevelopmentTeam = 2XYAGB2947;
+					};
 					24F1D1FC18E063E1007E2309 = {
 						TestTargetID = 24F1D1DB18E063E0007E2309;
 					};
@@ -789,7 +808,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				24F1D1F818E063E1007E2309 /* Images.xcassets in Resources */,
+				244ACBC8198E8CED003E640A /* welcome2.xib in Resources */,
 				24686C80196E870300D8CF86 /* welcome3.xib in Resources */,
+				244ACBC5198E8C72003E640A /* welcome1.xib in Resources */,
 				24F1D1F318E063E1007E2309 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -847,6 +868,7 @@
 				240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */,
 				24686C7A196E7B4C00D8CF86 /* WelcomeViewController.m in Sources */,
 				24C6FE4E195E8574008B594C /* News.m in Sources */,
+				244ACBC3198E8C55003E640A /* Welcome1.m in Sources */,
 				240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */,
 				24C6FE4F195E8574008B594C /* Team.m in Sources */,
 				24B1542619834CF4004F87DA /* CompetitionCell.m in Sources */,
@@ -858,6 +880,7 @@
 				ADEDA1F2195FED5C009B8D20 /* MJRefreshHeaderView.m in Sources */,
 				ADEDA1EF195FED5C009B8D20 /* MJRefreshBaseView.m in Sources */,
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
+				244ACBCB198E8CFD003E640A /* Welcome2.m in Sources */,
 				246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */,
 				2447B3AA198CAA7300B297BB /* Developer.m in Sources */,
 				24C84BC11976CADE00980720 /* RootViewController.m in Sources */,

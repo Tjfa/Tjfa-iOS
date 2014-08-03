@@ -1,13 +1,19 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "dashboardBg.png"
+      "filename" : "关于ip4.png"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "关于.png",
+      "subtype" : "retina4",
+      "scale" : "2x"
     }
   ],
   "info" : {

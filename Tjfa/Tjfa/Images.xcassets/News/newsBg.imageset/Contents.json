@@ -1,13 +1,19 @@
 {
   "images" : [
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
+      "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "newsBg.png"
+      "filename" : "新闻ip4.png"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "新闻.png",
+      "subtype" : "retina4",
+      "scale" : "2x"
     }
   ],
   "info" : {
