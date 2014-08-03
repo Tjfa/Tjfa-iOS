@@ -73,7 +73,6 @@
 		24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FED22C195A774900A9F0DA /* DatabaseManager.m */; };
 		571F1BFD12CA4E6E8E04F93C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC567E161D864E30A568E12D /* libPods.a */; };
 		ADEDA1E1195FE00D009B8D20 /* CompetitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E0195FE00D009B8D20 /* CompetitionViewController.m */; };
-		ADEDA1EE195FED5C009B8D20 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ADEDA1E4195FED5C009B8D20 /* MJRefresh.bundle */; };
 		ADEDA1EF195FED5C009B8D20 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E7195FED5C009B8D20 /* MJRefreshBaseView.m */; };
 		ADEDA1F0195FED5C009B8D20 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E9195FED5C009B8D20 /* MJRefreshConst.m */; };
 		ADEDA1F1195FED5C009B8D20 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1EB195FED5C009B8D20 /* MJRefreshFooterView.m */; };
@@ -210,7 +209,6 @@
 		24FED22C195A774900A9F0DA /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		ADEDA1DF195FE00D009B8D20 /* CompetitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionViewController.h; sourceTree = "<group>"; };
 		ADEDA1E0195FE00D009B8D20 /* CompetitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionViewController.m; sourceTree = "<group>"; };
-		ADEDA1E4195FED5C009B8D20 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
 		ADEDA1E5195FED5C009B8D20 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
 		ADEDA1E6195FED5C009B8D20 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
 		ADEDA1E7195FED5C009B8D20 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
@@ -699,7 +697,6 @@
 		ADEDA1E3195FED38009B8D20 /* MJRefresh */ = {
 			isa = PBXGroup;
 			children = (
-				ADEDA1E4195FED5C009B8D20 /* MJRefresh.bundle */,
 				ADEDA1E5195FED5C009B8D20 /* MJRefresh.h */,
 				ADEDA1E6195FED5C009B8D20 /* MJRefreshBaseView.h */,
 				ADEDA1E7195FED5C009B8D20 /* MJRefreshBaseView.m */,
@@ -794,7 +791,6 @@
 				24F1D1F818E063E1007E2309 /* Images.xcassets in Resources */,
 				24686C80196E870300D8CF86 /* welcome3.xib in Resources */,
 				24F1D1F318E063E1007E2309 /* Main.storyboard in Resources */,
-				ADEDA1EE195FED5C009B8D20 /* MJRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

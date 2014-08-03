@@ -23,17 +23,17 @@
 
 @implementation MJRefreshBaseView
 
-#pragma mark 创建一个UILabel
-- (UILabel*)labelWithFontSize:(CGFloat)size
-{
-    UILabel* label = [[UILabel alloc] init];
-    label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    label.font = [UIFont boldSystemFontOfSize:size];
-    label.textColor = MJRefreshLabelTextColor;
-    label.backgroundColor = [UIColor clearColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    return label;
-}
+//#pragma mark 创建一个UILabel
+//- (UILabel*)labelWithFontSize:(CGFloat)size
+//{
+//    UILabel* label = [[UILabel alloc] init];
+//    label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+//    label.font = [UIFont boldSystemFontOfSize:size];
+//    label.textColor = MJRefreshLabelTextColor;
+//    label.backgroundColor = [UIColor clearColor];
+//    label.textAlignment = NSTextAlignmentCenter;
+//    return label;
+//}
 
 #pragma mark - 初始化方法
 - (instancetype)initWithScrollView:(UIScrollView*)scrollView
@@ -154,9 +154,13 @@
 
     // scrollView所滚动的Y值 * 控件的类型（头部控件是-1，尾部控件是1）
     CGFloat offsetY = _scrollView.contentOffset.y * self.viewType;
+
     CGFloat validY = self.validY;
     if (offsetY <= validY)
         return;
+
+    //添加旋转状态
+    _activityView.transform = CGAffineTransformMakeRotation(2 * M_PI * (offsetY / 64));
 
     if (_scrollView.isDragging) {
         CGFloat validOffsetY = validY + MJRefreshViewHeight;
