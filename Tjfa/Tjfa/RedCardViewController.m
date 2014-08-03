@@ -33,7 +33,7 @@
 
 - (NSComparisonResult)comparedPlayer:(Player*)a withB:(Player*)b
 {
-    if ([b.yellowCard isEqual:a.yellowCard]) {
+    if ([b.redCard isEqual:a.redCard]) {
         return [a.playerId compare:b.playerId];
     } else
         return [b.redCard compare:a.redCard];

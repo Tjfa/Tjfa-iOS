@@ -79,22 +79,22 @@
     } else {
         int goalA = [a.groupGoalCount intValue];
         int goalB = [b.groupGoalCount intValue];
-        int missA = [a.groupGoalCount intValue];
-        int missB = [b.groupGoalCount intValue];
-        if (goalA - missA != missA - missB) {
+        int missA = [a.groupMissCount intValue];
+        int missB = [b.groupMissCount intValue];
+        if (goalA - missA != goalB - missB) {
             int winA = goalA - missA;
             int winB = goalB - missB;
             if (winA > winB)
-                return NSOrderedDescending;
-            else
                 return NSOrderedAscending;
+            else
+                return NSOrderedDescending;
         } else {
             if (goalA > goalB)
-                return NSOrderedDescending;
+                return NSOrderedAscending;
             else if (goalA == goalB)
                 return NSOrderedSame;
             else
-                return NSOrderedAscending;
+                return NSOrderedDescending;
         }
     }
 }
@@ -106,7 +106,6 @@
         [self.groupData removeAllObjects];
 
         for (Team* team in data) {
-            NSLog(@"%@", team);
             NSMutableArray* arr = self.groupData[team.groupNo];
             if (arr == nil) {
                 arr = [[NSMutableArray alloc] init];
@@ -120,10 +119,14 @@
 
         __weak GroupScoreViewController* weakSelf = self;
         for (NSString* key in self.keyData) {
-            NSMutableArray* data = self.groupData[key];
-            [data sortUsingComparator:^NSComparisonResult(Team* a, Team* b) {
+            [self.groupData[key] sortUsingComparator:^NSComparisonResult(Team* a, Team* b) {
                 return [weakSelf comparedTeam:a andTeam:b];
             }];
+
+            NSLog(@"%@", key);
+            for (Team* team in self.groupData[key]) {
+                NSLog(@"%@", team.name);
+            }
         }
     }
 }
@@ -185,22 +188,14 @@
     __weak GroupScoreViewController* weakSelf = self;
     [[TeamManager sharedTeamManager] getTeamsFromNetwork:competition complete:^(NSArray* results, NSError* error) {
         if (weakSelf){
-            NSArray* arr=[results sortedArrayUsingComparator:^NSComparisonResult(Team* a, Team*b){
-                return [self comparedTeam:a andTeam:b];
-            }];
-            weakSelf.completeBlock(arr,error);
+            weakSelf.completeBlock(results,error);
         }
     }];
 }
 
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)compeition
 {
-    NSArray* array = [[TeamManager sharedTeamManager] getTeamsFromCoreDataWithCompetition:compeition];
-
-    __weak GroupScoreViewController* weakSelf = self;
-    return [array sortedArrayUsingComparator:^NSComparisonResult(Team* a, Team* b) {
-        return [weakSelf comparedTeam:a andTeam:b];
-    }];
+    return [[TeamManager sharedTeamManager] getTeamsFromCoreDataWithCompetition:compeition];
 }
 
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition whenSearch:(NSString*)key

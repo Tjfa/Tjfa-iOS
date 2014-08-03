@@ -717,10 +717,13 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
+                                            <outlet property="drawCountLable" destination="qNW-2c-UuV" id="dn9-Fd-ec2"/>
                                             <outlet property="goalCountLabel" destination="UgB-Cu-tJv" id="9sA-36-dxq"/>
+                                            <outlet property="lostCountLable" destination="O7T-qE-bJ6" id="kW3-Ef-MZz"/>
                                             <outlet property="scoreLabel" destination="oqF-yn-90q" id="KpT-sO-JEH"/>
                                             <outlet property="teamNameLabel" destination="N48-5i-8oO" id="gUq-x7-gRC"/>
                                             <outlet property="winCountLabel" destination="lWy-B6-OwR" id="1bT-VH-nsD"/>
+                                            <outlet property="winLostCount" destination="VkI-3t-e6g" id="GtT-4N-aFU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
