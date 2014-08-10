@@ -23,6 +23,19 @@
     return dateString;
 }
 
+- (NSString*)date2ShortStr
+{
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+
+    //zzz表示时区，zzz可以删除，这样返回的日期字符将不包含时区信息。
+
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+
+    NSString* dateString = [dateFormatter stringFromDate:self];
+
+    return dateString;
+}
+
 - (NSString*)date2CompetitionStr
 {
     NSCalendar* calendar = [NSCalendar currentCalendar];
@@ -37,6 +50,17 @@
         return [NSString stringWithFormat:@"%ld2", (long)curYear]; //第二学期比赛
 
     return nil;
+}
+
++ (NSDate*)str2ShortDate:(NSString*)str
+{
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+
+    NSDate* destDate = [dateFormatter dateFromString:str];
+
+    return destDate;
 }
 
 + (NSDate*)str2Date:(NSString*)str

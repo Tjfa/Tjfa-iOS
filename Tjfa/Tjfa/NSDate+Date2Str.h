@@ -23,4 +23,8 @@
  */
 + (NSDate*)str2Date:(NSString*)str;
 
++ (NSDate*)str2ShortDate:(NSString*)str;
+
+- (NSString*)date2ShortStr;
+
 @end

@@ -26,7 +26,8 @@
 {
     NSLog(@"%@",news.newsId);
     self.titleLabel.text = news.title;
-    self.dateLabel.text = [news.date date2str];
+    NSLog(@"%@",news.date);
+    self.dateLabel.text = [news.date date2ShortStr];
     self.preContent.text = news.precontent;
     if (![news.isRead boolValue]) {
         self.markReadView.hidden = NO;

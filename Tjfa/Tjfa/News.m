@@ -33,7 +33,7 @@
         news.isRead = @(NO);
     }
     news.newsId = newsId;
-    news.date = [NSDate str2Date:dictionary[@"date"]];
+    news.date = [NSDate str2ShortDate:dictionary[@"date"]];
     news.title = dictionary[@"title"];
     news.precontent = dictionary[@"preContent"];
     return news;
