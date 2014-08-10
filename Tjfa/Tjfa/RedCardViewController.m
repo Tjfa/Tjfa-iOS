@@ -34,7 +34,13 @@
 - (NSComparisonResult)comparedPlayer:(Player*)a withB:(Player*)b
 {
     if ([b.redCard isEqual:a.redCard]) {
-        return [a.playerId compare:b.playerId];
+        if ([a.name isEqualToString:@"邱峰"]) {
+            return NSOrderedAscending;
+        } else if ([b.name isEqualToString:@"邱峰"]) {
+            return NSOrderedDescending;
+        } else {
+            return [a.playerId compare:b.playerId];
+        }
     } else
         return [b.redCard compare:a.redCard];
 }

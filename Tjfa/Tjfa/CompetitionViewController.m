@@ -106,17 +106,22 @@
     return 44;
 }
 
+- (CGFloat)tableView:(UITableView*)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1;
+}
+
 - (UIView*)tableView:(UITableView*)tableView viewForFooterInSection:(NSInteger)section
 {
-    UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.sectionFooterHeight)];
-    view.backgroundColor = [UIColor appTableViewSectionColor];
+    UIView* view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor appRedColor];
     return view;
 }
 
 - (UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section
 {
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.tableView.sectionHeaderHeight)];
-    label.backgroundColor = [UIColor appTableViewSectionColor];
+    label.backgroundColor = [UIColor appRedColor];
     label.textColor = [UIColor whiteColor];
     label.text = self.durationList[section];
     label.textAlignment = NSTextAlignmentCenter;

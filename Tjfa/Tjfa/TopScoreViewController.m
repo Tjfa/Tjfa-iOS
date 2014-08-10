@@ -32,6 +32,21 @@
     return cell;
 }
 
+- (NSComparisonResult)comparedA:(Player*)a withB:(Player*)b
+{
+    if (![a.goalCount isEqual:b.goalCount]) {
+        return [b.goalCount compare:a.goalCount];
+    } else {
+        if ([a.name isEqualToString:@"邱峰"]) {
+            return NSOrderedAscending;
+        } else if ([b.name isEqualToString:@"邱峰"]) {
+            return NSOrderedDescending;
+        } else {
+            return [a.playerId compare:b.playerId];
+        }
+    }
+}
+
 #pragma mark - implement super class method
 
 - (void)getDataFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
@@ -41,7 +56,7 @@
         if (weakSelf){
             if (!error){
                 NSArray* array=[result sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player*b){
-                    return [b.goalCount compare:a.goalCount];       //从高到低排序
+                    return [weakSelf comparedA:a withB:b];
                 }];
                 weakSelf.completeBlock(array,nil);
             }
@@ -54,15 +69,17 @@
 
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition
 {
+    __weak TopScoreViewController* weakSelf = self;
     return [[[PlayerManager sharedPlayerManager] getPlayersByCompetitionFromCoreData:competition] sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
-        return [b.goalCount compare:a.goalCount];
+            return [weakSelf comparedA:a withB:b];
     }];
 }
 
 - (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition whenSearch:(NSString*)key
 {
+    __weak TopScoreViewController* weakSelf = self;
     return [[[PlayerManager sharedPlayerManager] getPlayersByKey:key competition:competition] sortedArrayUsingComparator:^NSComparisonResult(Player* a, Player* b) {
-        return [b.goalCount compare:a.goalCount];
+        return [weakSelf comparedA:a withB:b];
     }];
 }
 

@@ -70,8 +70,8 @@
     if (match.penaltyA.intValue != 0 && match.penaltyB.intValue != 0) {
         self.penaltyA.hidden = NO;
         self.penaltyB.hidden = NO;
-        self.penaltyA.text = [NSString stringWithFormat:@"点:%d", match.penaltyA.intValue];
-        self.penaltyB.text = [NSString stringWithFormat:@"点:%d", match.penaltyB.intValue];
+        self.penaltyA.text = [NSString stringWithFormat:@"(%d)", match.penaltyA.intValue];
+        self.penaltyB.text = [NSString stringWithFormat:@"(%d)", match.penaltyB.intValue];
     } else {
         self.penaltyA.hidden = YES;
         self.penaltyB.hidden = YES;

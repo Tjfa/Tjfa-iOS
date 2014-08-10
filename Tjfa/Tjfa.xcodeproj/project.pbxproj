@@ -537,8 +537,8 @@
 			children = (
 				24B8C1BB1977B43F00B2FAD0 /* TopScoreViewController.h */,
 				24B8C1BC1977B43F00B2FAD0 /* TopScoreViewController.m */,
-				24B1542B1983C87E004F87DA /* TopScoreTableViewCell.h */,
 				24B1542C1983C87E004F87DA /* TopScoreTableViewCell.m */,
+				24B1542B1983C87E004F87DA /* TopScoreTableViewCell.h */,
 			);
 			name = TopScore;
 			sourceTree = "<group>";
