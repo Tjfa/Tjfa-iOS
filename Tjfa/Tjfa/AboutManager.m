@@ -160,7 +160,6 @@
     sendMsg.text = [AppInfo sharedMessage];
     sendMsg.bText = YES;
     sendMsg.scene = WXSceneTimeline;
-
     [WXApi sendReq:sendMsg];
 }
 
