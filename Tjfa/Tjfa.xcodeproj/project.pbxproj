@@ -20,6 +20,7 @@
 		244ACBC5198E8C72003E640A /* welcome1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244ACBC4198E8C72003E640A /* welcome1.xib */; };
 		244ACBC8198E8CED003E640A /* welcome2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244ACBC7198E8CED003E640A /* welcome2.xib */; };
 		244ACBCB198E8CFD003E640A /* Welcome2.m in Sources */ = {isa = PBXBuildFile; fileRef = 244ACBCA198E8CFD003E640A /* Welcome2.m */; };
+		2458D4AE19A75AB5004123BA /* download_ewm.png in Resources */ = {isa = PBXBuildFile; fileRef = 2458D4AD19A75AB5004123BA /* download_ewm.png */; };
 		246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753B6196BE2BA007BDE90 /* NewsContentViewController.m */; };
 		246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */; };
 		24686C6F196E562F00D8CF86 /* NewAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C6E196E562F00D8CF86 /* NewAboutViewController.m */; };
@@ -118,6 +119,7 @@
 		244ACBC7198E8CED003E640A /* welcome2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = welcome2.xib; sourceTree = "<group>"; };
 		244ACBC9198E8CFD003E640A /* Welcome2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Welcome2.h; sourceTree = "<group>"; };
 		244ACBCA198E8CFD003E640A /* Welcome2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Welcome2.m; sourceTree = "<group>"; };
+		2458D4AD19A75AB5004123BA /* download_ewm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download_ewm.png; sourceTree = "<group>"; };
 		246753B5196BE2BA007BDE90 /* NewsContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsContentViewController.h; sourceTree = "<group>"; };
 		246753B6196BE2BA007BDE90 /* NewsContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentViewController.m; sourceTree = "<group>"; };
 		246753BB196BE52A007BDE90 /* MBProgressHUD+AppProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+AppProgressView.h"; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 		24F1D1E618E063E1007E2309 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2458D4AD19A75AB5004123BA /* download_ewm.png */,
 				24F1D1E718E063E1007E2309 /* Tjfa-Info.plist */,
 				24F1D1EB18E063E1007E2309 /* main.m */,
 				24F1D1ED18E063E1007E2309 /* Tjfa-Prefix.pch */,
@@ -812,6 +815,7 @@
 				24686C80196E870300D8CF86 /* welcome3.xib in Resources */,
 				244ACBC5198E8C72003E640A /* welcome1.xib in Resources */,
 				24F1D1F318E063E1007E2309 /* Main.storyboard in Resources */,
+				2458D4AE19A75AB5004123BA /* download_ewm.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1033,14 +1037,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hongming Zhu (2XYAGB2947)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hongming Zhu (4RUZ3YUMFH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tjfa/Tjfa-Prefix.pch";
 				INFOPLIST_FILE = "Tjfa/Tjfa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "CA200718-F0F0-44AD-92E2-06164582EB6E";
+				PROVISIONING_PROFILE = "fbec14a7-ce5e-434d-82ba-1142b801d370";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1051,14 +1055,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hongming Zhu (2XYAGB2947)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hongming Zhu (4RUZ3YUMFH)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Hongming Zhu (2XYAGB2947)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tjfa/Tjfa-Prefix.pch";
 				INFOPLIST_FILE = "Tjfa/Tjfa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "CA200718-F0F0-44AD-92E2-06164582EB6E";
+				PROVISIONING_PROFILE = "fbec14a7-ce5e-434d-82ba-1142b801d370";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

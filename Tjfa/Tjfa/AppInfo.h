@@ -18,6 +18,8 @@
 
 + (NSString*)appVersion;
 
++ (NSString*)sharedTitle;
+
 + (NSString*)sharedMessage;
 
 @end

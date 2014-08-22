@@ -156,11 +156,12 @@
 
 - (void)sharedWithWeiXin
 {
-    SendMessageToWXReq* sendMsg = [[SendMessageToWXReq alloc] init];
-    sendMsg.text = [AppInfo sharedMessage];
-    sendMsg.bText = YES;
-    sendMsg.scene = WXSceneTimeline;
-    [WXApi sendReq:sendMsg];
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.text = [AppInfo sharedMessage];
+    req.bText = YES;
+    req.scene = WXSceneTimeline;
+
+    [WXApi sendReq:req];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController*)controller didFinishWithResult:(MessageComposeResult)result
