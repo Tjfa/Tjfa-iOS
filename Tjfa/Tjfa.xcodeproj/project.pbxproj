@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18190ED119CFFFE200D0488F /* AVCompetition.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC719CFFFE200D0488F /* AVCompetition.m */; };
+		18190ED219CFFFE200D0488F /* AVMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC919CFFFE200D0488F /* AVMatch.m */; };
+		18190ED319CFFFE200D0488F /* AVNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ECC19CFFFE200D0488F /* AVNews.m */; };
+		18190ED419CFFFE200D0488F /* AVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ECE19CFFFE200D0488F /* AVPlayer.m */; };
+		18190ED519CFFFE200D0488F /* AVTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ED019CFFFE200D0488F /* AVTeam.m */; };
 		240099EE19600B160036EFF4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240099ED19600B160036EFF4 /* MessageUI.framework */; };
 		240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */; };
 		240099F9196024BE0036EFF4 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F8196024BE0036EFF4 /* AppInfo.m */; };
@@ -95,6 +100,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18190EC619CFFFE200D0488F /* AVCompetition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCompetition.h; sourceTree = "<group>"; };
+		18190EC719CFFFE200D0488F /* AVCompetition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCompetition.m; sourceTree = "<group>"; };
+		18190EC819CFFFE200D0488F /* AVMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVMatch.h; sourceTree = "<group>"; };
+		18190EC919CFFFE200D0488F /* AVMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVMatch.m; sourceTree = "<group>"; };
+		18190ECA19CFFFE200D0488F /* AVModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVModule.h; sourceTree = "<group>"; };
+		18190ECB19CFFFE200D0488F /* AVNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVNews.h; sourceTree = "<group>"; };
+		18190ECC19CFFFE200D0488F /* AVNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVNews.m; sourceTree = "<group>"; };
+		18190ECD19CFFFE200D0488F /* AVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayer.h; sourceTree = "<group>"; };
+		18190ECE19CFFFE200D0488F /* AVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayer.m; sourceTree = "<group>"; };
+		18190ECF19CFFFE200D0488F /* AVTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVTeam.h; sourceTree = "<group>"; };
+		18190ED019CFFFE200D0488F /* AVTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVTeam.m; sourceTree = "<group>"; };
+		18190ED619D01D7400D0488F /* TjfaConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TjfaConst.h; sourceTree = "<group>"; };
 		22EAFC87A20242C8AE3E0037 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		240099ED19600B160036EFF4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		240099F319600BF60036EFF4 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
@@ -259,6 +276,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18190EC419CFFFB200D0488F /* LocalModule */ = {
+			isa = PBXGroup;
+			children = (
+				24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */,
+				24C6FE42195E8574008B594C /* Competition.h */,
+				24C6FE46195E8574008B594C /* Competition.m */,
+				24C6FE43195E8574008B594C /* Player.h */,
+				24C6FE41195E8574008B594C /* Player.m */,
+				24C6FE44195E8574008B594C /* Match.h */,
+				24C6FE45195E8574008B594C /* Match.m */,
+				24C6FE49195E8574008B594C /* Team.h */,
+				24C6FE48195E8574008B594C /* Team.m */,
+				24C6FE4A195E8574008B594C /* News.h */,
+				24C6FE47195E8574008B594C /* News.m */,
+			);
+			name = LocalModule;
+			sourceTree = "<group>";
+		};
+		18190EC519CFFFCA00D0488F /* AVModule */ = {
+			isa = PBXGroup;
+			children = (
+				18190ECA19CFFFE200D0488F /* AVModule.h */,
+				18190EC619CFFFE200D0488F /* AVCompetition.h */,
+				18190EC719CFFFE200D0488F /* AVCompetition.m */,
+				18190EC819CFFFE200D0488F /* AVMatch.h */,
+				18190EC919CFFFE200D0488F /* AVMatch.m */,
+				18190ECB19CFFFE200D0488F /* AVNews.h */,
+				18190ECC19CFFFE200D0488F /* AVNews.m */,
+				18190ECD19CFFFE200D0488F /* AVPlayer.h */,
+				18190ECE19CFFFE200D0488F /* AVPlayer.m */,
+				18190ECF19CFFFE200D0488F /* AVTeam.h */,
+				18190ED019CFFFE200D0488F /* AVTeam.m */,
+			);
+			name = AVModule;
+			sourceTree = "<group>";
+		};
 		240099F219600BE30036EFF4 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,18 +504,9 @@
 		249CF66518E16A840084DDBB /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				18190EC519CFFFCA00D0488F /* AVModule */,
+				18190EC419CFFFB200D0488F /* LocalModule */,
 				24A3B4901986ACBE00F6D263 /* Category */,
-				24C6FE42195E8574008B594C /* Competition.h */,
-				24C6FE46195E8574008B594C /* Competition.m */,
-				24C6FE43195E8574008B594C /* Player.h */,
-				24C6FE41195E8574008B594C /* Player.m */,
-				24C6FE44195E8574008B594C /* Match.h */,
-				24C6FE45195E8574008B594C /* Match.m */,
-				24C6FE49195E8574008B594C /* Team.h */,
-				24C6FE48195E8574008B594C /* Team.m */,
-				24C6FE4A195E8574008B594C /* News.h */,
-				24C6FE47195E8574008B594C /* News.m */,
-				24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -673,6 +717,7 @@
 				24F1D1E718E063E1007E2309 /* Tjfa-Info.plist */,
 				24F1D1EB18E063E1007E2309 /* main.m */,
 				24F1D1ED18E063E1007E2309 /* Tjfa-Prefix.pch */,
+				18190ED619D01D7400D0488F /* TjfaConst.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -867,6 +912,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */,
+				18190ED519CFFFE200D0488F /* AVTeam.m in Sources */,
 				24E58E8C18E815C1007BFFD8 /* MatchManager.m in Sources */,
 				2495BA2A19691E28009BB60F /* NewsCell.m in Sources */,
 				240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */,
@@ -890,6 +936,7 @@
 				24C84BC11976CADE00980720 /* RootViewController.m in Sources */,
 				24C6FE4C195E8574008B594C /* Match.m in Sources */,
 				24686C83196E875600D8CF86 /* Welcome3.m in Sources */,
+				18190ED419CFFFE200D0488F /* AVPlayer.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
 				24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */,
 				249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */,
@@ -905,10 +952,13 @@
 				24C84BBE1976BC0E00980720 /* MatchViewController.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
 				ADEDA1F1195FED5C009B8D20 /* MJRefreshFooterView.m in Sources */,
+				18190ED319CFFFE200D0488F /* AVNews.m in Sources */,
 				240099F9196024BE0036EFF4 /* AppInfo.m in Sources */,
+				18190ED119CFFFE200D0488F /* AVCompetition.m in Sources */,
 				24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */,
 				24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */,
 				240AE6D0195EC52300F7820D /* DashboardViewController.m in Sources */,
+				18190ED219CFFFE200D0488F /* AVMatch.m in Sources */,
 				24B8C1BD1977B43F00B2FAD0 /* TopScoreViewController.m in Sources */,
 				240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */,
 				24686C6F196E562F00D8CF86 /* NewAboutViewController.m in Sources */,
@@ -992,7 +1042,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1025,7 +1075,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1037,14 +1087,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hongming Zhu (4RUZ3YUMFH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tjfa/Tjfa-Prefix.pch";
 				INFOPLIST_FILE = "Tjfa/Tjfa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fbec14a7-ce5e-434d-82ba-1142b801d370";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1055,7 +1105,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Hongming Zhu (4RUZ3YUMFH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Hongming Zhu (2XYAGB2947)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1063,7 +1113,7 @@
 				INFOPLIST_FILE = "Tjfa/Tjfa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fbec14a7-ce5e-434d-82ba-1142b801d370";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

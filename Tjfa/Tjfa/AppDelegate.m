@@ -15,6 +15,11 @@
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
 
+#pragma mark - avoscloud
+    [AVOSCloud setApplicationId:AVOS_APP_ID clientKey:AVOS_CLIENT_KEY];
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [self registerAVClass];
+
 #pragma mark - flurry
     [Flurry startSession:@"9BTNDJ79TJ5JST5TTF2B"];
     [Flurry setCrashReportingEnabled:YES];
@@ -90,6 +95,18 @@
  */
 - (void)onResp:(BaseResp*)resp
 {
+}
+
+#pragma mark - avos
+
+- (void)registerAVClass
+{
+
+    [AVCompetition registerSubclass];
+    [AVMatch registerSubclass];
+    [AVNews registerSubclass];
+    [AVPlayer registerSubclass];
+    [AVTeam registerSubclass];
 }
 
 @end

@@ -20,6 +20,9 @@ PODS:
   - AFNetworking/UIKit (2.3.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AVOSCloud (2.6.4)
+  - AVOSCloudSNS (2.6.4):
+    - AVOSCloud
   - FlurrySDK (5.2.0):
     - FlurrySDK/FlurrySDK
   - FlurrySDK/FlurrySDK (5.2.0)
@@ -32,6 +35,8 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.3.1)
+  - AVOSCloud
+  - AVOSCloudSNS
   - FlurrySDK (~> 5.2.0)
   - libWeChatSDK (~> 1.4.2.1)
   - MagicalRecord (~> 2.2)
@@ -40,6 +45,8 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
+  AVOSCloud: d97aa77224bf99ecd3005ed797ec593c6f9e1bc2
+  AVOSCloudSNS: dd1ef1b6ea9fe49b5a1965f7a81c253d42441fbe
   FlurrySDK: 5322b9eb0d0b538f1a1983a6717f3a2e2ba03047
   libWeChatSDK: 566fcb1c7b724cc3306fa83667094c5f0743477a
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
