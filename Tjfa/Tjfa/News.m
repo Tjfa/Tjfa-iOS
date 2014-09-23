@@ -8,6 +8,7 @@
 
 #import "News.h"
 #import "NSDate+Date2Str.h"
+#import "AVNews.h"
 #import <CoreData+MagicalRecord.h>
 
 @implementation News
@@ -18,6 +19,16 @@
 @dynamic title;
 @dynamic isRead;
 @dynamic precontent;
+
+- (NSString*)description
+{
+    NSDictionary* dictionary = @{ @"newsId" : self.newsId,
+                                  @"precontent" : self.precontent,
+                                  @"content" : self.content,
+                                  @"date" : self.date ,
+                                  @"title":self.title};
+    return [dictionary description];
+}
 
 + (NSString*)idAttribute
 {

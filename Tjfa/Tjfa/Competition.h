@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "AVCompetition.h"
 
-@class Match, Player, Team;
+/**
+ *  这里给xcode6跪了 只要import 就编译失败 解决方法就是用了 class forward declare
+ */
+//#import "AVCompetition.h"
+
+@class Match, Player, Team, AVCompetition;
 
 @interface Competition : NSManagedObject
 

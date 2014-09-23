@@ -58,6 +58,10 @@
 {
     if (_data == nil) {
         _data = [[[NewsManager sharedNewsManager] getNewsFromCoreData] mutableCopy];
+
+        for (News* news in _data) {
+            NSLog(@"%@", news);
+        }
     }
     return _data;
 }

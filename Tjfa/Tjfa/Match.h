@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "AVMatch.h"
 
 @class Competition, Team;
+@class AVMatch;
 
 @interface Match : NSManagedObject
 

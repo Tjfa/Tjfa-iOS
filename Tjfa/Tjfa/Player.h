@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "AVPlayer.h"
 
 @class Team;
 @class Competition;
+@class AVPlayer;
 
 @interface Player : NSManagedObject
 

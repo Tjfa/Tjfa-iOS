@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "AVNews.h"
+
+@class AVNews;
 
 @interface News : NSManagedObject
 
