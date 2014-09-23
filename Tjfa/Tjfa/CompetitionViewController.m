@@ -14,6 +14,7 @@
 #import "RootViewController.h"
 #import "UIColor+AppColor.h"
 #import "CompetitionCell.h"
+#import "TjfaConst.h"
 
 @interface CompetitionViewController () <UIGestureRecognizerDelegate> {
     MJRefreshHeaderView* header;

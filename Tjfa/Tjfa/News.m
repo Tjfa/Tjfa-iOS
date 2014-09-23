@@ -9,6 +9,7 @@
 #import "News.h"
 #import "NSDate+Date2Str.h"
 #import "NSNumber+Assign.h"
+#import <CoreData+MagicalRecord.h>
 
 @implementation News
 

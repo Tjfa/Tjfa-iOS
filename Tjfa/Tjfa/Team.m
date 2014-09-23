@@ -11,6 +11,7 @@
 #import "Match.h"
 #import "Player.h"
 #import "NSNumber+Assign.h"
+#import <CoreData+MagicalRecord.h>
 
 @implementation Team
 

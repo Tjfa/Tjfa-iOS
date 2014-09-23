@@ -9,6 +9,7 @@
 #import "PlayerManager.h"
 #import "NetworkClient.h"
 #import "TeamManager.h"
+#import <CoreData+MagicalRecord.h>
 
 @implementation PlayerManager
 

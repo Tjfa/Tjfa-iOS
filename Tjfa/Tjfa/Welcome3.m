@@ -8,6 +8,7 @@
 
 #import "Welcome3.h"
 #import "UIApplication+MainNav.h"
+#import "TjfaConst.h"
 
 @interface Welcome3 ()
 @property (strong, nonatomic) UIButton* welcomeStart;
@@ -30,10 +31,9 @@
 - (UIButton*)welcomeStart
 {
     if (_welcomeStart == nil) {
-        if (iPhone5){
-        _welcomeStart = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width - 95) / 2, self.frame.size.height - 100, 95, 44)];
-        }
-        else{
+        if (iPhone5) {
+            _welcomeStart = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width - 95) / 2, self.frame.size.height - 100, 95, 44)];
+        } else {
             _welcomeStart = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width - 95) / 2, self.frame.size.height - 80, 95, 44)];
         }
         [_welcomeStart setImage:[UIImage imageNamed:@"welcomeStart"] forState:UIControlStateNormal];

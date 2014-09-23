@@ -7,6 +7,7 @@
 //
 
 #import "DashboardCell.h"
+#import "UIColor+AppColor.h"
 
 @implementation DashboardCell {
     CGFloat dashboardButtonSize;

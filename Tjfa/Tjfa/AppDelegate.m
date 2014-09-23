@@ -10,6 +10,10 @@
 #import "AppInfo.h"
 #import <Flurry.h>
 #import "AVModule.h"
+#import <CoreData+MagicalRecord.h>
+#import <AVOSCloud.h>
+#import <AVOSCloudSNS.h>
+#import "TjfaConst.h"
 
 @implementation AppDelegate
 
@@ -102,7 +106,6 @@
 
 - (void)registerAVClass
 {
-
     [AVCompetition registerSubclass];
     [AVMatch registerSubclass];
     [AVNews registerSubclass];

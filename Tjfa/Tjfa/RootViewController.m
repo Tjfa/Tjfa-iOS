@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "UIViewController+Identifier.h"
+#import "UIColor+AppColor.h"
 
 @interface RootViewController () <RESideMenuDelegate, UIGestureRecognizerDelegate>
 

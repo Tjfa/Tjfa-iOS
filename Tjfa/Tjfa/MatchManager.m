@@ -9,6 +9,7 @@
 #import "MatchManager.h"
 #import "NetworkClient.h"
 #import "TeamManager.h"
+#import <MagicalRecord/CoreData+MagicalRecord.h>
 
 @implementation MatchManager
 

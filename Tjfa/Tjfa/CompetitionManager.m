@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "NSDate+Date2Str.h"
 #import "NetworkClient.h"
+#import <CoreData+MagicalRecord.h>
 
 @implementation CompetitionManager
 

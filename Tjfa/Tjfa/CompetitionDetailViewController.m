@@ -9,6 +9,7 @@
 #import "CompetitionDetailViewController.h"
 #import "RootViewController.h"
 #import "MBProgressHUD+AppProgressView.h"
+#import "UIColor+AppColor.h"
 
 @interface CompetitionDetailViewController ()
 

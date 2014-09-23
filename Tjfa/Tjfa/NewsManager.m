@@ -8,6 +8,7 @@
 
 #import "NewsManager.h"
 #import "NetworkClient.h"
+#import <CoreData+MagicalRecord.h>
 
 @implementation NewsManager
 

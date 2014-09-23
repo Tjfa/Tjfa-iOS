@@ -12,6 +12,7 @@
 #import "RootViewController.h"
 #import "GroupScoreCell.h"
 #import <RESideMenu.h>
+#import "UIColor+AppColor.h"
 
 @interface GroupScoreViewController ()
 

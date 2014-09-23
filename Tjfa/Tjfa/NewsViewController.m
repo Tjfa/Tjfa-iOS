@@ -13,6 +13,8 @@
 #import "MBProgressHUD+AppProgressView.h"
 #import "MJRefresh.h"
 #import "UIView+RefreshFooterView.h"
+#import <CoreData+MagicalRecord.h>
+#import "TjfaConst.h"
 
 @interface NewsViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, MJRefreshBaseViewDelegate>
 
