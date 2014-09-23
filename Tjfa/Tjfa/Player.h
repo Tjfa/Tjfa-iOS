@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "AVPlayer.h"
 
 @class Team;
 @class Competition;
@@ -57,6 +58,6 @@
 
 + (NSString*)goalCountAttributeStr;
 
-+ (Player*)updatePlayerWithDictionary:(NSDictionary*)dictionary competition:(Competition*)competition;
++ (Player*)updatePlayerWithDictionary:(AVPlayer*)player competition:(Competition*)competition;
 
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "AVMatch.h"
 
 @class Competition, Team;
 
@@ -76,7 +77,7 @@
  *  @param dictionary  包含match的基本属性 以及 teams
  *  @param competition 所属于的competition
  */
-+ (Match*)updateMatchWithDictionary:(NSDictionary*)dictionary andCompetetion:(Competition*)competition;
++ (Match*)updateMatchWithDictionary:(AVMatch*)avMatch andCompetetion:(Competition*)competition;
 
 + (NSString*)idAttribute;
 

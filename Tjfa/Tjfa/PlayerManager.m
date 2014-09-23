@@ -10,6 +10,7 @@
 #import "NetworkClient.h"
 #import "TeamManager.h"
 #import <CoreData+MagicalRecord.h>
+#import "AVPlayer.h"
 
 @implementation PlayerManager
 
@@ -44,8 +45,8 @@
 - (NSArray*)insertPlayersWithArray:(NSArray*)array competition:(Competition*)competition
 {
     NSMutableArray* results = [[NSMutableArray alloc] init];
-    for (NSDictionary* dictionary in array) {
-        Player* player = [Player updatePlayerWithDictionary:dictionary competition:competition];
+    for (AVPlayer* avPlayer in array) {
+        Player* player = [Player updatePlayerWithDictionary:avPlayer competition:competition];
         [results addObject:player];
     }
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError* error) {
@@ -58,16 +59,40 @@
 
 - (void)getPlayersByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
-    NSDictionary* dictionary = @{ @"competitionId" : competition.competitionId };
+    //    NSDictionary* dictionary = @{ @"competitionId" : competition.competitionId };
+    //
+    //    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient playerAddress] withParameters:dictionary complete:^(NSDictionary* results, NSError* error) {
+    //        if (error){
+    //            complete(nil,error);
+    //        }
+    //        else{
+    //            [[TeamManager sharedTeamManager] insertTeamsWithArray:results[@"teams"] andCompetition:competition];
+    //            NSArray* players=[self insertPlayersWithArray:results[@"players"] competition:competition];
+    //            complete(players,nil);
+    //        }
+    //    }];
 
-    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient playerAddress] withParameters:dictionary complete:^(NSDictionary* results, NSError* error) {
+    __weak PlayerManager* weakSelf = self;
+
+    AVQuery* teamQuery = [AVQuery queryWithClassName:@"Team"];
+    [teamQuery whereKey:@"competitionId" equalTo:competition.competitionId];
+    [teamQuery findObjectsInBackgroundWithBlock:^(NSArray* teamResults, NSError* error) {
         if (error){
             complete(nil,error);
-        }
-        else{
-            [[TeamManager sharedTeamManager] insertTeamsWithArray:results[@"teams"] andCompetition:competition];
-            NSArray* players=[self insertPlayersWithArray:results[@"players"] competition:competition];
-            complete(players,nil);
+            return ;
+        }else{
+            [[TeamManager sharedTeamManager] insertTeamsWithArray:teamResults andCompetition:competition];
+            
+            AVQuery* query=[AVQuery queryWithClassName:@"Player"];
+            [query whereKey:@"competitionId" equalTo:competition.competitionId];
+            [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error){
+                if (error){
+                    complete(nil,error);
+                }else{
+                    NSArray* players=[weakSelf insertPlayersWithArray:results competition:competition];
+                    complete(players,nil);
+                }
+            }];
         }
     }];
 }

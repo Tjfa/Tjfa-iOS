@@ -35,7 +35,7 @@
  */
 @property (nonatomic, retain) NSNumber* number;
 
-/**
+/**x
  *  赛事时间 20131与20132表示第一学期和第二学期
  */
 @property (nonatomic, retain) NSString* time;

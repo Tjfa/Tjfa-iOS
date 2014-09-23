@@ -104,7 +104,6 @@
 		18190EC719CFFFE200D0488F /* AVCompetition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCompetition.m; sourceTree = "<group>"; };
 		18190EC819CFFFE200D0488F /* AVMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVMatch.h; sourceTree = "<group>"; };
 		18190EC919CFFFE200D0488F /* AVMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVMatch.m; sourceTree = "<group>"; };
-		18190ECA19CFFFE200D0488F /* AVModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVModule.h; sourceTree = "<group>"; };
 		18190ECB19CFFFE200D0488F /* AVNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVNews.h; sourceTree = "<group>"; };
 		18190ECC19CFFFE200D0488F /* AVNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVNews.m; sourceTree = "<group>"; };
 		18190ECD19CFFFE200D0488F /* AVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayer.h; sourceTree = "<group>"; };
@@ -297,7 +296,6 @@
 		18190EC519CFFFCA00D0488F /* AVModule */ = {
 			isa = PBXGroup;
 			children = (
-				18190ECA19CFFFE200D0488F /* AVModule.h */,
 				18190EC619CFFFE200D0488F /* AVCompetition.h */,
 				18190EC719CFFFE200D0488F /* AVCompetition.m */,
 				18190EC819CFFFE200D0488F /* AVMatch.h */,

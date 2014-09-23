@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "AVNews.h"
 
 @interface News : NSManagedObject
 
@@ -51,6 +52,6 @@
  *
  *  @return 更新过后的news
  */
-+ (News*)updateNewsWithDictionary:(NSDictionary*)dictionary;
++ (News*)updateNewsWithDictionary:(AVNews*)avNews;
 
 @end

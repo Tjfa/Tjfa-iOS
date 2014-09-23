@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "AVCompetition.h"
 
 @class Match, Player, Team;
 
@@ -66,7 +67,7 @@
 
 + (NSString*)typeAttributeStr;
 
-+ (Competition*)updateBasePropertyWithDictionary:(NSDictionary*)dictionary;
++ (Competition*)updateBasePropertyWithDictionary:(AVCompetition*)avCompetition;
 
 @end
 

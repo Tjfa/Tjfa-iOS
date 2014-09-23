@@ -27,7 +27,7 @@
 
     self.navigationItem.title = self.news.title;
     [self.view addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"competitionBgJiaDing"]]];
-    self.contentView.backgroundColor=[UIColor clearColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
     [self.contentView setOpaque:NO];
     [self loadContent];
 }
@@ -45,17 +45,18 @@
 
 - (void)loadContent
 {
-    [self.progressView show:YES];
-    __weak NewsContentViewController* weakSelf = self;
-    [[NewsManager sharedNewsManager] getNewsContentWithNews:self.news complete:^(News* news, NSError* error) {
-            [weakSelf.progressView removeFromSuperview];
-            if (error){
-                [MBProgressHUD showWhenNetworkErrorInView:weakSelf.view];
-            }
-            else{
-                [self.contentView loadHTMLString:news.content baseURL:nil];
-            }
-    }];
+    [self.contentView loadHTMLString:self.news.content baseURL:nil];
+    //    [self.progressView show:YES];
+    //    __weak NewsContentViewController* weakSelf = self;
+    //    [[NewsManager sharedNewsManager] getNewsContentWithNews:self.news complete:^(News* news, NSError* error) {
+    //            [weakSelf.progressView removeFromSuperview];
+    //            if (error){
+    //                [MBProgressHUD showWhenNetworkErrorInView:weakSelf.view];
+    //            }
+    //            else{
+    //                [self.contentView loadHTMLString:news.content baseURL:nil];
+    //            }
+    //    }];
 }
 
 @end

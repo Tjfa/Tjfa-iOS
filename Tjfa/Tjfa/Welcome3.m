@@ -31,11 +31,9 @@
 - (UIButton*)welcomeStart
 {
     if (_welcomeStart == nil) {
-        if (iPhone5) {
-            _welcomeStart = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width - 95) / 2, self.frame.size.height - 100, 95, 44)];
-        } else {
-            _welcomeStart = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width - 95) / 2, self.frame.size.height - 80, 95, 44)];
-        }
+
+        _welcomeStart = [[UIButton alloc] initWithFrame:CGRectMake((self.frame.size.width - 95) / 2, self.frame.size.height - 80, 95, 44)];
+
         [_welcomeStart setImage:[UIImage imageNamed:@"welcomeStart"] forState:UIControlStateNormal];
         [_welcomeStart addTarget:self action:@selector(startToShowDashboard:) forControlEvents:UIControlEventTouchUpInside];
     }

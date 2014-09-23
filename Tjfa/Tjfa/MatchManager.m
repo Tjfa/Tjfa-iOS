@@ -10,6 +10,8 @@
 #import "NetworkClient.h"
 #import "TeamManager.h"
 #import <MagicalRecord/CoreData+MagicalRecord.h>
+#import <AVOSCloud.h>
+#import "AVMatch.h"
 
 @implementation MatchManager
 
@@ -26,8 +28,8 @@
 - (NSArray*)insertMatchesWithArray:(NSArray*)array andCompetition:(Competition*)competition
 {
     NSMutableArray* results = [[NSMutableArray alloc] init];
-    for (NSDictionary* dictionary in array) {
-        Match* match = [Match updateMatchWithDictionary:dictionary andCompetetion:competition];
+    for (AVMatch* avMatch in array) {
+        Match* match = [Match updateMatchWithDictionary:avMatch andCompetetion:competition];
         [results insertObject:match atIndex:0];
     }
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError* error) {
@@ -62,17 +64,41 @@
 
 - (void)getMatchesByCompetitionFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
-    NSDictionary* parameters = @{ @"competitionId" : competition.competitionId };
+    //    NSDictionary* parameters = @{ @"competitionId" : competition.competitionId };
+    //
+    //    __weak MatchManager* weakSelf = self;
+    //    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient matchAdderss] withParameters:parameters complete:^(NSDictionary* results, NSError* error) {
+    //            if (error){
+    //                complete(nil,error);
+    //            }else{
+    //                [[TeamManager sharedTeamManager] insertTeamsWithArray:results[@"teams"] andCompetition:competition];
+    //                NSArray* matches=[weakSelf insertMatchesWithArray:results[@"matches"] andCompetition:competition];
+    //                complete(matches,nil);
+    //            }
+    //    }];
 
     __weak MatchManager* weakSelf = self;
-    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient matchAdderss] withParameters:parameters complete:^(NSDictionary* results, NSError* error) {
-            if (error){
-                complete(nil,error);
-            }else{
-                [[TeamManager sharedTeamManager] insertTeamsWithArray:results[@"teams"] andCompetition:competition];
-                NSArray* matches=[weakSelf insertMatchesWithArray:results[@"matches"] andCompetition:competition];
-                complete(matches,nil);
-            }
+
+    AVQuery* teamQuery = [AVQuery queryWithClassName:@"Team"];
+    [teamQuery whereKey:@"competitionId" equalTo:competition.competitionId];
+    [teamQuery findObjectsInBackgroundWithBlock:^(NSArray* teamsResult, NSError* error) {
+        if (error){
+            complete(nil,error);
+            return ;
+        }else{
+            [[TeamManager sharedTeamManager] insertTeamsWithArray:teamsResult andCompetition:competition];
+            
+            AVQuery* avquery = [AVQuery queryWithClassName:@"Match"];
+            [avquery whereKey:@"competitionId" equalTo:competition.competitionId];
+            [avquery findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
+                if (error){
+                    complete(nil,error);
+                }else{
+                    NSArray* matches=[weakSelf insertMatchesWithArray:results andCompetition:competition];
+                    complete(matches,nil);
+                }
+            }];
+        }
     }];
 }
 

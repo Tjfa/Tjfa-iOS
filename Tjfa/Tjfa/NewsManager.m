@@ -9,6 +9,8 @@
 #import "NewsManager.h"
 #import "NetworkClient.h"
 #import <CoreData+MagicalRecord.h>
+#import <AVOSCloud.h>
+#import "AVNews.h"
 
 @implementation NewsManager
 
@@ -37,8 +39,8 @@
 - (NSArray*)insertNewsWithArray:(NSArray*)newsArray
 {
     NSMutableArray* results = [[NSMutableArray alloc] init];
-    for (NSDictionary* dictionary in newsArray) {
-        News* news = [News updateNewsWithDictionary:dictionary];
+    for (AVNews* avNews in newsArray) {
+        News* news = [News updateNewsWithDictionary:avNews];
         [results insertObject:news atIndex:0];
     }
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError* error) {
@@ -54,20 +56,31 @@
 
 - (void)getEarlierNewsFromNetworkWithId:(NSNumber*)newsId andLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
 {
-    NSDictionary* parameters = @{
-        @"newsId" : newsId,
-        @"limit" : @(limit),
-    };
+    AVQuery* query = [AVQuery queryWithClassName:@"News"];
+    [query whereKey:@"newsId" greaterThan:newsId];
+    query.limit = limit;
 
     __weak NewsManager* weakSelf = self;
-    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsAddress] withParameters:parameters complete:^(NSArray* results, NSError* error) {
+    [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
         if (error){
             complete(nil,error);
         }else{
             results=[weakSelf insertNewsWithArray:results];
-            complete(results,error);
         }
     }];
+    //    NSDictionary* parameters = @{
+    //        @"newsId" : newsId,
+    //        @"limit" : @(limit),
+    //    };
+    //    __weak NewsManager* weakSelf = self;
+    //    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsAddress] withParameters:parameters complete:^(NSArray* results, NSError* error) {
+    //        if (error){
+    //            complete(nil,error);
+    //        }else{
+    //            results=[weakSelf insertNewsWithArray:results];
+    //            complete(results,error);
+    //        }
+    //    }];
 }
 
 - (void)getLatestNewsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
@@ -75,26 +88,26 @@
     [self getEarlierNewsFromNetworkWithId:@(-1) andLimit:limit complete:complete];
 }
 
-- (void)getNewsContentWithNews:(News*)news complete:(void (^)(News*, NSError*))complete
-{
-    if (news == nil)
-        return;
-
-    if (news.content == nil || [news.content isEqualToString:@""]) {
-        NSDictionary* dictionary = @{ @"newsId" : news.newsId };
-        [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSDictionary* content, NSError* error) {
-            if (error){
-                    complete(nil,error);
-            }else{
-                news.content=content[@"content"];
-                [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
-                    complete(news,nil);
-            }
-        }];
-    } else {
-        complete(news, nil);
-    }
-}
+//- (void)getNewsContentWithNews:(News*)news complete:(void (^)(News*, NSError*))complete
+//{
+//    if (news == nil)
+//        return;
+//
+//    if (news.content == nil || [news.content isEqualToString:@""]) {
+//        NSDictionary* dictionary = @{ @"newsId" : news.newsId };
+//        [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient newsContentAddress] withParameters:dictionary complete:^(NSDictionary* content, NSError* error) {
+//            if (error){
+//                    complete(nil,error);
+//            }else{
+//                news.content=content[@"content"];
+//                [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+//                    complete(news,nil);
+//            }
+//        }];
+//    } else {
+//        complete(news, nil);
+//    }
+//}
 
 - (void)markNewsToggleRead:(News*)news
 {

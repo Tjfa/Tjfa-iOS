@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "AVTeam.h"
 
 @class Competition, Match, Player;
 
@@ -107,7 +108,7 @@
  *
  *  @return 更新或者创建后的team
  */
-+ (Team*)updateTeamWithDictionary:(NSDictionary*)dictionary competition:(Competition*)competition;
++ (Team*)updateTeamWithDictionary:(AVTeam*)avTeam competition:(Competition*)competition;
 
 + (NSString*)idAttribute;
 

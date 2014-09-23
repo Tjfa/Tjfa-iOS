@@ -11,6 +11,7 @@
 #import "NSDate+Date2Str.h"
 #import "NetworkClient.h"
 #import <CoreData+MagicalRecord.h>
+#import "AVCompetition.h"
 
 @implementation CompetitionManager
 
@@ -33,8 +34,8 @@
 - (NSArray*)insertCompetitionsWithArray:(NSArray*)array
 {
     NSMutableArray* results = [[NSMutableArray alloc] init];
-    for (NSDictionary* obj in array) {
-        Competition* competition = [Competition updateBasePropertyWithDictionary:obj];
+    for (AVCompetition* avCompetition in array) {
+        Competition* competition = [Competition updateBasePropertyWithDictionary:avCompetition];
         [results insertObject:competition atIndex:0];
     }
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError* error) {
@@ -55,20 +56,33 @@
 
 - (void)getEarlierCompetitionsFromNetwork:(NSNumber*)competitionId withType:(NSNumber*)type limit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
 {
-    NSLog(@"%@ %@", type, competitionId);
-    NSDictionary* parameterDictionary = @{ @"type" : type,
-                                           @"competitionId" : competitionId,
-                                           @"limit" : @(limit) };
+    //    NSLog(@"%@ %@", type, competitionId);
+    //    NSDictionary* parameterDictionary = @{ @"type" : type,
+    //                                           @"competitionId" : competitionId,
+    //                                           @"limit" : @(limit) };
 
     __weak CompetitionManager* weakSelf = self;
-    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient competitionAddress] withParameters:parameterDictionary complete:^(NSArray* results, NSError* error) {
-            if (error){
-                complete(nil,error);
-            }else{
-                results=[weakSelf insertCompetitionsWithArray:results];
-                complete(results,nil);
-            }
+    AVQuery* query = [AVQuery queryWithClassName:@"Competition"];
+    [query whereKey:@"type" equalTo:type];
+    [query whereKey:@"competitionId" equalTo:competitionId];
+    query.limit = limit;
+    [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
+        if (error){
+            complete(nil,error);
+        }else{
+            results=[weakSelf insertCompetitionsWithArray:results];
+            complete(results,nil);
+        }
     }];
+
+    //    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient competitionAddress] withParameters:parameterDictionary complete:^(NSArray* results, NSError* error) {
+    //            if (error){
+    //                complete(nil,error);
+    //            }else{
+    //                results=[weakSelf insertCompetitionsWithArray:results];
+    //                complete(results,nil);
+    //            }
+    //    }];
 }
 
 - (void)getLatestCompetitionsFromNetworkWithType:(NSNumber*)type limit:(int)limit complete:(void (^)(NSArray*, NSError*))complete

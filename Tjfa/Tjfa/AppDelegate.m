@@ -9,7 +9,11 @@
 #import "AppDelegate.h"
 #import "AppInfo.h"
 #import <Flurry.h>
-#import "AVModule.h"
+#import "AVCompetition.h"
+#import "AVMatch.h"
+#import "AVNews.h"
+#import "AVPlayer.h"
+#import "AVTeam.h"
 #import <CoreData+MagicalRecord.h>
 #import <AVOSCloud.h>
 #import <AVOSCloudSNS.h>

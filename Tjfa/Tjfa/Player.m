@@ -9,7 +9,6 @@
 #import "Player.h"
 #import "Team.h"
 #import "Competition.h"
-#import "NSNumber+Assign.h"
 #import <CoreData+MagicalRecord.h>
 
 @implementation Player
@@ -42,22 +41,22 @@
     return @"goalCount";
 }
 
-+ (Player*)updatePlayerWithDictionary:(NSDictionary*)dictionary competition:(Competition*)competition;
++ (Player*)updatePlayerWithDictionary:(AVPlayer*)avPlayer competition:(Competition*)competition;
 {
 
-    NSNumber* playerId = [NSNumber assignValue:dictionary[@"playerId"]];
+    NSNumber* playerId = avPlayer.playerId;
     Player* player = [Player MR_findFirstByAttribute:[self idAttributeStr] withValue:playerId];
     if (player == nil) {
         player = [Player MR_createEntity];
     }
     player.playerId = playerId;
-    player.goalCount = [NSNumber assignValue:dictionary[@"goalCount"]];
-    player.name = dictionary[@"name"];
-    player.redCard = [NSNumber assignValue:dictionary[@"redCard"]];
-    player.yellowCard = [NSNumber assignValue:dictionary[@"yellowCard"]];
+    player.goalCount = avPlayer.goalCount;
+    player.name = avPlayer.name;
+    player.redCard = avPlayer.redCard;
+    player.yellowCard = avPlayer.yellowCard;
 
     player.competition = competition;
-    NSNumber* teamId = [NSNumber assignValue:dictionary[@"teamId"]];
+    NSNumber* teamId = avPlayer.teamId;
     player.team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamId];
     return player;
 }

@@ -10,7 +10,6 @@
 #import "Competition.h"
 #import "Team.h"
 #import "NSDate+Date2Str.h"
-#import "NSNumber+Assign.h"
 #import <CoreData+MagicalRecord.h>
 
 @implementation Match
@@ -52,30 +51,30 @@
     return @"matchId";
 }
 
-+ (Match*)updateMatchWithDictionary:(NSDictionary*)dictionary andCompetetion:(Competition*)competition
++ (Match*)updateMatchWithDictionary:(AVMatch*)avMatch andCompetetion:(Competition*)competition
 {
-    NSNumber* matchId = [NSNumber assignValue:dictionary[@"matchId"]];
+    NSNumber* matchId = avMatch.matchId;
     Match* match = [Match MR_findFirstByAttribute:[Match idAttribute] withValue:matchId];
 
     if (match == nil)
         match = [Match MR_createEntity];
 
     match.matchId = matchId;
-    match.isStart = [NSNumber assignValue:dictionary[@"isStart"]];
-    match.date = [NSDate str2Date:dictionary[@"date"]];
-    match.matchProperty = [NSNumber assignValue:dictionary[@"matchProperty"]];
-    match.scoreA = [NSNumber assignValue:dictionary[@"scoreA"]];
-    match.scoreB = [NSNumber assignValue:dictionary[@"scoreB"]];
-    match.winTeamId = [NSNumber assignValue:dictionary[@"winTeamId"]];
-    match.penaltyA = [NSNumber assignValue:dictionary[@"penaltyA"]];
-    match.penaltyB = [NSNumber assignValue:dictionary[@"penaltyB"]];
+    match.isStart = avMatch.isStart;
+    match.date = avMatch.date;
+    match.matchProperty = avMatch.matchProperty;
+    match.scoreA = avMatch.scoreA;
+    match.scoreB = avMatch.scoreB;
+    match.winTeamId = avMatch.winTeamId;
+    match.penaltyA = avMatch.penaltyA;
+    match.penaltyB = avMatch.penaltyB;
 
     match.competition = competition;
 
-    NSNumber* teamAId = [NSNumber assignValue:dictionary[@"teamAId"]];
+    NSNumber* teamAId = avMatch.teamAId;
     match.teamA = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamAId];
 
-    NSNumber* teamBId = [NSNumber assignValue:dictionary[@"teamBId"]];
+    NSNumber* teamBId = avMatch.teamBId;
     match.teamB = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamBId];
 
     return match;

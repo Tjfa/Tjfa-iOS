@@ -10,6 +10,7 @@
 #import "Competition.h"
 #import "NetworkClient.h"
 #import <CoreData+MagicalRecord.h>
+#import "AVTeam.h"
 
 @implementation TeamManager
 
@@ -45,8 +46,8 @@
 - (NSArray*)insertTeamsWithArray:(NSArray*)arr andCompetition:(Competition*)competition
 {
     NSMutableArray* results = [[NSMutableArray alloc] init];
-    for (NSDictionary* dictionary in arr) {
-        Team* team = [Team updateTeamWithDictionary:dictionary competition:competition];
+    for (AVTeam* avTeam in arr) {
+        Team* team = [Team updateTeamWithDictionary:avTeam competition:competition];
         [results addObject:team];
     }
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError* error) {
@@ -59,13 +60,26 @@
 
 - (void)getTeamsFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))complete
 {
-    NSDictionary* dictionary = @{ @"competitionId" : competition.competitionId };
+    //    NSDictionary* dictionary = @{ @"competitionId" : competition.competitionId };
+    //    __weak TeamManager* weakSelf = self;
+    //    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient teamAddress] withParameters:dictionary complete:^(NSArray* results, NSError* error) {
+    //        if (error){
+    //            complete(nil,error);
+    //        }
+    //        else{
+    //            results=[weakSelf insertTeamsWithArray:results andCompetition:competition];
+    //            complete(results,nil);
+    //        }
+    //    }];
+
     __weak TeamManager* weakSelf = self;
-    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient teamAddress] withParameters:dictionary complete:^(NSArray* results, NSError* error) {
+
+    AVQuery* query = [AVQuery queryWithClassName:@"Team"];
+    [query whereKey:@"competitionId" equalTo:competition.competitionId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
         if (error){
             complete(nil,error);
-        }
-        else{
+        }else{
             results=[weakSelf insertTeamsWithArray:results andCompetition:competition];
             complete(results,nil);
         }

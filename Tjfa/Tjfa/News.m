@@ -8,7 +8,6 @@
 
 #import "News.h"
 #import "NSDate+Date2Str.h"
-#import "NSNumber+Assign.h"
 #import <CoreData+MagicalRecord.h>
 
 @implementation News
@@ -25,18 +24,19 @@
     return @"newsId";
 }
 
-+ (News*)updateNewsWithDictionary:(NSDictionary*)dictionary
++ (News*)updateNewsWithDictionary:(AVNews*)avNews
 {
-    NSNumber* newsId = [NSNumber assignValue:dictionary[@"newsId"]];
+    NSNumber* newsId = avNews.newsId;
     News* news = [News MR_findFirstByAttribute:[News idAttribute] withValue:newsId];
     if (news == nil) {
         news = [News MR_createEntity];
         news.isRead = @(NO);
     }
-    news.newsId = newsId;
-    news.date = [NSDate str2ShortDate:dictionary[@"date"]];
-    news.title = dictionary[@"title"];
-    news.precontent = dictionary[@"preContent"];
+    news.newsId = avNews.newsId;
+    news.date = avNews.date;
+    news.title = avNews.title;
+    news.precontent = avNews.precontent;
+    news.content = avNews.content;
     return news;
 }
 
