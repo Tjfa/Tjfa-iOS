@@ -8,7 +8,7 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
-@interface AVCompetition : AVObject
+@interface AVCompetition : AVObject <AVSubclassing>
 
 /**
  *  competitionId
@@ -39,20 +39,5 @@
  *  赛事时间 20131与20132表示第一学期和第二学期
  */
 @property (nonatomic, retain) NSString* time;
-
-/**
- *  所有比赛
- */
-@property (nonatomic, retain) NSSet* matches;
-
-/**
- *  参赛球队
- */
-@property (nonatomic, retain) NSSet* teams;
-
-/**
- *  参赛球员
- */
-@property (nonatomic, retain) NSSet* players;
 
 @end

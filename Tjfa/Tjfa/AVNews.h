@@ -8,7 +8,7 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
-@interface AVNews : AVObject
+@interface AVNews : AVObject <AVSubclassing>
 
 /**
  *  新闻内容

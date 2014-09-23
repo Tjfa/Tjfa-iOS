@@ -8,7 +8,7 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
-@interface AVTeam : AVObject
+@interface AVTeam : AVObject <AVSubclassing>
 
 /**
  *  队徽地址

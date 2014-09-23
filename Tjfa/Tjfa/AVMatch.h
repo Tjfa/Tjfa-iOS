@@ -8,7 +8,7 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
-@interface AVMatch : AVObject
+@interface AVMatch : AVObject <AVSubclassing>
 
 /**
  *  比赛日期

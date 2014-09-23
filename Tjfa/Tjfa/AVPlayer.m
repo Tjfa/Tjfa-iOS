@@ -10,4 +10,17 @@
 
 @implementation AVPlayer
 
+@dynamic goalCount;
+@dynamic playerId;
+@dynamic name;
+@dynamic redCard;
+@dynamic yellowCard;
+@dynamic teamId;
+@dynamic competitionId;
+
++ (NSString*)parseClassName
+{
+    return @"Player";
+}
+
 @end

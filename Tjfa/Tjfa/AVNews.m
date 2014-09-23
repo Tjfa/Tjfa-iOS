@@ -10,4 +10,16 @@
 
 @implementation AVNews
 
+@dynamic content;
+@dynamic date;
+@dynamic newsId;
+@dynamic title;
+@dynamic isRead;
+@dynamic precontent;
+
++ (NSString*)parseClassName
+{
+    return @"News";
+}
+
 @end

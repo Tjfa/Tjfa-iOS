@@ -64,7 +64,7 @@
     __weak CompetitionManager* weakSelf = self;
     AVQuery* query = [AVQuery queryWithClassName:@"Competition"];
     [query whereKey:@"type" equalTo:type];
-    [query whereKey:@"competitionId" equalTo:competitionId];
+    [query whereKey:@"competitionId" lessThan:competitionId];
     query.limit = limit;
     [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
         if (error){
@@ -87,7 +87,7 @@
 
 - (void)getLatestCompetitionsFromNetworkWithType:(NSNumber*)type limit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
 {
-    [self getEarlierCompetitionsFromNetwork:@(-1) withType:type limit:limit complete:complete];
+    [self getEarlierCompetitionsFromNetwork:@(1 << 30) withType:type limit:limit complete:complete];
 }
 
 @end

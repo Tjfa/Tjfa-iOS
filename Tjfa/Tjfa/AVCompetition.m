@@ -10,4 +10,16 @@
 
 @implementation AVCompetition
 
+@dynamic competitionId;
+@dynamic isStart;
+@dynamic name;
+@dynamic number;
+@dynamic time;
+@dynamic type;
+
++ (NSString*)parseClassName
+{
+    return @"Competition";
+}
+
 @end

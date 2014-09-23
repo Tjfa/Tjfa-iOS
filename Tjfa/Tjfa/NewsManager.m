@@ -57,7 +57,7 @@
 - (void)getEarlierNewsFromNetworkWithId:(NSNumber*)newsId andLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
 {
     AVQuery* query = [AVQuery queryWithClassName:@"News"];
-    [query whereKey:@"newsId" greaterThan:newsId];
+    [query whereKey:@"newsId" lessThan:newsId];
     query.limit = limit;
 
     __weak NewsManager* weakSelf = self;
@@ -65,7 +65,8 @@
         if (error){
             complete(nil,error);
         }else{
-            results=[weakSelf insertNewsWithArray:results];
+            NSArray* news=[weakSelf insertNewsWithArray:results];
+            complete(news,error);
         }
     }];
     //    NSDictionary* parameters = @{
@@ -85,7 +86,7 @@
 
 - (void)getLatestNewsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
 {
-    [self getEarlierNewsFromNetworkWithId:@(-1) andLimit:limit complete:complete];
+    [self getEarlierNewsFromNetworkWithId:@(1<<30) andLimit:limit complete:complete];
 }
 
 //- (void)getNewsContentWithNews:(News*)news complete:(void (^)(News*, NSError*))complete

@@ -10,4 +10,22 @@
 
 @implementation AVMatch
 
+@dynamic date;
+@dynamic matchId;
+@dynamic isStart;
+@dynamic matchProperty;
+@dynamic scoreA;
+@dynamic scoreB;
+@dynamic winTeamId;
+@dynamic competitionId;
+@dynamic teamAId;
+@dynamic teamBId;
+@dynamic penaltyA;
+@dynamic penaltyB;
+
++ (NSString*)parseClassName
+{
+    return @"Match";
+}
+
 @end
