@@ -18,8 +18,6 @@
 #import <AVOSCloudSNS/AVOSCloudSNS.h>
 #import <CoreData+MagicalRecord.h>
 
-#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
-
 #define DEFAULT_LIMIT 20
 
 #endif
