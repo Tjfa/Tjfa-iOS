@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AppInfo.h"
 #import <Flurry.h>
+#import "AVModule.h"
 
 @implementation AppDelegate
 

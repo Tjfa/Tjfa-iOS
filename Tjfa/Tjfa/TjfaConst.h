@@ -12,7 +12,6 @@
 #define AVOS_APP_ID @"n2iby57nxdhh1cnqw27eocg6lkujbovtgvb7ezzjtb9wpqqf"
 #define AVOS_CLIENT_KEY @"ks5u25gdqcm5laox6oj9gfq195p4ymfaytb9eix5fb6yq6nt"
 
-#import "AVModule.h"
 #import "UIColor+AppColor.h"
 
 #import <AVOSCloud/AVOSCloud.h>
