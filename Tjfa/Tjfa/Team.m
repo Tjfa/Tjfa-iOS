@@ -11,6 +11,7 @@
 #import "Match.h"
 #import "Player.h"
 #import <CoreData+MagicalRecord.h>
+#import "AVTeam.h"
 
 @implementation Team
 

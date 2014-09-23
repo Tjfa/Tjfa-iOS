@@ -10,6 +10,7 @@
 #import "Team.h"
 #import "Competition.h"
 #import <CoreData+MagicalRecord.h>
+#import "AVPlayer.h"
 
 @implementation Player
 

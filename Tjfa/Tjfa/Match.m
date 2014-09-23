@@ -11,6 +11,7 @@
 #import "Team.h"
 #import "NSDate+Date2Str.h"
 #import <CoreData+MagicalRecord.h>
+#import "AVMatch.h"
 
 @implementation Match
 
