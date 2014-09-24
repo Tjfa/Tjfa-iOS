@@ -78,7 +78,7 @@
     //    }];
 
     __weak MatchManager* weakSelf = self;
-
+    NSLog(@"%@",competition.competitionId);
     AVQuery* teamQuery = [AVQuery queryWithClassName:@"Team"];
     [teamQuery whereKey:@"competitionId" equalTo:competition.competitionId];
     [teamQuery findObjectsInBackgroundWithBlock:^(NSArray* teamsResult, NSError* error) {
