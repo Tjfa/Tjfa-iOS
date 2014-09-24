@@ -22,7 +22,7 @@
 {
     self.menuPreferredStatusBarStyle = UIStatusBarStyleLightContent;
     self.rightMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController menuViewControllerIdentifier]];
-    self.contentViewInPortraitOffsetCenterX = -80;
+    self.contentViewInPortraitOffsetCenterX = 0;
     self.contentViewController = [[UIViewController alloc] init];
     self.delegate = self;
     self.view.backgroundColor = [UIColor appRedColor];
