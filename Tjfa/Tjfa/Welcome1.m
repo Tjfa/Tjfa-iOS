@@ -14,7 +14,11 @@
 {
     NSArray* arr = [[NSBundle mainBundle] loadNibNamed:@"welcome1" owner:nil options:nil];
     Welcome1* welcome1 = arr[0];
-    [welcome1 addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"welcome1"]]];
+
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    UIImageView* bg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
+    [bg setImage:[UIImage imageNamed:@"welcome1"]];
+    [welcome1 addSubview:bg];
     return welcome1;
 }
 

@@ -21,9 +21,11 @@
 {
     NSArray* arr = [[NSBundle mainBundle] loadNibNamed:@"welcome3" owner:nil options:nil];
     Welcome3* welcome3 = arr[0];
-    [welcome3 addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"welcome3"]]];
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     welcome3.frame = CGRectMake(0, 0, screenSize.width, screenSize.height);
+    UIImageView* bg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
+    [bg setImage:[UIImage imageNamed:@"welcome3"]];
+    [welcome3 addSubview:bg];
     [welcome3 addSubview:welcome3.welcomeStart];
     return welcome3;
 }

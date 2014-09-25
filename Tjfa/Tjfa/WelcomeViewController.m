@@ -28,10 +28,10 @@
 
     if ([UserData sharedUserData].isFirstLaunch) {
 
-        CGSize screenSize = [UIScreen mainScreen].bounds.size;
+        CGSize screenSize = self.view.frame.size;
         Welcome3* welcome3 = [Welcome3 getInstance];
         welcome3.rootView = self.scrollView;
-        NSLog(@"%f %f",screenSize.width,screenSize.height);
+        NSLog(@"%f %f", screenSize.width, screenSize.height);
         welcome3.frame = CGRectMake(screenSize.width * 2, 0, welcome3.frame.size.width, welcome3.frame.size.height);
         self.scrollView.contentSize = CGSizeMake(screenSize.width * 3, screenSize.height);
 
