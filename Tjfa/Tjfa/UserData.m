@@ -25,7 +25,6 @@
 {
     BOOL launchAlready = [[[NSUserDefaults standardUserDefaults] objectForKey:@"launchAlready"] boolValue];
     NSString* currentVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentVersion"];
-    return YES;
     if (launchAlready == NO || ![[AppInfo appVersion] isEqualToString:currentVersion]) {
         [[NSUserDefaults standardUserDefaults] setObject:[AppInfo appVersion] forKey:@"currentVersion"];
         [[NSUserDefaults standardUserDefaults] setObject:@(YES) forKey:@"launchAlready"];
