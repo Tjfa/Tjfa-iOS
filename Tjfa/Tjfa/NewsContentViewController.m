@@ -26,7 +26,9 @@
     [super viewDidLoad];
 
     self.navigationItem.title = self.news.title;
-    [self.view addSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"competitionBgJiaDing"]]];
+    UIImageView* bg = [[UIImageView alloc] initWithFrame:self.view.frame];
+    [bg setImage:[UIImage imageNamed:@"newsContent"]];
+    [self.view addSubview:bg];
     self.contentView.backgroundColor = [UIColor clearColor];
     [self.contentView setOpaque:NO];
     [self loadContent];

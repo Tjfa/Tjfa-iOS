@@ -7,7 +7,7 @@
     {
       "idiom" : "iphone",
       "scale" : "2x",
-      "filename" : "welcome2ip4.png"
+      "filename" : "welcome2-2.png"
     },
     {
       "idiom" : "iphone",
@@ -17,7 +17,8 @@
     },
     {
       "idiom" : "iphone",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "welcome2-1.png"
     }
   ],
   "info" : {

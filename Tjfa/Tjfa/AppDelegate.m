@@ -17,6 +17,7 @@
 #import <CoreData+MagicalRecord.h>
 #import <AVOSCloud.h>
 #import <AVOSCloudSNS.h>
+#import <UMeng/MobClick.h>
 #import "TjfaConst.h"
 
 @implementation AppDelegate
@@ -38,7 +39,11 @@
 
 #pragma mark - weixin
     [WXApi registerApp:@"wx6cba695c52dfdeb0"];
-    // Override point for customization after application launch.
+// Override point for customization after application launch.
+
+#pragma mark - umeng
+    [MobClick startWithAppkey:@"542396dafd98c5933102f25e"];
+
     return YES;
 }
 
