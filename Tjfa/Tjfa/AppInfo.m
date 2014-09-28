@@ -32,7 +32,7 @@
 + (NSString*)appVersion
 {
     NSDictionary* infoDictionary = [[NSBundle mainBundle] infoDictionary];
-    NSString* app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString* app_Version = [infoDictionary objectForKey:@"CFBundleVersion"];
     return app_Version;
 }
 
