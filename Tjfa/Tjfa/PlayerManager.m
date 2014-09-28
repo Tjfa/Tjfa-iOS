@@ -75,6 +75,7 @@
     __weak PlayerManager* weakSelf = self;
 
     AVQuery* teamQuery = [AVQuery queryWithClassName:@"Team"];
+    teamQuery.limit = 1000;
     [teamQuery whereKey:@"competitionId" equalTo:competition.competitionId];
     [teamQuery findObjectsInBackgroundWithBlock:^(NSArray* teamResults, NSError* error) {
         if (error){
@@ -84,6 +85,7 @@
             [[TeamManager sharedTeamManager] insertTeamsWithArray:teamResults andCompetition:competition];
             
             AVQuery* query=[AVQuery queryWithClassName:@"Player"];
+            query.limit=1000;
             [query whereKey:@"competitionId" equalTo:competition.competitionId];
             [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error){
                 if (error){
