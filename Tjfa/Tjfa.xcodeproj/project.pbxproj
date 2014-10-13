@@ -821,9 +821,6 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "邱峰";
 				TargetAttributes = {
-					24F1D1DB18E063E0007E2309 = {
-						DevelopmentTeam = 2XYAGB2947;
-					};
 					24F1D1FC18E063E1007E2309 = {
 						TestTargetID = 24F1D1DB18E063E0007E2309;
 					};
