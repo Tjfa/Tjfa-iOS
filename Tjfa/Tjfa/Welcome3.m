@@ -11,26 +11,26 @@
 #import "TjfaConst.h"
 
 @interface Welcome3 ()
-@property (strong, nonatomic) UIButton* welcomeStart;
+@property (strong, nonatomic) UIButton *welcomeStart;
 
 @end
 
 @implementation Welcome3
 
-+ (Welcome3*)getInstance
++ (Welcome3 *)getInstance
 {
-    NSArray* arr = [[NSBundle mainBundle] loadNibNamed:@"welcome3" owner:nil options:nil];
-    Welcome3* welcome3 = arr[0];
+    NSArray *arr = [[NSBundle mainBundle] loadNibNamed:@"welcome3" owner:nil options:nil];
+    Welcome3 *welcome3 = arr[0];
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     welcome3.frame = CGRectMake(0, 0, screenSize.width, screenSize.height);
-    UIImageView* bg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
+    UIImageView *bg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
     [bg setImage:[UIImage imageNamed:@"welcome3"]];
     [welcome3 addSubview:bg];
     [welcome3 addSubview:welcome3.welcomeStart];
     return welcome3;
 }
 
-- (UIButton*)welcomeStart
+- (UIButton *)welcomeStart
 {
     if (_welcomeStart == nil) {
 
@@ -42,18 +42,19 @@
     return _welcomeStart;
 }
 
-- (void)startToShowDashboard:(UIButton*)sender
+- (void)startToShowDashboard:(UIButton *)sender
 {
     if (self.rootView) {
         self.rootView.userInteractionEnabled = NO;
-    } else {
+    }
+    else {
         self.userInteractionEnabled = NO;
     }
 
     /**
      *  animation
      */
-    CABasicAnimation* scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    CABasicAnimation *scaleAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
 
     [scaleAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut]];
     scaleAnimation.duration = 1.0;
@@ -63,12 +64,13 @@
     scaleAnimation.removedOnCompletion = NO;
     if (self.rootView) {
         [self.rootView.layer addAnimation:scaleAnimation forKey:nil];
-    } else {
+    }
+    else {
         [self.layer addAnimation:scaleAnimation forKey:nil];
     }
 }
 
-- (void)animationDidStop:(CAAnimation*)anim finished:(BOOL)flag
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     //    if (self.rootView) {
     //        [self.rootView removeFromSuperview];
