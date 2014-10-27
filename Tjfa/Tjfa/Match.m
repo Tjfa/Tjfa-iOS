@@ -27,10 +27,11 @@
 @dynamic teamB;
 @dynamic penaltyA;
 @dynamic penaltyB;
+@dynamic hint;
 
-- (NSString*)description
+- (NSString *)description
 {
-    NSMutableDictionary* dictionary = [@{
+    NSMutableDictionary *dictionary = [@{
         @"date" : self.date,
         @"matchId" : self.matchId,
         @"isStart" : self.isStart,
@@ -47,15 +48,15 @@
     return [dictionary description];
 }
 
-+ (NSString*)idAttribute
++ (NSString *)idAttribute
 {
     return @"matchId";
 }
 
-+ (Match*)updateMatchWithDictionary:(AVMatch*)avMatch andCompetetion:(Competition*)competition
++ (Match *)updateMatchWithDictionary:(AVMatch *)avMatch andCompetetion:(Competition *)competition
 {
-    NSNumber* matchId = avMatch.matchId;
-    Match* match = [Match MR_findFirstByAttribute:[Match idAttribute] withValue:matchId];
+    NSNumber *matchId = avMatch.matchId;
+    Match *match = [Match MR_findFirstByAttribute:[Match idAttribute] withValue:matchId];
 
     if (match == nil)
         match = [Match MR_createEntity];
@@ -69,13 +70,14 @@
     match.winTeamId = avMatch.winTeamId;
     match.penaltyA = avMatch.penaltyA;
     match.penaltyB = avMatch.penaltyB;
+    match.hint = avMatch.hint;
 
     match.competition = competition;
 
-    NSNumber* teamAId = avMatch.teamAId;
+    NSNumber *teamAId = avMatch.teamAId;
     match.teamA = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamAId];
 
-    NSNumber* teamBId = avMatch.teamBId;
+    NSNumber *teamBId = avMatch.teamBId;
     match.teamB = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamBId];
 
     return match;

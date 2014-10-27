@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AAB-m2-roq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A388a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="AAB-m2-roq">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -319,8 +318,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HwG-Pu-e0c" userLabel="center">
                                                     <rect key="frame" x="120" y="10" width="80" height="79"/>
                                                     <subviews>
-                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="已结束" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJF-XP-jR7">
-                                                            <rect key="frame" x="19" y="62" width="42" height="17"/>
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已结束" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJF-XP-jR7">
+                                                            <rect key="frame" x="0.0" y="62" width="80" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.3614438525" green="0.3707359911" blue="0.39861240669999998" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -354,6 +353,7 @@
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="80" id="6E8-P8-1K5"/>
                                                         <constraint firstAttribute="width" constant="80" id="AIO-7c-IRQ"/>
                                                         <constraint firstAttribute="trailing" secondItem="4CR-9i-SVa" secondAttribute="trailing" id="CLV-4l-tWT"/>
+                                                        <constraint firstAttribute="trailing" secondItem="PJF-XP-jR7" secondAttribute="trailing" id="Nds-7s-rNA"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="Sp8-cc-85D"/>
                                                         <constraint firstItem="4CR-9i-SVa" firstAttribute="leading" secondItem="HwG-Pu-e0c" secondAttribute="leading" id="YfE-nN-FMS"/>
                                                         <constraint firstItem="zIQ-7B-Gc1" firstAttribute="leading" secondItem="HwG-Pu-e0c" secondAttribute="leading" id="bBU-9j-Uve"/>
@@ -361,6 +361,8 @@
                                                         <constraint firstItem="eNs-3U-Ljr" firstAttribute="leading" secondItem="HwG-Pu-e0c" secondAttribute="leading" id="dBw-zb-nFe"/>
                                                         <constraint firstAttribute="trailing" secondItem="zIQ-7B-Gc1" secondAttribute="trailing" id="h8t-0V-Nde"/>
                                                         <constraint firstItem="4CR-9i-SVa" firstAttribute="leading" secondItem="HwG-Pu-e0c" secondAttribute="leading" id="hr9-Wi-MEs"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PJF-XP-jR7" secondAttribute="bottom" id="k7P-eW-FI2"/>
+                                                        <constraint firstItem="PJF-XP-jR7" firstAttribute="leading" secondItem="HwG-Pu-e0c" secondAttribute="leading" id="nn7-Jo-p0c"/>
                                                         <constraint firstItem="zIQ-7B-Gc1" firstAttribute="top" secondItem="HwG-Pu-e0c" secondAttribute="top" id="op5-5U-Kv8"/>
                                                         <constraint firstAttribute="trailing" secondItem="eNs-3U-Ljr" secondAttribute="trailing" id="w9k-N5-UQb"/>
                                                     </constraints>
@@ -1735,6 +1737,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TgQ-SS-eYF" userLabel="root view">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboardBg" translatesAutoresizingMaskIntoConstraints="NO" id="m5e-4N-yv0">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ENr-YP-rCd" userLabel="cutoff row">
                                         <rect key="frame" x="0.0" y="206" width="318" height="2"/>
                                         <color key="backgroundColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
@@ -1749,10 +1755,6 @@
                                             <constraint firstAttribute="width" constant="2" id="JDP-UF-UAz"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboardBg" translatesAutoresizingMaskIntoConstraints="NO" id="m5e-4N-yv0">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
