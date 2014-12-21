@@ -159,7 +159,7 @@
 {
     UIView* view = [[UIView alloc] init];
     view.backgroundColor = [UIColor appRedColor];
-    UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 320 - 15, 30)];
+    UILabel* title = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, 320 - 20, 30)];
     title.textColor = [UIColor whiteColor];
     title.text = self.keyData[section];
     [view addSubview:title];
