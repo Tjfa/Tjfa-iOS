@@ -11,6 +11,7 @@
 #import "UIDevice+DeviceInfo.h"
 #import "AppInfo.h"
 #import "MBProgressHUD+AppProgressView.h"
+#import "RennShareComponent.h"
 #import <MessageUI/MessageUI.h>
 #import <WXApi.h>
 
@@ -162,6 +163,17 @@
     req.scene = WXSceneTimeline;
 
     [WXApi sendReq:req];
+}
+
+- (void)sharedWithRenRen
+{
+
+    RennTextMessage *textMessage = [[RennTextMessage alloc] init];
+    textMessage.url = @"http://www.lazyclutch.com";
+    textMessage.title = @"快来下载同济足协iOS版app";
+    textMessage.text = [NSString stringWithFormat:@"hi~~我亲爱的小伙伴～～我发现了关于同济足球的一个很棒的App,叫做\"%@\",现在已经升级到%@版本了,快去看看吧～～", [AppInfo appName], [AppInfo appVersion]];
+    NSInteger errCode = [RennShareComponent SendMessage:textMessage msgTarget:To_Renren];
+    NSLog(@"%ld",errCode);
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController*)controller didFinishWithResult:(MessageComposeResult)result

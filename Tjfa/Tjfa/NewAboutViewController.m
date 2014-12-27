@@ -116,7 +116,7 @@
 
 - (void)shared
 {
-    UIActionSheet* sharedActionSheet = [[UIActionSheet alloc] initWithTitle:@"我要分享" delegate:self cancelButtonTitle:@"手残。。点错了" destructiveButtonTitle:nil otherButtonTitles:@"短信分享给好友", @"微信分享到朋友圈", nil];
+    UIActionSheet* sharedActionSheet = [[UIActionSheet alloc] initWithTitle:@"我要分享" delegate:self cancelButtonTitle:@"手残。。点错了" destructiveButtonTitle:nil otherButtonTitles:@"短信分享给好友", @"微信分享到朋友圈",@"分享到人人", nil];
     [sharedActionSheet showInView:self.view];
 }
 
@@ -129,12 +129,15 @@
 
 #define MESSAGE_SHARED 0
 #define WEIXIN_SHARED 1
+#define RENREN_SHARED 2
 - (void)actionSheet:(UIActionSheet*)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == WEIXIN_SHARED) {
         [self sharedWithWeiXin];
     } else if (buttonIndex == MESSAGE_SHARED) {
         [self sharedWithMessage];
+    } else if (buttonIndex == RENREN_SHARED){
+        [self sharedWithRenRen];
     }
 }
 
@@ -150,6 +153,12 @@
     AboutManager* aboutManager = [AboutManager sharedAboutManager];
     aboutManager.instanceController = self;
     [aboutManager sharedWithWeiXin];
+}
+
+- (void)sharedWithRenRen{
+    AboutManager *aboutManager = [AboutManager sharedAboutManager];
+    aboutManager.instanceController = self;
+    [aboutManager sharedWithRenRen];
 }
 
 @end

@@ -43,6 +43,11 @@
 - (void)sharedWithWeiXin;
 
 /**
+ *  分享到人人
+ */
+- (void)sharedWithRenRen;
+
+/**
  *  为我提意见
  */
 - (void)gotoSuggestion;

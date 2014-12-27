@@ -82,6 +82,7 @@
 		24F1D21718E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */; };
 		24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FED22C195A774900A9F0DA /* DatabaseManager.m */; };
 		571F1BFD12CA4E6E8E04F93C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC567E161D864E30A568E12D /* libPods.a */; };
+		63A3E9891A4F142A009CAA6A /* libShareComponent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A3E9871A4F142A009CAA6A /* libShareComponent.a */; };
 		ADEDA1E1195FE00D009B8D20 /* CompetitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E0195FE00D009B8D20 /* CompetitionViewController.m */; };
 		ADEDA1EF195FED5C009B8D20 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E7195FED5C009B8D20 /* MJRefreshBaseView.m */; };
 		ADEDA1F0195FED5C009B8D20 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E9195FED5C009B8D20 /* MJRefreshConst.m */; };
@@ -100,6 +101,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		052BE44AA22CDFC54CC3B9D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		18190EC619CFFFE200D0488F /* AVCompetition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCompetition.h; sourceTree = "<group>"; };
 		18190EC719CFFFE200D0488F /* AVCompetition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCompetition.m; sourceTree = "<group>"; };
 		18190EC819CFFFE200D0488F /* AVMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVMatch.h; sourceTree = "<group>"; };
@@ -111,7 +113,6 @@
 		18190ECF19CFFFE200D0488F /* AVTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVTeam.h; sourceTree = "<group>"; };
 		18190ED019CFFFE200D0488F /* AVTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVTeam.m; sourceTree = "<group>"; };
 		18190ED619D01D7400D0488F /* TjfaConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TjfaConst.h; sourceTree = "<group>"; };
-		22EAFC87A20242C8AE3E0037 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		240099ED19600B160036EFF4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		240099F319600BF60036EFF4 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
@@ -235,6 +236,8 @@
 		24F1D21518E0711E007E2309 /* Tjfa.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tjfa.xcdatamodel; sourceTree = "<group>"; };
 		24FED22B195A774900A9F0DA /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		24FED22C195A774900A9F0DA /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
+		63A3E9871A4F142A009CAA6A /* libShareComponent.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libShareComponent.a; sourceTree = "<group>"; };
+		63A3E9881A4F142A009CAA6A /* RennShareComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RennShareComponent.h; sourceTree = "<group>"; };
 		ADEDA1DF195FE00D009B8D20 /* CompetitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionViewController.h; sourceTree = "<group>"; };
 		ADEDA1E0195FE00D009B8D20 /* CompetitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionViewController.m; sourceTree = "<group>"; };
 		ADEDA1E5195FED5C009B8D20 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
@@ -246,6 +249,7 @@
 		ADEDA1EB195FED5C009B8D20 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
 		ADEDA1EC195FED5C009B8D20 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
 		ADEDA1ED195FED5C009B8D20 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		EAB7EA070E17EAF442D6E550 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EC567E161D864E30A568E12D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -257,6 +261,7 @@
 				240099EE19600B160036EFF4 /* MessageUI.framework in Frameworks */,
 				24F1D1E218E063E1007E2309 /* CoreGraphics.framework in Frameworks */,
 				24F1D1E418E063E1007E2309 /* UIKit.framework in Frameworks */,
+				63A3E9891A4F142A009CAA6A /* libShareComponent.a in Frameworks */,
 				24F1D1E018E063E0007E2309 /* Foundation.framework in Frameworks */,
 				571F1BFD12CA4E6E8E04F93C /* libPods.a in Frameworks */,
 			);
@@ -665,7 +670,7 @@
 				24F1D20418E063E1007E2309 /* TjfaTests */,
 				24F1D1DE18E063E0007E2309 /* Frameworks */,
 				24F1D1DD18E063E0007E2309 /* Products */,
-				22EAFC87A20242C8AE3E0037 /* Pods.xcconfig */,
+				8334981AA72BB28E7C5479FA /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -737,6 +742,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		63A3E9861A4F13CE009CAA6A /* Renren Share */ = {
+			isa = PBXGroup;
+			children = (
+				63A3E9871A4F142A009CAA6A /* libShareComponent.a */,
+				63A3E9881A4F142A009CAA6A /* RennShareComponent.h */,
+			);
+			name = "Renren Share";
+			sourceTree = "<group>";
+		};
+		8334981AA72BB28E7C5479FA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				052BE44AA22CDFC54CC3B9D2 /* Pods.debug.xcconfig */,
+				EAB7EA070E17EAF442D6E550 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ADEDA1DE195FDFF0009B8D20 /* Competition */ = {
 			isa = PBXGroup;
 			children = (
@@ -751,6 +774,7 @@
 		ADEDA1E2195FED2C009B8D20 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				63A3E9861A4F13CE009CAA6A /* Renren Share */,
 				ADEDA1E3195FED38009B8D20 /* MJRefresh */,
 			);
 			name = Library;
@@ -896,7 +920,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1082,7 +1106,7 @@
 		};
 		24F1D20F18E063E1007E2309 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22EAFC87A20242C8AE3E0037 /* Pods.xcconfig */;
+			baseConfigurationReference = 052BE44AA22CDFC54CC3B9D2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1092,6 +1116,10 @@
 				GCC_PREFIX_HEADER = "Tjfa/Tjfa-Prefix.pch";
 				INFOPLIST_FILE = "Tjfa/Tjfa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tjfa",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1101,7 +1129,7 @@
 		};
 		24F1D21018E063E1007E2309 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22EAFC87A20242C8AE3E0037 /* Pods.xcconfig */;
+			baseConfigurationReference = EAB7EA070E17EAF442D6E550 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1112,6 +1140,10 @@
 				GCC_PREFIX_HEADER = "Tjfa/Tjfa-Prefix.pch";
 				INFOPLIST_FILE = "Tjfa/Tjfa-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tjfa",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

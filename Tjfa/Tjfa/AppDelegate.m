@@ -19,6 +19,7 @@
 #import <AVOSCloudSNS.h>
 #import <UMeng/MobClick.h>
 #import "TjfaConst.h"
+#import "RennShareComponent.h"
 
 @implementation AppDelegate
 
@@ -40,6 +41,9 @@
 #pragma mark - weixin
     [WXApi registerApp:@"wx6cba695c52dfdeb0"];
 // Override point for customization after application launch.
+    
+#pragma mark - renren
+    [RennShareComponent initWithAppId:@"474177" apiKey:@"313e2277c5d14cee9b83441f03c5ab53" secretKey:@"313e2277c5d14cee9b83441f03c5ab53"];
 
 #pragma mark - umeng
     [MobClick startWithAppkey:@"542396dafd98c5933102f25e"];

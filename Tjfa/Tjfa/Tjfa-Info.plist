@@ -32,6 +32,16 @@
 				<string>wx6cba695c52dfdeb0</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>renren</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>renrenshare474177tac.Tjfa</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0.4</string>
