@@ -80,15 +80,15 @@
     [self.emblemPathA setImageWithURL:[NSURL URLWithString:match.teamA.emblemPath] placeholderImage:[UIImage imageNamed:@"teamPlaceHolderA"]];
     [self.emblemPathB setImageWithURL:[NSURL URLWithString:match.teamB.emblemPath] placeholderImage:[UIImage imageNamed:@"teamPlaceHolderB"]];
 
-    if (match.penaltyA.intValue != 0 && match.penaltyB.intValue != 0) {
+    if (match.penaltyA.intValue == 0 && match.penaltyB.intValue == 0) {
+        self.penaltyA.hidden = YES;
+        self.penaltyB.hidden = YES;
+    }
+    else {
         self.penaltyA.hidden = NO;
         self.penaltyB.hidden = NO;
         self.penaltyA.text = [NSString stringWithFormat:@"(%d)", match.penaltyA.intValue];
         self.penaltyB.text = [NSString stringWithFormat:@"(%d)", match.penaltyB.intValue];
-    }
-    else {
-        self.penaltyA.hidden = YES;
-        self.penaltyB.hidden = YES;
     }
 }
 
