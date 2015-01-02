@@ -167,13 +167,13 @@
 
 - (void)sharedWithRenRen
 {
-
-    RennTextMessage *textMessage = [[RennTextMessage alloc] init];
-    textMessage.url = @"http://www.lazyclutch.com";
-    textMessage.title = @"快来下载同济足协iOS版app";
-    textMessage.text = [NSString stringWithFormat:@"hi~~我亲爱的小伙伴～～我发现了关于同济足球的一个很棒的App,叫做\"%@\",现在已经升级到%@版本了,快去看看吧～～", [AppInfo appName], [AppInfo appVersion]];
-    NSInteger errCode = [RennShareComponent SendMessage:textMessage msgTarget:To_Renren];
-    NSLog(@"%ld",errCode);
+    RennImgTextMessage *imgTextMessage = [[RennImgTextMessage alloc] init];
+    imgTextMessage.url = @"http://www.lazyclutch.com";
+    imgTextMessage.title = @"快来下载同济足协iOS版app";
+    imgTextMessage.desc = [NSString stringWithFormat:@"hi~~我亲爱的小伙伴～～我发现了关于同济足球的一个很棒的App,叫做%@,现在已经升级到%@版本了,快去看看吧～～", [AppInfo appName], [AppInfo appVersion]];
+    imgTextMessage.thumbData = UIImagePNGRepresentation([UIImage imageNamed:@"tjfaIcon.png"]);
+    NSInteger err = [RennShareComponent SendMessage:imgTextMessage msgTarget:To_Renren];
+    NSLog(@"%ld",err);
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController*)controller didFinishWithResult:(MessageComposeResult)result

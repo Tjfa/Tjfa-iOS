@@ -1,11 +1,11 @@
 PODS:
   - AFNetworking (2.3.1):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
+    - AFNetworking/NSURLConnection (= 2.3.1)
+    - AFNetworking/NSURLSession (= 2.3.1)
+    - AFNetworking/Reachability (= 2.3.1)
+    - AFNetworking/Security (= 2.3.1)
+    - AFNetworking/Serialization (= 2.3.1)
+    - AFNetworking/UIKit (= 2.3.1)
   - AFNetworking/NSURLConnection (2.3.1):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -24,11 +24,11 @@ PODS:
   - AVOSCloudSNS (2.6.4):
     - AVOSCloud
   - FlurrySDK (5.3.0):
-    - FlurrySDK/FlurrySDK
+    - FlurrySDK/FlurrySDK (= 5.3.0)
   - FlurrySDK/FlurrySDK (5.3.0)
   - libWeChatSDK (1.4.2.1)
   - MagicalRecord (2.2):
-    - MagicalRecord/Core
+    - MagicalRecord/Core (= 2.2)
   - MagicalRecord/Core (2.2)
   - MBProgressHUD (0.8)
   - RESideMenu (4.0.5)
@@ -56,4 +56,4 @@ SPEC CHECKSUMS:
   RESideMenu: 0a6f20a11412975d683fab9db2d255865d0aaeee
   UMeng: e5b6c6a06215aeba33cb59159341ab3d6d292935
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.35.0

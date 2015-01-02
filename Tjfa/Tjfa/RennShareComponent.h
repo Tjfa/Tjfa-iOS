@@ -111,7 +111,7 @@ MessageTarget;
 /** 消息内容
  * 长度不超过2000字
  */
-@property (nonatomic,copy) NSString * description;
+@property (nonatomic,copy) NSString * desc;
 /** 消息跳转url
  * 长度不能超过2000字节
  */
