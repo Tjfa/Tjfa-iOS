@@ -123,11 +123,6 @@
             [self.groupData[key] sortUsingComparator:^NSComparisonResult(Team* a, Team* b) {
                 return [weakSelf comparedTeam:a andTeam:b];
             }];
-
-            NSLog(@"%@", key);
-            for (Team* team in self.groupData[key]) {
-                NSLog(@"%@", team.name);
-            }
         }
     }
 }
