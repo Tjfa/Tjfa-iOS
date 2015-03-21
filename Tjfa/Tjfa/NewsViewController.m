@@ -18,13 +18,13 @@
 
 @interface NewsViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, MJRefreshBaseViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray* data;
+@property (nonatomic, strong) NSMutableArray *data;
 
-@property (nonatomic, weak) IBOutlet UITableView* tableView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) MBProgressHUD* loadProgress;
+@property (nonatomic, strong) MBProgressHUD *loadProgress;
 
-@property (nonatomic, strong) MJRefreshHeaderView* headerView;
+@property (nonatomic, strong) MJRefreshHeaderView *headerView;
 
 @end
 
@@ -40,6 +40,8 @@
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
     if (self.data.count == 0) {
         [self refreshLatestNewsWithProgress:YES];
+    } else {
+        [self.headerView beginRefreshing];
     }
     // Do any additional setup after loading the view.
 }
@@ -54,19 +56,15 @@
 
 #pragma mark - getter & setter
 
-- (NSMutableArray*)data
+- (NSMutableArray *)data
 {
     if (_data == nil) {
         _data = [[[NewsManager sharedNewsManager] getNewsFromCoreData] mutableCopy];
-
-        for (News* news in _data) {
-            NSLog(@"%@", news);
-        }
     }
     return _data;
 }
 
-- (void)setData:(NSMutableArray*)data
+- (void)setData:(NSMutableArray *)data
 {
     if (_data != data) {
         _data = data;
@@ -82,7 +80,7 @@
     return _headerView;
 }
 
-- (void)setTableView:(UITableView*)tableView
+- (void)setTableView:(UITableView *)tableView
 {
     if (_tableView != tableView) {
         _tableView = tableView;
@@ -93,7 +91,7 @@
     }
 }
 
-- (MBProgressHUD*)loadProgress
+- (MBProgressHUD *)loadProgress
 {
     if (_loadProgress == nil) {
         _loadProgress = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
@@ -104,7 +102,7 @@
 
 #pragma mark - tableview datasource & delegate
 
-- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.data.count;
 }
@@ -114,7 +112,7 @@
     return 1;
 }
 
-- (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NewsCell* cell = [tableView dequeueReusableCellWithIdentifier:@"NewsCell"];
     [cell setCellWithNews:self.data[indexPath.row]];
@@ -134,12 +132,12 @@
     }
 }
 
-- (BOOL)tableView:(UITableView*)tableView canEditRowAtIndexPath:(NSIndexPath*)indexPath
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return YES;
 }
 
-- (void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath*)indexPath
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         News* news = self.data[indexPath.row];
@@ -162,7 +160,7 @@
 
 #pragma mark - refresh
 
-- (void)getLatestNews:(MBProgressHUD*)progress
+- (void)getLatestNews:(MBProgressHUD *)progress
 {
     __weak NewsViewController* weakSelf = self;
     [[NewsManager sharedNewsManager] getLatestNewsFromNetworkWithLimit:DEFAULT_LIMIT complete:^(NSArray* newsArray, NSError* error) {
@@ -188,20 +186,20 @@
     }];
 }
 
-- (void)getEarlierNews:(News*)lastNews
+- (void)getEarlierNews:(News *)lastNews
 {
     if (lastNews == nil)
         return;
     __weak NewsViewController* weakSelf = self;
-    [[NewsManager sharedNewsManager] getEarlierNewsFromNetworkWithId:lastNews.newsId andLimit:DEFAULT_LIMIT complete:^(NSArray* results, NSError* error) {
-        if (error){
+    [[NewsManager sharedNewsManager] getEarlierNewsFromNetworkWithId:lastNews.newsId andLimit:DEFAULT_LIMIT complete:^(NSArray *results, NSError *error) {
+        if (error) {
             hasMore=NO;
-        }else{
-            if (results.count<DEFAULT_LIMIT) hasMore=NO;
-            if (!results || results.count==0) return ;
+        } else {
+            if (results.count<DEFAULT_LIMIT) hasMore = NO;
+            if (!results || results.count == 0) return ;
             
-            NSMutableArray* indexPaths=[[NSMutableArray alloc] init];
-            for (int i=0; i<results.count; i++){
+            NSMutableArray* indexPaths = [[NSMutableArray alloc] init];
+            for (int i=0; i<results.count; i++) {
                 [indexPaths addObject:[NSIndexPath indexPathForRow:weakSelf.data.count inSection:0]];
                 [weakSelf.data addObject:results[i]];
             }
@@ -212,7 +210,7 @@
 
 #pragma mark - MJRefresh delegate
 
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView*)refreshView
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     if (refreshView == self.headerView) {
         [self getLatestNews:nil];

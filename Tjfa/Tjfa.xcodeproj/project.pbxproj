@@ -408,17 +408,9 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
-		2447B3A6198CA07A00B297BB /* WeiXin */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = WeiXin;
-			sourceTree = "<group>";
-		};
 		2447B3A7198CA08600B297BB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				2447B3A6198CA07A00B297BB /* WeiXin */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -845,6 +837,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "邱峰";
 				TargetAttributes = {
+					24F1D1DB18E063E0007E2309 = {
+						DevelopmentTeam = 2XYAGB2947;
+					};
 					24F1D1FC18E063E1007E2309 = {
 						TestTargetID = 24F1D1DB18E063E0007E2309;
 					};
@@ -1044,7 +1039,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hongming Zhu (2XYAGB2947)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hongming Zhu (4RUZ3YUMFH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1085,7 +1080,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Hongming Zhu (2XYAGB2947)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hongming Zhu (4RUZ3YUMFH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;

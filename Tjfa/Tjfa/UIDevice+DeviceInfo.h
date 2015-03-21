@@ -12,4 +12,8 @@
 
 + (NSString*)deviceInfo;
 
++ (float)iOSVersion;
+
++ (NSString *)deviceName;
+
 @end

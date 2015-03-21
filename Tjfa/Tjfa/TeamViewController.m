@@ -38,7 +38,6 @@
     if ([a.rank isEqual:b.rank]) {
         return [a.teamId compare:b.teamId];
     } else {
-        NSLog(@"%d", a.rank.intValue);
         if ([a.rank intValue] == 100) {
             return NSOrderedDescending;
         } else if ([b.rank intValue] == 100) {

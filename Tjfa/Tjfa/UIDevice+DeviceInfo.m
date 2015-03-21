@@ -11,9 +11,9 @@
 
 @implementation UIDevice (DeviceInfo)
 
-+ (NSString*)deviceInfo
++ (NSString *)deviceInfo
 {
-    UIDevice* device = [UIDevice currentDevice];
+    UIDevice *device = [UIDevice currentDevice];
 
     /**
      *  用dictionary 转的话 在console页面显示unicode编码 在邮箱那边也是 所以 只能自己手动转
@@ -27,6 +27,16 @@
 //    return [dictionary description];
     return [NSString stringWithFormat:@"{\nname : %@;\n systemName : %@;\n systemVersion : %@;\n model : %@;\n version : %@;\n}",device.name,device.systemName,device.systemVersion,device.model,[AppInfo appVersion]];
 
+}
+
++ (float)iOSVersion
+{
+    return [[UIDevice currentDevice].systemVersion floatValue];
+}
+
++ (NSString *)deviceName
+{
+    return [UIDevice currentDevice].name;
 }
 
 @end
