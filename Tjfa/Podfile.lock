@@ -23,12 +23,28 @@ PODS:
   - AVOSCloud (2.6.11.2)
   - AVOSCloudSNS (2.6.11.2):
     - AVOSCloud
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
   - libWeChatSDK (1.4.2.1)
   - MagicalRecord (2.2):
     - MagicalRecord/Core (= 2.2)
   - MagicalRecord/Core (2.2)
   - MBProgressHUD (0.8)
   - RESideMenu (4.0.5)
+  - Routable (0.1.1)
   - SVPullToRefresh (0.4.1)
   - UMeng (2.2.1)
 
@@ -36,10 +52,12 @@ DEPENDENCIES:
   - AFNetworking (~> 2.3.1)
   - AVOSCloud (~> 2.6.11.2)
   - AVOSCloudSNS (~> 2.6.11.2)
+  - BlocksKit (~> 2.2.5)
   - libWeChatSDK (~> 1.4.2.1)
   - MagicalRecord (~> 2.2)
   - MBProgressHUD (~> 0.8)
   - RESideMenu (~> 4.0.5)
+  - Routable (~> 0.1.1)
   - SVPullToRefresh (~> 0.4.1)
   - UMeng (~> 2.2.1)
 
@@ -47,10 +65,12 @@ SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   AVOSCloud: c4e261f5d68f42c6e4c4a64934490b2f38c9cff7
   AVOSCloudSNS: bbeb6d2e21cb7971850565e41e0b4c0f2a9ce7d5
+  BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
   libWeChatSDK: 566fcb1c7b724cc3306fa83667094c5f0743477a
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   RESideMenu: 0a6f20a11412975d683fab9db2d255865d0aaeee
+  Routable: e87e3b3ce4c71442d12cb6fd5fb60652b1e8b026
   SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
   UMeng: e5b6c6a06215aeba33cb59159341ab3d6d292935
 

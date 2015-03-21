@@ -10,6 +10,7 @@
 #import "DashboardCell.h"
 #import "CompetitionViewController.h"
 #import "UIColor+AppColor.h"
+#import "NotificationCenter.h"
 
 @interface DashboardViewController ()
 
@@ -183,7 +184,6 @@ const CGFloat delayAnimate = 0.1;
 
 - (void)benbuClick:(id)sender
 {
-    NSLog(@"benbu click");
     [self closeDashboardCellUserInterface];
     CompetitionViewController* benbuController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
     [benbuController setCampusType:@(1)];
@@ -192,7 +192,6 @@ const CGFloat delayAnimate = 0.1;
 
 - (void)jiadingClick:(id)sender
 {
-    NSLog(@"jiading click");
     [self closeDashboardCellUserInterface];
     CompetitionViewController* jiadingController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
     [jiadingController setCampusType:@(2)];
@@ -203,17 +202,17 @@ const CGFloat delayAnimate = 0.1;
 {
     [self closeDashboardCellUserInterface];
 
-    NSLog(@"news click");
     UIViewController* newsController = [self.storyboard instantiateViewControllerWithIdentifier:@"newsController"];
     [self hideWithAnimateSynCompleteToController:newsController];
 }
 
 - (void)settingClick:(id)sender
 {
-    NSLog(@"setting click");
     [self closeDashboardCellUserInterface];
     UIViewController* settingController = [self.storyboard instantiateViewControllerWithIdentifier:@"newAboutController"];
     [self hideWithAnimateSynCompleteToController:settingController];
 }
+
+#pragma mark - reciver push
 
 @end

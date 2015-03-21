@@ -20,12 +20,16 @@
 #import "TjfaConst.h"
 #import "UIDevice+DeviceInfo.h"
 #import "RennShareComponent.h"
+#import "NotificationCenter.h"
+#import "UserData.h"
+#import "UIApplication+MainNav.h"
+#import <UIAlertView+BlocksKit.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    
 #pragma mark - avoscloud
     [AVOSCloud setApplicationId:AVOS_APP_ID clientKey:AVOS_CLIENT_KEY];
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
@@ -58,6 +62,17 @@
         [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
     }
     
+    
+    if ([UserData sharedUserData].isFirstLaunch == NO) {
+        [UIApplication showMain];
+        
+        if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLaunchFromRemoteNotificationKey object:launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]];
+            [self pushToViewController:(UINavigationController*)self.window.rootViewController withUserInfo:nil];
+        }
+
+    }
+    
     return YES;
 }
 
@@ -79,8 +94,19 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
-    NSLog(@"%@", userInfo);
-  
+    UIApplicationState state = [UIApplication sharedApplication].applicationState;
+    if (state == UIApplicationStateActive) {
+        [UIAlertView bk_showAlertViewWithTitle:@"新的消息来啦" message:userInfo[@"aps"][@"alert"] cancelButtonTitle:@"取消" otherButtonTitles:@[@"去看看"] handler:^(UIAlertView *alertView, NSInteger index) {
+            if (index != 0) {
+                [self pushToViewController:(UINavigationController *)self.window.rootViewController withUserInfo:userInfo];
+            }
+        }];
+    } else if (state == UIApplicationStateInactive) {
+        if (self.window.rootViewController) {
+            [self pushToViewController:(UINavigationController *)self.window.rootViewController withUserInfo:userInfo];
+        }
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPushNotification object:userInfo];
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
@@ -91,7 +117,7 @@
     [currentInstallation saveInBackground];
     
     if (DEBUG) {
-
+        
     }
 }
 
@@ -108,6 +134,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
@@ -143,5 +170,15 @@
     [AVPlayer registerSubclass];
     [AVTeam registerSubclass];
 }
+
+- (void)pushToViewController:(UINavigationController *)nav withUserInfo:(NSDictionary *)userInfo
+{
+    if ([nav isKindOfClass:[UINavigationController class]]) {
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController* newsController = [storyboard instantiateViewControllerWithIdentifier:@"newsController"];
+        [nav pushViewController:newsController animated:YES];
+    }
+}
+
 
 @end

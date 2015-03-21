@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18145E801ABD83CC00040AB7 /* push_page.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18145E7F1ABD83CC00040AB7 /* push_page.plist */; };
+		18145E831ABD8AB100040AB7 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18145E821ABD8AB100040AB7 /* NotificationCenter.m */; };
+		18145E861ABDA69300040AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18145E841ABDA69300040AB7 /* Main.storyboard */; };
 		18190ED119CFFFE200D0488F /* AVCompetition.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC719CFFFE200D0488F /* AVCompetition.m */; };
 		18190ED219CFFFE200D0488F /* AVMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC919CFFFE200D0488F /* AVMatch.m */; };
 		18190ED319CFFFE200D0488F /* AVNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ECC19CFFFE200D0488F /* AVNews.m */; };
@@ -72,7 +75,6 @@
 		24F1D1E418E063E1007E2309 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1E318E063E1007E2309 /* UIKit.framework */; };
 		24F1D1EC18E063E1007E2309 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D1EB18E063E1007E2309 /* main.m */; };
 		24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D1EF18E063E1007E2309 /* AppDelegate.m */; };
-		24F1D1F318E063E1007E2309 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D1F118E063E1007E2309 /* Main.storyboard */; };
 		24F1D1F818E063E1007E2309 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24F1D1F718E063E1007E2309 /* Images.xcassets */; };
 		24F1D1FF18E063E1007E2309 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1FE18E063E1007E2309 /* XCTest.framework */; };
 		24F1D20018E063E1007E2309 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1DF18E063E0007E2309 /* Foundation.framework */; };
@@ -102,6 +104,10 @@
 
 /* Begin PBXFileReference section */
 		052BE44AA22CDFC54CC3B9D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		18145E7F1ABD83CC00040AB7 /* push_page.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = push_page.plist; sourceTree = "<group>"; };
+		18145E811ABD8AB100040AB7 /* NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
+		18145E821ABD8AB100040AB7 /* NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
+		18145E851ABDA69300040AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18190EC619CFFFE200D0488F /* AVCompetition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCompetition.h; sourceTree = "<group>"; };
 		18190EC719CFFFE200D0488F /* AVCompetition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCompetition.m; sourceTree = "<group>"; };
 		18190EC819CFFFE200D0488F /* AVMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVMatch.h; sourceTree = "<group>"; };
@@ -227,7 +233,6 @@
 		24F1D1ED18E063E1007E2309 /* Tjfa-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tjfa-Prefix.pch"; sourceTree = "<group>"; };
 		24F1D1EE18E063E1007E2309 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		24F1D1EF18E063E1007E2309 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		24F1D1F218E063E1007E2309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24F1D1F718E063E1007E2309 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		24F1D1FD18E063E1007E2309 /* TjfaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TjfaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F1D1FE18E063E1007E2309 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -691,11 +696,13 @@
 		24F1D1E518E063E1007E2309 /* Tjfa */ = {
 			isa = PBXGroup;
 			children = (
+				18145E841ABDA69300040AB7 /* Main.storyboard */,
 				240099F6196024A80036EFF4 /* AppInfo */,
 				ADEDA1E2195FED2C009B8D20 /* Library */,
 				24F1D1EE18E063E1007E2309 /* AppDelegate.h */,
 				24F1D1EF18E063E1007E2309 /* AppDelegate.m */,
-				24F1D1F118E063E1007E2309 /* Main.storyboard */,
+				18145E811ABD8AB100040AB7 /* NotificationCenter.h */,
+				18145E821ABD8AB100040AB7 /* NotificationCenter.m */,
 				24F1D1F718E063E1007E2309 /* Images.xcassets */,
 				24686C7B196E7DAF00D8CF86 /* UserData */,
 				240AE6C9195EC1FA00F7820D /* UILayer */,
@@ -713,6 +720,7 @@
 				24F1D1EB18E063E1007E2309 /* main.m */,
 				24F1D1ED18E063E1007E2309 /* Tjfa-Prefix.pch */,
 				18190ED619D01D7400D0488F /* TjfaConst.h */,
+				18145E7F1ABD83CC00040AB7 /* push_page.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -869,11 +877,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18145E861ABDA69300040AB7 /* Main.storyboard in Resources */,
 				24F1D1F818E063E1007E2309 /* Images.xcassets in Resources */,
 				244ACBC8198E8CED003E640A /* welcome2.xib in Resources */,
+				18145E801ABD83CC00040AB7 /* push_page.plist in Resources */,
 				24686C80196E870300D8CF86 /* welcome3.xib in Resources */,
 				244ACBC5198E8C72003E640A /* welcome1.xib in Resources */,
-				24F1D1F318E063E1007E2309 /* Main.storyboard in Resources */,
 				2458D4AE19A75AB5004123BA /* download_ewm.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -951,6 +960,7 @@
 				24C6FE4C195E8574008B594C /* Match.m in Sources */,
 				24686C83196E875600D8CF86 /* Welcome3.m in Sources */,
 				18190ED419CFFFE200D0488F /* AVPlayer.m in Sources */,
+				18145E831ABD8AB100040AB7 /* NotificationCenter.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
 				24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */,
 				249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */,
@@ -1012,10 +1022,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		24F1D1F118E063E1007E2309 /* Main.storyboard */ = {
+		18145E841ABDA69300040AB7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				24F1D1F218E063E1007E2309 /* Base */,
+				18145E851ABDA69300040AB7 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

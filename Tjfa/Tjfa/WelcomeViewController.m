@@ -11,6 +11,7 @@
 #import "Welcome3.h"
 #import "Welcome1.h"
 #import "Welcome2.h"
+#import "NotificationCenter.h"
 #import "UIApplication+MainNav.h"
 
 @interface WelcomeViewController () <UIScrollViewDelegate>
@@ -25,13 +26,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     if ([UserData sharedUserData].isFirstLaunch) {
 
         CGSize screenSize = self.view.frame.size;
         Welcome3* welcome3 = [Welcome3 getInstance];
         welcome3.rootView = self.scrollView;
-        NSLog(@"%f %f", screenSize.width, screenSize.height);
+
         welcome3.frame = CGRectMake(screenSize.width * 2, 0, welcome3.frame.size.width, welcome3.frame.size.height);
         self.scrollView.contentSize = CGSizeMake(screenSize.width * 3, screenSize.height);
 
@@ -66,7 +67,6 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView*)scrollView
 {
-    NSLog(@"%f", self.scrollView.contentOffset.x);
     if (self.scrollView.contentOffset.x < 100) {
         self.pageControl.currentPage = 0;
     } else if (self.scrollView.contentOffset.x > 300 && self.scrollView.contentOffset.x < 350) {

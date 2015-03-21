@@ -221,7 +221,7 @@
 
 - (IBAction)backButtonClick:(id)sender
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)dealloc
