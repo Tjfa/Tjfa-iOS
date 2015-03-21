@@ -30,9 +30,11 @@
 
 - (void)getLasterData:(BOOL)isFirstEnter
 {
-    __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
+    __weak RootViewController* rootViewController = (RootViewController *)self.sideMenuViewController;
     if (isFirstEnter) {
         [self.mbProgressHud show:YES];
+    } else {
+        [self.header beginRefreshing];
     }
     [self getDataFromNetwork:rootViewController.competition complete:self.completeBlock];
 }
@@ -182,7 +184,6 @@
 
 - (void)dealloc
 {
-    NSLog(@"delloc");
     [self.header free];
 }
 

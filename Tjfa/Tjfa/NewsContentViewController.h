@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "BaseViewController.h"
 #import "News.h"
 
-@interface NewsContentViewController : UIViewController
+@interface NewsContentViewController : BaseViewController
 
-@property (nonatomic, strong) News* news;
+@property (nonatomic, strong) News *news;
+@property (nonatomic, strong) NSNumber *newsId;
 
 @end

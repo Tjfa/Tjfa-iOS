@@ -43,4 +43,7 @@
  */
 - (void)getLatestCompetitionsFromNetworkWithType:(NSNumber*)type limit:(int)limit complete:(void (^)(NSArray* results, NSError* error))complete;
 
+- (void)getCompeitionWithCompetitionId:(NSNumber *)competionId complete:(void (^)(Competition*, NSError*))complete;
+
+
 @end

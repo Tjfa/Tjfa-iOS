@@ -21,16 +21,18 @@
 
 @implementation NewsContentViewController
 
++ (id)allocWithRouterParams:(NSDictionary *)params
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NewsContentViewController *instance = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(self)];
+    instance.newsId = params[@"newsId"];
+    return instance;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.navigationItem.title = self.news.title;
-    UIImageView* bg = [[UIImageView alloc] initWithFrame:self.view.frame];
-    [bg setImage:[UIImage imageNamed:@"newsContent"]];
-    [self.view addSubview:bg];
-    self.contentView.backgroundColor = [UIColor clearColor];
-    [self.contentView setOpaque:NO];
     [self loadContent];
 }
 
@@ -47,7 +49,26 @@
 
 - (void)loadContent
 {
-    [self.contentView loadHTMLString:self.news.content baseURL:nil];
+    if (self.news) {
+        [self.contentView loadHTMLString:self.news.content baseURL:nil];
+        self.navigationItem.title = self.news.title;
+
+    } else {
+        self.navigationItem.title = @"加载中";
+        [self.progressView show:YES];
+        [[NewsManager sharedNewsManager] getNewsWithNewsId:self.newsId complete:^(News *news, NSError *error) {
+            [self.progressView hide:YES];
+            if (error) {
+                [MBProgressHUD showWhenNetworkErrorInView:self.view];
+                [self.navigationController popViewControllerAnimated:YES];
+            } else {
+                self.news = news;
+                [self.contentView loadHTMLString:self.news.content baseURL:nil];
+                self.navigationItem.title = self.news.title;
+            }
+        }];
+
+    }
     //    [self.progressView show:YES];
     //    __weak NewsContentViewController* weakSelf = self;
     //    [[NewsManager sharedNewsManager] getNewsContentWithNews:self.news complete:^(News* news, NSError* error) {

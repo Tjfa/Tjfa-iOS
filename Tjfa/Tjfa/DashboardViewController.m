@@ -10,6 +10,7 @@
 #import "DashboardCell.h"
 #import "CompetitionViewController.h"
 #import "UIColor+AppColor.h"
+#import <Routable.h>
 #import "NotificationCenter.h"
 
 @interface DashboardViewController ()
@@ -34,6 +35,8 @@ const CGFloat delayAnimate = 0.1;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[Routable sharedRouter] setNavigationController:self.navigationController];
 
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dashboardTitle"]];
 
@@ -156,15 +159,14 @@ const CGFloat delayAnimate = 0.1;
     }
 }
 
-- (void)hideWithAnimateSynCompleteToController:(UIViewController*)controller
+- (void)hideWithAnimateSynCompleteToController:(NSString *)controllerMap withParams:(NSDictionary *)params
 {
-    __weak DashboardViewController* weakSelf = self;
     for (int i = 0; i < self.dashBoardCellArray.count; i++) {
         DashboardCell* cell = self.dashBoardCellArray[i];
         if (i == 0) {
             [cell hideWithAnimateAfterDelay:delayAnimate * (self.dashBoardCellArray.count - i)complete:^(BOOL finished) {
                 if (finished){
-                    [weakSelf.navigationController pushViewController:controller animated:YES];
+                    [[Routable sharedRouter] open:controllerMap withParams:params];
                 }
             }];
         } else {
@@ -185,34 +187,26 @@ const CGFloat delayAnimate = 0.1;
 - (void)benbuClick:(id)sender
 {
     [self closeDashboardCellUserInterface];
-    CompetitionViewController* benbuController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
-    [benbuController setCampusType:@(1)];
-    [self hideWithAnimateSynCompleteToController:benbuController];
+    [self hideWithAnimateSynCompleteToController:@"competition" withParams:@{@"type":@1}];
 }
 
 - (void)jiadingClick:(id)sender
 {
     [self closeDashboardCellUserInterface];
-    CompetitionViewController* jiadingController = [self.storyboard instantiateViewControllerWithIdentifier:@"competitionController"];
-    [jiadingController setCampusType:@(2)];
-    [self hideWithAnimateSynCompleteToController:jiadingController];
+    [self hideWithAnimateSynCompleteToController:@"competition" withParams:@{@"type":@2}];
 }
 
 - (void)newsClick:(id)sender
 {
     [self closeDashboardCellUserInterface];
-
-    UIViewController* newsController = [self.storyboard instantiateViewControllerWithIdentifier:@"newsController"];
-    [self hideWithAnimateSynCompleteToController:newsController];
+    [self hideWithAnimateSynCompleteToController:@"news" withParams:nil];
 }
 
 - (void)settingClick:(id)sender
 {
+    
     [self closeDashboardCellUserInterface];
-    UIViewController* settingController = [self.storyboard instantiateViewControllerWithIdentifier:@"newAboutController"];
-    [self hideWithAnimateSynCompleteToController:settingController];
+    [self hideWithAnimateSynCompleteToController:@"about" withParams:nil];
 }
-
-#pragma mark - reciver push
 
 @end

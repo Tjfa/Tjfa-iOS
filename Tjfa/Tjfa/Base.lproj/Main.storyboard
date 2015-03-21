@@ -9,7 +9,7 @@
         <!--赛事-->
         <scene sceneID="bcI-eG-IlB">
             <objects>
-                <viewController storyboardIdentifier="competitionController" id="Enf-WD-3sQ" customClass="CompetitionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompetitionViewController" id="Enf-WD-3sQ" customClass="CompetitionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q4j-9w-wEW"/>
                         <viewControllerLayoutGuide type="bottom" id="UVN-Mh-AIi"/>
@@ -93,7 +93,7 @@
         <!--射手榜-->
         <scene sceneID="bLs-BG-ysd">
             <objects>
-                <viewController storyboardIdentifier="ScoreListViewController" id="yo5-Kg-39o" customClass="TopScoreViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TopScoreViewController" id="yo5-Kg-39o" customClass="TopScoreViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WWg-fz-Xgl"/>
                         <viewControllerLayoutGuide type="bottom" id="OqY-1R-HIR"/>
@@ -1144,7 +1144,7 @@
         <!--比 赛-->
         <scene sceneID="cOH-9H-oaX">
             <objects>
-                <viewController id="Fj6-dn-b1P" customClass="RootViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RootViewController" id="Fj6-dn-b1P" customClass="RootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Ui-ql-srd"/>
                         <viewControllerLayoutGuide type="bottom" id="FFR-VW-596"/>
@@ -1319,7 +1319,7 @@
         <!--News-->
         <scene sceneID="Joq-ww-uJG">
             <objects>
-                <viewController storyboardIdentifier="newsController" id="Wed-kW-t8i" userLabel="News" customClass="NewsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsViewController" id="Wed-kW-t8i" userLabel="News" customClass="NewsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G2Z-xI-fMJ"/>
                         <viewControllerLayoutGuide type="bottom" id="uKk-q8-1pK"/>
@@ -1429,7 +1429,7 @@
         <!--news content-->
         <scene sceneID="nX4-VQ-uRk">
             <objects>
-                <viewController id="ku5-kP-33e" customClass="NewsContentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsContentViewController" id="ku5-kP-33e" customClass="NewsContentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rvd-QX-Ehq"/>
                         <viewControllerLayoutGuide type="bottom" id="hqo-wF-M1J"/>
@@ -1440,6 +1440,7 @@
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JT4-zC-SOj">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -1462,7 +1463,7 @@
         <!--关于-->
         <scene sceneID="erZ-IX-lU4">
             <objects>
-                <tableViewController storyboardIdentifier="newAboutController" id="ET9-lm-tC4" customClass="NewAboutViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="NewAboutViewController" id="ET9-lm-tC4" customClass="NewAboutViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ile-Up-D6N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1730,10 +1731,10 @@
             </objects>
             <point key="canvasLocation" x="-303" y="1704"/>
         </scene>
-        <!--Dashboard View Controller-->
+        <!-- -->
         <scene sceneID="m1H-Xn-pkh">
             <objects>
-                <viewController id="2hP-Y8-Nbb" customClass="DashboardViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DashboardViewController" id="2hP-Y8-Nbb" customClass="DashboardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6cE-Da-xcS"/>
                         <viewControllerLayoutGuide type="bottom" id="kQA-Ca-weC"/>
@@ -1787,7 +1788,7 @@
                             <constraint firstItem="TgQ-SS-eYF" firstAttribute="top" secondItem="6cE-Da-xcS" secondAttribute="bottom" id="WtG-n3-4tI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="grs-5g-EDV"/>
+                    <navigationItem key="navigationItem" title=" " id="grs-5g-EDV"/>
                     <connections>
                         <outlet property="rootView" destination="TgQ-SS-eYF" id="z0e-Wy-08f"/>
                         <segue destination="Wed-kW-t8i" kind="push" id="LPe-wD-6F7"/>

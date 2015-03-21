@@ -40,7 +40,7 @@
     return results;
 }
 
-- (NSArray*)getMatchesByCompetitionFromCoreData:(Competition*)competition
+- (NSArray*)getMatchesByCompetitionFromCoreData:(Competition *)competition
 {
     NSArray* matches = [competition.matches allObjects];
     return [matches sortedArrayUsingComparator:^NSComparisonResult(Match* a, Match* b) {

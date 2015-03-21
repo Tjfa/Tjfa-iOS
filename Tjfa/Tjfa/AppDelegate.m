@@ -22,13 +22,17 @@
 #import "RennShareComponent.h"
 #import "NotificationCenter.h"
 #import "UserData.h"
+#import <Routable.h>
 #import "UIApplication+MainNav.h"
+#import "NewAboutViewController.h"
 #import <UIAlertView+BlocksKit.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [self setupRoutable];
     
 #pragma mark - avoscloud
     [AVOSCloud setApplicationId:AVOS_APP_ID clientKey:AVOS_CLIENT_KEY];
@@ -66,9 +70,12 @@
     if ([UserData sharedUserData].isFirstLaunch == NO) {
         [UIApplication showMain];
         
+        
         if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kLaunchFromRemoteNotificationKey object:launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]];
-            [self pushToViewController:(UINavigationController*)self.window.rootViewController withUserInfo:nil];
+            NSDictionary *remoteDic = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLaunchFromRemoteNotificationKey object:remoteDic];
+            [[Routable sharedRouter] setNavigationController:(UINavigationController *)self.window.rootViewController];
+            [[Routable sharedRouter] open:remoteDic[@"page"] withParams:remoteDic[@"ext"]];
         }
 
     }
@@ -96,15 +103,14 @@
 {
     UIApplicationState state = [UIApplication sharedApplication].applicationState;
     if (state == UIApplicationStateActive) {
+         [[Routable sharedRouter] setNavigationController:(UINavigationController*)self.window.rootViewController];
         [UIAlertView bk_showAlertViewWithTitle:@"新的消息来啦" message:userInfo[@"aps"][@"alert"] cancelButtonTitle:@"取消" otherButtonTitles:@[@"去看看"] handler:^(UIAlertView *alertView, NSInteger index) {
             if (index != 0) {
-                [self pushToViewController:(UINavigationController *)self.window.rootViewController withUserInfo:userInfo];
+                [[Routable sharedRouter] open:userInfo[@"page"] withParams:userInfo[@"ext"]];
             }
         }];
     } else if (state == UIApplicationStateInactive) {
-        if (self.window.rootViewController) {
-            [self pushToViewController:(UINavigationController *)self.window.rootViewController withUserInfo:userInfo];
-        }
+        [[Routable sharedRouter] open:userInfo[@"page"] withParams:userInfo[@"ext"]];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:kPushNotification object:userInfo];
 }
@@ -171,13 +177,18 @@
     [AVTeam registerSubclass];
 }
 
-- (void)pushToViewController:(UINavigationController *)nav withUserInfo:(NSDictionary *)userInfo
+#pragma mark - Routable 
+
+- (void)setupRoutable
 {
-    if ([nav isKindOfClass:[UINavigationController class]]) {
-        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController* newsController = [storyboard instantiateViewControllerWithIdentifier:@"newsController"];
-        [nav pushViewController:newsController animated:YES];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"viewController" ofType:@"plist"];
+    NSDictionary *controllers = [[NSDictionary alloc] initWithContentsOfFile:path];
+    
+    for (NSString *key in controllers.allKeys) {
+        [[Routable sharedRouter] map:key toController:NSClassFromString(controllers[key])];
     }
+    
+    [[Routable sharedRouter] setIgnoresExceptions:YES];
 }
 
 

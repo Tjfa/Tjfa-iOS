@@ -60,7 +60,7 @@
     [query whereKey:@"newsId" lessThan:newsId];
     query.limit = limit;
 
-    __weak NewsManager* weakSelf = self;
+    __weak typeof(self) weakSelf = self;
     [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
         if (error){
             complete(nil,error);
@@ -82,6 +82,33 @@
     //            complete(results,error);
     //        }
     //    }];
+}
+
+- (void)getNewsWithNewsId:(NSNumber *)newsId complete:(void (^)(News *news, NSError* error))complete
+{
+    News *news = [News MR_findFirstByAttribute:@"newsId" withValue:newsId];
+    if (news) {
+        if (complete) {
+            complete(news, nil);
+        }
+    } else {
+        __weak typeof(self) weakSelf = self;
+        AVQuery* query = [AVQuery queryWithClassName:@"News"];
+        [query whereKey:@"newsId" equalTo:newsId];
+        [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
+            if (error) {
+                complete(nil,error);
+            } else {
+                if (results.count > 0) {
+                    NSArray* news=[weakSelf insertNewsWithArray:results];
+                    complete(news.firstObject,error);
+                } else {
+                    complete(nil, [[NSError alloc] init]);
+                }
+            }
+        }];
+
+    }
 }
 
 - (void)getLatestNewsFromNetworkWithLimit:(int)limit complete:(void (^)(NSArray*, NSError*))complete

@@ -10,17 +10,21 @@
 #import "CompetitionManager.h"
 #import "UIView+RefreshFooterView.h"
 #import "MBProgressHUD+AppProgressView.h"
-#import "UIViewController+Identifier.h"
 #import "RootViewController.h"
 #import "UIColor+AppColor.h"
 #import "CompetitionCell.h"
 #import "TjfaConst.h"
+#import "MJRefresh.h"
+#import <Routable.h>
 
-@interface CompetitionViewController () <UIGestureRecognizerDelegate> {
+@interface CompetitionViewController () <UIGestureRecognizerDelegate,UITableViewDataSource, UITableViewDelegate, MJRefreshBaseViewDelegate>
+{
     MJRefreshHeaderView* header;
     BOOL hasMore;
     __weak Competition* lastCompetition;
 }
+
+@property (readwrite, nonatomic) NSNumber* type; // 1-本部 2-嘉定
 
 //section
 @property (nonatomic, strong) NSMutableArray* durationList;
@@ -30,15 +34,26 @@
 
 @property (nonatomic, strong) MBProgressHUD* progressView;
 
+@property (weak, nonatomic) IBOutlet UITableView* tableView;
+
+
 @end
 
 @implementation CompetitionViewController
+
++ (id)allocWithRouterParams:(NSDictionary *)params
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    CompetitionViewController* instance = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(self)];
+    instance.type = params[@"type"];
+    return instance;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    if ([self.campusType intValue] == 1) {
+    if ([self.type isEqualToNumber:@1]) {
         self.navigationItem.title = @"本  部";
     } else {
         self.navigationItem.title = @"嘉  定";
@@ -60,7 +75,7 @@
 {
     if (_tableView != tableView) {
         _tableView = tableView;
-        if (self.campusType.intValue == 1) {
+        if ([self.type isEqualToNumber:@1]) {
             _tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"competitionBgBenBu"]];
         } else {
             _tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"competitionBgJiaDing"]];
@@ -147,11 +162,11 @@
 
 #pragma mark - Navigation
 
-- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([sender isKindOfClass:[UITableViewCell class]]) {
         NSIndexPath* indexPath = [self.tableView indexPathForCell:sender];
-
+        
         RootViewController* rootViewController = [segue destinationViewController];
         rootViewController.competition = self.competitionList[indexPath.section][indexPath.row];
     }
@@ -161,12 +176,13 @@
 
 - (void)getLocalData
 {
-    NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:self.campusType];
+    NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:self.type];
 
     if ([results count] == 0) {
         [self.progressView show:YES];
         [self getLatestData];
     } else {
+        [header beginRefreshing];
         [self resetData:results];
     }
 }
@@ -174,14 +190,14 @@
 - (void)getLatestData
 {
     lastCompetition = nil;
-    __weak CompetitionViewController* weakSelf = self;
-    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:self.campusType limit:DEFAULT_LIMIT complete:^(NSArray* results, NSError* error) {
+    __weak typeof(self) weakSelf = self;
+    [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:self.type limit:DEFAULT_LIMIT complete:^(NSArray* results, NSError* error) {
         [self.progressView removeFromSuperview];
         if (error) {
             hasMore=NO;
             [MBProgressHUD showWhenNetworkErrorInView:weakSelf.view];
         } else {
-            if (results.count<DEFAULT_LIMIT){
+            if (results.count < DEFAULT_LIMIT) {
                 hasMore=NO;
             }else{
                 hasMore=YES;
@@ -195,16 +211,16 @@
 
 - (void)getEarlierData
 {
-    __weak CompetitionViewController* weakSelf = self;
-    [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:lastCompetition.competitionId withType:self.campusType limit:DEFAULT_LIMIT complete:^(NSArray* results, NSError* error) {
+    __weak typeof(self) weakSelf = self;
+    [[CompetitionManager sharedCompetitionManager] getEarlierCompetitionsFromNetwork:lastCompetition.competitionId withType:self.type limit:DEFAULT_LIMIT complete:^(NSArray *results, NSError *error) {
         
         if (error) {
             hasMore=NO;
         } else {
-            if (results.count<DEFAULT_LIMIT){
+            if (results.count < DEFAULT_LIMIT) {
                 hasMore=NO;
             }
-            for (Competition* competition in results){
+            for (Competition* competition in results) {
                 [weakSelf addCompetitionToCompetitionList:competition];
             }
             [weakSelf.tableView reloadData];
@@ -212,7 +228,7 @@
     }];
 }
 
-- (void)addCompetitionToCompetitionList:(Competition*)competition
+- (void)addCompetitionToCompetitionList:(Competition *)competition
 {
     NSUInteger index = [self.durationList indexOfObject:[self convertTimetoString:competition.time]];
     if (index == NSNotFound) {
@@ -225,7 +241,7 @@
     }
 }
 
-- (void)resetData:(NSArray*)data
+- (void)resetData:(NSArray *)data
 {
     [self.competitionList removeAllObjects];
     [self.durationList removeAllObjects];
@@ -235,7 +251,7 @@
     [self.tableView reloadData];
 }
 
-- (NSString*)convertTimetoString:(NSString*)time
+- (NSString*)convertTimetoString:(NSString *)time
 {
     if (time == nil || [time isEqualToString:@""])
         return nil;
@@ -247,7 +263,7 @@
     }
 }
 
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView*)refreshView
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
 {
     [self getLatestData];
 }

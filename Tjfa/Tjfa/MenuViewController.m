@@ -9,8 +9,12 @@
 #import "MenuViewController.h"
 #import <RESideMenu.h>
 #import "CompetitionDetailViewController.h"
-
-#import "UIViewController+Identifier.h"
+#import "MatchViewController.h"
+#import "TopScoreViewController.h"
+#import "YellowCardViewController.h"
+#import "RedCardViewController.h"
+#import "GroupScoreViewController.h"
+#import "TeamViewController.h"
 
 @interface MenuViewController ()
 
@@ -36,31 +40,30 @@
     CompetitionDetailViewController* viewController;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == MATCH_VIEW_CONTROLLER_INDEX) {
-        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController matchViewControllerIdentifier]];
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(MatchViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"比 赛";
 
     } else if (indexPath.row == SCORE_LIST_VIEW_CONTROLLER_INDEX) {
 
-        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController scoreListViewControllerIdentifier]];
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(TopScoreViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"射手榜";
 
     } else if (indexPath.row == YELLOW_CARD_VIEW_CONTROLLER_INDEX) {
 
-        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController yellowCardViewControllerIdentifier]];
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(YellowCardViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"黄 牌";
 
     } else if (indexPath.row == RED_CARD_VIEW_CONTROLLER_INDEX) {
-
-        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController redCardViewControllerIdentifier]];
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(RedCardViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"红 牌";
 
     } else if (indexPath.row == GROUP_SCORE_VIEW_CONTROLLER_INDEX) {
 
-        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController groupScoreViewController]];
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(GroupScoreViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"积 分";
 
     } else if (indexPath.row == TEAM_VIEW_CONTROLLER_INDEX) {
-        viewController = [self.storyboard instantiateViewControllerWithIdentifier:[UIViewController teamViewController]];
+        viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(TeamViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"球 队";
     }
 
@@ -69,16 +72,5 @@
         [self.sideMenuViewController hideMenuViewController];
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

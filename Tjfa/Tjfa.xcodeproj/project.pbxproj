@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18145E801ABD83CC00040AB7 /* push_page.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18145E7F1ABD83CC00040AB7 /* push_page.plist */; };
+		18145E801ABD83CC00040AB7 /* viewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18145E7F1ABD83CC00040AB7 /* viewController.plist */; };
 		18145E831ABD8AB100040AB7 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18145E821ABD8AB100040AB7 /* NotificationCenter.m */; };
 		18145E861ABDA69300040AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18145E841ABDA69300040AB7 /* Main.storyboard */; };
+		18145E891ABDBD1600040AB7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18145E881ABDBD1600040AB7 /* BaseViewController.m */; };
+		18145E8C1ABDBDFF00040AB7 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18145E8B1ABDBDFF00040AB7 /* BaseTableViewController.m */; };
 		18190ED119CFFFE200D0488F /* AVCompetition.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC719CFFFE200D0488F /* AVCompetition.m */; };
 		18190ED219CFFFE200D0488F /* AVMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC919CFFFE200D0488F /* AVMatch.m */; };
 		18190ED319CFFFE200D0488F /* AVNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ECC19CFFFE200D0488F /* AVNews.m */; };
@@ -62,7 +64,6 @@
 		24C84BBE1976BC0E00980720 /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C84BBD1976BC0E00980720 /* MatchViewController.m */; };
 		24C84BC11976CADE00980720 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C84BC01976CADE00980720 /* RootViewController.m */; };
 		24C84BC41976CFF700980720 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C84BC31976CFF700980720 /* MenuViewController.m */; };
-		24C84BC71976D92200980720 /* UIViewController+Identifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C84BC61976D92200980720 /* UIViewController+Identifier.m */; };
 		24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CECBF018E27F5300D43E0D /* NSDate+Date2Str.m */; };
 		24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CECC3318E2A3D700D43E0D /* NetworkClient.m */; };
 		24D42BC7197CD79A0069F224 /* RedCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D42BC6197CD79A0069F224 /* RedCardViewController.m */; };
@@ -104,10 +105,14 @@
 
 /* Begin PBXFileReference section */
 		052BE44AA22CDFC54CC3B9D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		18145E7F1ABD83CC00040AB7 /* push_page.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = push_page.plist; sourceTree = "<group>"; };
+		18145E7F1ABD83CC00040AB7 /* viewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = viewController.plist; sourceTree = "<group>"; };
 		18145E811ABD8AB100040AB7 /* NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
 		18145E821ABD8AB100040AB7 /* NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
 		18145E851ABDA69300040AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		18145E871ABDBD1600040AB7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		18145E881ABDBD1600040AB7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		18145E8A1ABDBDFF00040AB7 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
+		18145E8B1ABDBDFF00040AB7 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		18190EC619CFFFE200D0488F /* AVCompetition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCompetition.h; sourceTree = "<group>"; };
 		18190EC719CFFFE200D0488F /* AVCompetition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCompetition.m; sourceTree = "<group>"; };
 		18190EC819CFFFE200D0488F /* AVMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVMatch.h; sourceTree = "<group>"; };
@@ -208,8 +213,6 @@
 		24C84BC01976CADE00980720 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		24C84BC21976CFF700980720 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		24C84BC31976CFF700980720 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		24C84BC51976D92200980720 /* UIViewController+Identifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Identifier.h"; sourceTree = "<group>"; };
-		24C84BC61976D92200980720 /* UIViewController+Identifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Identifier.m"; sourceTree = "<group>"; };
 		24CECBEF18E27F5300D43E0D /* NSDate+Date2Str.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Date2Str.h"; sourceTree = "<group>"; };
 		24CECBF018E27F5300D43E0D /* NSDate+Date2Str.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Date2Str.m"; sourceTree = "<group>"; };
 		24CECC3218E2A3D700D43E0D /* NetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkClient.h; sourceTree = "<group>"; };
@@ -341,6 +344,10 @@
 		240AE6C9195EC1FA00F7820D /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
+				18145E871ABDBD1600040AB7 /* BaseViewController.h */,
+				18145E881ABDBD1600040AB7 /* BaseViewController.m */,
+				18145E8A1ABDBDFF00040AB7 /* BaseTableViewController.h */,
+				18145E8B1ABDBDFF00040AB7 /* BaseTableViewController.m */,
 				24B8C1B91977B33300B2FAD0 /* CompetitionDetail */,
 				24686C77196E7B2D00D8CF86 /* Welcome */,
 				2495BA2419690BE5009BB60F /* News */,
@@ -563,7 +570,6 @@
 			children = (
 				24D42BCB197D013F0069F224 /* CompetitionDetailViewController.h */,
 				24D42BCC197D013F0069F224 /* CompetitionDetailViewController.m */,
-				24C84BC81976D92600980720 /* Category */,
 				24C84BBF1976CADE00980720 /* RootViewController.h */,
 				24C84BC01976CADE00980720 /* RootViewController.m */,
 				24C84BC21976CFF700980720 /* MenuViewController.h */,
@@ -620,15 +626,6 @@
 				24B8C1C41977B7F800B2FAD0 /* MatchTableViewCell.m */,
 			);
 			name = Match;
-			sourceTree = "<group>";
-		};
-		24C84BC81976D92600980720 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				24C84BC51976D92200980720 /* UIViewController+Identifier.h */,
-				24C84BC61976D92200980720 /* UIViewController+Identifier.m */,
-			);
-			name = Category;
 			sourceTree = "<group>";
 		};
 		24CFD62518E1517100D706D1 /* LogicalLayer */ = {
@@ -720,7 +717,7 @@
 				24F1D1EB18E063E1007E2309 /* main.m */,
 				24F1D1ED18E063E1007E2309 /* Tjfa-Prefix.pch */,
 				18190ED619D01D7400D0488F /* TjfaConst.h */,
-				18145E7F1ABD83CC00040AB7 /* push_page.plist */,
+				18145E7F1ABD83CC00040AB7 /* viewController.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -880,7 +877,7 @@
 				18145E861ABDA69300040AB7 /* Main.storyboard in Resources */,
 				24F1D1F818E063E1007E2309 /* Images.xcassets in Resources */,
 				244ACBC8198E8CED003E640A /* welcome2.xib in Resources */,
-				18145E801ABD83CC00040AB7 /* push_page.plist in Resources */,
+				18145E801ABD83CC00040AB7 /* viewController.plist in Resources */,
 				24686C80196E870300D8CF86 /* welcome3.xib in Resources */,
 				244ACBC5198E8C72003E640A /* welcome1.xib in Resources */,
 				2458D4AE19A75AB5004123BA /* download_ewm.png in Resources */,
@@ -962,6 +959,7 @@
 				18190ED419CFFFE200D0488F /* AVPlayer.m in Sources */,
 				18145E831ABD8AB100040AB7 /* NotificationCenter.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
+				18145E8C1ABDBDFF00040AB7 /* BaseTableViewController.m in Sources */,
 				24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */,
 				249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */,
 				24B154311983CD7E004F87DA /* TeamViewController.m in Sources */,
@@ -992,10 +990,10 @@
 				240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */,
 				24A3B4931986ACDB00F6D263 /* NSNumber+Assign.m in Sources */,
 				2495BA2719690C1F009BB60F /* NewsViewController.m in Sources */,
-				24C84BC71976D92200980720 /* UIViewController+Identifier.m in Sources */,
 				ADEDA1F0195FED5C009B8D20 /* MJRefreshConst.m in Sources */,
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
 				246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */,
+				18145E891ABDBD1600040AB7 /* BaseViewController.m in Sources */,
 				ADEDA1E1195FE00D009B8D20 /* CompetitionViewController.m in Sources */,
 				248BD096197E593000419603 /* GroupScoreCell.m in Sources */,
 				24C84BC41976CFF700980720 /* MenuViewController.m in Sources */,

@@ -39,7 +39,7 @@
         [results insertObject:competition atIndex:0];
     }
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError* error) {
-        if (error){
+        if (error) {
             NSLog(@"%@",error);
         }
     }];
@@ -52,6 +52,38 @@
 - (NSArray*)getCompetitionsFromCoreDataWithType:(NSNumber*)type
 {
     return [Competition MR_findByAttribute:[Competition typeAttributeStr] withValue:type andOrderBy:[Competition idAttributeStr] ascending:NO];
+}
+
+- (void)getCompeitionWithCompetitionId:(NSNumber *)competionId complete:(void (^)(Competition*, NSError*))complete
+{
+    Competition *competition = [Competition MR_findFirstByAttribute:@"competitionId" withValue:competionId];
+    if (competition) {
+        if (complete) {
+            complete(competition, nil);
+        }
+    } else {
+        __weak typeof(self) weakSelf = self;
+        AVQuery *query = [AVQuery queryWithClassName:@"Competition"];
+        [query whereKey:@"competitionId" equalTo:competionId];
+        [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
+            if (error) {
+                if (complete) {
+                    complete(nil,error);
+                }
+            }else{
+                if (results.count > 0) {
+                    results = [weakSelf insertCompetitionsWithArray:results];
+                    if (complete) {
+                        complete(results.firstObject, nil);
+                    }
+                } else {
+                    if (complete) {
+                        complete(nil, [[NSError alloc] init]);
+                    }
+                }
+            }
+        }];
+    }
 }
 
 - (void)getEarlierCompetitionsFromNetwork:(NSNumber*)competitionId withType:(NSNumber*)type limit:(int)limit complete:(void (^)(NSArray*, NSError*))complete
@@ -68,10 +100,10 @@
     query.limit = limit;
     [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
         if (error){
-            complete(nil,error);
+            complete(nil, error);
         }else{
             results=[weakSelf insertCompetitionsWithArray:results];
-            complete(results,nil);
+            complete(results, nil);
         }
     }];
 

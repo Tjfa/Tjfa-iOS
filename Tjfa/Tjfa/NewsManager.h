@@ -36,7 +36,7 @@
 // *  @param news 传递进来一个news  这个news是可能没有content的
 // *  @param complete 完成网络加载后运行的代码
 // */
-//- (void)getNewsContentWithNews:(News*)news complete:(void (^)(News* news, NSError* error))complete;
+- (void)getNewsWithNewsId:(NSNumber *)newsId complete:(void (^)(News *news, NSError* error))complete;
 
 /**
  *  根据新闻是否已读，如果已读 标记为未读 如果未读 标记为已读

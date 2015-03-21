@@ -12,6 +12,11 @@
 
 @interface RootViewController : RESideMenu
 
-@property (nonatomic, strong) Competition* competition;
+
+/**
+ *  任意给下面两个参数中的一个即可
+ */
+@property (nonatomic, strong) NSNumber *compeitionId;
+@property (nonatomic, strong) Competition *competition;
 
 @end
