@@ -14,12 +14,11 @@
 #import "UIColor+AppColor.h"
 #import "CompetitionCell.h"
 #import "TjfaConst.h"
-#import "MJRefresh.h"
+#import <SVPullToRefresh.h>
 #import <Routable.h>
 
-@interface CompetitionViewController () <UIGestureRecognizerDelegate,UITableViewDataSource, UITableViewDelegate, MJRefreshBaseViewDelegate>
+@interface CompetitionViewController () <UIGestureRecognizerDelegate,UITableViewDataSource, UITableViewDelegate>
 {
-    MJRefreshHeaderView* header;
     BOOL hasMore;
     __weak Competition* lastCompetition;
 }
@@ -58,6 +57,14 @@
     } else {
         self.navigationItem.title = @"嘉  定";
     }
+    
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addPullToRefreshWithActionHandler:^() {
+        [weakSelf getLatestData];
+    }];
+    
+    [self getLocalData];
+    hasMore = YES;
 }
 
 #pragma mark - getter & setter
@@ -80,10 +87,6 @@
         } else {
             _tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"competitionBgJiaDing"]];
         }
-
-        header = [[MJRefreshHeaderView alloc] init];
-        header.delegate = self;
-        header.scrollView = _tableView;
     }
 }
 
@@ -99,8 +102,6 @@
 {
     if (_durationList == nil) {
         _durationList = [[NSMutableArray alloc] init];
-        [self getLocalData];
-        hasMore = YES;
     }
     return _durationList;
 }
@@ -176,13 +177,14 @@
 
 - (void)getLocalData
 {
+    
     NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:self.type];
 
     if ([results count] == 0) {
         [self.progressView show:YES];
         [self getLatestData];
     } else {
-        [header beginRefreshing];
+        [self.tableView triggerPullToRefresh];
         [self resetData:results];
     }
 }
@@ -192,20 +194,20 @@
     lastCompetition = nil;
     __weak typeof(self) weakSelf = self;
     [[CompetitionManager sharedCompetitionManager] getLatestCompetitionsFromNetworkWithType:self.type limit:DEFAULT_LIMIT complete:^(NSArray* results, NSError* error) {
-        [self.progressView removeFromSuperview];
+        [weakSelf.progressView removeFromSuperview];
+        [weakSelf.tableView.pullToRefreshView stopAnimating];
         if (error) {
             hasMore=NO;
             [MBProgressHUD showWhenNetworkErrorInView:weakSelf.view];
         } else {
             if (results.count < DEFAULT_LIMIT) {
                 hasMore=NO;
-            }else{
+            } else {
                 hasMore=YES;
             }
             
             [weakSelf resetData:results];
         }
-        [header endRefreshing];
     }];
 }
 
@@ -263,23 +265,11 @@
     }
 }
 
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
-{
-    [self getLatestData];
-}
-
 #pragma mark - navigation pop
 
 - (IBAction)backButtonClick:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-#pragma mark - delloc
-
-- (void)dealloc
-{
-    [header free];
 }
 
 @end

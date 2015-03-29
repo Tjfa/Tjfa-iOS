@@ -10,12 +10,12 @@
 #import "RootViewController.h"
 #import "MBProgressHUD+AppProgressView.h"
 #import "UIColor+AppColor.h"
+#import <SVPullToRefresh.h>
 
 @interface CompetitionDetailViewController ()
 
 @property (nonatomic, strong) MBProgressHUD* mbProgressHud;
 
-@property (nonatomic, strong) MJRefreshHeaderView* header;
 
 @end
 
@@ -24,29 +24,42 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self header];
+    
+    [self.tableView addPullToRefreshWithActionHandler:^() {
+        [self getLasterData:NO];
+    }];
+
+    
+    if (self.data == nil || self.data.count == 0) {
+        self.data = [[NSArray alloc] init];
+        [self getLasterData:YES];
+    }
+    else {
+        [self.tableView triggerPullToRefresh];
+    }
+    
+    
+
     // Do any additional setup after loading the view.
 }
 
 - (void)getLasterData:(BOOL)isFirstEnter
 {
-    __weak RootViewController* rootViewController = (RootViewController *)self.sideMenuViewController;
+    __weak RootViewController *rootViewController = (RootViewController *)self.sideMenuViewController;
     if (isFirstEnter) {
         [self.mbProgressHud show:YES];
-    } else {
-        [self.header beginRefreshing];
     }
     [self getDataFromNetwork:rootViewController.competition complete:self.completeBlock];
 }
 
 #pragma mark - getter & setter
 
-- (void (^)(NSArray* array, NSError* error))completeBlock
+- (void (^)(NSArray *array, NSError *error))completeBlock
 {
     if (_completeBlock == nil) {
         __weak CompetitionDetailViewController* weakSelf = self;
         _completeBlock = ^(NSArray* array, NSError* error) {
-            if (error) {
+            if (error && weakSelf) {
                 [MBProgressHUD showWhenNetworkErrorInView:weakSelf.view];
             } else {
                 weakSelf.data = array;
@@ -55,7 +68,7 @@
             
             [weakSelf.mbProgressHud removeFromSuperview];
 
-            [weakSelf.header endRefreshing];
+            [weakSelf.tableView.pullToRefreshView stopAnimating];
             
             /**
              *  search bar 交出firstresponder  防止出现搜索后 然后下拉刷新 searchbar没有清空的情况
@@ -67,30 +80,16 @@
     return _completeBlock;
 }
 
-- (NSArray*)data
+- (NSArray *)data
 {
     if (_data == nil) {
-        __weak RootViewController* rootViewController = (RootViewController*)self.sideMenuViewController;
+        __weak RootViewController *rootViewController = (RootViewController *)self.sideMenuViewController;
         _data = [self getDataFromCoreDataCompetition:rootViewController.competition];
-        if (_data == nil || _data.count == 0) {
-            _data = [[NSArray alloc] init];
-            [self getLasterData:YES];
-        }
     }
     return _data;
 }
 
-- (MJRefreshHeaderView*)header
-{
-    if (_header == nil) {
-        _header = [[MJRefreshHeaderView alloc] init];
-        _header.delegate = self;
-        _header.scrollView = self.tableView;
-    }
-    return _header;
-}
-
-- (MBProgressHUD*)mbProgressHud
+- (MBProgressHUD *)mbProgressHud
 {
     if (_mbProgressHud == nil) {
         _mbProgressHud = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
@@ -125,13 +124,6 @@
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     return [[UITableViewCell alloc] init];
-}
-
-#pragma mark - mjrefresh
-
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView*)refreshView
-{
-    [self getLasterData:NO];
 }
 
 #pragma mark - search bar delegate
@@ -178,13 +170,6 @@
 - (void)getDataFromNetwork:(Competition*)competition complete:(void (^)(NSArray*, NSError*))compete
 {
     return;
-}
-
-#pragma mark - delloc
-
-- (void)dealloc
-{
-    [self.header free];
 }
 
 @end

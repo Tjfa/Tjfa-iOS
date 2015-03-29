@@ -11,20 +11,18 @@
 #import "NewsCell.h"
 #import "NewsContentViewController.h"
 #import "MBProgressHUD+AppProgressView.h"
-#import "MJRefresh.h"
+#import <SVPullToRefresh.h>
 #import "UIView+RefreshFooterView.h"
 #import <CoreData+MagicalRecord.h>
 #import "TjfaConst.h"
 
-@interface NewsViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate, MJRefreshBaseViewDelegate>
+@interface NewsViewController () <UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *data;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) MBProgressHUD *loadProgress;
-
-@property (nonatomic, strong) MJRefreshHeaderView *headerView;
 
 @end
 
@@ -38,10 +36,16 @@
 {
     [super viewDidLoad];
     self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addPullToRefreshWithActionHandler:^() {
+        [weakSelf getLatestNews:nil];
+    }];
+    
     if (self.data.count == 0) {
         [self refreshLatestNewsWithProgress:YES];
     } else {
-        [self.headerView beginRefreshing];
+        [self.tableView triggerPullToRefresh];
     }
     // Do any additional setup after loading the view.
 }
@@ -72,20 +76,10 @@
     }
 }
 
-- (MJRefreshHeaderView*)headerView
-{
-    if (_headerView == nil) {
-        _headerView = [[MJRefreshHeaderView alloc] init];
-    }
-    return _headerView;
-}
-
 - (void)setTableView:(UITableView *)tableView
 {
     if (_tableView != tableView) {
         _tableView = tableView;
-        self.headerView.scrollView = _tableView;
-        self.headerView.delegate = self;
         _tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"newsBg"]];
         hasMore = YES;
     }
@@ -162,26 +156,30 @@
 
 - (void)getLatestNews:(MBProgressHUD *)progress
 {
-    __weak NewsViewController* weakSelf = self;
-    [[NewsManager sharedNewsManager] getLatestNewsFromNetworkWithLimit:DEFAULT_LIMIT complete:^(NSArray* newsArray, NSError* error) {
-        [weakSelf.headerView endRefreshing];
+    __weak typeof(self) weakSelf = self;
+    [[NewsManager sharedNewsManager] getLatestNewsFromNetworkWithLimit:DEFAULT_LIMIT complete:^(NSArray* newsArray, NSError *error) {
+       
+        [weakSelf.tableView.pullToRefreshView stopAnimating];
         
-        if (progress){
+        if (progress) {
             weakSelf.tableView.hidden=NO;
             [weakSelf.loadProgress removeFromSuperview];
             weakSelf.loadProgress=nil;
         }
 
-        if (error){
+        if (error) {
             hasMore=NO;
             [MBProgressHUD showWhenNetworkErrorInView:weakSelf.view];
         }
-        else{
-            if (newsArray.count<DEFAULT_LIMIT) hasMore=NO;
-            else hasMore=YES;
+        else {
+            if (newsArray.count<DEFAULT_LIMIT) {
+                hasMore=NO;
+            }
+            else {
+                hasMore=YES;
+            }
             weakSelf.data=[newsArray mutableCopy];
             [weakSelf.tableView reloadData];
-            [weakSelf.headerView endRefreshing];
         }
     }];
 }
@@ -208,25 +206,11 @@
     }];
 }
 
-#pragma mark - MJRefresh delegate
-
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
-{
-    if (refreshView == self.headerView) {
-        [self getLatestNews:nil];
-    }
-}
-
 #pragma mark - pop navigation
 
 - (IBAction)backButtonClick:(id)sender
 {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)dealloc
-{
-    [self.headerView free];
 }
 
 @end
