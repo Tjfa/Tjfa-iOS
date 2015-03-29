@@ -843,9 +843,10 @@
 				ORGANIZATIONNAME = "邱峰";
 				TargetAttributes = {
 					24F1D1DB18E063E0007E2309 = {
-						DevelopmentTeam = 2XYAGB2947;
+						DevelopmentTeam = YPE39BAJY9;
 					};
 					24F1D1FC18E063E1007E2309 = {
+						DevelopmentTeam = YPE39BAJY9;
 						TestTargetID = 24F1D1DB18E063E0007E2309;
 					};
 				};
@@ -1113,8 +1114,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Feng Qiu (SY5GMWCX74)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Feng Qiu (SY5GMWCX74)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tjfa/Tjfa-Prefix.pch";
 				INFOPLIST_FILE = "Tjfa/Tjfa-Info.plist";
@@ -1124,7 +1125,7 @@
 					"$(PROJECT_DIR)/Tjfa",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "014d91c8-8313-4d19-b9cc-a08b248561f1";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1136,8 +1137,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Hongming Zhu (2XYAGB2947)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Feng Qiu (SY5GMWCX74)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Feng Qiu (SY5GMWCX74)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tjfa/Tjfa-Prefix.pch";
@@ -1148,7 +1149,7 @@
 					"$(PROJECT_DIR)/Tjfa",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "014d91c8-8313-4d19-b9cc-a08b248561f1";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -18,6 +18,7 @@
 
 + (NSString*)appDownloadAddress
 {
+   
 
     NSString* str = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@", [AppInfo appId]];
     return str;
