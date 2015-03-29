@@ -44,6 +44,9 @@ PODS:
   - MagicalRecord/Core (2.2)
   - MBProgressHUD (0.8)
   - RESideMenu (4.0.5)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
   - SVPullToRefresh (0.4.1)
   - TMRoutable (0.1.6)
   - UMeng (2.2.1)
@@ -57,6 +60,7 @@ DEPENDENCIES:
   - MagicalRecord (~> 2.2)
   - MBProgressHUD (~> 0.8)
   - RESideMenu (~> 4.0.5)
+  - SDWebImage (~> 3.7.2)
   - SVPullToRefresh (~> 0.4.1)
   - TMRoutable (~> 0.1.6)
   - UMeng (~> 2.2.1)
@@ -70,6 +74,7 @@ SPEC CHECKSUMS:
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
   RESideMenu: 0a6f20a11412975d683fab9db2d255865d0aaeee
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SVPullToRefresh: d5161ebc833a38b465364412e5e307ca80bbb190
   TMRoutable: 8482d7e7afbec946de0ce81eec9b95e9e2ce0d01
   UMeng: e5b6c6a06215aeba33cb59159341ab3d6d292935

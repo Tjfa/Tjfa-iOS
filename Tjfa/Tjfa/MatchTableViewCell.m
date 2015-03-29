@@ -10,6 +10,7 @@
 #import "Team.h"
 #import <UIImageView+AFNetworking.h>
 #import "NSDate+Date2Str.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface MatchTableViewCell ()
 
@@ -77,8 +78,9 @@
         }
     }
 
-    [self.emblemPathA setImageWithURL:[NSURL URLWithString:match.teamA.emblemPath] placeholderImage:[UIImage imageNamed:@"teamPlaceHolderA"]];
-    [self.emblemPathB setImageWithURL:[NSURL URLWithString:match.teamB.emblemPath] placeholderImage:[UIImage imageNamed:@"teamPlaceHolderB"]];
+
+    [self.emblemPathA sd_setImageWithURL:[NSURL URLWithString:match.teamA.emblemPath] placeholderImage:[UIImage imageNamed:@"teamPlaceHolderA"]];
+    [self.emblemPathB sd_setImageWithURL:[NSURL URLWithString:match.teamB.emblemPath] placeholderImage:[UIImage imageNamed:@"teamPlaceHolderB"]];
 
     if (match.penaltyA.intValue == 0 && match.penaltyB.intValue == 0) {
         self.penaltyA.hidden = YES;

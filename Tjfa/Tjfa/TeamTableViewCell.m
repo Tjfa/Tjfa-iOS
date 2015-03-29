@@ -7,7 +7,7 @@
 //
 
 #import "TeamTableViewCell.h"
-#import <UIImageView+AFNetworking.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface TeamTableViewCell ()
 
@@ -27,7 +27,7 @@
     self.goalCount.text = [NSString stringWithFormat:@"进 %@", team.goalCount];
     self.missCount.text = [NSString stringWithFormat:@"失 %@", team.missCount];
     self.group.text = [NSString stringWithFormat:@"组 %@", team.groupNo];
-    [self.emblemPath setImageWithURL:[NSURL URLWithString:team.emblemPath] placeholderImage:[UIImage imageNamed:@"teamPlaceHolderA"]];
+    [self.emblemPath sd_setImageWithURL:[NSURL URLWithString:team.emblemPath] placeholderImage:[UIImage imageNamed:@"teamPlaceHolderA"]];
     int rank = [team.rank intValue];
 
     if (rank == 100) {
