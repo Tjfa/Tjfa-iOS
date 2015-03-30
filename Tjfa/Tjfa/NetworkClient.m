@@ -67,11 +67,9 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self GET:address parameters:parameters success:^(NSURLSessionDataTask* task, id responseObject) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-            NSLog(@"successful");
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
             if (httpResponse.statusCode == 200){
-                dispatch_async(dispatch_get_main_queue(), ^{      
-                    NSLog(@"%@",responseObject);
+                dispatch_async(dispatch_get_main_queue(), ^{
                     complete(responseObject,nil);
                 });
             }else{
@@ -83,9 +81,7 @@ NSString* serverUrlStr = @"http://sseclass.tongji.edu.cn/tjfa/";
     }
         failure:^(NSURLSessionDataTask* task, NSError* error) {
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-            NSLog(@"fail");
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"%@",error);
                 complete(nil, error);
             });
         }];
