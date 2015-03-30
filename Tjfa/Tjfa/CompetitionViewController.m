@@ -23,6 +23,8 @@
     __weak Competition* lastCompetition;
 }
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentView;
+
 @property (readwrite, nonatomic) NSNumber* type; // 1-本部 2-嘉定
 
 //section
@@ -50,24 +52,32 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    if ([self.type isEqualToNumber:@1]) {
-        self.navigationItem.title = @"本  部";
-    } else {
-        self.navigationItem.title = @"嘉  定";
-    }
-    
     __weak typeof(self) weakSelf = self;
     [self.tableView addPullToRefreshWithActionHandler:^() {
         [weakSelf getLatestData];
     }];
     
-    [self getLocalData];
-    hasMore = YES;
+    [super viewDidLoad];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    if ([self.type isEqualToNumber:@1]) {
+        self.navigationItem.title = @"本  部";
+        self.segmentView.selectedSegmentIndex = 0;
+    } else {
+        self.navigationItem.title = @"嘉  定";
+        self.segmentView.selectedSegmentIndex = 1;
+    }
 }
 
 #pragma mark - getter & setter
+
+- (void)setType:(NSNumber *)type
+{
+    if (![_type isEqualToNumber:type]) {
+        _type = type;
+        hasMore = YES;
+        [self getLocalData];
+    }
+}
 
 - (MBProgressHUD*)progressView
 {
@@ -178,7 +188,7 @@
 - (void)getLocalData
 {
     
-    NSArray* results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:self.type];
+    NSArray *results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:self.type];
 
     if ([results count] == 0) {
         [self.progressView show:YES];
@@ -271,5 +281,18 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - segment
+
+- (IBAction)segmentChange:(UISegmentedControl *)sender
+{
+    if (sender.selectedSegmentIndex == 0) {
+        self.type = @(1);
+    }
+    else {
+        self.type = @(2);
+    }
+}
+
 
 @end

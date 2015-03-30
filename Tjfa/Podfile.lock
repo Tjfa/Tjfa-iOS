@@ -38,6 +38,11 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
   - libWeChatSDK (1.4.2.1)
   - MagicalRecord (2.2):
     - MagicalRecord/Core (= 2.2)
@@ -56,6 +61,7 @@ DEPENDENCIES:
   - AVOSCloud (~> 2.6.11.2)
   - AVOSCloudSNS (~> 2.6.11.2)
   - BlocksKit (~> 2.2.5)
+  - FMDB (~> 2.5)
   - libWeChatSDK (~> 1.4.2.1)
   - MagicalRecord (~> 2.2)
   - MBProgressHUD (~> 0.8)
@@ -70,6 +76,7 @@ SPEC CHECKSUMS:
   AVOSCloud: c4e261f5d68f42c6e4c4a64934490b2f38c9cff7
   AVOSCloudSNS: bbeb6d2e21cb7971850565e41e0b4c0f2a9ce7d5
   BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
+  FMDB: 0efa188cf0dd1ce82c27a478cd5f5fa245308677
   libWeChatSDK: 566fcb1c7b724cc3306fa83667094c5f0743477a
   MagicalRecord: 2b471584fc9e3137f3d0a56967917baa4979e224
   MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
