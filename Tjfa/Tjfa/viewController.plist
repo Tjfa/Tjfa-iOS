@@ -4,8 +4,8 @@
 <dict>
 	<key>home</key>
 	<string>DashboardViewController</string>
-	<key>about</key>
-	<string>NewAboutViewController</string>
+	<key>setting</key>
+	<string>SettingViewController</string>
 	<key>news_content</key>
 	<string>NewsContentViewController</string>
 	<key>news</key>
@@ -14,5 +14,11 @@
 	<string>RootViewController</string>
 	<key>competition</key>
 	<string>CompetitionViewController</string>
+	<key>login</key>
+	<string>LoginInViewController</string>
+	<key>register</key>
+	<string>RegisterViewController</string>
+	<key>forget</key>
+	<string>ForgetPasswordViewController</string>
 </dict>
 </plist>

@@ -120,23 +120,12 @@
         mbProgressHub.dimBackground = YES;
         mbProgressHub.labelText = @"清除中。。请稍候";
 
-        __weak AboutManager* weakSelf = self;
-
         [mbProgressHub showAnimated:YES whileExecutingBlock:^(void) {
             dispatch_async(dispatch_get_main_queue(), ^(){
                 [[DatabaseManager sharedDatabaseManager] clearAllData];
             });
         } completionBlock:^() {
-            
-            MBProgressHUD* finishProgress=[[MBProgressHUD alloc] initWithView:weakSelf.instanceController.navigationController.view];
-            [weakSelf.instanceController.navigationController.view addSubview:finishProgress];
-            finishProgress.dimBackground = YES;
-            finishProgress.labelText = @"清除成功";
-            finishProgress.mode= MBProgressHUDModeCustomView;
-            finishProgress.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkMark"]];
-            [finishProgress showAnimated:YES whileExecutingBlock:^(){
-                sleep(1);
-            }];
+            [MBProgressHUD showSucessProgressInView:nil withText:@"清除成功"];
         }];
     }
 }

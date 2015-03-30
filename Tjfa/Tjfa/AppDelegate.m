@@ -8,11 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppInfo.h"
-#import "AVCompetition.h"
-#import "AVMatch.h"
-#import "AVNews.h"
-#import "AVPlayer.h"
-#import "AVTeam.h"
+#import "AVModule.h"
 #import <CoreData+MagicalRecord.h>
 #import <AVOSCloud.h>
 #import <AVOSCloudSNS.h>
@@ -24,7 +20,6 @@
 #import "UserData.h"
 #import <Routable.h>
 #import "UIApplication+MainNav.h"
-#import "NewAboutViewController.h"
 #import <UIAlertView+BlocksKit.h>
 
 @implementation AppDelegate
@@ -170,6 +165,7 @@
 
 - (void)registerAVClass
 {
+    [TJUser registerSubclass];
     [AVCompetition registerSubclass];
     [AVMatch registerSubclass];
     [AVNews registerSubclass];

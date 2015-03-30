@@ -12,8 +12,10 @@
 
 + (MBProgressHUD*)progressHUDNetworkLoadingInView:(UIView*)view;
 
-+ (MBProgressHUD*)progressHUDNetworkErrorInView:(UIView*)view;
-
 + (void)showWhenNetworkErrorInView:(UIView*)view;
+
++ (void)showErrorProgressInView:(UIView *)view withText:(NSString *)text;
+
++ (void)showSucessProgressInView:(UIView *)view withText:(NSString *)text;
 
 @end

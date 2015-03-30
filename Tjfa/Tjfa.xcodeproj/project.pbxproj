@@ -33,7 +33,7 @@
 		2458D4AE19A75AB5004123BA /* download_ewm.png in Resources */ = {isa = PBXBuildFile; fileRef = 2458D4AD19A75AB5004123BA /* download_ewm.png */; };
 		246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753B6196BE2BA007BDE90 /* NewsContentViewController.m */; };
 		246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */; };
-		24686C6F196E562F00D8CF86 /* NewAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C6E196E562F00D8CF86 /* NewAboutViewController.m */; };
+		24686C6F196E562F00D8CF86 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C6E196E562F00D8CF86 /* SettingViewController.m */; };
 		24686C74196E66DC00D8CF86 /* AboutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C73196E66DC00D8CF86 /* AboutManager.m */; };
 		24686C7A196E7B4C00D8CF86 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C79196E7B4C00D8CF86 /* WelcomeViewController.m */; };
 		24686C7E196E7DD000D8CF86 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C7D196E7DD000D8CF86 /* UserData.m */; };
@@ -87,6 +87,12 @@
 		571F1BFD12CA4E6E8E04F93C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC567E161D864E30A568E12D /* libPods.a */; };
 		63A3E9891A4F142A009CAA6A /* libShareComponent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A3E9871A4F142A009CAA6A /* libShareComponent.a */; };
 		ADEDA1E1195FE00D009B8D20 /* CompetitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E0195FE00D009B8D20 /* CompetitionViewController.m */; };
+		F34666901AC9909900E83B7F /* TJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F346668F1AC9909900E83B7F /* TJUser.m */; };
+		F34666951AC991E000E83B7F /* LoginInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666941AC991E000E83B7F /* LoginInViewController.m */; };
+		F34666981AC997C300E83B7F /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666971AC997C300E83B7F /* CALayer+XibConfiguration.m */; };
+		F34666A01AC9ABCB00E83B7F /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F346669F1AC9ABCB00E83B7F /* LoginManager.m */; };
+		F34666A31AC9B1E400E83B7F /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666A21AC9B1E400E83B7F /* ForgetPasswordViewController.m */; };
+		F34666A61AC9B1F400E83B7F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666A51AC9B1F400E83B7F /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,8 +154,8 @@
 		246753B6196BE2BA007BDE90 /* NewsContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentViewController.m; sourceTree = "<group>"; };
 		246753BB196BE52A007BDE90 /* MBProgressHUD+AppProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+AppProgressView.h"; sourceTree = "<group>"; };
 		246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+AppProgressView.m"; sourceTree = "<group>"; };
-		24686C6D196E562F00D8CF86 /* NewAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewAboutViewController.h; sourceTree = "<group>"; };
-		24686C6E196E562F00D8CF86 /* NewAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewAboutViewController.m; sourceTree = "<group>"; };
+		24686C6D196E562F00D8CF86 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		24686C6E196E562F00D8CF86 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		24686C72196E66DC00D8CF86 /* AboutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutManager.h; sourceTree = "<group>"; };
 		24686C73196E66DC00D8CF86 /* AboutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutManager.m; sourceTree = "<group>"; };
 		24686C78196E7B4C00D8CF86 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
@@ -246,6 +252,19 @@
 		ADEDA1E0195FE00D009B8D20 /* CompetitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionViewController.m; sourceTree = "<group>"; };
 		EAB7EA070E17EAF442D6E550 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EC567E161D864E30A568E12D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F346668E1AC9909900E83B7F /* TJUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUser.h; sourceTree = "<group>"; };
+		F346668F1AC9909900E83B7F /* TJUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUser.m; sourceTree = "<group>"; };
+		F34666911AC9911F00E83B7F /* AVModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVModule.h; sourceTree = "<group>"; };
+		F34666931AC991E000E83B7F /* LoginInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInViewController.h; sourceTree = "<group>"; };
+		F34666941AC991E000E83B7F /* LoginInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInViewController.m; sourceTree = "<group>"; };
+		F34666961AC997C300E83B7F /* CALayer+XibConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibConfiguration.h"; sourceTree = "<group>"; };
+		F34666971AC997C300E83B7F /* CALayer+XibConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibConfiguration.m"; sourceTree = "<group>"; };
+		F346669E1AC9ABCB00E83B7F /* LoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
+		F346669F1AC9ABCB00E83B7F /* LoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
+		F34666A11AC9B1E400E83B7F /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		F34666A21AC9B1E400E83B7F /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		F34666A41AC9B1F400E83B7F /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		F34666A51AC9B1F400E83B7F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +325,9 @@
 				18190ECE19CFFFE200D0488F /* AVPlayer.m */,
 				18190ECF19CFFFE200D0488F /* AVTeam.h */,
 				18190ED019CFFFE200D0488F /* AVTeam.m */,
+				F346668E1AC9909900E83B7F /* TJUser.h */,
+				F346668F1AC9909900E83B7F /* TJUser.m */,
+				F34666911AC9911F00E83B7F /* AVModule.h */,
 			);
 			name = AVModule;
 			sourceTree = "<group>";
@@ -335,11 +357,12 @@
 				18145E881ABDBD1600040AB7 /* BaseViewController.m */,
 				18145E8A1ABDBDFF00040AB7 /* BaseTableViewController.h */,
 				18145E8B1ABDBDFF00040AB7 /* BaseTableViewController.m */,
+				F34666921AC991BC00E83B7F /* Member */,
 				24B8C1B91977B33300B2FAD0 /* CompetitionDetail */,
 				24686C77196E7B2D00D8CF86 /* Welcome */,
 				2495BA2419690BE5009BB60F /* News */,
 				ADEDA1DE195FDFF0009B8D20 /* Competition */,
-				240AE6D9195F0D2100F7820D /* About */,
+				240AE6D9195F0D2100F7820D /* Setting */,
 				240AE6CA195EC20B00F7820D /* Category */,
 				240AE6D1195EC53100F7820D /* Dashboard */,
 			);
@@ -355,6 +378,8 @@
 				240AE6CC195EC23300F7820D /* UIColor+AppColor.m */,
 				246753BB196BE52A007BDE90 /* MBProgressHUD+AppProgressView.h */,
 				246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */,
+				F34666961AC997C300E83B7F /* CALayer+XibConfiguration.h */,
+				F34666971AC997C300E83B7F /* CALayer+XibConfiguration.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -380,13 +405,13 @@
 			name = DashboardView;
 			sourceTree = "<group>";
 		};
-		240AE6D9195F0D2100F7820D /* About */ = {
+		240AE6D9195F0D2100F7820D /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				240099F219600BE30036EFF4 /* Category */,
-				24686C76196E674100D8CF86 /* NewAbout */,
+				24686C76196E674100D8CF86 /* Setting */,
 			);
-			name = About;
+			name = Setting;
 			sourceTree = "<group>";
 		};
 		241D4A50196E918000E3FC02 /* Category */ = {
@@ -423,15 +448,15 @@
 			name = About;
 			sourceTree = "<group>";
 		};
-		24686C76196E674100D8CF86 /* NewAbout */ = {
+		24686C76196E674100D8CF86 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				2447B3A8198CAA7300B297BB /* Developer.h */,
 				2447B3A9198CAA7300B297BB /* Developer.m */,
-				24686C6D196E562F00D8CF86 /* NewAboutViewController.h */,
-				24686C6E196E562F00D8CF86 /* NewAboutViewController.m */,
+				24686C6D196E562F00D8CF86 /* SettingViewController.h */,
+				24686C6E196E562F00D8CF86 /* SettingViewController.m */,
 			);
-			name = NewAbout;
+			name = Setting;
 			sourceTree = "<group>";
 		};
 		24686C77196E7B2D00D8CF86 /* Welcome */ = {
@@ -618,6 +643,7 @@
 		24CFD62518E1517100D706D1 /* LogicalLayer */ = {
 			isa = PBXGroup;
 			children = (
+				F346669D1AC9ABAE00E83B7F /* LoginIn and Register */,
 				2447B3A7198CA08600B297BB /* Shared */,
 				24FED22B195A774900A9F0DA /* DatabaseManager.h */,
 				24FED22C195A774900A9F0DA /* DatabaseManager.m */,
@@ -761,6 +787,28 @@
 				63A3E9861A4F13CE009CAA6A /* Renren Share */,
 			);
 			name = Library;
+			sourceTree = "<group>";
+		};
+		F34666921AC991BC00E83B7F /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				F34666931AC991E000E83B7F /* LoginInViewController.h */,
+				F34666941AC991E000E83B7F /* LoginInViewController.m */,
+			);
+			name = Member;
+			sourceTree = "<group>";
+		};
+		F346669D1AC9ABAE00E83B7F /* LoginIn and Register */ = {
+			isa = PBXGroup;
+			children = (
+				F346669E1AC9ABCB00E83B7F /* LoginManager.h */,
+				F346669F1AC9ABCB00E83B7F /* LoginManager.m */,
+				F34666A11AC9B1E400E83B7F /* ForgetPasswordViewController.h */,
+				F34666A21AC9B1E400E83B7F /* ForgetPasswordViewController.m */,
+				F34666A41AC9B1F400E83B7F /* RegisterViewController.h */,
+				F34666A51AC9B1F400E83B7F /* RegisterViewController.m */,
+			);
+			name = "LoginIn and Register";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -909,6 +957,8 @@
 				240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */,
 				24686C7A196E7B4C00D8CF86 /* WelcomeViewController.m in Sources */,
 				24C6FE4E195E8574008B594C /* News.m in Sources */,
+				F34666981AC997C300E83B7F /* CALayer+XibConfiguration.m in Sources */,
+				F34666901AC9909900E83B7F /* TJUser.m in Sources */,
 				244ACBC3198E8C55003E640A /* Welcome1.m in Sources */,
 				240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */,
 				24C6FE4F195E8574008B594C /* Team.m in Sources */,
@@ -921,6 +971,7 @@
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
 				244ACBCB198E8CFD003E640A /* Welcome2.m in Sources */,
 				246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */,
+				F34666A01AC9ABCB00E83B7F /* LoginManager.m in Sources */,
 				2447B3AA198CAA7300B297BB /* Developer.m in Sources */,
 				24C84BC11976CADE00980720 /* RootViewController.m in Sources */,
 				24C6FE4C195E8574008B594C /* Match.m in Sources */,
@@ -934,6 +985,8 @@
 				24B154311983CD7E004F87DA /* TeamViewController.m in Sources */,
 				2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */,
 				24686C7E196E7DD000D8CF86 /* UserData.m in Sources */,
+				F34666A61AC9B1F400E83B7F /* RegisterViewController.m in Sources */,
+				F34666951AC991E000E83B7F /* LoginInViewController.m in Sources */,
 				24B154341983D8E0004F87DA /* TeamTableViewCell.m in Sources */,
 				248BD093197E508D00419603 /* GroupScoreViewController.m in Sources */,
 				24B8C1C51977B7F800B2FAD0 /* MatchTableViewCell.m in Sources */,
@@ -951,7 +1004,7 @@
 				18190ED219CFFFE200D0488F /* AVMatch.m in Sources */,
 				24B8C1BD1977B43F00B2FAD0 /* TopScoreViewController.m in Sources */,
 				240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */,
-				24686C6F196E562F00D8CF86 /* NewAboutViewController.m in Sources */,
+				24686C6F196E562F00D8CF86 /* SettingViewController.m in Sources */,
 				248BD09A197E60C600419603 /* TeamManager.m in Sources */,
 				24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */,
 				24C6FE4B195E8574008B594C /* Player.m in Sources */,
@@ -964,6 +1017,7 @@
 				ADEDA1E1195FE00D009B8D20 /* CompetitionViewController.m in Sources */,
 				248BD096197E593000419603 /* GroupScoreCell.m in Sources */,
 				24C84BC41976CFF700980720 /* MenuViewController.m in Sources */,
+				F34666A31AC9B1E400E83B7F /* ForgetPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

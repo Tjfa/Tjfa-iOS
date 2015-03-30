@@ -1,18 +1,18 @@
 //
-//  NewAboutViewController.m
+//  SettingViewController.m
 //  Tjfa
 //
 //  Created by 邱峰 on 7/10/14.
 //  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
-#import "NewAboutViewController.h"
+#import "SettingViewController.h"
 #import "Developer.h"
 #import "UIColor+AppColor.h"
 #import "AboutManager.h"
 #import "AppInfo.h"
 
-@interface NewAboutViewController () <UIGestureRecognizerDelegate, UIActionSheetDelegate>
+@interface SettingViewController () <UIGestureRecognizerDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel* versionLable;
 
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation NewAboutViewController
+@implementation SettingViewController
 
 - (void)viewDidLoad
 {

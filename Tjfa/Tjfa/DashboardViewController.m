@@ -11,14 +11,15 @@
 #import "CompetitionViewController.h"
 #import "UIColor+AppColor.h"
 #import <Routable.h>
+#import "TJUser.h"
 #import "NotificationCenter.h"
 
 @interface DashboardViewController ()
 
 @property (nonatomic, strong) DashboardCell* newsView;
 @property (nonatomic, strong) DashboardCell* settingView;
-@property (nonatomic, strong) DashboardCell* benbuView;
-@property (nonatomic, strong) DashboardCell* jiadingView;
+@property (nonatomic, strong) DashboardCell* matchView;
+@property (nonatomic, strong) DashboardCell* memberView;
 
 @property (nonatomic, strong) NSArray* dashBoardCellArray;
 
@@ -86,30 +87,30 @@ const CGFloat delayAnimate = 0.1;
 
 #pragma mark - getter & setter
 
-- (DashboardCell*)benbuButton
+- (DashboardCell *)matchView
 {
-    if (_benbuView == nil) {
+    if (_matchView == nil) {
         CGRect cellFrame = CGRectMake(0, [self offsetY], self.rootView.frame.size.width / 2, dashboardButtonSize + labelHeight);
 
-        _benbuView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardBenbu"] labelName:@"本 部" direction:kDashboardLabelLeft target:self action:@selector(benbuClick:) dashboardSize:dashboardButtonSize];
-        [self.rootView addSubview:_benbuView];
+        _matchView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardCompetition"] labelName:@"比 赛" direction:kDashboardLabelLeft target:self action:@selector(matchClick:) dashboardSize:dashboardButtonSize];
+        [self.rootView addSubview:_matchView];
     }
-    return _benbuView;
+    return _matchView;
 }
 
-- (DashboardCell*)jiadingButton
+- (DashboardCell *)memberView
 {
-    if (_jiadingView == nil) {
+    if (_memberView == nil) {
 
         CGRect cellFrame = CGRectMake(self.rootView.frame.size.width / 2, [self offsetY], self.rootView.frame.size.width / 2, dashboardButtonSize + labelHeight);
 
-        _jiadingView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardJiading"] labelName:@"嘉 定" direction:kDashboardLabelRight target:self action:@selector(jiadingClick:) dashboardSize:dashboardButtonSize];
-        [self.rootView addSubview:_jiadingView];
+        _memberView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardMember"] labelName:@"会 员" direction:kDashboardLabelRight target:self action:@selector(memberClick:) dashboardSize:dashboardButtonSize];
+        [self.rootView addSubview:_memberView];
     }
-    return _jiadingView;
+    return _memberView;
 }
 
-- (DashboardCell*)newsButton
+- (DashboardCell*)newsView
 {
     if (_newsView == nil) {
 
@@ -121,12 +122,12 @@ const CGFloat delayAnimate = 0.1;
     return _newsView;
 }
 
-- (DashboardCell*)settingButton
+- (DashboardCell*)settingView
 {
     if (_settingView == nil) {
         CGRect cellFrame = CGRectMake(self.rootView.frame.size.width / 2, self.rootView.frame.size.height / 2 + [self offsetY], self.rootView.frame.size.width / 2, dashboardButtonSize + labelHeight);
 
-        _settingView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardSetting"] labelName:@"关 于" direction:kDashboardLabelRight target:self action:@selector(settingClick:) dashboardSize:dashboardButtonSize];
+        _settingView = [[DashboardCell alloc] initWithFrame:cellFrame image:[UIImage imageNamed:@"dashboardSetting"] labelName:@"设 置" direction:kDashboardLabelRight target:self action:@selector(settingClick:) dashboardSize:dashboardButtonSize];
         [self.rootView addSubview:_settingView];
     }
     return _settingView;
@@ -135,7 +136,7 @@ const CGFloat delayAnimate = 0.1;
 - (NSArray*)dashBoardCellArray
 {
     if (_dashBoardCellArray == nil) {
-        _dashBoardCellArray = [[NSArray alloc] initWithObjects:self.benbuButton, self.jiadingButton, self.newsButton, self.settingButton, nil];
+        _dashBoardCellArray = [[NSArray alloc] initWithObjects:self.matchView, self.memberView, self.newsView, self.settingView, nil];
     }
     return _dashBoardCellArray;
 }
@@ -184,16 +185,20 @@ const CGFloat delayAnimate = 0.1;
     }
 }
 
-- (void)benbuClick:(id)sender
+- (void)matchClick:(id)sender
 {
     [self closeDashboardCellUserInterface];
     [self hideWithAnimateSynCompleteToController:@"competition" withParams:@{@"type":@1}];
 }
 
-- (void)jiadingClick:(id)sender
+- (void)memberClick:(id)sender
 {
     [self closeDashboardCellUserInterface];
-    [self hideWithAnimateSynCompleteToController:@"competition" withParams:@{@"type":@2}];
+    NSString *controllerId = @"login";
+    if ([TJUser currentUser] != nil) {
+        controllerId = @"memberHome";
+    }
+    [self hideWithAnimateSynCompleteToController:controllerId withParams:nil];
 }
 
 - (void)newsClick:(id)sender
@@ -206,7 +211,7 @@ const CGFloat delayAnimate = 0.1;
 {
     
     [self closeDashboardCellUserInterface];
-    [self hideWithAnimateSynCompleteToController:@"about" withParams:nil];
+    [self hideWithAnimateSynCompleteToController:@"setting" withParams:nil];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  NewAboutViewController.h
+//  SettingViewController.h
 //  Tjfa
 //
 //  Created by 邱峰 on 7/10/14.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "BaseTableViewController.h"
 
-@interface NewAboutViewController : BaseTableViewController
+@interface SettingViewController : BaseTableViewController
 
 @end
