@@ -9,8 +9,13 @@
 #ifndef Tjfa_TjfaConst_h
 #define Tjfa_TjfaConst_h
 
-#define AVOS_APP_ID @"n2iby57nxdhh1cnqw27eocg6lkujbovtgvb7ezzjtb9wpqqf"
-#define AVOS_CLIENT_KEY @"ks5u25gdqcm5laox6oj9gfq195p4ymfaytb9eix5fb6yq6nt"
+#if DEBUG
+    #define AVOS_APP_ID @"yyy2oocar74kh9kywwg4z9wdqzjelmjs9fsju5fm01r9mkdg"
+    #define AVOS_CLIENT_KEY @"v3cdupbp0fcv9b9712qvp45qb0efq6hy0iqttu3nvd80d6ts"
+#else
+    #define AVOS_APP_ID @"n2iby57nxdhh1cnqw27eocg6lkujbovtgvb7ezzjtb9wpqqf"
+    #define AVOS_CLIENT_KEY @"ks5u25gdqcm5laox6oj9gfq195p4ymfaytb9eix5fb6yq6nt"
+#endif
 
 #define DEFAULT_LIMIT 20
 

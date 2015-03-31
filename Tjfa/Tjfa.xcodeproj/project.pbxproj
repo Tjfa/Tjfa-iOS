@@ -794,6 +794,10 @@
 			children = (
 				F34666931AC991E000E83B7F /* LoginInViewController.h */,
 				F34666941AC991E000E83B7F /* LoginInViewController.m */,
+				F34666A11AC9B1E400E83B7F /* ForgetPasswordViewController.h */,
+				F34666A21AC9B1E400E83B7F /* ForgetPasswordViewController.m */,
+				F34666A41AC9B1F400E83B7F /* RegisterViewController.h */,
+				F34666A51AC9B1F400E83B7F /* RegisterViewController.m */,
 			);
 			name = Member;
 			sourceTree = "<group>";
@@ -803,10 +807,6 @@
 			children = (
 				F346669E1AC9ABCB00E83B7F /* LoginManager.h */,
 				F346669F1AC9ABCB00E83B7F /* LoginManager.m */,
-				F34666A11AC9B1E400E83B7F /* ForgetPasswordViewController.h */,
-				F34666A21AC9B1E400E83B7F /* ForgetPasswordViewController.m */,
-				F34666A41AC9B1F400E83B7F /* RegisterViewController.h */,
-				F34666A51AC9B1F400E83B7F /* RegisterViewController.m */,
 			);
 			name = "LoginIn and Register";
 			sourceTree = "<group>";
