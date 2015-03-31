@@ -8,6 +8,11 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
+@class AVFile;
+
 @interface TJUser : AVUser
+
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) AVFile *avatar;
 
 @end

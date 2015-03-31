@@ -10,7 +10,9 @@
 
 @interface MBProgressHUD (AppProgressView)
 
-+ (MBProgressHUD*)progressHUDNetworkLoadingInView:(UIView*)view;
++ (MBProgressHUD *)determinateProgressHUDInView:(UIView *)view withText:(NSString *)text;
+
++ (MBProgressHUD *)progressHUDNetworkLoadingInView:(UIView *)view;
 
 + (void)showWhenNetworkErrorInView:(UIView*)view;
 

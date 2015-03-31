@@ -40,13 +40,6 @@ const CGFloat delayAnimate = 0.1;
     [[Routable sharedRouter] setNavigationController:self.navigationController];
 
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dashboardTitle"]];
-
-    self.navigationController.navigationBar.barTintColor = [UIColor appNavigationBarTintColor];
-    self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-
-    NSDictionary* titleDictionaryAttribute = @{ NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont boldSystemFontOfSize:22] };
-    self.navigationController.navigationBar.titleTextAttributes = titleDictionaryAttribute;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -196,7 +189,7 @@ const CGFloat delayAnimate = 0.1;
     [self closeDashboardCellUserInterface];
     NSString *controllerId = @"login";
     if ([TJUser currentUser] != nil) {
-        controllerId = @"memberHome";
+        controllerId = @"memberMatch";
     }
     [self hideWithAnimateSynCompleteToController:controllerId withParams:nil];
 }

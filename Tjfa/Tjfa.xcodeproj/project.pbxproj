@@ -93,6 +93,9 @@
 		F34666A01AC9ABCB00E83B7F /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F346669F1AC9ABCB00E83B7F /* LoginManager.m */; };
 		F34666A31AC9B1E400E83B7F /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666A21AC9B1E400E83B7F /* ForgetPasswordViewController.m */; };
 		F34666A61AC9B1F400E83B7F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666A51AC9B1F400E83B7F /* RegisterViewController.m */; };
+		F34666AD1ACA8B7600E83B7F /* UserCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666AC1ACA8B7600E83B7F /* UserCenterTableViewController.m */; };
+		F34666B41ACA9C4400E83B7F /* MemberMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666B31ACA9C4400E83B7F /* MemberMatchViewController.m */; };
+		F34666B71ACAA87700E83B7F /* ModifyNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666B61ACAA87700E83B7F /* ModifyNameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,6 +268,12 @@
 		F34666A21AC9B1E400E83B7F /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		F34666A41AC9B1F400E83B7F /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		F34666A51AC9B1F400E83B7F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		F34666AB1ACA8B7600E83B7F /* UserCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterTableViewController.h; sourceTree = "<group>"; };
+		F34666AC1ACA8B7600E83B7F /* UserCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterTableViewController.m; sourceTree = "<group>"; };
+		F34666B21ACA9C4400E83B7F /* MemberMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberMatchViewController.h; sourceTree = "<group>"; };
+		F34666B31ACA9C4400E83B7F /* MemberMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberMatchViewController.m; sourceTree = "<group>"; };
+		F34666B51ACAA87700E83B7F /* ModifyNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyNameViewController.h; sourceTree = "<group>"; };
+		F34666B61ACAA87700E83B7F /* ModifyNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -798,6 +807,12 @@
 				F34666A21AC9B1E400E83B7F /* ForgetPasswordViewController.m */,
 				F34666A41AC9B1F400E83B7F /* RegisterViewController.h */,
 				F34666A51AC9B1F400E83B7F /* RegisterViewController.m */,
+				F34666AB1ACA8B7600E83B7F /* UserCenterTableViewController.h */,
+				F34666AC1ACA8B7600E83B7F /* UserCenterTableViewController.m */,
+				F34666B21ACA9C4400E83B7F /* MemberMatchViewController.h */,
+				F34666B31ACA9C4400E83B7F /* MemberMatchViewController.m */,
+				F34666B51ACAA87700E83B7F /* ModifyNameViewController.h */,
+				F34666B61ACAA87700E83B7F /* ModifyNameViewController.m */,
 			);
 			name = Member;
 			sourceTree = "<group>";
@@ -953,6 +968,7 @@
 				249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */,
 				18190ED519CFFFE200D0488F /* AVTeam.m in Sources */,
 				24E58E8C18E815C1007BFFD8 /* MatchManager.m in Sources */,
+				F34666AD1ACA8B7600E83B7F /* UserCenterTableViewController.m in Sources */,
 				2495BA2A19691E28009BB60F /* NewsCell.m in Sources */,
 				240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */,
 				24686C7A196E7B4C00D8CF86 /* WelcomeViewController.m in Sources */,
@@ -975,6 +991,7 @@
 				2447B3AA198CAA7300B297BB /* Developer.m in Sources */,
 				24C84BC11976CADE00980720 /* RootViewController.m in Sources */,
 				24C6FE4C195E8574008B594C /* Match.m in Sources */,
+				F34666B41ACA9C4400E83B7F /* MemberMatchViewController.m in Sources */,
 				24686C83196E875600D8CF86 /* Welcome3.m in Sources */,
 				18190ED419CFFFE200D0488F /* AVPlayer.m in Sources */,
 				18145E831ABD8AB100040AB7 /* NotificationCenter.m in Sources */,
@@ -986,6 +1003,7 @@
 				2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */,
 				24686C7E196E7DD000D8CF86 /* UserData.m in Sources */,
 				F34666A61AC9B1F400E83B7F /* RegisterViewController.m in Sources */,
+				F34666B71ACAA87700E83B7F /* ModifyNameViewController.m in Sources */,
 				F34666951AC991E000E83B7F /* LoginInViewController.m in Sources */,
 				24B154341983D8E0004F87DA /* TeamTableViewCell.m in Sources */,
 				248BD093197E508D00419603 /* GroupScoreViewController.m in Sources */,

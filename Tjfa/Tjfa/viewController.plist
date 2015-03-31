@@ -20,5 +20,11 @@
 	<string>RegisterViewController</string>
 	<key>forget</key>
 	<string>ForgetPasswordViewController</string>
+	<key>usercenter</key>
+	<string>UserCenterTableViewController</string>
+	<key>memberMatch</key>
+	<string>MemberMatchViewController</string>
+	<key>mofifyName</key>
+	<string>ModifyNameViewController</string>
 </dict>
 </plist>

@@ -10,6 +10,9 @@
 
 @implementation TJUser
 
+@dynamic name;
+@dynamic avatar;
+
 + (NSString*)parseClassName
 {
     return @"_User";
