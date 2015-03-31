@@ -9,15 +9,18 @@
 #import "RegisterViewController.h"
 #import "LoginManager.h"
 #import "MBProgressHUD+AppProgressView.h"
+#import <EaseMob.h>
 #import <AVOSCloud.h>
-#import "AVModule.h"
+#import "TJModule.h"
 #import <Routable.h>
 
-@interface RegisterViewController()
+@interface RegisterViewController()<UITextViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
+@property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 
 
 @end
@@ -32,7 +35,7 @@
 - (void)registerSuccess
 {
     [self.navigationController popToRootViewControllerAnimated:NO];
-    [[Routable sharedRouter] open:@"forget"];
+    [[Routable sharedRouter] open:@"memberMatch"];
 }
 
 #pragma mark - action
@@ -73,10 +76,44 @@
             [MBProgressHUD showErrorProgressInView:nil withText:errorString];
         }
         else {
-            [MBProgressHUD showSucessProgressInView:nil withText:@"注册成功"];
-            [self registerSuccess];
+            [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:user.username password:user.username withCompletion:^(NSString *username, NSString *password, EMError *error) {
+                if (!error) {
+                    [MBProgressHUD showSucessProgressInView:nil withText:@"注册成功"];
+                    [self registerSuccess];
+                    NSLog(@"注册成功");
+                }
+                else {
+                    [MBProgressHUD showErrorProgressInView:nil withText:error.description];
+                }
+            } onQueue:nil];
         }
     }];
 }
+
+
+#pragma mark - TextView Delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.accountTextField) {
+        [self.passwordTextField becomeFirstResponder];
+    }
+    else if (textField == self.passwordTextField) {
+        [self.codeTextField becomeFirstResponder];
+    }
+    else if (textField == self.codeTextField) {
+        [self.view endEditing:YES];
+    }
+    return YES;
+}
+
+#pragma mark - touch
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+
 
 @end

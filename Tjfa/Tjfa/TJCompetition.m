@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
-#import "AVCompetition.h"
+#import "TJCompetition.h"
 
-@implementation AVCompetition
+@implementation TJCompetition
 
 @dynamic competitionId;
 @dynamic isStart;

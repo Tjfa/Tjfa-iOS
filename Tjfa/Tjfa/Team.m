@@ -11,7 +11,7 @@
 #import "Match.h"
 #import "Player.h"
 #import <CoreData+MagicalRecord.h>
-#import "AVTeam.h"
+#import "TJTeam.h"
 
 @implementation Team
 
@@ -52,32 +52,32 @@
     return @"teamId";
 }
 
-+ (Team*)updateTeamWithDictionary:(AVTeam*)avTeam competition:(Competition*)competition
++ (Team*)updateTeamWithDictionary:(TJTeam *)tjTeam competition:(Competition*)competition
 {
-    NSNumber* teamId = avTeam.teamId;
+    NSNumber* teamId = tjTeam.teamId;
     Team* team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamId];
     if (team == nil)
         team = [Team MR_createEntity];
 
     team.teamId = teamId;
-    team.emblemPath = avTeam.emblemPath;
-    team.groupNo = avTeam.groupNo;
+    team.emblemPath = tjTeam.emblemPath;
+    team.groupNo = tjTeam.groupNo;
 
-    team.groupGoalCount = avTeam.groupGoalCount;
-    team.groupMissCount = avTeam.groupMissCount;
-    team.goalCount = avTeam.goalCount;
-    team.missCount = avTeam.missCount;
+    team.groupGoalCount = tjTeam.groupGoalCount;
+    team.groupMissCount = tjTeam.groupMissCount;
+    team.goalCount = tjTeam.goalCount;
+    team.missCount = tjTeam.missCount;
 
-    team.groupWinCount = avTeam.groupWinCount;
-    team.groupLostCount = avTeam.groupLostCount;
-    team.groupDrawCount = avTeam.groupDrawCount;
+    team.groupWinCount = tjTeam.groupWinCount;
+    team.groupLostCount = tjTeam.groupLostCount;
+    team.groupDrawCount = tjTeam.groupDrawCount;
 
-    team.winCount = avTeam.winCount;
-    team.lostCount = avTeam.lostCount;
+    team.winCount = tjTeam.winCount;
+    team.lostCount = tjTeam.lostCount;
 
-    team.name = avTeam.name;
-    team.score = avTeam.score;
-    team.rank = avTeam.rank;
+    team.name = tjTeam.name;
+    team.score = tjTeam.score;
+    team.rank = tjTeam.rank;
     team.competition = competition;
 
     return team;

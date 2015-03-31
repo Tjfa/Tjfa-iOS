@@ -1,14 +1,14 @@
 //
-//  AVPlayer.m
+//  AVMatchPlayer.m
 //  Tjfa
 //
 //  Created by 邱峰 on 9/22/14.
 //  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
-#import "AVPlayer.h"
+#import "TJPlayer.h"
 
-@implementation AVPlayer
+@implementation TJPlayer
 
 @dynamic goalCount;
 @dynamic playerId;

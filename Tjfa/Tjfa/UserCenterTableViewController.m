@@ -7,7 +7,7 @@
 //
 
 #import "UserCenterTableViewController.h"
-#import "AVModule.h"
+#import "TJModule.h"
 #import <UIAlertView+BlocksKit.h>
 #import <UIActionSheet+BlocksKit.h>
 #import "MBProgressHUD+AppProgressView.h"
@@ -129,7 +129,11 @@ const int avatar_index = 0;
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-
+- (IBAction)logoutAction:(id)sender
+{
+    [TJUser logOut];
+    [MBProgressHUD showSucessProgressInView:nil withText:@"登出成功"];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 
 @end

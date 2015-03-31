@@ -11,7 +11,7 @@
 #import "Team.h"
 #import "NSDate+Date2Str.h"
 #import <CoreData+MagicalRecord.h>
-#import "AVMatch.h"
+#import "TJModule.h"
 
 @implementation Match
 
@@ -53,31 +53,31 @@
     return @"matchId";
 }
 
-+ (Match *)updateMatchWithDictionary:(AVMatch *)avMatch andCompetetion:(Competition *)competition
++ (Match *)updateMatchWithDictionary:(TJMatch *)tjMatch andCompetetion:(Competition *)competition
 {
-    NSNumber *matchId = avMatch.matchId;
+    NSNumber *matchId = tjMatch.matchId;
     Match *match = [Match MR_findFirstByAttribute:[Match idAttribute] withValue:matchId];
 
     if (match == nil)
         match = [Match MR_createEntity];
 
     match.matchId = matchId;
-    match.isStart = avMatch.isStart;
-    match.date = avMatch.date;
-    match.matchProperty = avMatch.matchProperty;
-    match.scoreA = avMatch.scoreA;
-    match.scoreB = avMatch.scoreB;
-    match.winTeamId = avMatch.winTeamId;
-    match.penaltyA = avMatch.penaltyA;
-    match.penaltyB = avMatch.penaltyB;
-    match.hint = avMatch.hint;
+    match.isStart = tjMatch.isStart;
+    match.date = tjMatch.date;
+    match.matchProperty = tjMatch.matchProperty;
+    match.scoreA = tjMatch.scoreA;
+    match.scoreB = tjMatch.scoreB;
+    match.winTeamId = tjMatch.winTeamId;
+    match.penaltyA = tjMatch.penaltyA;
+    match.penaltyB = tjMatch.penaltyB;
+    match.hint = tjMatch.hint;
 
     match.competition = competition;
 
-    NSNumber *teamAId = avMatch.teamAId;
+    NSNumber *teamAId = tjMatch.teamAId;
     match.teamA = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamAId];
 
-    NSNumber *teamBId = avMatch.teamBId;
+    NSNumber *teamBId = tjMatch.teamBId;
     match.teamB = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamBId];
 
     return match;

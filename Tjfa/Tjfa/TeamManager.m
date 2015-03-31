@@ -10,7 +10,7 @@
 #import "Competition.h"
 #import "NetworkClient.h"
 #import <CoreData+MagicalRecord.h>
-#import "AVTeam.h"
+#import "TJModule.h"
 
 @implementation TeamManager
 
@@ -74,7 +74,7 @@
 
     __weak TeamManager* weakSelf = self;
 
-    AVQuery* query = [AVQuery queryWithClassName:@"Team"];
+    AVQuery* query = [TJTeam query];
     [query whereKey:@"competitionId" equalTo:competition.competitionId];
     [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
         if (error){

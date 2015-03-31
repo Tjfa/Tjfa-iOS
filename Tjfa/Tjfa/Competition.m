@@ -10,7 +10,7 @@
 #import "Match.h"
 #import "Player.h"
 #import "Team.h"
-#import "AVCompetition.h"
+#import "TJModule.h"
 #import <CoreData+MagicalRecord.h>
 
 @implementation Competition
@@ -58,20 +58,20 @@
     return @"type";
 }
 
-+ (Competition*)updateBasePropertyWithDictionary:(AVCompetition*)avCompetition
++ (Competition *)updateBasePropertyWithDictionary:(TJCompetition *)tjCompetition
 {
-    NSNumber* competitionId = avCompetition.competitionId;
+    NSNumber *competitionId = tjCompetition.competitionId;
 
     Competition* competition = [Competition MR_findFirstByAttribute:[Competition idAttributeStr] withValue:competitionId];
     if (competition == nil)
         competition = [Competition MR_createEntity]; //create an new if doesn't exist
 
     competition.competitionId = competitionId;
-    competition.type = avCompetition.type;
-    competition.name = avCompetition.name;
-    competition.time = avCompetition.time;
-    competition.isStart = avCompetition.isStart;
-    competition.number = avCompetition.number;
+    competition.type = tjCompetition.type;
+    competition.name = tjCompetition.name;
+    competition.time = tjCompetition.time;
+    competition.isStart = tjCompetition.isStart;
+    competition.number = tjCompetition.number;
     return competition;
 }
 

@@ -11,7 +11,7 @@
 #import "NSDate+Date2Str.h"
 #import "NetworkClient.h"
 #import <CoreData+MagicalRecord.h>
-#import "AVCompetition.h"
+#import "TJModule.h"
 
 @implementation CompetitionManager
 
@@ -63,7 +63,7 @@
         }
     } else {
         __weak typeof(self) weakSelf = self;
-        AVQuery *query = [AVQuery queryWithClassName:@"Competition"];
+        AVQuery *query = [TJCompetition query];
         [query whereKey:@"competitionId" equalTo:competionId];
         [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
             if (error) {
@@ -94,7 +94,7 @@
     //                                           @"limit" : @(limit) };
 
     __weak CompetitionManager* weakSelf = self;
-    AVQuery* query = [AVQuery queryWithClassName:@"Competition"];
+    AVQuery* query = [TJCompetition query];
     [query whereKey:@"type" equalTo:type];
     [query whereKey:@"competitionId" lessThan:competitionId];
     query.limit = limit;

@@ -10,11 +10,11 @@
 #define Tjfa_AVModule_h
 
 #import "TJUser.h"
-#import "AVCompetition.h"
-#import "AVMatch.h"
-#import "AVNews.h"
-#import "AVPlayer.h"
-#import "AVTeam.h"
+#import "TJCompetition.h"
+#import "TJMatch.h"
+#import "TJNews.h"
+#import "TJPlayer.h"
+#import "TJTeam.h"
 
 
 #endif

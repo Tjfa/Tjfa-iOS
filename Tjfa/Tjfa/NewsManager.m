@@ -10,7 +10,7 @@
 #import "NetworkClient.h"
 #import <CoreData+MagicalRecord.h>
 #import <AVOSCloud.h>
-#import "AVNews.h"
+#import "TJModule.h"
 
 @implementation NewsManager
 

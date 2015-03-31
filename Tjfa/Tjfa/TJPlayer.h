@@ -8,7 +8,7 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
-@interface AVPlayer : AVObject <AVSubclassing>
+@interface TJPlayer : AVObject <AVSubclassing>
 
 /**
  *  进球数

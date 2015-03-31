@@ -10,7 +10,7 @@
 #import "NetworkClient.h"
 #import "TeamManager.h"
 #import <CoreData+MagicalRecord.h>
-#import "AVPlayer.h"
+#import "TJModule.h"
 
 @implementation PlayerManager
 
@@ -74,7 +74,7 @@
 
     __weak PlayerManager* weakSelf = self;
 
-    AVQuery* teamQuery = [AVQuery queryWithClassName:@"Team"];
+    AVQuery* teamQuery = [TJTeam query];
     teamQuery.limit = 1000;
     [teamQuery whereKey:@"competitionId" equalTo:competition.competitionId];
     [teamQuery findObjectsInBackgroundWithBlock:^(NSArray* teamResults, NSError* error) {
@@ -84,7 +84,7 @@
         }else{
             [[TeamManager sharedTeamManager] insertTeamsWithArray:teamResults andCompetition:competition];
             
-            AVQuery* query=[AVQuery queryWithClassName:@"Player"];
+            AVQuery* query=[TJPlayer query];
             query.limit=1000;
             [query whereKey:@"competitionId" equalTo:competition.competitionId];
             [query findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error){

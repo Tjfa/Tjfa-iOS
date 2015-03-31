@@ -8,7 +8,7 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
-@interface AVCompetition : AVObject <AVSubclassing>
+@interface TJCompetition : AVObject <AVSubclassing>
 
 /**
  *  competitionId

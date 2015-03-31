@@ -10,6 +10,7 @@
 #import "MBProgressHUD+AppProgressView.h"
 #import "LoginManager.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import <Routable.h>
 
 @interface LoginInViewController() <UITextFieldDelegate>
 
@@ -48,9 +49,11 @@
         [loading hide:YES];
         if (user) {
             [MBProgressHUD showSucessProgressInView:nil withText:@"登录成功"];
+            [self.navigationController popToRootViewControllerAnimated:NO];
+            [[Routable sharedRouter] open:@"memberMatch"];
         }
         else {
-            [MBProgressHUD showErrorProgressInView:nil withText:@"登录失败"];
+            [MBProgressHUD showErrorProgressInView:nil withText:error.userInfo[@"NSLocalizedDescription"]];
         }
     }];
 }

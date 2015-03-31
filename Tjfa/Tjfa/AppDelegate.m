@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppInfo.h"
-#import "AVModule.h"
+#import "TJModule.h"
 #import <CoreData+MagicalRecord.h>
 #import <AVOSCloud.h>
 #import <AVOSCloudSNS.h>
@@ -20,38 +20,18 @@
 #import "UserData.h"
 #import <Routable.h>
 #import "UIApplication+MainNav.h"
+#import <EaseMob.h>
 #import <UIAlertView+BlocksKit.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    [self setupRoutable];
-    
-#pragma mark - avoscloud
-    [AVOSCloud setApplicationId:AVOS_APP_ID clientKey:AVOS_CLIENT_KEY];
-    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    [self registerAVClass];
-
-#pragma mark - magical record
     [MagicalRecord setupCoreDataStack];
 
-#pragma mark - weixin
-    [WXApi registerApp:@"wx6cba695c52dfdeb0"];
-// Override point for customization after application launch.
+    [self setupRoutable];
     
-#pragma mark - renren
-    [RennShareComponent initWithAppId:@"474177" apiKey:@"313e2277c5d14cee9b83441f03c5ab53" secretKey:@"313e2277c5d14cee9b83441f03c5ab53"];
-
-#pragma mark - umeng
-    
-    if (DEBUG) {
-        
-    } else {
-        [MobClick startWithAppkey:@"542396dafd98c5933102f25e"];
-        [MobClick setCrashReportEnabled:YES];
-    }
+    [self registerAppKeyWithApplication:application launchingOptions:launchOptions];
     
     if ([UIDevice iOSVersion] >= 8.0) {
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert| UIUserNotificationTypeBadge| UIUserNotificationTypeSound categories:nil];
@@ -124,12 +104,14 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    [[EaseMob sharedInstance] applicationDidEnterBackground:application];
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    [[EaseMob sharedInstance] applicationWillEnterForeground:application];
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
@@ -142,6 +124,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     [MagicalRecord cleanUp];
+    [[EaseMob sharedInstance] applicationWillTerminate:application];
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
@@ -161,16 +144,45 @@
 {
 }
 
+#pragma mark - Register App Key
+
+- (void)registerAppKeyWithApplication:(UIApplication *)application launchingOptions:(NSDictionary *)launchOptions
+{
+    //AVOSCloud
+    [AVOSCloud setApplicationId:AVOS_APP_ID clientKey:AVOS_CLIENT_KEY];
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [self registerAVClass];
+    
+    //WeiXin
+    [WXApi registerApp:@"wx6cba695c52dfdeb0"];
+    // Override point for customization after application launch.
+    
+    //RenRen
+    [RennShareComponent initWithAppId:@"474177" apiKey:@"313e2277c5d14cee9b83441f03c5ab53" secretKey:@"313e2277c5d14cee9b83441f03c5ab53"];
+    
+    //EaseMob
+    [[EaseMob sharedInstance] registerSDKWithAppKey:EASE_MOB_APP_KEY apnsCertName:EASE_MOB_APNS];
+    [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+
+    //Umeng
+    if (DEBUG) {
+        
+    } else {
+        [MobClick startWithAppkey:@"542396dafd98c5933102f25e"];
+        [MobClick setCrashReportEnabled:YES];
+    }
+}
+
 #pragma mark - avos
 
 - (void)registerAVClass
 {
     [TJUser registerSubclass];
-    [AVCompetition registerSubclass];
-    [AVMatch registerSubclass];
-    [AVNews registerSubclass];
-    [AVPlayer registerSubclass];
-    [AVTeam registerSubclass];
+    [TJCompetition registerSubclass];
+    [TJMatch registerSubclass];
+    [TJNews registerSubclass];
+    [TJPlayer registerSubclass];
+    [TJTeam registerSubclass];
 }
 
 #pragma mark - Routable 

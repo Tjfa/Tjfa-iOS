@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
-#import "AVNews.h"
+#import "TJNews.h"
 
-@implementation AVNews
+@implementation TJNews
 
 @dynamic content;
 @dynamic date;

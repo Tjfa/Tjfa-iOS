@@ -8,6 +8,12 @@
 
 #import "MemberMatchViewController.h"
 
+@interface MemberMatchViewController()<UITableViewDataSource, UITableViewDelegate>
+
+@end
+
 @implementation MemberMatchViewController
+
+
 
 @end

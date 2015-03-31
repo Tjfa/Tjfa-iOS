@@ -12,11 +12,11 @@
 		18145E861ABDA69300040AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18145E841ABDA69300040AB7 /* Main.storyboard */; };
 		18145E891ABDBD1600040AB7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18145E881ABDBD1600040AB7 /* BaseViewController.m */; };
 		18145E8C1ABDBDFF00040AB7 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18145E8B1ABDBDFF00040AB7 /* BaseTableViewController.m */; };
-		18190ED119CFFFE200D0488F /* AVCompetition.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC719CFFFE200D0488F /* AVCompetition.m */; };
-		18190ED219CFFFE200D0488F /* AVMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC919CFFFE200D0488F /* AVMatch.m */; };
-		18190ED319CFFFE200D0488F /* AVNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ECC19CFFFE200D0488F /* AVNews.m */; };
-		18190ED419CFFFE200D0488F /* AVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ECE19CFFFE200D0488F /* AVPlayer.m */; };
-		18190ED519CFFFE200D0488F /* AVTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ED019CFFFE200D0488F /* AVTeam.m */; };
+		18190ED119CFFFE200D0488F /* TJCompetition.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC719CFFFE200D0488F /* TJCompetition.m */; };
+		18190ED219CFFFE200D0488F /* TJMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC919CFFFE200D0488F /* TJMatch.m */; };
+		18190ED319CFFFE200D0488F /* TJNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ECC19CFFFE200D0488F /* TJNews.m */; };
+		18190ED419CFFFE200D0488F /* TJPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ECE19CFFFE200D0488F /* TJPlayer.m */; };
+		18190ED519CFFFE200D0488F /* TJTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ED019CFFFE200D0488F /* TJTeam.m */; };
 		240099EE19600B160036EFF4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240099ED19600B160036EFF4 /* MessageUI.framework */; };
 		240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */; };
 		240099F9196024BE0036EFF4 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F8196024BE0036EFF4 /* AppInfo.m */; };
@@ -96,6 +96,10 @@
 		F34666AD1ACA8B7600E83B7F /* UserCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666AC1ACA8B7600E83B7F /* UserCenterTableViewController.m */; };
 		F34666B41ACA9C4400E83B7F /* MemberMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666B31ACA9C4400E83B7F /* MemberMatchViewController.m */; };
 		F34666B71ACAA87700E83B7F /* ModifyNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666B61ACAA87700E83B7F /* ModifyNameViewController.m */; };
+		F34666BA1ACADE0900E83B7F /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666B91ACADE0900E83B7F /* ChatViewController.m */; };
+		F34666BE1ACADE3700E83B7F /* SingleChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666BD1ACADE3700E83B7F /* SingleChatViewController.m */; };
+		F34666C11ACADE4400E83B7F /* GroupChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C01ACADE4400E83B7F /* GroupChatViewController.m */; };
+		F34666C41ACB002A00E83B7F /* MemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C31ACB002A00E83B7F /* MemberListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,16 +122,16 @@
 		18145E881ABDBD1600040AB7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		18145E8A1ABDBDFF00040AB7 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		18145E8B1ABDBDFF00040AB7 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
-		18190EC619CFFFE200D0488F /* AVCompetition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCompetition.h; sourceTree = "<group>"; };
-		18190EC719CFFFE200D0488F /* AVCompetition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCompetition.m; sourceTree = "<group>"; };
-		18190EC819CFFFE200D0488F /* AVMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVMatch.h; sourceTree = "<group>"; };
-		18190EC919CFFFE200D0488F /* AVMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVMatch.m; sourceTree = "<group>"; };
-		18190ECB19CFFFE200D0488F /* AVNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVNews.h; sourceTree = "<group>"; };
-		18190ECC19CFFFE200D0488F /* AVNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVNews.m; sourceTree = "<group>"; };
-		18190ECD19CFFFE200D0488F /* AVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayer.h; sourceTree = "<group>"; };
-		18190ECE19CFFFE200D0488F /* AVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayer.m; sourceTree = "<group>"; };
-		18190ECF19CFFFE200D0488F /* AVTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVTeam.h; sourceTree = "<group>"; };
-		18190ED019CFFFE200D0488F /* AVTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVTeam.m; sourceTree = "<group>"; };
+		18190EC619CFFFE200D0488F /* TJCompetition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJCompetition.h; sourceTree = "<group>"; };
+		18190EC719CFFFE200D0488F /* TJCompetition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJCompetition.m; sourceTree = "<group>"; };
+		18190EC819CFFFE200D0488F /* TJMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMatch.h; sourceTree = "<group>"; };
+		18190EC919CFFFE200D0488F /* TJMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMatch.m; sourceTree = "<group>"; };
+		18190ECB19CFFFE200D0488F /* TJNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJNews.h; sourceTree = "<group>"; };
+		18190ECC19CFFFE200D0488F /* TJNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJNews.m; sourceTree = "<group>"; };
+		18190ECD19CFFFE200D0488F /* TJPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPlayer.h; sourceTree = "<group>"; };
+		18190ECE19CFFFE200D0488F /* TJPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPlayer.m; sourceTree = "<group>"; };
+		18190ECF19CFFFE200D0488F /* TJTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJTeam.h; sourceTree = "<group>"; };
+		18190ED019CFFFE200D0488F /* TJTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJTeam.m; sourceTree = "<group>"; };
 		18190ED619D01D7400D0488F /* TjfaConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TjfaConst.h; sourceTree = "<group>"; };
 		240099ED19600B160036EFF4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		240099F319600BF60036EFF4 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
@@ -257,7 +261,7 @@
 		EC567E161D864E30A568E12D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F346668E1AC9909900E83B7F /* TJUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUser.h; sourceTree = "<group>"; };
 		F346668F1AC9909900E83B7F /* TJUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUser.m; sourceTree = "<group>"; };
-		F34666911AC9911F00E83B7F /* AVModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVModule.h; sourceTree = "<group>"; };
+		F34666911AC9911F00E83B7F /* TJModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJModule.h; sourceTree = "<group>"; };
 		F34666931AC991E000E83B7F /* LoginInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInViewController.h; sourceTree = "<group>"; };
 		F34666941AC991E000E83B7F /* LoginInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInViewController.m; sourceTree = "<group>"; };
 		F34666961AC997C300E83B7F /* CALayer+XibConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibConfiguration.h"; sourceTree = "<group>"; };
@@ -274,6 +278,14 @@
 		F34666B31ACA9C4400E83B7F /* MemberMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberMatchViewController.m; sourceTree = "<group>"; };
 		F34666B51ACAA87700E83B7F /* ModifyNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyNameViewController.h; sourceTree = "<group>"; };
 		F34666B61ACAA87700E83B7F /* ModifyNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNameViewController.m; sourceTree = "<group>"; };
+		F34666B81ACADE0900E83B7F /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		F34666B91ACADE0900E83B7F /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		F34666BC1ACADE3700E83B7F /* SingleChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChatViewController.h; sourceTree = "<group>"; };
+		F34666BD1ACADE3700E83B7F /* SingleChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChatViewController.m; sourceTree = "<group>"; };
+		F34666BF1ACADE4400E83B7F /* GroupChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupChatViewController.h; sourceTree = "<group>"; };
+		F34666C01ACADE4400E83B7F /* GroupChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupChatViewController.m; sourceTree = "<group>"; };
+		F34666C21ACB002A00E83B7F /* MemberListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberListViewController.h; sourceTree = "<group>"; };
+		F34666C31ACB002A00E83B7F /* MemberListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -321,24 +333,24 @@
 			name = LocalModule;
 			sourceTree = "<group>";
 		};
-		18190EC519CFFFCA00D0488F /* AVModule */ = {
+		18190EC519CFFFCA00D0488F /* TJModule */ = {
 			isa = PBXGroup;
 			children = (
-				18190EC619CFFFE200D0488F /* AVCompetition.h */,
-				18190EC719CFFFE200D0488F /* AVCompetition.m */,
-				18190EC819CFFFE200D0488F /* AVMatch.h */,
-				18190EC919CFFFE200D0488F /* AVMatch.m */,
-				18190ECB19CFFFE200D0488F /* AVNews.h */,
-				18190ECC19CFFFE200D0488F /* AVNews.m */,
-				18190ECD19CFFFE200D0488F /* AVPlayer.h */,
-				18190ECE19CFFFE200D0488F /* AVPlayer.m */,
-				18190ECF19CFFFE200D0488F /* AVTeam.h */,
-				18190ED019CFFFE200D0488F /* AVTeam.m */,
+				18190EC619CFFFE200D0488F /* TJCompetition.h */,
+				18190EC719CFFFE200D0488F /* TJCompetition.m */,
+				18190EC819CFFFE200D0488F /* TJMatch.h */,
+				18190EC919CFFFE200D0488F /* TJMatch.m */,
+				18190ECB19CFFFE200D0488F /* TJNews.h */,
+				18190ECC19CFFFE200D0488F /* TJNews.m */,
+				18190ECD19CFFFE200D0488F /* TJPlayer.h */,
+				18190ECE19CFFFE200D0488F /* TJPlayer.m */,
+				18190ECF19CFFFE200D0488F /* TJTeam.h */,
+				18190ED019CFFFE200D0488F /* TJTeam.m */,
 				F346668E1AC9909900E83B7F /* TJUser.h */,
 				F346668F1AC9909900E83B7F /* TJUser.m */,
-				F34666911AC9911F00E83B7F /* AVModule.h */,
+				F34666911AC9911F00E83B7F /* TJModule.h */,
 			);
-			name = AVModule;
+			name = TJModule;
 			sourceTree = "<group>";
 		};
 		240099F219600BE30036EFF4 /* Category */ = {
@@ -532,7 +544,7 @@
 		249CF66518E16A840084DDBB /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				18190EC519CFFFCA00D0488F /* AVModule */,
+				18190EC519CFFFCA00D0488F /* TJModule */,
 				18190EC419CFFFB200D0488F /* LocalModule */,
 				24A3B4901986ACBE00F6D263 /* Category */,
 			);
@@ -813,6 +825,9 @@
 				F34666B31ACA9C4400E83B7F /* MemberMatchViewController.m */,
 				F34666B51ACAA87700E83B7F /* ModifyNameViewController.h */,
 				F34666B61ACAA87700E83B7F /* ModifyNameViewController.m */,
+				F34666C21ACB002A00E83B7F /* MemberListViewController.h */,
+				F34666C31ACB002A00E83B7F /* MemberListViewController.m */,
+				F34666BB1ACADE1200E83B7F /* Chat */,
 			);
 			name = Member;
 			sourceTree = "<group>";
@@ -824,6 +839,19 @@
 				F346669F1AC9ABCB00E83B7F /* LoginManager.m */,
 			);
 			name = "LoginIn and Register";
+			sourceTree = "<group>";
+		};
+		F34666BB1ACADE1200E83B7F /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				F34666B81ACADE0900E83B7F /* ChatViewController.h */,
+				F34666B91ACADE0900E83B7F /* ChatViewController.m */,
+				F34666BC1ACADE3700E83B7F /* SingleChatViewController.h */,
+				F34666BD1ACADE3700E83B7F /* SingleChatViewController.m */,
+				F34666BF1ACADE4400E83B7F /* GroupChatViewController.h */,
+				F34666C01ACADE4400E83B7F /* GroupChatViewController.m */,
+			);
+			name = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -966,7 +994,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */,
-				18190ED519CFFFE200D0488F /* AVTeam.m in Sources */,
+				18190ED519CFFFE200D0488F /* TJTeam.m in Sources */,
 				24E58E8C18E815C1007BFFD8 /* MatchManager.m in Sources */,
 				F34666AD1ACA8B7600E83B7F /* UserCenterTableViewController.m in Sources */,
 				2495BA2A19691E28009BB60F /* NewsCell.m in Sources */,
@@ -993,7 +1021,7 @@
 				24C6FE4C195E8574008B594C /* Match.m in Sources */,
 				F34666B41ACA9C4400E83B7F /* MemberMatchViewController.m in Sources */,
 				24686C83196E875600D8CF86 /* Welcome3.m in Sources */,
-				18190ED419CFFFE200D0488F /* AVPlayer.m in Sources */,
+				18190ED419CFFFE200D0488F /* TJPlayer.m in Sources */,
 				18145E831ABD8AB100040AB7 /* NotificationCenter.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
 				18145E8C1ABDBDFF00040AB7 /* BaseTableViewController.m in Sources */,
@@ -1013,21 +1041,25 @@
 				24B8C1C11977B46D00B2FAD0 /* YellowCardViewController.m in Sources */,
 				24C84BBE1976BC0E00980720 /* MatchViewController.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
-				18190ED319CFFFE200D0488F /* AVNews.m in Sources */,
+				18190ED319CFFFE200D0488F /* TJNews.m in Sources */,
 				240099F9196024BE0036EFF4 /* AppInfo.m in Sources */,
-				18190ED119CFFFE200D0488F /* AVCompetition.m in Sources */,
+				18190ED119CFFFE200D0488F /* TJCompetition.m in Sources */,
 				24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */,
 				24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */,
 				240AE6D0195EC52300F7820D /* DashboardViewController.m in Sources */,
-				18190ED219CFFFE200D0488F /* AVMatch.m in Sources */,
+				18190ED219CFFFE200D0488F /* TJMatch.m in Sources */,
 				24B8C1BD1977B43F00B2FAD0 /* TopScoreViewController.m in Sources */,
 				240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */,
 				24686C6F196E562F00D8CF86 /* SettingViewController.m in Sources */,
 				248BD09A197E60C600419603 /* TeamManager.m in Sources */,
 				24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */,
+				F34666C41ACB002A00E83B7F /* MemberListViewController.m in Sources */,
 				24C6FE4B195E8574008B594C /* Player.m in Sources */,
 				240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */,
+				F34666C11ACADE4400E83B7F /* GroupChatViewController.m in Sources */,
+				F34666BA1ACADE0900E83B7F /* ChatViewController.m in Sources */,
 				24A3B4931986ACDB00F6D263 /* NSNumber+Assign.m in Sources */,
+				F34666BE1ACADE3700E83B7F /* SingleChatViewController.m in Sources */,
 				2495BA2719690C1F009BB60F /* NewsViewController.m in Sources */,
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
 				246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */,

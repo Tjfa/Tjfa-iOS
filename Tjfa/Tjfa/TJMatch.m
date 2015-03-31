@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 邱峰. All rights reserved.
 //
 
-#import "AVMatch.h"
+#import "TJMatch.h"
 
-@implementation AVMatch
+@implementation TJMatch
 
 @dynamic date;
 @dynamic matchId;

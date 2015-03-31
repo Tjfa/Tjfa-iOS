@@ -11,7 +11,7 @@
 #import "TeamManager.h"
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <AVOSCloud.h>
-#import "AVMatch.h"
+#import "TJModule.h"
 
 @implementation MatchManager
 
@@ -79,7 +79,7 @@
 
     __weak MatchManager* weakSelf = self;
     NSLog(@"%@",competition.competitionId);
-    AVQuery* teamQuery = [AVQuery queryWithClassName:@"Team"];
+    AVQuery* teamQuery = [TJTeam query];
     [teamQuery whereKey:@"competitionId" equalTo:competition.competitionId];
     [teamQuery findObjectsInBackgroundWithBlock:^(NSArray* teamsResult, NSError* error) {
         if (error){
@@ -88,7 +88,7 @@
         }else{
             [[TeamManager sharedTeamManager] insertTeamsWithArray:teamsResult andCompetition:competition];
             
-            AVQuery* avquery = [AVQuery queryWithClassName:@"Match"];
+            AVQuery* avquery = [TJMatch query];
             [avquery whereKey:@"competitionId" equalTo:competition.competitionId];
             [avquery findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
                 if (error){

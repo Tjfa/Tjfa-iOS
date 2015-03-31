@@ -26,5 +26,11 @@
 	<string>MemberMatchViewController</string>
 	<key>mofifyName</key>
 	<string>ModifyNameViewController</string>
+	<key>singleChat</key>
+	<string>SingleChatViewController</string>
+	<key>groupChat</key>
+	<string>GroupChatViewController</string>
+	<key>memberList</key>
+	<string>MemberListViewController</string>
 </dict>
 </plist>

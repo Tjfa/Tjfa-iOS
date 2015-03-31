@@ -13,9 +13,10 @@
 @dynamic name;
 @dynamic avatar;
 
-+ (NSString*)parseClassName
++ (NSString *)parseClassName
 {
     return @"_User";
 }
+
 
 @end
