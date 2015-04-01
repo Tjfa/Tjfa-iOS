@@ -8,6 +8,10 @@
 
 #import "ChatViewController.h"
 
+@class TJUser;
+
 @interface SingleChatViewController : ChatViewController
+
+@property (nonatomic, strong) TJUser *targetUser;
 
 @end

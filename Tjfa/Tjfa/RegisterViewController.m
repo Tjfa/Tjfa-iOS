@@ -62,7 +62,7 @@
     user.name = account;
     user.mobilePhoneNumber = account;
     user.password = password;
-    MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil];
+    MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:nil];
     [user signUpInBackgroundWithBlock:^(BOOL success, NSError *error) {
         [loading hide:YES];
         if (error) {

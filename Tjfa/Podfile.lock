@@ -44,6 +44,9 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
+  - JSQMessagesViewController (7.0.0):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
   - libWeChatSDK (1.4.2.1)
   - MagicalRecord (2.2):
     - MagicalRecord/Core (= 2.2)
@@ -64,6 +67,7 @@ DEPENDENCIES:
   - BlocksKit (~> 2.2.5)
   - EaseMobSDK (~> 2.1.4.1)
   - FMDB (~> 2.5)
+  - JSQMessagesViewController (~> 7.0.0)
   - libWeChatSDK (~> 1.4.2.1)
   - MagicalRecord (~> 2.2)
   - MBProgressHUD (~> 0.8)
@@ -80,6 +84,8 @@ SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   EaseMobSDK: 258b552cf9ccade12742277f443cc01fd3a3db1a
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  JSQMessagesViewController: 9fd7e9ac96e9fc91f2deca86928e2cc916aeebaa
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   libWeChatSDK: 7847d4de770ad195a56aa105ea9b72532440e4a0
   MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
   MBProgressHUD: 8688c331cb64702283be37ab8d7d329cdd25f251

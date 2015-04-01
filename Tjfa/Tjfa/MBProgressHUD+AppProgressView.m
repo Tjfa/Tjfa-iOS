@@ -41,15 +41,21 @@
     return progress;
 }
 
-+ (MBProgressHUD *)progressHUDNetworkLoadingInView:(UIView *)view
++ (MBProgressHUD *)progressHUDNetworkLoadingInView:(UIView *)view withText:(NSString *)text
 {
     if (view == nil) {
         view = [self mainWindow];
     }
     MBProgressHUD* progress = [[MBProgressHUD alloc] initWithView:view];
     [view addSubview:progress];
-    progress.labelText = @"加载中...";
+    if (text == nil) {
+        progress.labelText = @"加载中...";
+    }
+    else {
+        progress.labelText = text;
+    }
     progress.dimBackground = YES;
+    
     return progress;
 }
 

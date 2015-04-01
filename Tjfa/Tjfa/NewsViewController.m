@@ -53,7 +53,7 @@
 - (void)refreshLatestNewsWithProgress:(BOOL)progress;
 {
     if (progress) {
-        [self.loadProgress show:YES];
+        self.loadProgress = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:nil];
     }
     [self getLatestNews:self.loadProgress];
 }
@@ -85,14 +85,6 @@
     }
 }
 
-- (MBProgressHUD *)loadProgress
-{
-    if (_loadProgress == nil) {
-        _loadProgress = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
-        [self.view addSubview:_loadProgress];
-    }
-    return _loadProgress;
-}
 
 #pragma mark - tableview datasource & delegate
 

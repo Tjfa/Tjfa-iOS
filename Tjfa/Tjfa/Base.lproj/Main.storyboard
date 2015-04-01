@@ -1688,14 +1688,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="9hD-mv-Xsw">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemberListCell" id="9hD-mv-Xsw" customClass="MemberListCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9hD-mv-Xsw" id="IjU-UN-SSH">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Bzd-qo-Ddw" kind="push" id="T0j-7g-hJC"/>
+                                            <segue destination="Bzd-qo-Ddw" kind="push" id="R95-gD-gbm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1726,7 +1726,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKV-1u-LB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-765" y="-1473"/>
+            <point key="canvasLocation" x="-837" y="-1565"/>
         </scene>
         <!--修改姓名-->
         <scene sceneID="TJO-H9-SD1">
@@ -2708,10 +2708,10 @@
             </objects>
             <point key="canvasLocation" x="-1490" y="658"/>
         </scene>
-        <!--Single Chat View Controller-->
+        <!--聊天-->
         <scene sceneID="dvh-Ee-ama">
             <objects>
-                <viewController id="Bzd-qo-Ddw" customClass="SingleChatViewController" customModule="SingleChatViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SingleChatViewController" id="Bzd-qo-Ddw" customClass="SingleChatViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5W7-M3-pBq"/>
                         <viewControllerLayoutGuide type="bottom" id="SsB-uU-jrn"/>
@@ -2721,7 +2721,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="c7s-Se-u3G"/>
+                    <navigationItem key="navigationItem" title="聊天" id="c7s-Se-u3G"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qza-pF-z5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

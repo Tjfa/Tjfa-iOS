@@ -7,7 +7,15 @@
 //
 
 #import "SingleChatViewController.h"
+#import "TJModule.h"
 
 @implementation SingleChatViewController
+
+- (void)viewDidLoad
+{
+    self.targetEmId = self.targetUser.username;
+    self.isGroup = NO;
+    [super viewDidLoad];
+}
 
 @end

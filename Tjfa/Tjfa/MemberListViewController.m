@@ -9,6 +9,8 @@
 #import "MemberListViewController.h"
 #import "TJModule.h"
 #import <SVPullToRefresh.h>
+#import "MemberListCell.h"
+#import "SingleChatViewController.h"
 
 @interface MemberListViewController()<UITableViewDelegate, UITableViewDataSource>
 
@@ -65,10 +67,22 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    MemberListCell *cell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass(MemberListCell.class)];
     TJUser *user = self.data[indexPath.row];
     cell.textLabel.text = user.name;
     return cell;
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([sender isKindOfClass:[MemberListCell class]]) {
+        SingleChatViewController *chatViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        NSLog(@"%ld", (long)indexPath.row);
+        chatViewController.targetUser = self.data[indexPath.row];
+    }
 }
 
 @end

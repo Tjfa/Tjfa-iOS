@@ -79,15 +79,6 @@
     }
 }
 
-- (MBProgressHUD*)progressView
-{
-    if (_progressView == nil) {
-        _progressView = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
-        [self.view addSubview:_progressView];
-    }
-    return _progressView;
-}
-
 - (void)setTableView:(UITableView*)tableView
 {
     if (_tableView != tableView) {
@@ -191,7 +182,7 @@
     NSArray *results = [[CompetitionManager sharedCompetitionManager] getCompetitionsFromCoreDataWithType:self.type];
 
     if ([results count] == 0) {
-        [self.progressView show:YES];
+        self.progressView = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:nil];
         [self getLatestData];
     } else {
         [self.tableView triggerPullToRefresh];

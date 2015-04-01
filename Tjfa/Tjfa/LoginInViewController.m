@@ -44,7 +44,7 @@
         return;
     }
     
-    MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil];
+    MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:nil];
     [TJUser logInWithMobilePhoneNumberInBackground:account password:password block:^(AVUser *user, NSError *error) {
         [loading hide:YES];
         if (user) {

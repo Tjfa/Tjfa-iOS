@@ -12,7 +12,7 @@
 
 + (MBProgressHUD *)determinateProgressHUDInView:(UIView *)view withText:(NSString *)text;
 
-+ (MBProgressHUD *)progressHUDNetworkLoadingInView:(UIView *)view;
++ (MBProgressHUD *)progressHUDNetworkLoadingInView:(UIView *)view withText:(NSString *)text;
 
 + (void)showWhenNetworkErrorInView:(UIView*)view;
 

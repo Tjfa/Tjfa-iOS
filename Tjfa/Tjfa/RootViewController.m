@@ -62,13 +62,12 @@
     if (self.competition) {
         [self setupViews];
     } else {
-        MBProgressHUD* progress = [MBProgressHUD progressHUDNetworkLoadingInView:self.navigationController.view];
+        MBProgressHUD* progress = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:nil];
         [progress show:YES];
-        [self.view addSubview:progress];
         [[CompetitionManager sharedCompetitionManager] getCompeitionWithCompetitionId:self.compeitionId complete:^(Competition *competition, NSError *error) {
             [progress hide:YES];
             if (error) {
-                [MBProgressHUD showWhenNetworkErrorInView:self.navigationController.view];
+                [MBProgressHUD showWhenNetworkErrorInView:nil];
                 [self.navigationController popViewControllerAnimated:YES];
             } else {
                 self.competition = competition;

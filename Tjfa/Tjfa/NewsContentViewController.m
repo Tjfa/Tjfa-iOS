@@ -36,15 +36,6 @@
     [self loadContent];
 }
 
-- (MBProgressHUD*)progressView
-{
-    if (_progressView == nil) {
-        _progressView = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
-        [self.view addSubview:_progressView];
-    }
-    return _progressView;
-}
-
 #pragma mark - load content
 
 - (void)loadContent
@@ -55,7 +46,7 @@
 
     } else {
         self.navigationItem.title = @"加载中";
-        [self.progressView show:YES];
+        self.progressView = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:nil];
         [[NewsManager sharedNewsManager] getNewsWithNewsId:self.newsId complete:^(News *news, NSError *error) {
             [self.progressView hide:YES];
             if (error) {

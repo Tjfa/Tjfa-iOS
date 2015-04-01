@@ -6,8 +6,13 @@
 //  Copyright (c) 2015 邱峰. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import <JSQMessagesViewController.h>
+#import <EaseMob.h>
 
-@interface ChatViewController : BaseViewController
+@interface ChatViewController : JSQMessagesViewController
+
+@property (nonatomic, strong) NSString *targetEmId;
+
+@property (nonatomic, assign) BOOL isGroup;
 
 @end

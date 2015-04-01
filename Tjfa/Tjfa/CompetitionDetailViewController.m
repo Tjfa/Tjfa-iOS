@@ -14,8 +14,7 @@
 
 @interface CompetitionDetailViewController ()
 
-@property (nonatomic, strong) MBProgressHUD* mbProgressHud;
-
+@property (nonatomic, strong) MBProgressHUD *loading;
 
 @end
 
@@ -47,7 +46,7 @@
 {
     __weak RootViewController *rootViewController = (RootViewController *)self.sideMenuViewController;
     if (isFirstEnter) {
-        [self.mbProgressHud show:YES];
+        self.loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:nil];
     }
     [self getDataFromNetwork:rootViewController.competition complete:self.completeBlock];
 }
@@ -66,7 +65,7 @@
                 [weakSelf.tableView reloadData];
             }
             
-            [weakSelf.mbProgressHud removeFromSuperview];
+            [weakSelf.loading hide:YES];
 
             [weakSelf.tableView.pullToRefreshView stopAnimating];
             
@@ -87,15 +86,6 @@
         _data = [self getDataFromCoreDataCompetition:rootViewController.competition];
     }
     return _data;
-}
-
-- (MBProgressHUD *)mbProgressHud
-{
-    if (_mbProgressHud == nil) {
-        _mbProgressHud = [MBProgressHUD progressHUDNetworkLoadingInView:self.view];
-        [self.view addSubview:_mbProgressHud];
-    }
-    return _mbProgressHud;
 }
 
 - (void)setSearchBar:(UISearchBar*)searchBar
