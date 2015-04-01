@@ -9,7 +9,7 @@
 #import "LoginInViewController.h"
 #import "MBProgressHUD+AppProgressView.h"
 #import "LoginManager.h"
-#import <AVOSCloud/AVOSCloud.h>
+#import "TJModule.h"
 #import <Routable.h>
 
 @interface LoginInViewController() <UITextFieldDelegate>
@@ -45,7 +45,7 @@
     }
     
     MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil];
-    [AVUser logInWithMobilePhoneNumberInBackground:account password:password block:^(AVUser *user, NSError *error) {
+    [TJUser logInWithMobilePhoneNumberInBackground:account password:password block:^(AVUser *user, NSError *error) {
         [loading hide:YES];
         if (user) {
             [MBProgressHUD showSucessProgressInView:nil withText:@"登录成功"];
