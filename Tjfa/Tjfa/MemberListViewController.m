@@ -7,12 +7,49 @@
 //
 
 #import "MemberListViewController.h"
+#import "TJModule.h"
+#import <SVPullToRefresh.h>
 
 @interface MemberListViewController()<UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray *data;
 
 @end
 
 @implementation MemberListViewController
+
+- (void)viewDidLoad
+{
+ 
+    __weak typeof(self) weakSelf = self;
+    [self.tableView addPullToRefreshWithActionHandler:^() {
+        AVQuery *query = [TJUser query];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            [self.tableView.pullToRefreshView stopAnimating];
+            if (error) {
+                NSLog(@"%@", error.description);
+            }
+            else {
+                weakSelf.data = array;
+                [weakSelf.tableView reloadData];
+            }
+
+        }];
+
+    }];
+    
+}
+
+#pragma mark - getter & setter
+
+- (NSArray *)data
+{
+    if (_data == nil) {
+        _data = [NSArray array];
+    }
+    return _data;
+}
 
 #pragma mark - TableView Delegate
 
@@ -23,12 +60,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.data.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[UITableViewCell alloc] init];
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    TJUser *user = self.data[indexPath.row];
+    cell.textLabel.text = user.name;
+    return cell;
 }
 
 @end

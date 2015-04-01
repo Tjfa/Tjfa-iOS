@@ -59,6 +59,7 @@
     
     TJUser *user = [TJUser user];
     user.username = account;
+    user.name = account;
     user.mobilePhoneNumber = account;
     user.password = password;
     MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil];
