@@ -13,9 +13,15 @@
 
 - (void)viewDidLoad
 {
-    self.targetEmId = self.targetUser.username;
-    self.isGroup = NO;
     [super viewDidLoad];
+}
+
+- (void)setTargetUser:(TJUser *)targetUser
+{
+    if (_targetUser != targetUser) {
+        self.targetEmId = self.targetUser.username;
+        self.isGroup = NO;
+    }
 }
 
 @end

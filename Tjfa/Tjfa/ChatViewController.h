@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 邱峰. All rights reserved.
 //
 
-#import <JSQMessagesViewController.h>
+#import <JSQMessagesViewController/JSQMessages.h>
 #import <EaseMob.h>
 
 @interface ChatViewController : JSQMessagesViewController

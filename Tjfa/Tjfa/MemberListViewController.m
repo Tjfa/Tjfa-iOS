@@ -80,8 +80,8 @@
     if ([sender isKindOfClass:[MemberListCell class]]) {
         SingleChatViewController *chatViewController = segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        NSLog(@"%ld", (long)indexPath.row);
-        chatViewController.targetUser = self.data[indexPath.row];
+        TJUser *targetUser = self.data[indexPath.row];
+        chatViewController.targetUser = targetUser;
     }
 }
 
