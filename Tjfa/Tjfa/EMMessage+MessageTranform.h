@@ -11,6 +11,6 @@
 
 @interface EMMessage (MessageTranform)
 
-+ (EMMessage *)generalMessageWithText:(NSString *)text from:(TJUser *)from to:(TJUser *)to;
++ (EMMessage *)generalMessageWithText:(NSString *)text sender:(TJUser *)sender to:(NSString *)emId;
 
 @end

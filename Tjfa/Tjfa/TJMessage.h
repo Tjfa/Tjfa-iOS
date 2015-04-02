@@ -18,8 +18,6 @@
 
 @property (nonatomic, strong) NSString *senderDisplayName;
 
-@property (nonatomic, strong) NSString *reciverDisplayName;
-
 @property (nonatomic, strong) NSDate *date;
 
 @property (nonatomic, assign, readwrite) BOOL isMediaMessage;

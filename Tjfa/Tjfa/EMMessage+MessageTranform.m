@@ -12,13 +12,12 @@
 
 @implementation EMMessage (MessageTranform)
 
-+ (EMMessage *)generalMessageWithText:(NSString *)text from:(TJUser *)from to:(TJUser *)to
++ (EMMessage *)generalMessageWithText:(NSString *)text sender:(TJUser *)sender to:(NSString *)emId
 {
     EMChatText *chatText = [[EMChatText alloc] initWithText:text];
     EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:chatText];
-    EMMessage *emMessage = [[EMMessage alloc] initWithReceiver:to.username bodies:@[body]];
-    emMessage.ext = @{@"fromDisplayName": from.name,
-                      @"reciverDisplayName": to.name };
+    EMMessage *emMessage = [[EMMessage alloc] initWithReceiver:emId bodies:@[body]];
+    emMessage.ext = @{@"senderDisplayName": sender.name};
     [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
     
     return emMessage;

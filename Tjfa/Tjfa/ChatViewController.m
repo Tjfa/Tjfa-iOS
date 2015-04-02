@@ -242,16 +242,10 @@
 {
     [JSQSystemSoundPlayer jsq_playMessageSentSound];
     
-    TJMessage *message = [[TJMessage alloc] init];
-    
-    EMChatText *chatText = [[EMChatText alloc] initWithText:text];
-    EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:chatText];
-    EMMessage *emMessage = [[EMMessage alloc] initWithReceiver:self.targetEmId bodies:@[body]];
-    
-    message.emMessage = [EMMessage generalMessageWithText:text from:self.currentUser to:<#(TJUser *)#>]
-    
+    EMMessage *emMessage = [EMMessage generalMessageWithText:text sender:self.currentUser to:self.targetEmId];
     [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
     
+    TJMessage *message = [TJMessage generalTJMessageWithEMMessage:emMessage];
     [self.messages addObject:message];
     [self finishSendingMessage];
     [self.collectionView reloadData];
