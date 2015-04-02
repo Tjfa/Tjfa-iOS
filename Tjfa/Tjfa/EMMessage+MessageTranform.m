@@ -8,7 +8,20 @@
 
 #import "EMMessage+MessageTranform.h"
 #import "TJUser.h"
+#import <EaseMob.h>
 
-@implementation EMMessage (MessageTranform) 
+@implementation EMMessage (MessageTranform)
+
++ (EMMessage *)generalMessageWithText:(NSString *)text from:(TJUser *)from to:(TJUser *)to
+{
+    EMChatText *chatText = [[EMChatText alloc] initWithText:text];
+    EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:chatText];
+    EMMessage *emMessage = [[EMMessage alloc] initWithReceiver:to.username bodies:@[body]];
+    emMessage.ext = @{@"fromDisplayName": from.name,
+                      @"reciverDisplayName": to.name };
+    [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
+    
+    return emMessage;
+}
 
 @end

@@ -11,6 +11,6 @@
 
 @interface EMMessage (MessageTranform)
 
-+ (EMMessage *)generalMessageWithText:(NSString *)text from:(TJUser *)from to:(TJUser *)to date:(NSDate *)date;
++ (EMMessage *)generalMessageWithText:(NSString *)text from:(TJUser *)from to:(TJUser *)to;
 
 @end

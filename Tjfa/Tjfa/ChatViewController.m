@@ -11,6 +11,7 @@
 #import "MBProgressHUD+AppProgressView.h"
 #import "TJMessage.h"
 #import "UIColor+AppColor.h"
+#import "EMMessage+MessageTranform.h"
 
 @interface ChatViewController()<EMChatManagerDelegate, JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout>
 
@@ -247,7 +248,7 @@
     EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:chatText];
     EMMessage *emMessage = [[EMMessage alloc] initWithReceiver:self.targetEmId bodies:@[body]];
     
-    message.emMessage = emMessage;
+    message.emMessage = [EMMessage generalMessageWithText:text from:self.currentUser to:<#(TJUser *)#>]
     
     [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
     
