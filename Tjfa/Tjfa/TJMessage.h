@@ -8,8 +8,9 @@
 
 
 #import <JSQMessagesViewController/JSQMessage.h>
+#import <EMMessage.h>
 
-@interface Message : NSObject<JSQMessageData>
+@interface TJMessage : NSObject<JSQMessageData>
 
 - (NSString *)senderId;
 
@@ -24,5 +25,9 @@
 @property (nonatomic, assign, readwrite) NSUInteger messageHash;
 
 @property (nonatomic, strong, readwrite) NSString *text;
+
+@property (nonatomic, strong) EMMessage *emMessage;
+
++ (TJMessage *)generalTJMessageWithEMMessage:(EMMessage *)message;
 
 @end

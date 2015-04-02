@@ -9,7 +9,8 @@
 #import "ChatViewController.h"
 #import "TJModule.h"
 #import "MBProgressHUD+AppProgressView.h"
-#import "Message.h"
+#import "TJMessage.h"
+#import "UIColor+AppColor.h"
 
 @interface ChatViewController()<EMChatManagerDelegate, JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout>
 
@@ -20,6 +21,10 @@
 @property (nonatomic, strong) MBProgressHUD *loadingView;
 
 @property (nonatomic, strong) NSMutableArray *messages;
+
+@property (nonatomic, strong) JSQMessagesBubbleImageFactory *messageBubbleImageFactory;
+
+@property (nonatomic, strong) JSQMessagesAvatarImage *selfAvatarImage;
 
 @end
 
@@ -89,13 +94,29 @@
     return _messages;
 }
 
+- (JSQMessagesBubbleImageFactory *)messageBubbleImageFactory
+{
+    if (_messageBubbleImageFactory == nil) {
+        _messageBubbleImageFactory = [[JSQMessagesBubbleImageFactory alloc] init];
+    }
+    return _messageBubbleImageFactory;
+}
+
+- (JSQMessagesAvatarImage *)selfAvatarImage
+{
+    if (_selfAvatarImage == nil) {
+        UIImage *image = [UIImage imageWithData:[self.currentUser.avatar getData]];
+        _selfAvatarImage = [[JSQMessagesAvatarImage alloc] initWithAvatarImage:image highlightedImage:image placeholderImage:[UIImage imageNamed:@"defaultProvide"]];
+    }
+    return _selfAvatarImage;
+}
+
 #pragma mark - ChatManager Delegate
 
 - (void)didLoginWithInfo:(NSDictionary *)loginInfo error:(EMError *)error
 {
     [self.loadingView hide:YES];
     if (error) {
-        NSLog(@"%@", error.description);
         [MBProgressHUD showErrorProgressInView:nil withText:@"初始化失败"];
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -109,7 +130,6 @@
 {
     [self.loadingView hide:YES];
     if (error) {
-        NSLog(@"%@", error.description);
         [MBProgressHUD showErrorProgressInView:nil withText:@"初始化失败"];
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -138,8 +158,26 @@
 
 - (id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    TJMessage *message = self.messages[indexPath.item];
+    if (message.senderId == [self senderId]) {
+        return self.selfAvatarImage;
+    }
+    else {
+        return nil;
+    }
 }
+
+- (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TJMessage *message = self.messages[indexPath.item];
+    if (message.senderId == [self senderId]) {
+        return [self.messageBubbleImageFactory outgoingMessagesBubbleImageWithColor:[UIColor appRedColor]];
+    }
+    else {
+        return [self.messageBubbleImageFactory incomingMessagesBubbleImageWithColor:[UIColor appGrayColor]];
+    }
+}
+
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -156,34 +194,63 @@
     return kJSQMessagesCollectionViewCellLabelHeightDefault;
 }
 
-- (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return nil;
-}
 
 - (UICollectionViewCell *)collectionView:(JSQMessagesCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
     
-    // Customize the shit out of this cell
-    // See the docs for JSQMessagesCollectionViewCell
-    Message *message = self.messages[indexPath.item];
+    TJMessage *message = self.messages[indexPath.item];
     cell.textView.text = message.text;
-    cell.backgroundColor = [UIColor redColor];
+    if (message.senderId == [self senderId]) {
+        cell.textView.textColor = [UIColor whiteColor];
+    }
+    else {
+        cell.textView.textColor = [UIColor blackColor];
+    }
+    
     return cell;
+}
+
+- (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellBottomLabelAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [[NSAttributedString alloc] initWithString:@"cell bottom"];
+}
+
+- (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForMessageBubbleTopLabelAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [[NSAttributedString alloc] initWithString:@"bubble top"];
+}
+
+- (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
+{
+        return [[NSAttributedString alloc] initWithString:@"cell top"];
+    TJMessage *message = self.messages[indexPath.item];
+    if (message.senderId == [self senderId]) {
+        return nil;
+    }
+    
+    if (indexPath.item > 0) {
+        TJMessage *preMessage = self.messages[indexPath.item - 1];
+        if (preMessage.senderId == [self senderId]) {
+            return nil;
+        }
+    }
 }
 
 - (void)didPressSendButton:(UIButton *)button withMessageText:(NSString *)text senderId:(NSString *)senderId senderDisplayName:(NSString *)senderDisplayName date:(NSDate *)date
 {
     [JSQSystemSoundPlayer jsq_playMessageSentSound];
-    Message *message = [[Message alloc] init];
     
-    message.text = text;
-    message.senderId = senderId;
-    message.date = date;
-    message.isMediaMessage = NO;
-    message.senderDisplayName = senderDisplayName;
-    message.messageHash = message.hash;
+    TJMessage *message = [[TJMessage alloc] init];
+    
+    EMChatText *chatText = [[EMChatText alloc] initWithText:text];
+    EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:chatText];
+    EMMessage *emMessage = [[EMMessage alloc] initWithReceiver:self.targetEmId bodies:@[body]];
+    
+    message.emMessage = emMessage;
+    
+    [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
+    
     [self.messages addObject:message];
     [self finishSendingMessage];
     [self.collectionView reloadData];

@@ -101,7 +101,8 @@
 		F34666C11ACADE4400E83B7F /* GroupChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C01ACADE4400E83B7F /* GroupChatViewController.m */; };
 		F34666C41ACB002A00E83B7F /* MemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C31ACB002A00E83B7F /* MemberListViewController.m */; };
 		F34666C81ACBD9B000E83B7F /* MemberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C71ACBD9B000E83B7F /* MemberListCell.m */; };
-		F34666CB1ACC56B600E83B7F /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666CA1ACC56B600E83B7F /* Message.m */; };
+		F34666CB1ACC56B600E83B7F /* TJMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666CA1ACC56B600E83B7F /* TJMessage.m */; };
+		F35F57AC1ACD75D300114D29 /* EMMessage+MessageTranform.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,8 +291,10 @@
 		F34666C31ACB002A00E83B7F /* MemberListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberListViewController.m; sourceTree = "<group>"; };
 		F34666C61ACBD9B000E83B7F /* MemberListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberListCell.h; sourceTree = "<group>"; };
 		F34666C71ACBD9B000E83B7F /* MemberListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberListCell.m; sourceTree = "<group>"; };
-		F34666C91ACC56B600E83B7F /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		F34666CA1ACC56B600E83B7F /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		F34666C91ACC56B600E83B7F /* TJMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMessage.h; sourceTree = "<group>"; };
+		F34666CA1ACC56B600E83B7F /* TJMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMessage.m; sourceTree = "<group>"; };
+		F35F57AA1ACD75D300114D29 /* EMMessage+MessageTranform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMMessage+MessageTranform.h"; sourceTree = "<group>"; };
+		F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMMessage+MessageTranform.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -857,8 +860,10 @@
 				F34666BD1ACADE3700E83B7F /* SingleChatViewController.m */,
 				F34666BF1ACADE4400E83B7F /* GroupChatViewController.h */,
 				F34666C01ACADE4400E83B7F /* GroupChatViewController.m */,
-				F34666C91ACC56B600E83B7F /* Message.h */,
-				F34666CA1ACC56B600E83B7F /* Message.m */,
+				F34666C91ACC56B600E83B7F /* TJMessage.h */,
+				F34666CA1ACC56B600E83B7F /* TJMessage.m */,
+				F35F57AA1ACD75D300114D29 /* EMMessage+MessageTranform.h */,
+				F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -1025,6 +1030,7 @@
 				240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */,
 				24C6FE4F195E8574008B594C /* Team.m in Sources */,
 				24B1542619834CF4004F87DA /* CompetitionCell.m in Sources */,
+				F35F57AC1ACD75D300114D29 /* EMMessage+MessageTranform.m in Sources */,
 				24D42BCA197CDC200069F224 /* RedCardTableViewCell.m in Sources */,
 				241D4A4F196E917C00E3FC02 /* UIApplication+MainNav.m in Sources */,
 				24D42BC7197CD79A0069F224 /* RedCardViewController.m in Sources */,
@@ -1042,7 +1048,7 @@
 				18190ED419CFFFE200D0488F /* TJPlayer.m in Sources */,
 				18145E831ABD8AB100040AB7 /* NotificationCenter.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
-				F34666CB1ACC56B600E83B7F /* Message.m in Sources */,
+				F34666CB1ACC56B600E83B7F /* TJMessage.m in Sources */,
 				18145E8C1ABDBDFF00040AB7 /* BaseTableViewController.m in Sources */,
 				24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */,
 				249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */,
