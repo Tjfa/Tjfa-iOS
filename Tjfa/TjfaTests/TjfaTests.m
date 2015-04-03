@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "NSDate+Date2Str.h"
-#import "CompetitionManager.h"
+#import "TJCompetitionManager.h"
 
 @interface TjfaTests : XCTestCase
 
@@ -35,7 +35,7 @@
 
 - (void)testDate
 {
-    NSDate* date = [NSDate dateWithTimeIntervalSince1970:10000];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:10000];
     NSLog(@"%@", [date date2CompetitionStr]);
 }
 
@@ -45,7 +45,6 @@
 
 - (void)testCompetition
 {
-
 }
 
 @end

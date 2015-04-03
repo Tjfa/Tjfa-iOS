@@ -17,9 +17,8 @@
     EMChatText *chatText = [[EMChatText alloc] initWithText:text];
     EMTextMessageBody *body = [[EMTextMessageBody alloc] initWithChatObject:chatText];
     EMMessage *emMessage = [[EMMessage alloc] initWithReceiver:emId bodies:@[body]];
-    emMessage.ext = @{@"senderDisplayName": sender.name};
-    [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
-    
+    emMessage.ext = @{@"senderDisplayName": sender.name,
+                      @"senderId" : sender.username };
     return emMessage;
 }
 

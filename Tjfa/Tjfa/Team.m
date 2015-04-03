@@ -33,9 +33,9 @@
 @dynamic lostCount;
 @dynamic rank;
 
-- (NSString*)description
+- (NSString *)description
 {
-    NSDictionary* dictionary = @{
+    NSDictionary *dictionary = @{
         @"emblemPath" : self.emblemPath,
         @"goalCount" : self.goalCount,
         @"groupNo" : self.groupNo,
@@ -47,15 +47,15 @@
     return [dictionary description];
 }
 
-+ (NSString*)idAttribute
++ (NSString *)idAttribute
 {
     return @"teamId";
 }
 
-+ (Team*)updateTeamWithDictionary:(TJTeam *)tjTeam competition:(Competition*)competition
++ (Team *)updateTeamWithDictionary:(TJTeam *)tjTeam competition:(Competition *)competition
 {
-    NSNumber* teamId = tjTeam.teamId;
-    Team* team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamId];
+    NSNumber *teamId = tjTeam.teamId;
+    Team *team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamId];
     if (team == nil)
         team = [Team MR_createEntity];
 

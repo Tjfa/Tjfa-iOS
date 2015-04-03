@@ -9,41 +9,41 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class AVNews;
+@class TJNews;
 
 @interface News : NSManagedObject
 
 /**
  *  新闻内容
  */
-@property (nonatomic, retain) NSString* content;
+@property (nonatomic, retain) NSString *content;
 
 /**
  *  日期
  */
-@property (nonatomic, retain) NSDate* date;
+@property (nonatomic, retain) NSDate *date;
 
 /**
  *  新闻Id
  */
-@property (nonatomic, retain) NSNumber* newsId;
+@property (nonatomic, retain) NSNumber *newsId;
 
 /**
  *  新闻标题
  */
-@property (nonatomic, retain) NSString* title;
+@property (nonatomic, retain) NSString *title;
 
 /**
  *  该新闻是否阅读过 只在本地存在
  */
-@property (nonatomic, retain) NSNumber* isRead;
+@property (nonatomic, retain) NSNumber *isRead;
 
 /**
  *  预览文字内容 
  */
-@property (nonatomic, retain) NSString* precontent;
+@property (nonatomic, retain) NSString *precontent;
 
-+ (NSString*)idAttribute;
++ (NSString *)idAttribute;
 
 /**
  *  将后台获取到的news的基本属性更新
@@ -53,6 +53,6 @@
  *
  *  @return 更新过后的news
  */
-+ (News*)updateNewsWithDictionary:(AVNews*)avNews;
++ (News *)updateNewsWithDictionary:(TJNews *)avNews;
 
 @end

@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @class Competition, Team;
-@class AVMatch;
+@class TJMatch;
 
 @interface Match : NSManagedObject
 
@@ -79,7 +79,7 @@
  *  @param dictionary  包含match的基本属性 以及 teams
  *  @param competition 所属于的competition
  */
-+ (Match *)updateMatchWithDictionary:(AVMatch *)avMatch andCompetetion:(Competition *)competition;
++ (Match *)updateMatchWithDictionary:(TJMatch *)avMatch andCompetetion:(Competition *)competition;
 
 + (NSString *)idAttribute;
 

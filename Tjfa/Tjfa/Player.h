@@ -11,53 +11,53 @@
 
 @class Team;
 @class Competition;
-@class AVPlayer;
+@class TJPlayer;
 
 @interface Player : NSManagedObject
 
 /**
  *  进球数
  */
-@property (nonatomic, retain) NSNumber* goalCount;
+@property (nonatomic, retain) NSNumber *goalCount;
 
 /**
  *  playerId  主键
  */
-@property (nonatomic, retain) NSNumber* playerId;
+@property (nonatomic, retain) NSNumber *playerId;
 
 /**
  *  名字
  */
-@property (nonatomic, retain) NSString* name;
+@property (nonatomic, retain) NSString *name;
 
 /**
  *  红牌数量
  */
-@property (nonatomic, retain) NSNumber* redCard;
+@property (nonatomic, retain) NSNumber *redCard;
 
 /**
  *  黄牌数量
  */
-@property (nonatomic, retain) NSNumber* yellowCard;
+@property (nonatomic, retain) NSNumber *yellowCard;
 
 /**
  *  所属于的球队
  */
-@property (nonatomic, retain) Team* team;
+@property (nonatomic, retain) Team *team;
 
 /**
  *  所属比赛
  */
-@property (nonatomic, retain) Competition* competition;
+@property (nonatomic, retain) Competition *competition;
 
-+ (NSString*)idAttributeStr;
++ (NSString *)idAttributeStr;
 
-+ (NSString*)redCardAttributeStr;
++ (NSString *)redCardAttributeStr;
 
-+ (NSString*)yellowCardAttributeStr;
++ (NSString *)yellowCardAttributeStr;
 
-+ (NSString*)goalCountAttributeStr;
++ (NSString *)goalCountAttributeStr;
 
-+ (Player*)updatePlayerWithDictionary:(AVPlayer*)player competition:(Competition*)competition;
++ (Player *)updatePlayerWithDictionary:(TJPlayer *)player competition:(Competition *)competition;
 
 @end

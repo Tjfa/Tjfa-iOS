@@ -22,31 +22,31 @@
 @dynamic team;
 @dynamic competition;
 
-+ (NSString*)idAttributeStr
++ (NSString *)idAttributeStr
 {
     return @"playerId";
 }
 
-+ (NSString*)yellowCardAttributeStr
++ (NSString *)yellowCardAttributeStr
 {
     return @"yellowCard";
 }
 
-+ (NSString*)redCardAttributeStr
++ (NSString *)redCardAttributeStr
 {
     return @"redCard";
 }
 
-+ (NSString*)goalCountAttributeStr
++ (NSString *)goalCountAttributeStr
 {
     return @"goalCount";
 }
 
-+ (Player*)updatePlayerWithDictionary:(TJPlayer *)tjPlayer competition:(Competition*)competition;
++ (Player *)updatePlayerWithDictionary:(TJPlayer *)tjPlayer competition:(Competition *)competition;
 {
 
-    NSNumber* playerId = tjPlayer.playerId;
-    Player* player = [Player MR_findFirstByAttribute:[self idAttributeStr] withValue:playerId];
+    NSNumber *playerId = tjPlayer.playerId;
+    Player *player = [Player MR_findFirstByAttribute:[self idAttributeStr] withValue:playerId];
     if (player == nil) {
         player = [Player MR_createEntity];
     }
@@ -57,7 +57,7 @@
     player.yellowCard = tjPlayer.yellowCard;
 
     player.competition = competition;
-    NSNumber* teamId = tjPlayer.teamId;
+    NSNumber *teamId = tjPlayer.teamId;
     player.team = [Team MR_findFirstByAttribute:[Team idAttribute] withValue:teamId];
     return player;
 }

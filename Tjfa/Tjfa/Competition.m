@@ -26,9 +26,9 @@
 @dynamic teams;
 @dynamic players;
 
-- (NSString*)description
+- (NSString *)description
 {
-    NSDictionary* dictionary = @{
+    NSDictionary *dictionary = @{
         @"competitionId" : self.competitionId,
         @"isStart" : self.isStart,
         @"name" : self.name,
@@ -38,22 +38,22 @@
     return [dictionary description];
 }
 
-+ (NSString*)idAttributeStr
++ (NSString *)idAttributeStr
 {
     return @"competitionId";
 }
 
-+ (NSString*)timeAttributeStr
++ (NSString *)timeAttributeStr
 {
     return @"time";
 }
 
-+ (NSString*)nameAttributeStr
++ (NSString *)nameAttributeStr
 {
     return @"name";
 }
 
-+ (NSString*)typeAttributeStr
++ (NSString *)typeAttributeStr
 {
     return @"type";
 }
@@ -62,7 +62,7 @@
 {
     NSNumber *competitionId = tjCompetition.competitionId;
 
-    Competition* competition = [Competition MR_findFirstByAttribute:[Competition idAttributeStr] withValue:competitionId];
+    Competition *competition = [Competition MR_findFirstByAttribute:[Competition idAttributeStr] withValue:competitionId];
     if (competition == nil)
         competition = [Competition MR_createEntity]; //create an new if doesn't exist
 

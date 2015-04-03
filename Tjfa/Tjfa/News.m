@@ -20,25 +20,25 @@
 @dynamic isRead;
 @dynamic precontent;
 
-- (NSString*)description
+- (NSString *)description
 {
-    NSDictionary* dictionary = @{ @"newsId" : self.newsId,
+    NSDictionary *dictionary = @{ @"newsId" : self.newsId,
                                   @"precontent" : self.precontent,
                                   @"content" : self.content,
-                                  @"date" : self.date ,
-                                  @"title":self.title};
+                                  @"date" : self.date,
+                                  @"title" : self.title };
     return [dictionary description];
 }
 
-+ (NSString*)idAttribute
++ (NSString *)idAttribute
 {
     return @"newsId";
 }
 
-+ (News*)updateNewsWithDictionary:(TJNews*)tjNews
++ (News *)updateNewsWithDictionary:(TJNews *)tjNews
 {
-    NSNumber* newsId = tjNews.newsId;
-    News* news = [News MR_findFirstByAttribute:[News idAttribute] withValue:newsId];
+    NSNumber *newsId = tjNews.newsId;
+    News *news = [News MR_findFirstByAttribute:[News idAttribute] withValue:newsId];
     if (news == nil) {
         news = [News MR_createEntity];
         news.isRead = @(NO);

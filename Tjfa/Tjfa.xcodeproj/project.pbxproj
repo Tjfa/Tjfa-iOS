@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		18145E801ABD83CC00040AB7 /* viewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18145E7F1ABD83CC00040AB7 /* viewController.plist */; };
-		18145E831ABD8AB100040AB7 /* NotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 18145E821ABD8AB100040AB7 /* NotificationCenter.m */; };
 		18145E861ABDA69300040AB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18145E841ABDA69300040AB7 /* Main.storyboard */; };
-		18145E891ABDBD1600040AB7 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18145E881ABDBD1600040AB7 /* BaseViewController.m */; };
-		18145E8C1ABDBDFF00040AB7 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18145E8B1ABDBDFF00040AB7 /* BaseTableViewController.m */; };
+		18145E891ABDBD1600040AB7 /* TJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18145E881ABDBD1600040AB7 /* TJBaseViewController.m */; };
+		18145E8C1ABDBDFF00040AB7 /* TJBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18145E8B1ABDBDFF00040AB7 /* TJBaseTableViewController.m */; };
 		18190ED119CFFFE200D0488F /* TJCompetition.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC719CFFFE200D0488F /* TJCompetition.m */; };
 		18190ED219CFFFE200D0488F /* TJMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190EC919CFFFE200D0488F /* TJMatch.m */; };
 		18190ED319CFFFE200D0488F /* TJNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ECC19CFFFE200D0488F /* TJNews.m */; };
@@ -19,58 +18,58 @@
 		18190ED519CFFFE200D0488F /* TJTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 18190ED019CFFFE200D0488F /* TJTeam.m */; };
 		240099EE19600B160036EFF4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240099ED19600B160036EFF4 /* MessageUI.framework */; };
 		240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */; };
-		240099F9196024BE0036EFF4 /* AppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F8196024BE0036EFF4 /* AppInfo.m */; };
+		240099F9196024BE0036EFF4 /* TJAppInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 240099F8196024BE0036EFF4 /* TJAppInfo.m */; };
 		240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6CC195EC23300F7820D /* UIColor+AppColor.m */; };
-		240AE6D0195EC52300F7820D /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6CF195EC52300F7820D /* DashboardViewController.m */; };
-		240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6D4195EC5F100F7820D /* DashboardButton.m */; };
-		240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6D7195EDCC600F7820D /* DashboardCell.m */; };
+		240AE6D0195EC52300F7820D /* TJDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6CF195EC52300F7820D /* TJDashboardViewController.m */; };
+		240AE6D5195EC5F100F7820D /* TJDashboardButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6D4195EC5F100F7820D /* TJDashboardButton.m */; };
+		240AE6D8195EDCC600F7820D /* TJDashboardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 240AE6D7195EDCC600F7820D /* TJDashboardCell.m */; };
 		241D4A4F196E917C00E3FC02 /* UIApplication+MainNav.m in Sources */ = {isa = PBXBuildFile; fileRef = 241D4A4E196E917C00E3FC02 /* UIApplication+MainNav.m */; };
-		2447B3AA198CAA7300B297BB /* Developer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2447B3A9198CAA7300B297BB /* Developer.m */; };
-		244ACBC3198E8C55003E640A /* Welcome1.m in Sources */ = {isa = PBXBuildFile; fileRef = 244ACBC2198E8C55003E640A /* Welcome1.m */; };
-		244ACBC5198E8C72003E640A /* welcome1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244ACBC4198E8C72003E640A /* welcome1.xib */; };
-		244ACBC8198E8CED003E640A /* welcome2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244ACBC7198E8CED003E640A /* welcome2.xib */; };
-		244ACBCB198E8CFD003E640A /* Welcome2.m in Sources */ = {isa = PBXBuildFile; fileRef = 244ACBCA198E8CFD003E640A /* Welcome2.m */; };
+		2447B3AA198CAA7300B297BB /* TJDeveloper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2447B3A9198CAA7300B297BB /* TJDeveloper.m */; };
+		244ACBC3198E8C55003E640A /* TJWelcome1.m in Sources */ = {isa = PBXBuildFile; fileRef = 244ACBC2198E8C55003E640A /* TJWelcome1.m */; };
+		244ACBC5198E8C72003E640A /* TJWelcome1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244ACBC4198E8C72003E640A /* TJWelcome1.xib */; };
+		244ACBC8198E8CED003E640A /* TJWelcome2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244ACBC7198E8CED003E640A /* TJWelcome2.xib */; };
+		244ACBCB198E8CFD003E640A /* TJWelcome2.m in Sources */ = {isa = PBXBuildFile; fileRef = 244ACBCA198E8CFD003E640A /* TJWelcome2.m */; };
 		2458D4AE19A75AB5004123BA /* download_ewm.png in Resources */ = {isa = PBXBuildFile; fileRef = 2458D4AD19A75AB5004123BA /* download_ewm.png */; };
-		246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753B6196BE2BA007BDE90 /* NewsContentViewController.m */; };
+		246753B7196BE2BA007BDE90 /* TJNewsContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753B6196BE2BA007BDE90 /* TJNewsContentViewController.m */; };
 		246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */; };
-		24686C6F196E562F00D8CF86 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C6E196E562F00D8CF86 /* SettingViewController.m */; };
-		24686C74196E66DC00D8CF86 /* AboutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C73196E66DC00D8CF86 /* AboutManager.m */; };
-		24686C7A196E7B4C00D8CF86 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C79196E7B4C00D8CF86 /* WelcomeViewController.m */; };
-		24686C7E196E7DD000D8CF86 /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C7D196E7DD000D8CF86 /* UserData.m */; };
-		24686C80196E870300D8CF86 /* welcome3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24686C7F196E870300D8CF86 /* welcome3.xib */; };
-		24686C83196E875600D8CF86 /* Welcome3.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C82196E875600D8CF86 /* Welcome3.m */; };
-		248BD093197E508D00419603 /* GroupScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 248BD092197E508D00419603 /* GroupScoreViewController.m */; };
-		248BD096197E593000419603 /* GroupScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 248BD095197E593000419603 /* GroupScoreCell.m */; };
-		248BD09A197E60C600419603 /* TeamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 248BD099197E60C600419603 /* TeamManager.m */; };
-		2495BA2719690C1F009BB60F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2619690C1F009BB60F /* NewsViewController.m */; };
-		2495BA2A19691E28009BB60F /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2919691E28009BB60F /* NewsCell.m */; };
+		24686C6F196E562F00D8CF86 /* TJSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C6E196E562F00D8CF86 /* TJSettingViewController.m */; };
+		24686C74196E66DC00D8CF86 /* TJAboutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C73196E66DC00D8CF86 /* TJAboutManager.m */; };
+		24686C7A196E7B4C00D8CF86 /* TJWelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C79196E7B4C00D8CF86 /* TJWelcomeViewController.m */; };
+		24686C7E196E7DD000D8CF86 /* TJUserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C7D196E7DD000D8CF86 /* TJUserData.m */; };
+		24686C80196E870300D8CF86 /* TJWelcome3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24686C7F196E870300D8CF86 /* TJWelcome3.xib */; };
+		24686C83196E875600D8CF86 /* TJWelcome3.m in Sources */ = {isa = PBXBuildFile; fileRef = 24686C82196E875600D8CF86 /* TJWelcome3.m */; };
+		248BD093197E508D00419603 /* TJGroupScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 248BD092197E508D00419603 /* TJGroupScoreViewController.m */; };
+		248BD096197E593000419603 /* TJGroupScoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 248BD095197E593000419603 /* TJGroupScoreCell.m */; };
+		248BD09A197E60C600419603 /* TJTeamManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 248BD099197E60C600419603 /* TJTeamManager.m */; };
+		2495BA2719690C1F009BB60F /* TJNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2619690C1F009BB60F /* TJNewsViewController.m */; };
+		2495BA2A19691E28009BB60F /* TJNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495BA2919691E28009BB60F /* TJNewsCell.m */; };
 		2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2495FA0C196D005C00319872 /* UIView+RefreshFooterView.m */; };
-		249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67718E16DDE0084DDBB /* CompetitionManager.m */; };
-		249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F143F195D6FBB0038DF42 /* NewsManager.m */; };
+		249CF67818E16DDE0084DDBB /* TJCompetitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249CF67718E16DDE0084DDBB /* TJCompetitionManager.m */; };
+		249F1440195D6FBB0038DF42 /* TJNewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 249F143F195D6FBB0038DF42 /* TJNewsManager.m */; };
 		24A3B4931986ACDB00F6D263 /* NSNumber+Assign.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3B4921986ACDB00F6D263 /* NSNumber+Assign.m */; };
-		24B1542619834CF4004F87DA /* CompetitionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B1542519834CF4004F87DA /* CompetitionCell.m */; };
-		24B154291983C234004F87DA /* YellowCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B154281983C234004F87DA /* YellowCardTableViewCell.m */; };
-		24B1542D1983C87E004F87DA /* TopScoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B1542C1983C87E004F87DA /* TopScoreTableViewCell.m */; };
-		24B154311983CD7E004F87DA /* TeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B154301983CD7E004F87DA /* TeamViewController.m */; };
-		24B154341983D8E0004F87DA /* TeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B154331983D8E0004F87DA /* TeamTableViewCell.m */; };
-		24B8C1BD1977B43F00B2FAD0 /* TopScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1BC1977B43F00B2FAD0 /* TopScoreViewController.m */; };
-		24B8C1C11977B46D00B2FAD0 /* YellowCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1C01977B46D00B2FAD0 /* YellowCardViewController.m */; };
-		24B8C1C51977B7F800B2FAD0 /* MatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1C41977B7F800B2FAD0 /* MatchTableViewCell.m */; };
+		24B1542619834CF4004F87DA /* TJCompetitionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B1542519834CF4004F87DA /* TJCompetitionCell.m */; };
+		24B154291983C234004F87DA /* TJYellowCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B154281983C234004F87DA /* TJYellowCardTableViewCell.m */; };
+		24B1542D1983C87E004F87DA /* TJTopScoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B1542C1983C87E004F87DA /* TJTopScoreTableViewCell.m */; };
+		24B154311983CD7E004F87DA /* TJTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B154301983CD7E004F87DA /* TJTeamViewController.m */; };
+		24B154341983D8E0004F87DA /* TJTeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B154331983D8E0004F87DA /* TJTeamTableViewCell.m */; };
+		24B8C1BD1977B43F00B2FAD0 /* TJTopScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1BC1977B43F00B2FAD0 /* TJTopScoreViewController.m */; };
+		24B8C1C11977B46D00B2FAD0 /* TJYellowCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1C01977B46D00B2FAD0 /* TJYellowCardViewController.m */; };
+		24B8C1C51977B7F800B2FAD0 /* TJMatchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24B8C1C41977B7F800B2FAD0 /* TJMatchTableViewCell.m */; };
 		24C6FE4B195E8574008B594C /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE41195E8574008B594C /* Player.m */; };
 		24C6FE4C195E8574008B594C /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE45195E8574008B594C /* Match.m */; };
 		24C6FE4D195E8574008B594C /* Competition.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE46195E8574008B594C /* Competition.m */; };
 		24C6FE4E195E8574008B594C /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE47195E8574008B594C /* News.m */; };
 		24C6FE4F195E8574008B594C /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C6FE48195E8574008B594C /* Team.m */; };
-		24C84BBE1976BC0E00980720 /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C84BBD1976BC0E00980720 /* MatchViewController.m */; };
-		24C84BC11976CADE00980720 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C84BC01976CADE00980720 /* RootViewController.m */; };
-		24C84BC41976CFF700980720 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C84BC31976CFF700980720 /* MenuViewController.m */; };
+		24C84BBE1976BC0E00980720 /* TJMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C84BBD1976BC0E00980720 /* TJMatchViewController.m */; };
+		24C84BC11976CADE00980720 /* TJRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C84BC01976CADE00980720 /* TJRootViewController.m */; };
+		24C84BC41976CFF700980720 /* TJMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C84BC31976CFF700980720 /* TJMenuViewController.m */; };
 		24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CECBF018E27F5300D43E0D /* NSDate+Date2Str.m */; };
-		24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CECC3318E2A3D700D43E0D /* NetworkClient.m */; };
-		24D42BC7197CD79A0069F224 /* RedCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D42BC6197CD79A0069F224 /* RedCardViewController.m */; };
-		24D42BCA197CDC200069F224 /* RedCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D42BC9197CDC200069F224 /* RedCardTableViewCell.m */; };
-		24D42BCD197D013F0069F224 /* CompetitionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D42BCC197D013F0069F224 /* CompetitionDetailViewController.m */; };
-		24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E58E7E18E7FC29007BFFD8 /* PlayerManager.m */; };
-		24E58E8C18E815C1007BFFD8 /* MatchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E58E8B18E815C1007BFFD8 /* MatchManager.m */; };
+		24CECC3418E2A3D700D43E0D /* TJNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 24CECC3318E2A3D700D43E0D /* TJNetworkClient.m */; };
+		24D42BC7197CD79A0069F224 /* TJRedCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D42BC6197CD79A0069F224 /* TJRedCardViewController.m */; };
+		24D42BCA197CDC200069F224 /* TJRedCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D42BC9197CDC200069F224 /* TJRedCardTableViewCell.m */; };
+		24D42BCD197D013F0069F224 /* TJCompetitionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D42BCC197D013F0069F224 /* TJCompetitionDetailViewController.m */; };
+		24E58E7F18E7FC29007BFFD8 /* TJPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E58E7E18E7FC29007BFFD8 /* TJPlayerManager.m */; };
+		24E58E8C18E815C1007BFFD8 /* TJMatchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E58E8B18E815C1007BFFD8 /* TJMatchManager.m */; };
 		24F1D1E018E063E0007E2309 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1DF18E063E0007E2309 /* Foundation.framework */; };
 		24F1D1E218E063E1007E2309 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1E118E063E1007E2309 /* CoreGraphics.framework */; };
 		24F1D1E418E063E1007E2309 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F1D1E318E063E1007E2309 /* UIKit.framework */; };
@@ -83,24 +82,24 @@
 		24F1D20B18E063E1007E2309 /* TjfaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D20A18E063E1007E2309 /* TjfaTests.m */; };
 		24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */; };
 		24F1D21718E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 24F1D21418E0711E007E2309 /* Tjfa.xcdatamodeld */; };
-		24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FED22C195A774900A9F0DA /* DatabaseManager.m */; };
+		24FED22D195A774900A9F0DA /* TJDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FED22C195A774900A9F0DA /* TJDatabaseManager.m */; };
 		571F1BFD12CA4E6E8E04F93C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC567E161D864E30A568E12D /* libPods.a */; };
 		63A3E9891A4F142A009CAA6A /* libShareComponent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A3E9871A4F142A009CAA6A /* libShareComponent.a */; };
-		ADEDA1E1195FE00D009B8D20 /* CompetitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E0195FE00D009B8D20 /* CompetitionViewController.m */; };
+		ADEDA1E1195FE00D009B8D20 /* TJCompetitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEDA1E0195FE00D009B8D20 /* TJCompetitionViewController.m */; };
 		F34666901AC9909900E83B7F /* TJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F346668F1AC9909900E83B7F /* TJUser.m */; };
-		F34666951AC991E000E83B7F /* LoginInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666941AC991E000E83B7F /* LoginInViewController.m */; };
+		F34666951AC991E000E83B7F /* TJLoginInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666941AC991E000E83B7F /* TJLoginInViewController.m */; };
 		F34666981AC997C300E83B7F /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666971AC997C300E83B7F /* CALayer+XibConfiguration.m */; };
-		F34666A01AC9ABCB00E83B7F /* LoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F346669F1AC9ABCB00E83B7F /* LoginManager.m */; };
-		F34666A31AC9B1E400E83B7F /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666A21AC9B1E400E83B7F /* ForgetPasswordViewController.m */; };
-		F34666A61AC9B1F400E83B7F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666A51AC9B1F400E83B7F /* RegisterViewController.m */; };
-		F34666AD1ACA8B7600E83B7F /* UserCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666AC1ACA8B7600E83B7F /* UserCenterTableViewController.m */; };
-		F34666B41ACA9C4400E83B7F /* MemberMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666B31ACA9C4400E83B7F /* MemberMatchViewController.m */; };
-		F34666B71ACAA87700E83B7F /* ModifyNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666B61ACAA87700E83B7F /* ModifyNameViewController.m */; };
-		F34666BA1ACADE0900E83B7F /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666B91ACADE0900E83B7F /* ChatViewController.m */; };
-		F34666BE1ACADE3700E83B7F /* SingleChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666BD1ACADE3700E83B7F /* SingleChatViewController.m */; };
-		F34666C11ACADE4400E83B7F /* GroupChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C01ACADE4400E83B7F /* GroupChatViewController.m */; };
-		F34666C41ACB002A00E83B7F /* MemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C31ACB002A00E83B7F /* MemberListViewController.m */; };
-		F34666C81ACBD9B000E83B7F /* MemberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C71ACBD9B000E83B7F /* MemberListCell.m */; };
+		F34666A01AC9ABCB00E83B7F /* TJLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F346669F1AC9ABCB00E83B7F /* TJLoginManager.m */; };
+		F34666A31AC9B1E400E83B7F /* TJForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666A21AC9B1E400E83B7F /* TJForgetPasswordViewController.m */; };
+		F34666A61AC9B1F400E83B7F /* TJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666A51AC9B1F400E83B7F /* TJRegisterViewController.m */; };
+		F34666AD1ACA8B7600E83B7F /* TJUserCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666AC1ACA8B7600E83B7F /* TJUserCenterTableViewController.m */; };
+		F34666B41ACA9C4400E83B7F /* TJMemberMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666B31ACA9C4400E83B7F /* TJMemberMatchViewController.m */; };
+		F34666B71ACAA87700E83B7F /* TJModifyNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666B61ACAA87700E83B7F /* TJModifyNameViewController.m */; };
+		F34666BA1ACADE0900E83B7F /* TJChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666B91ACADE0900E83B7F /* TJChatViewController.m */; };
+		F34666BE1ACADE3700E83B7F /* TJSingleChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666BD1ACADE3700E83B7F /* TJSingleChatViewController.m */; };
+		F34666C11ACADE4400E83B7F /* TJGroupChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C01ACADE4400E83B7F /* TJGroupChatViewController.m */; };
+		F34666C41ACB002A00E83B7F /* TJMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C31ACB002A00E83B7F /* TJMemberListViewController.m */; };
+		F34666C81ACBD9B000E83B7F /* TJMemberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C71ACBD9B000E83B7F /* TJMemberListCell.m */; };
 		F34666CB1ACC56B600E83B7F /* TJMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666CA1ACC56B600E83B7F /* TJMessage.m */; };
 		F35F57AC1ACD75D300114D29 /* EMMessage+MessageTranform.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */; };
 /* End PBXBuildFile section */
@@ -118,13 +117,11 @@
 /* Begin PBXFileReference section */
 		052BE44AA22CDFC54CC3B9D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		18145E7F1ABD83CC00040AB7 /* viewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = viewController.plist; sourceTree = "<group>"; };
-		18145E811ABD8AB100040AB7 /* NotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCenter.h; sourceTree = "<group>"; };
-		18145E821ABD8AB100040AB7 /* NotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCenter.m; sourceTree = "<group>"; };
 		18145E851ABDA69300040AB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		18145E871ABDBD1600040AB7 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		18145E881ABDBD1600040AB7 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		18145E8A1ABDBDFF00040AB7 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
-		18145E8B1ABDBDFF00040AB7 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		18145E871ABDBD1600040AB7 /* TJBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJBaseViewController.h; sourceTree = "<group>"; };
+		18145E881ABDBD1600040AB7 /* TJBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJBaseViewController.m; sourceTree = "<group>"; };
+		18145E8A1ABDBDFF00040AB7 /* TJBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJBaseTableViewController.h; sourceTree = "<group>"; };
+		18145E8B1ABDBDFF00040AB7 /* TJBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJBaseTableViewController.m; sourceTree = "<group>"; };
 		18190EC619CFFFE200D0488F /* TJCompetition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJCompetition.h; sourceTree = "<group>"; };
 		18190EC719CFFFE200D0488F /* TJCompetition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJCompetition.m; sourceTree = "<group>"; };
 		18190EC819CFFFE200D0488F /* TJMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMatch.h; sourceTree = "<group>"; };
@@ -139,76 +136,76 @@
 		240099ED19600B160036EFF4 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		240099F319600BF60036EFF4 /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		240099F419600BF60036EFF4 /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
-		240099F7196024BE0036EFF4 /* AppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppInfo.h; sourceTree = "<group>"; };
-		240099F8196024BE0036EFF4 /* AppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppInfo.m; sourceTree = "<group>"; };
+		240099F7196024BE0036EFF4 /* TJAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJAppInfo.h; sourceTree = "<group>"; };
+		240099F8196024BE0036EFF4 /* TJAppInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJAppInfo.m; sourceTree = "<group>"; };
 		240AE6CB195EC23300F7820D /* UIColor+AppColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AppColor.h"; sourceTree = "<group>"; };
 		240AE6CC195EC23300F7820D /* UIColor+AppColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AppColor.m"; sourceTree = "<group>"; };
-		240AE6CE195EC52300F7820D /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
-		240AE6CF195EC52300F7820D /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
-		240AE6D3195EC5F100F7820D /* DashboardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardButton.h; sourceTree = "<group>"; };
-		240AE6D4195EC5F100F7820D /* DashboardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardButton.m; sourceTree = "<group>"; };
-		240AE6D6195EDCC600F7820D /* DashboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardCell.h; sourceTree = "<group>"; };
-		240AE6D7195EDCC600F7820D /* DashboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardCell.m; sourceTree = "<group>"; };
+		240AE6CE195EC52300F7820D /* TJDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJDashboardViewController.h; sourceTree = "<group>"; };
+		240AE6CF195EC52300F7820D /* TJDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJDashboardViewController.m; sourceTree = "<group>"; };
+		240AE6D3195EC5F100F7820D /* TJDashboardButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJDashboardButton.h; sourceTree = "<group>"; };
+		240AE6D4195EC5F100F7820D /* TJDashboardButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJDashboardButton.m; sourceTree = "<group>"; };
+		240AE6D6195EDCC600F7820D /* TJDashboardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJDashboardCell.h; sourceTree = "<group>"; };
+		240AE6D7195EDCC600F7820D /* TJDashboardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJDashboardCell.m; sourceTree = "<group>"; };
 		241D4A4D196E917C00E3FC02 /* UIApplication+MainNav.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+MainNav.h"; sourceTree = "<group>"; };
 		241D4A4E196E917C00E3FC02 /* UIApplication+MainNav.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+MainNav.m"; sourceTree = "<group>"; };
-		2447B3A8198CAA7300B297BB /* Developer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Developer.h; sourceTree = "<group>"; };
-		2447B3A9198CAA7300B297BB /* Developer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Developer.m; sourceTree = "<group>"; };
-		244ACBC1198E8C55003E640A /* Welcome1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Welcome1.h; sourceTree = "<group>"; };
-		244ACBC2198E8C55003E640A /* Welcome1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Welcome1.m; sourceTree = "<group>"; };
-		244ACBC4198E8C72003E640A /* welcome1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = welcome1.xib; sourceTree = "<group>"; };
-		244ACBC7198E8CED003E640A /* welcome2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = welcome2.xib; sourceTree = "<group>"; };
-		244ACBC9198E8CFD003E640A /* Welcome2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Welcome2.h; sourceTree = "<group>"; };
-		244ACBCA198E8CFD003E640A /* Welcome2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Welcome2.m; sourceTree = "<group>"; };
+		2447B3A8198CAA7300B297BB /* TJDeveloper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJDeveloper.h; sourceTree = "<group>"; };
+		2447B3A9198CAA7300B297BB /* TJDeveloper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJDeveloper.m; sourceTree = "<group>"; };
+		244ACBC1198E8C55003E640A /* TJWelcome1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJWelcome1.h; sourceTree = "<group>"; };
+		244ACBC2198E8C55003E640A /* TJWelcome1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJWelcome1.m; sourceTree = "<group>"; };
+		244ACBC4198E8C72003E640A /* TJWelcome1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJWelcome1.xib; sourceTree = "<group>"; };
+		244ACBC7198E8CED003E640A /* TJWelcome2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJWelcome2.xib; sourceTree = "<group>"; };
+		244ACBC9198E8CFD003E640A /* TJWelcome2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJWelcome2.h; sourceTree = "<group>"; };
+		244ACBCA198E8CFD003E640A /* TJWelcome2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJWelcome2.m; sourceTree = "<group>"; };
 		2458D4AD19A75AB5004123BA /* download_ewm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download_ewm.png; sourceTree = "<group>"; };
-		246753B5196BE2BA007BDE90 /* NewsContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsContentViewController.h; sourceTree = "<group>"; };
-		246753B6196BE2BA007BDE90 /* NewsContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsContentViewController.m; sourceTree = "<group>"; };
+		246753B5196BE2BA007BDE90 /* TJNewsContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJNewsContentViewController.h; sourceTree = "<group>"; };
+		246753B6196BE2BA007BDE90 /* TJNewsContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJNewsContentViewController.m; sourceTree = "<group>"; };
 		246753BB196BE52A007BDE90 /* MBProgressHUD+AppProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+AppProgressView.h"; sourceTree = "<group>"; };
 		246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+AppProgressView.m"; sourceTree = "<group>"; };
-		24686C6D196E562F00D8CF86 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		24686C6E196E562F00D8CF86 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		24686C72196E66DC00D8CF86 /* AboutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutManager.h; sourceTree = "<group>"; };
-		24686C73196E66DC00D8CF86 /* AboutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutManager.m; sourceTree = "<group>"; };
-		24686C78196E7B4C00D8CF86 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
-		24686C79196E7B4C00D8CF86 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
-		24686C7C196E7DD000D8CF86 /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserData.h; sourceTree = "<group>"; };
-		24686C7D196E7DD000D8CF86 /* UserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserData.m; sourceTree = "<group>"; };
-		24686C7F196E870300D8CF86 /* welcome3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = welcome3.xib; sourceTree = "<group>"; };
-		24686C81196E875600D8CF86 /* Welcome3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Welcome3.h; sourceTree = "<group>"; };
-		24686C82196E875600D8CF86 /* Welcome3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Welcome3.m; sourceTree = "<group>"; };
-		248BD091197E508D00419603 /* GroupScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupScoreViewController.h; sourceTree = "<group>"; };
-		248BD092197E508D00419603 /* GroupScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupScoreViewController.m; sourceTree = "<group>"; };
-		248BD094197E593000419603 /* GroupScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupScoreCell.h; sourceTree = "<group>"; };
-		248BD095197E593000419603 /* GroupScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupScoreCell.m; sourceTree = "<group>"; };
-		248BD098197E60C600419603 /* TeamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamManager.h; sourceTree = "<group>"; };
-		248BD099197E60C600419603 /* TeamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamManager.m; sourceTree = "<group>"; };
-		2495BA2519690C1F009BB60F /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
-		2495BA2619690C1F009BB60F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
-		2495BA2819691E28009BB60F /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
-		2495BA2919691E28009BB60F /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
+		24686C6D196E562F00D8CF86 /* TJSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJSettingViewController.h; sourceTree = "<group>"; };
+		24686C6E196E562F00D8CF86 /* TJSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJSettingViewController.m; sourceTree = "<group>"; };
+		24686C72196E66DC00D8CF86 /* TJAboutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJAboutManager.h; sourceTree = "<group>"; };
+		24686C73196E66DC00D8CF86 /* TJAboutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJAboutManager.m; sourceTree = "<group>"; };
+		24686C78196E7B4C00D8CF86 /* TJWelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJWelcomeViewController.h; sourceTree = "<group>"; };
+		24686C79196E7B4C00D8CF86 /* TJWelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJWelcomeViewController.m; sourceTree = "<group>"; };
+		24686C7C196E7DD000D8CF86 /* TJUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUserData.h; sourceTree = "<group>"; };
+		24686C7D196E7DD000D8CF86 /* TJUserData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUserData.m; sourceTree = "<group>"; };
+		24686C7F196E870300D8CF86 /* TJWelcome3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJWelcome3.xib; sourceTree = "<group>"; };
+		24686C81196E875600D8CF86 /* TJWelcome3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJWelcome3.h; sourceTree = "<group>"; };
+		24686C82196E875600D8CF86 /* TJWelcome3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJWelcome3.m; sourceTree = "<group>"; };
+		248BD091197E508D00419603 /* TJGroupScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJGroupScoreViewController.h; sourceTree = "<group>"; };
+		248BD092197E508D00419603 /* TJGroupScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJGroupScoreViewController.m; sourceTree = "<group>"; };
+		248BD094197E593000419603 /* TJGroupScoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJGroupScoreCell.h; sourceTree = "<group>"; };
+		248BD095197E593000419603 /* TJGroupScoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJGroupScoreCell.m; sourceTree = "<group>"; };
+		248BD098197E60C600419603 /* TJTeamManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJTeamManager.h; sourceTree = "<group>"; };
+		248BD099197E60C600419603 /* TJTeamManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJTeamManager.m; sourceTree = "<group>"; };
+		2495BA2519690C1F009BB60F /* TJNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJNewsViewController.h; sourceTree = "<group>"; };
+		2495BA2619690C1F009BB60F /* TJNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJNewsViewController.m; sourceTree = "<group>"; };
+		2495BA2819691E28009BB60F /* TJNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJNewsCell.h; sourceTree = "<group>"; };
+		2495BA2919691E28009BB60F /* TJNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJNewsCell.m; sourceTree = "<group>"; };
 		2495FA0B196D005C00319872 /* UIView+RefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RefreshFooterView.h"; sourceTree = "<group>"; };
 		2495FA0C196D005C00319872 /* UIView+RefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RefreshFooterView.m"; sourceTree = "<group>"; };
-		249CF67618E16DDE0084DDBB /* CompetitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionManager.h; sourceTree = "<group>"; };
-		249CF67718E16DDE0084DDBB /* CompetitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionManager.m; sourceTree = "<group>"; };
-		249F143E195D6FBB0038DF42 /* NewsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsManager.h; sourceTree = "<group>"; };
-		249F143F195D6FBB0038DF42 /* NewsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsManager.m; sourceTree = "<group>"; };
+		249CF67618E16DDE0084DDBB /* TJCompetitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJCompetitionManager.h; sourceTree = "<group>"; };
+		249CF67718E16DDE0084DDBB /* TJCompetitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJCompetitionManager.m; sourceTree = "<group>"; };
+		249F143E195D6FBB0038DF42 /* TJNewsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJNewsManager.h; sourceTree = "<group>"; };
+		249F143F195D6FBB0038DF42 /* TJNewsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJNewsManager.m; sourceTree = "<group>"; };
 		24A3B4911986ACDB00F6D263 /* NSNumber+Assign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Assign.h"; sourceTree = "<group>"; };
 		24A3B4921986ACDB00F6D263 /* NSNumber+Assign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Assign.m"; sourceTree = "<group>"; };
-		24B1542419834CF4004F87DA /* CompetitionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionCell.h; sourceTree = "<group>"; };
-		24B1542519834CF4004F87DA /* CompetitionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionCell.m; sourceTree = "<group>"; };
-		24B154271983C234004F87DA /* YellowCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YellowCardTableViewCell.h; sourceTree = "<group>"; };
-		24B154281983C234004F87DA /* YellowCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YellowCardTableViewCell.m; sourceTree = "<group>"; };
-		24B1542B1983C87E004F87DA /* TopScoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoreTableViewCell.h; sourceTree = "<group>"; };
-		24B1542C1983C87E004F87DA /* TopScoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoreTableViewCell.m; sourceTree = "<group>"; };
-		24B1542F1983CD7E004F87DA /* TeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamViewController.h; sourceTree = "<group>"; };
-		24B154301983CD7E004F87DA /* TeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamViewController.m; sourceTree = "<group>"; };
-		24B154321983D8E0004F87DA /* TeamTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamTableViewCell.h; sourceTree = "<group>"; };
-		24B154331983D8E0004F87DA /* TeamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamTableViewCell.m; sourceTree = "<group>"; };
-		24B8C1BB1977B43F00B2FAD0 /* TopScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopScoreViewController.h; sourceTree = "<group>"; };
-		24B8C1BC1977B43F00B2FAD0 /* TopScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopScoreViewController.m; sourceTree = "<group>"; };
-		24B8C1BF1977B46D00B2FAD0 /* YellowCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YellowCardViewController.h; sourceTree = "<group>"; };
-		24B8C1C01977B46D00B2FAD0 /* YellowCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YellowCardViewController.m; sourceTree = "<group>"; };
-		24B8C1C31977B7F800B2FAD0 /* MatchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchTableViewCell.h; sourceTree = "<group>"; };
-		24B8C1C41977B7F800B2FAD0 /* MatchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchTableViewCell.m; sourceTree = "<group>"; };
+		24B1542419834CF4004F87DA /* TJCompetitionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJCompetitionCell.h; sourceTree = "<group>"; };
+		24B1542519834CF4004F87DA /* TJCompetitionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJCompetitionCell.m; sourceTree = "<group>"; };
+		24B154271983C234004F87DA /* TJYellowCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJYellowCardTableViewCell.h; sourceTree = "<group>"; };
+		24B154281983C234004F87DA /* TJYellowCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJYellowCardTableViewCell.m; sourceTree = "<group>"; };
+		24B1542B1983C87E004F87DA /* TJTopScoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJTopScoreTableViewCell.h; sourceTree = "<group>"; };
+		24B1542C1983C87E004F87DA /* TJTopScoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJTopScoreTableViewCell.m; sourceTree = "<group>"; };
+		24B1542F1983CD7E004F87DA /* TJTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJTeamViewController.h; sourceTree = "<group>"; };
+		24B154301983CD7E004F87DA /* TJTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJTeamViewController.m; sourceTree = "<group>"; };
+		24B154321983D8E0004F87DA /* TJTeamTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJTeamTableViewCell.h; sourceTree = "<group>"; };
+		24B154331983D8E0004F87DA /* TJTeamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJTeamTableViewCell.m; sourceTree = "<group>"; };
+		24B8C1BB1977B43F00B2FAD0 /* TJTopScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJTopScoreViewController.h; sourceTree = "<group>"; };
+		24B8C1BC1977B43F00B2FAD0 /* TJTopScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJTopScoreViewController.m; sourceTree = "<group>"; };
+		24B8C1BF1977B46D00B2FAD0 /* TJYellowCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJYellowCardViewController.h; sourceTree = "<group>"; };
+		24B8C1C01977B46D00B2FAD0 /* TJYellowCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJYellowCardViewController.m; sourceTree = "<group>"; };
+		24B8C1C31977B7F800B2FAD0 /* TJMatchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMatchTableViewCell.h; sourceTree = "<group>"; };
+		24B8C1C41977B7F800B2FAD0 /* TJMatchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMatchTableViewCell.m; sourceTree = "<group>"; };
 		24C6FE41195E8574008B594C /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		24C6FE42195E8574008B594C /* Competition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Competition.h; sourceTree = "<group>"; };
 		24C6FE43195E8574008B594C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
@@ -219,26 +216,26 @@
 		24C6FE48195E8574008B594C /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		24C6FE49195E8574008B594C /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
 		24C6FE4A195E8574008B594C /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
-		24C84BBC1976BC0E00980720 /* MatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
-		24C84BBD1976BC0E00980720 /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
-		24C84BBF1976CADE00980720 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		24C84BC01976CADE00980720 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		24C84BC21976CFF700980720 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		24C84BC31976CFF700980720 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		24C84BBC1976BC0E00980720 /* TJMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMatchViewController.h; sourceTree = "<group>"; };
+		24C84BBD1976BC0E00980720 /* TJMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMatchViewController.m; sourceTree = "<group>"; };
+		24C84BBF1976CADE00980720 /* TJRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJRootViewController.h; sourceTree = "<group>"; };
+		24C84BC01976CADE00980720 /* TJRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJRootViewController.m; sourceTree = "<group>"; };
+		24C84BC21976CFF700980720 /* TJMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMenuViewController.h; sourceTree = "<group>"; };
+		24C84BC31976CFF700980720 /* TJMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMenuViewController.m; sourceTree = "<group>"; };
 		24CECBEF18E27F5300D43E0D /* NSDate+Date2Str.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Date2Str.h"; sourceTree = "<group>"; };
 		24CECBF018E27F5300D43E0D /* NSDate+Date2Str.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Date2Str.m"; sourceTree = "<group>"; };
-		24CECC3218E2A3D700D43E0D /* NetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkClient.h; sourceTree = "<group>"; };
-		24CECC3318E2A3D700D43E0D /* NetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkClient.m; sourceTree = "<group>"; };
-		24D42BC5197CD79A0069F224 /* RedCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedCardViewController.h; sourceTree = "<group>"; };
-		24D42BC6197CD79A0069F224 /* RedCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedCardViewController.m; sourceTree = "<group>"; };
-		24D42BC8197CDC200069F224 /* RedCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RedCardTableViewCell.h; sourceTree = "<group>"; };
-		24D42BC9197CDC200069F224 /* RedCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RedCardTableViewCell.m; sourceTree = "<group>"; };
-		24D42BCB197D013F0069F224 /* CompetitionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionDetailViewController.h; sourceTree = "<group>"; };
-		24D42BCC197D013F0069F224 /* CompetitionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionDetailViewController.m; sourceTree = "<group>"; };
-		24E58E7D18E7FC29007BFFD8 /* PlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerManager.h; sourceTree = "<group>"; };
-		24E58E7E18E7FC29007BFFD8 /* PlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerManager.m; sourceTree = "<group>"; };
-		24E58E8A18E815C1007BFFD8 /* MatchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchManager.h; sourceTree = "<group>"; };
-		24E58E8B18E815C1007BFFD8 /* MatchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchManager.m; sourceTree = "<group>"; };
+		24CECC3218E2A3D700D43E0D /* TJNetworkClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJNetworkClient.h; sourceTree = "<group>"; };
+		24CECC3318E2A3D700D43E0D /* TJNetworkClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJNetworkClient.m; sourceTree = "<group>"; };
+		24D42BC5197CD79A0069F224 /* TJRedCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJRedCardViewController.h; sourceTree = "<group>"; };
+		24D42BC6197CD79A0069F224 /* TJRedCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJRedCardViewController.m; sourceTree = "<group>"; };
+		24D42BC8197CDC200069F224 /* TJRedCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJRedCardTableViewCell.h; sourceTree = "<group>"; };
+		24D42BC9197CDC200069F224 /* TJRedCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJRedCardTableViewCell.m; sourceTree = "<group>"; };
+		24D42BCB197D013F0069F224 /* TJCompetitionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJCompetitionDetailViewController.h; sourceTree = "<group>"; };
+		24D42BCC197D013F0069F224 /* TJCompetitionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJCompetitionDetailViewController.m; sourceTree = "<group>"; };
+		24E58E7D18E7FC29007BFFD8 /* TJPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPlayerManager.h; sourceTree = "<group>"; };
+		24E58E7E18E7FC29007BFFD8 /* TJPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPlayerManager.m; sourceTree = "<group>"; };
+		24E58E8A18E815C1007BFFD8 /* TJMatchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMatchManager.h; sourceTree = "<group>"; };
+		24E58E8B18E815C1007BFFD8 /* TJMatchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMatchManager.m; sourceTree = "<group>"; };
 		24F1D1DC18E063E0007E2309 /* Tjfa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tjfa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F1D1DF18E063E0007E2309 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		24F1D1E118E063E1007E2309 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -254,43 +251,43 @@
 		24F1D20618E063E1007E2309 /* TjfaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TjfaTests-Info.plist"; sourceTree = "<group>"; };
 		24F1D20A18E063E1007E2309 /* TjfaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TjfaTests.m; sourceTree = "<group>"; };
 		24F1D21518E0711E007E2309 /* Tjfa.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tjfa.xcdatamodel; sourceTree = "<group>"; };
-		24FED22B195A774900A9F0DA /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
-		24FED22C195A774900A9F0DA /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
+		24FED22B195A774900A9F0DA /* TJDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJDatabaseManager.h; sourceTree = "<group>"; };
+		24FED22C195A774900A9F0DA /* TJDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJDatabaseManager.m; sourceTree = "<group>"; };
 		63A3E9871A4F142A009CAA6A /* libShareComponent.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libShareComponent.a; sourceTree = "<group>"; };
 		63A3E9881A4F142A009CAA6A /* RennShareComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RennShareComponent.h; sourceTree = "<group>"; };
-		ADEDA1DF195FE00D009B8D20 /* CompetitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompetitionViewController.h; sourceTree = "<group>"; };
-		ADEDA1E0195FE00D009B8D20 /* CompetitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompetitionViewController.m; sourceTree = "<group>"; };
+		ADEDA1DF195FE00D009B8D20 /* TJCompetitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJCompetitionViewController.h; sourceTree = "<group>"; };
+		ADEDA1E0195FE00D009B8D20 /* TJCompetitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJCompetitionViewController.m; sourceTree = "<group>"; };
 		EAB7EA070E17EAF442D6E550 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		EC567E161D864E30A568E12D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F346668E1AC9909900E83B7F /* TJUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUser.h; sourceTree = "<group>"; };
 		F346668F1AC9909900E83B7F /* TJUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUser.m; sourceTree = "<group>"; };
 		F34666911AC9911F00E83B7F /* TJModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TJModule.h; sourceTree = "<group>"; };
-		F34666931AC991E000E83B7F /* LoginInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInViewController.h; sourceTree = "<group>"; };
-		F34666941AC991E000E83B7F /* LoginInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInViewController.m; sourceTree = "<group>"; };
+		F34666931AC991E000E83B7F /* TJLoginInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJLoginInViewController.h; sourceTree = "<group>"; };
+		F34666941AC991E000E83B7F /* TJLoginInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLoginInViewController.m; sourceTree = "<group>"; };
 		F34666961AC997C300E83B7F /* CALayer+XibConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibConfiguration.h"; sourceTree = "<group>"; };
 		F34666971AC997C300E83B7F /* CALayer+XibConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibConfiguration.m"; sourceTree = "<group>"; };
-		F346669E1AC9ABCB00E83B7F /* LoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginManager.h; sourceTree = "<group>"; };
-		F346669F1AC9ABCB00E83B7F /* LoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginManager.m; sourceTree = "<group>"; };
-		F34666A11AC9B1E400E83B7F /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
-		F34666A21AC9B1E400E83B7F /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
-		F34666A41AC9B1F400E83B7F /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		F34666A51AC9B1F400E83B7F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		F34666AB1ACA8B7600E83B7F /* UserCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCenterTableViewController.h; sourceTree = "<group>"; };
-		F34666AC1ACA8B7600E83B7F /* UserCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCenterTableViewController.m; sourceTree = "<group>"; };
-		F34666B21ACA9C4400E83B7F /* MemberMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberMatchViewController.h; sourceTree = "<group>"; };
-		F34666B31ACA9C4400E83B7F /* MemberMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberMatchViewController.m; sourceTree = "<group>"; };
-		F34666B51ACAA87700E83B7F /* ModifyNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyNameViewController.h; sourceTree = "<group>"; };
-		F34666B61ACAA87700E83B7F /* ModifyNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyNameViewController.m; sourceTree = "<group>"; };
-		F34666B81ACADE0900E83B7F /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
-		F34666B91ACADE0900E83B7F /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
-		F34666BC1ACADE3700E83B7F /* SingleChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleChatViewController.h; sourceTree = "<group>"; };
-		F34666BD1ACADE3700E83B7F /* SingleChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleChatViewController.m; sourceTree = "<group>"; };
-		F34666BF1ACADE4400E83B7F /* GroupChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupChatViewController.h; sourceTree = "<group>"; };
-		F34666C01ACADE4400E83B7F /* GroupChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupChatViewController.m; sourceTree = "<group>"; };
-		F34666C21ACB002A00E83B7F /* MemberListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberListViewController.h; sourceTree = "<group>"; };
-		F34666C31ACB002A00E83B7F /* MemberListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberListViewController.m; sourceTree = "<group>"; };
-		F34666C61ACBD9B000E83B7F /* MemberListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberListCell.h; sourceTree = "<group>"; };
-		F34666C71ACBD9B000E83B7F /* MemberListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberListCell.m; sourceTree = "<group>"; };
+		F346669E1AC9ABCB00E83B7F /* TJLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJLoginManager.h; sourceTree = "<group>"; };
+		F346669F1AC9ABCB00E83B7F /* TJLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLoginManager.m; sourceTree = "<group>"; };
+		F34666A11AC9B1E400E83B7F /* TJForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJForgetPasswordViewController.h; sourceTree = "<group>"; };
+		F34666A21AC9B1E400E83B7F /* TJForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJForgetPasswordViewController.m; sourceTree = "<group>"; };
+		F34666A41AC9B1F400E83B7F /* TJRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJRegisterViewController.h; sourceTree = "<group>"; };
+		F34666A51AC9B1F400E83B7F /* TJRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJRegisterViewController.m; sourceTree = "<group>"; };
+		F34666AB1ACA8B7600E83B7F /* TJUserCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUserCenterTableViewController.h; sourceTree = "<group>"; };
+		F34666AC1ACA8B7600E83B7F /* TJUserCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUserCenterTableViewController.m; sourceTree = "<group>"; };
+		F34666B21ACA9C4400E83B7F /* TJMemberMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMemberMatchViewController.h; sourceTree = "<group>"; };
+		F34666B31ACA9C4400E83B7F /* TJMemberMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMemberMatchViewController.m; sourceTree = "<group>"; };
+		F34666B51ACAA87700E83B7F /* TJModifyNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJModifyNameViewController.h; sourceTree = "<group>"; };
+		F34666B61ACAA87700E83B7F /* TJModifyNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJModifyNameViewController.m; sourceTree = "<group>"; };
+		F34666B81ACADE0900E83B7F /* TJChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJChatViewController.h; sourceTree = "<group>"; };
+		F34666B91ACADE0900E83B7F /* TJChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJChatViewController.m; sourceTree = "<group>"; };
+		F34666BC1ACADE3700E83B7F /* TJSingleChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJSingleChatViewController.h; sourceTree = "<group>"; };
+		F34666BD1ACADE3700E83B7F /* TJSingleChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJSingleChatViewController.m; sourceTree = "<group>"; };
+		F34666BF1ACADE4400E83B7F /* TJGroupChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJGroupChatViewController.h; sourceTree = "<group>"; };
+		F34666C01ACADE4400E83B7F /* TJGroupChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJGroupChatViewController.m; sourceTree = "<group>"; };
+		F34666C21ACB002A00E83B7F /* TJMemberListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMemberListViewController.h; sourceTree = "<group>"; };
+		F34666C31ACB002A00E83B7F /* TJMemberListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMemberListViewController.m; sourceTree = "<group>"; };
+		F34666C61ACBD9B000E83B7F /* TJMemberListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMemberListCell.h; sourceTree = "<group>"; };
+		F34666C71ACBD9B000E83B7F /* TJMemberListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMemberListCell.m; sourceTree = "<group>"; };
 		F34666C91ACC56B600E83B7F /* TJMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMessage.h; sourceTree = "<group>"; };
 		F34666CA1ACC56B600E83B7F /* TJMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMessage.m; sourceTree = "<group>"; };
 		F35F57AA1ACD75D300114D29 /* EMMessage+MessageTranform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMMessage+MessageTranform.h"; sourceTree = "<group>"; };
@@ -374,8 +371,8 @@
 		240099F6196024A80036EFF4 /* AppInfo */ = {
 			isa = PBXGroup;
 			children = (
-				240099F7196024BE0036EFF4 /* AppInfo.h */,
-				240099F8196024BE0036EFF4 /* AppInfo.m */,
+				240099F7196024BE0036EFF4 /* TJAppInfo.h */,
+				240099F8196024BE0036EFF4 /* TJAppInfo.m */,
 			);
 			name = AppInfo;
 			sourceTree = "<group>";
@@ -383,10 +380,10 @@
 		240AE6C9195EC1FA00F7820D /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
-				18145E871ABDBD1600040AB7 /* BaseViewController.h */,
-				18145E881ABDBD1600040AB7 /* BaseViewController.m */,
-				18145E8A1ABDBDFF00040AB7 /* BaseTableViewController.h */,
-				18145E8B1ABDBDFF00040AB7 /* BaseTableViewController.m */,
+				18145E871ABDBD1600040AB7 /* TJBaseViewController.h */,
+				18145E881ABDBD1600040AB7 /* TJBaseViewController.m */,
+				18145E8A1ABDBDFF00040AB7 /* TJBaseTableViewController.h */,
+				18145E8B1ABDBDFF00040AB7 /* TJBaseTableViewController.m */,
 				F34666921AC991BC00E83B7F /* Member */,
 				24B8C1B91977B33300B2FAD0 /* CompetitionDetail */,
 				24686C77196E7B2D00D8CF86 /* Welcome */,
@@ -418,8 +415,8 @@
 			isa = PBXGroup;
 			children = (
 				240AE6D2195EC5DA00F7820D /* DashboardView */,
-				240AE6CE195EC52300F7820D /* DashboardViewController.h */,
-				240AE6CF195EC52300F7820D /* DashboardViewController.m */,
+				240AE6CE195EC52300F7820D /* TJDashboardViewController.h */,
+				240AE6CF195EC52300F7820D /* TJDashboardViewController.m */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -427,10 +424,10 @@
 		240AE6D2195EC5DA00F7820D /* DashboardView */ = {
 			isa = PBXGroup;
 			children = (
-				240AE6D6195EDCC600F7820D /* DashboardCell.h */,
-				240AE6D7195EDCC600F7820D /* DashboardCell.m */,
-				240AE6D3195EC5F100F7820D /* DashboardButton.h */,
-				240AE6D4195EC5F100F7820D /* DashboardButton.m */,
+				240AE6D6195EDCC600F7820D /* TJDashboardCell.h */,
+				240AE6D7195EDCC600F7820D /* TJDashboardCell.m */,
+				240AE6D3195EC5F100F7820D /* TJDashboardButton.h */,
+				240AE6D4195EC5F100F7820D /* TJDashboardButton.m */,
 			);
 			name = DashboardView;
 			sourceTree = "<group>";
@@ -456,8 +453,8 @@
 		243E779918E5847700644056 /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				24E58E7D18E7FC29007BFFD8 /* PlayerManager.h */,
-				24E58E7E18E7FC29007BFFD8 /* PlayerManager.m */,
+				24E58E7D18E7FC29007BFFD8 /* TJPlayerManager.h */,
+				24E58E7E18E7FC29007BFFD8 /* TJPlayerManager.m */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -472,8 +469,8 @@
 		24686C71196E66B600D8CF86 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				24686C72196E66DC00D8CF86 /* AboutManager.h */,
-				24686C73196E66DC00D8CF86 /* AboutManager.m */,
+				24686C72196E66DC00D8CF86 /* TJAboutManager.h */,
+				24686C73196E66DC00D8CF86 /* TJAboutManager.m */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -481,10 +478,10 @@
 		24686C76196E674100D8CF86 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				2447B3A8198CAA7300B297BB /* Developer.h */,
-				2447B3A9198CAA7300B297BB /* Developer.m */,
-				24686C6D196E562F00D8CF86 /* SettingViewController.h */,
-				24686C6E196E562F00D8CF86 /* SettingViewController.m */,
+				2447B3A8198CAA7300B297BB /* TJDeveloper.h */,
+				2447B3A9198CAA7300B297BB /* TJDeveloper.m */,
+				24686C6D196E562F00D8CF86 /* TJSettingViewController.h */,
+				24686C6E196E562F00D8CF86 /* TJSettingViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -493,17 +490,17 @@
 			isa = PBXGroup;
 			children = (
 				241D4A50196E918000E3FC02 /* Category */,
-				24686C78196E7B4C00D8CF86 /* WelcomeViewController.h */,
-				24686C79196E7B4C00D8CF86 /* WelcomeViewController.m */,
-				24686C7F196E870300D8CF86 /* welcome3.xib */,
-				24686C81196E875600D8CF86 /* Welcome3.h */,
-				24686C82196E875600D8CF86 /* Welcome3.m */,
-				244ACBC1198E8C55003E640A /* Welcome1.h */,
-				244ACBC2198E8C55003E640A /* Welcome1.m */,
-				244ACBC4198E8C72003E640A /* welcome1.xib */,
-				244ACBC9198E8CFD003E640A /* Welcome2.h */,
-				244ACBCA198E8CFD003E640A /* Welcome2.m */,
-				244ACBC7198E8CED003E640A /* welcome2.xib */,
+				24686C78196E7B4C00D8CF86 /* TJWelcomeViewController.h */,
+				24686C79196E7B4C00D8CF86 /* TJWelcomeViewController.m */,
+				24686C7F196E870300D8CF86 /* TJWelcome3.xib */,
+				24686C81196E875600D8CF86 /* TJWelcome3.h */,
+				24686C82196E875600D8CF86 /* TJWelcome3.m */,
+				244ACBC1198E8C55003E640A /* TJWelcome1.h */,
+				244ACBC2198E8C55003E640A /* TJWelcome1.m */,
+				244ACBC4198E8C72003E640A /* TJWelcome1.xib */,
+				244ACBC9198E8CFD003E640A /* TJWelcome2.h */,
+				244ACBCA198E8CFD003E640A /* TJWelcome2.m */,
+				244ACBC7198E8CED003E640A /* TJWelcome2.xib */,
 			);
 			name = Welcome;
 			sourceTree = "<group>";
@@ -511,8 +508,8 @@
 		24686C7B196E7DAF00D8CF86 /* UserData */ = {
 			isa = PBXGroup;
 			children = (
-				24686C7C196E7DD000D8CF86 /* UserData.h */,
-				24686C7D196E7DD000D8CF86 /* UserData.m */,
+				24686C7C196E7DD000D8CF86 /* TJUserData.h */,
+				24686C7D196E7DD000D8CF86 /* TJUserData.m */,
 			);
 			name = UserData;
 			sourceTree = "<group>";
@@ -520,10 +517,10 @@
 		248BD090197E506A00419603 /* GroupScore */ = {
 			isa = PBXGroup;
 			children = (
-				248BD091197E508D00419603 /* GroupScoreViewController.h */,
-				248BD092197E508D00419603 /* GroupScoreViewController.m */,
-				248BD094197E593000419603 /* GroupScoreCell.h */,
-				248BD095197E593000419603 /* GroupScoreCell.m */,
+				248BD091197E508D00419603 /* TJGroupScoreViewController.h */,
+				248BD092197E508D00419603 /* TJGroupScoreViewController.m */,
+				248BD094197E593000419603 /* TJGroupScoreCell.h */,
+				248BD095197E593000419603 /* TJGroupScoreCell.m */,
 			);
 			name = GroupScore;
 			sourceTree = "<group>";
@@ -531,8 +528,8 @@
 		248BD097197E60A900419603 /* Team */ = {
 			isa = PBXGroup;
 			children = (
-				248BD098197E60C600419603 /* TeamManager.h */,
-				248BD099197E60C600419603 /* TeamManager.m */,
+				248BD098197E60C600419603 /* TJTeamManager.h */,
+				248BD099197E60C600419603 /* TJTeamManager.m */,
 			);
 			name = Team;
 			sourceTree = "<group>";
@@ -540,12 +537,12 @@
 		2495BA2419690BE5009BB60F /* News */ = {
 			isa = PBXGroup;
 			children = (
-				2495BA2519690C1F009BB60F /* NewsViewController.h */,
-				2495BA2619690C1F009BB60F /* NewsViewController.m */,
-				2495BA2819691E28009BB60F /* NewsCell.h */,
-				2495BA2919691E28009BB60F /* NewsCell.m */,
-				246753B5196BE2BA007BDE90 /* NewsContentViewController.h */,
-				246753B6196BE2BA007BDE90 /* NewsContentViewController.m */,
+				2495BA2519690C1F009BB60F /* TJNewsViewController.h */,
+				2495BA2619690C1F009BB60F /* TJNewsViewController.m */,
+				2495BA2819691E28009BB60F /* TJNewsCell.h */,
+				2495BA2919691E28009BB60F /* TJNewsCell.m */,
+				246753B5196BE2BA007BDE90 /* TJNewsContentViewController.h */,
+				246753B6196BE2BA007BDE90 /* TJNewsContentViewController.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -563,8 +560,8 @@
 		249CF67518E16DA40084DDBB /* Competition */ = {
 			isa = PBXGroup;
 			children = (
-				249CF67618E16DDE0084DDBB /* CompetitionManager.h */,
-				249CF67718E16DDE0084DDBB /* CompetitionManager.m */,
+				249CF67618E16DDE0084DDBB /* TJCompetitionManager.h */,
+				249CF67718E16DDE0084DDBB /* TJCompetitionManager.m */,
 			);
 			name = Competition;
 			sourceTree = "<group>";
@@ -572,8 +569,8 @@
 		249F143D195D6F990038DF42 /* NewsManager */ = {
 			isa = PBXGroup;
 			children = (
-				249F143E195D6FBB0038DF42 /* NewsManager.h */,
-				249F143F195D6FBB0038DF42 /* NewsManager.m */,
+				249F143E195D6FBB0038DF42 /* TJNewsManager.h */,
+				249F143F195D6FBB0038DF42 /* TJNewsManager.m */,
 			);
 			name = NewsManager;
 			sourceTree = "<group>";
@@ -599,10 +596,10 @@
 		24B1542E1983CBA9004F87DA /* Team */ = {
 			isa = PBXGroup;
 			children = (
-				24B1542F1983CD7E004F87DA /* TeamViewController.h */,
-				24B154301983CD7E004F87DA /* TeamViewController.m */,
-				24B154321983D8E0004F87DA /* TeamTableViewCell.h */,
-				24B154331983D8E0004F87DA /* TeamTableViewCell.m */,
+				24B1542F1983CD7E004F87DA /* TJTeamViewController.h */,
+				24B154301983CD7E004F87DA /* TJTeamViewController.m */,
+				24B154321983D8E0004F87DA /* TJTeamTableViewCell.h */,
+				24B154331983D8E0004F87DA /* TJTeamTableViewCell.m */,
 			);
 			name = Team;
 			sourceTree = "<group>";
@@ -610,12 +607,12 @@
 		24B8C1B91977B33300B2FAD0 /* CompetitionDetail */ = {
 			isa = PBXGroup;
 			children = (
-				24D42BCB197D013F0069F224 /* CompetitionDetailViewController.h */,
-				24D42BCC197D013F0069F224 /* CompetitionDetailViewController.m */,
-				24C84BBF1976CADE00980720 /* RootViewController.h */,
-				24C84BC01976CADE00980720 /* RootViewController.m */,
-				24C84BC21976CFF700980720 /* MenuViewController.h */,
-				24C84BC31976CFF700980720 /* MenuViewController.m */,
+				24D42BCB197D013F0069F224 /* TJCompetitionDetailViewController.h */,
+				24D42BCC197D013F0069F224 /* TJCompetitionDetailViewController.m */,
+				24C84BBF1976CADE00980720 /* TJRootViewController.h */,
+				24C84BC01976CADE00980720 /* TJRootViewController.m */,
+				24C84BC21976CFF700980720 /* TJMenuViewController.h */,
+				24C84BC31976CFF700980720 /* TJMenuViewController.m */,
 				24B1542E1983CBA9004F87DA /* Team */,
 				248BD090197E506A00419603 /* GroupScore */,
 				24C84BB51976960600980720 /* Match */,
@@ -629,10 +626,10 @@
 		24B8C1BA1977B41600B2FAD0 /* TopScore */ = {
 			isa = PBXGroup;
 			children = (
-				24B8C1BB1977B43F00B2FAD0 /* TopScoreViewController.h */,
-				24B8C1BC1977B43F00B2FAD0 /* TopScoreViewController.m */,
-				24B1542C1983C87E004F87DA /* TopScoreTableViewCell.m */,
-				24B1542B1983C87E004F87DA /* TopScoreTableViewCell.h */,
+				24B8C1BB1977B43F00B2FAD0 /* TJTopScoreViewController.h */,
+				24B8C1BC1977B43F00B2FAD0 /* TJTopScoreViewController.m */,
+				24B1542B1983C87E004F87DA /* TJTopScoreTableViewCell.h */,
+				24B1542C1983C87E004F87DA /* TJTopScoreTableViewCell.m */,
 			);
 			name = TopScore;
 			sourceTree = "<group>";
@@ -640,10 +637,10 @@
 		24B8C1BE1977B44400B2FAD0 /* YellowCard */ = {
 			isa = PBXGroup;
 			children = (
-				24B8C1BF1977B46D00B2FAD0 /* YellowCardViewController.h */,
-				24B8C1C01977B46D00B2FAD0 /* YellowCardViewController.m */,
-				24B154271983C234004F87DA /* YellowCardTableViewCell.h */,
-				24B154281983C234004F87DA /* YellowCardTableViewCell.m */,
+				24B8C1BF1977B46D00B2FAD0 /* TJYellowCardViewController.h */,
+				24B8C1C01977B46D00B2FAD0 /* TJYellowCardViewController.m */,
+				24B154271983C234004F87DA /* TJYellowCardTableViewCell.h */,
+				24B154281983C234004F87DA /* TJYellowCardTableViewCell.m */,
 			);
 			name = YellowCard;
 			sourceTree = "<group>";
@@ -651,10 +648,10 @@
 		24B8C1C21977B47400B2FAD0 /* RedCard */ = {
 			isa = PBXGroup;
 			children = (
-				24D42BC8197CDC200069F224 /* RedCardTableViewCell.h */,
-				24D42BC9197CDC200069F224 /* RedCardTableViewCell.m */,
-				24D42BC5197CD79A0069F224 /* RedCardViewController.h */,
-				24D42BC6197CD79A0069F224 /* RedCardViewController.m */,
+				24D42BC8197CDC200069F224 /* TJRedCardTableViewCell.h */,
+				24D42BC9197CDC200069F224 /* TJRedCardTableViewCell.m */,
+				24D42BC5197CD79A0069F224 /* TJRedCardViewController.h */,
+				24D42BC6197CD79A0069F224 /* TJRedCardViewController.m */,
 			);
 			name = RedCard;
 			sourceTree = "<group>";
@@ -662,10 +659,10 @@
 		24C84BB51976960600980720 /* Match */ = {
 			isa = PBXGroup;
 			children = (
-				24C84BBC1976BC0E00980720 /* MatchViewController.h */,
-				24C84BBD1976BC0E00980720 /* MatchViewController.m */,
-				24B8C1C31977B7F800B2FAD0 /* MatchTableViewCell.h */,
-				24B8C1C41977B7F800B2FAD0 /* MatchTableViewCell.m */,
+				24C84BBC1976BC0E00980720 /* TJMatchViewController.h */,
+				24C84BBD1976BC0E00980720 /* TJMatchViewController.m */,
+				24B8C1C31977B7F800B2FAD0 /* TJMatchTableViewCell.h */,
+				24B8C1C41977B7F800B2FAD0 /* TJMatchTableViewCell.m */,
 			);
 			name = Match;
 			sourceTree = "<group>";
@@ -675,10 +672,10 @@
 			children = (
 				F346669D1AC9ABAE00E83B7F /* LoginIn and Register */,
 				2447B3A7198CA08600B297BB /* Shared */,
-				24FED22B195A774900A9F0DA /* DatabaseManager.h */,
-				24FED22C195A774900A9F0DA /* DatabaseManager.m */,
-				24CECC3218E2A3D700D43E0D /* NetworkClient.h */,
-				24CECC3318E2A3D700D43E0D /* NetworkClient.m */,
+				24FED22B195A774900A9F0DA /* TJDatabaseManager.h */,
+				24FED22C195A774900A9F0DA /* TJDatabaseManager.m */,
+				24CECC3218E2A3D700D43E0D /* TJNetworkClient.h */,
+				24CECC3318E2A3D700D43E0D /* TJNetworkClient.m */,
 				24686C71196E66B600D8CF86 /* About */,
 				249F1441195D716B0038DF42 /* Category */,
 				249F143D195D6F990038DF42 /* NewsManager */,
@@ -694,8 +691,8 @@
 		24E58E8918E815A4007BFFD8 /* Match */ = {
 			isa = PBXGroup;
 			children = (
-				24E58E8A18E815C1007BFFD8 /* MatchManager.h */,
-				24E58E8B18E815C1007BFFD8 /* MatchManager.m */,
+				24E58E8A18E815C1007BFFD8 /* TJMatchManager.h */,
+				24E58E8B18E815C1007BFFD8 /* TJMatchManager.m */,
 			);
 			name = Match;
 			sourceTree = "<group>";
@@ -741,8 +738,6 @@
 				ADEDA1E2195FED2C009B8D20 /* Library */,
 				24F1D1EE18E063E1007E2309 /* AppDelegate.h */,
 				24F1D1EF18E063E1007E2309 /* AppDelegate.m */,
-				18145E811ABD8AB100040AB7 /* NotificationCenter.h */,
-				18145E821ABD8AB100040AB7 /* NotificationCenter.m */,
 				24F1D1F718E063E1007E2309 /* Images.xcassets */,
 				24686C7B196E7DAF00D8CF86 /* UserData */,
 				240AE6C9195EC1FA00F7820D /* UILayer */,
@@ -803,10 +798,10 @@
 		ADEDA1DE195FDFF0009B8D20 /* Competition */ = {
 			isa = PBXGroup;
 			children = (
-				ADEDA1DF195FE00D009B8D20 /* CompetitionViewController.h */,
-				ADEDA1E0195FE00D009B8D20 /* CompetitionViewController.m */,
-				24B1542419834CF4004F87DA /* CompetitionCell.h */,
-				24B1542519834CF4004F87DA /* CompetitionCell.m */,
+				ADEDA1DF195FE00D009B8D20 /* TJCompetitionViewController.h */,
+				ADEDA1E0195FE00D009B8D20 /* TJCompetitionViewController.m */,
+				24B1542419834CF4004F87DA /* TJCompetitionCell.h */,
+				24B1542519834CF4004F87DA /* TJCompetitionCell.m */,
 			);
 			name = Competition;
 			sourceTree = "<group>";
@@ -823,20 +818,20 @@
 			isa = PBXGroup;
 			children = (
 				F34666C51ACBD9A000E83B7F /* Cell */,
-				F34666931AC991E000E83B7F /* LoginInViewController.h */,
-				F34666941AC991E000E83B7F /* LoginInViewController.m */,
-				F34666A11AC9B1E400E83B7F /* ForgetPasswordViewController.h */,
-				F34666A21AC9B1E400E83B7F /* ForgetPasswordViewController.m */,
-				F34666A41AC9B1F400E83B7F /* RegisterViewController.h */,
-				F34666A51AC9B1F400E83B7F /* RegisterViewController.m */,
-				F34666AB1ACA8B7600E83B7F /* UserCenterTableViewController.h */,
-				F34666AC1ACA8B7600E83B7F /* UserCenterTableViewController.m */,
-				F34666B21ACA9C4400E83B7F /* MemberMatchViewController.h */,
-				F34666B31ACA9C4400E83B7F /* MemberMatchViewController.m */,
-				F34666B51ACAA87700E83B7F /* ModifyNameViewController.h */,
-				F34666B61ACAA87700E83B7F /* ModifyNameViewController.m */,
-				F34666C21ACB002A00E83B7F /* MemberListViewController.h */,
-				F34666C31ACB002A00E83B7F /* MemberListViewController.m */,
+				F34666931AC991E000E83B7F /* TJLoginInViewController.h */,
+				F34666941AC991E000E83B7F /* TJLoginInViewController.m */,
+				F34666A11AC9B1E400E83B7F /* TJForgetPasswordViewController.h */,
+				F34666A21AC9B1E400E83B7F /* TJForgetPasswordViewController.m */,
+				F34666A41AC9B1F400E83B7F /* TJRegisterViewController.h */,
+				F34666A51AC9B1F400E83B7F /* TJRegisterViewController.m */,
+				F34666AB1ACA8B7600E83B7F /* TJUserCenterTableViewController.h */,
+				F34666AC1ACA8B7600E83B7F /* TJUserCenterTableViewController.m */,
+				F34666B21ACA9C4400E83B7F /* TJMemberMatchViewController.h */,
+				F34666B31ACA9C4400E83B7F /* TJMemberMatchViewController.m */,
+				F34666B51ACAA87700E83B7F /* TJModifyNameViewController.h */,
+				F34666B61ACAA87700E83B7F /* TJModifyNameViewController.m */,
+				F34666C21ACB002A00E83B7F /* TJMemberListViewController.h */,
+				F34666C31ACB002A00E83B7F /* TJMemberListViewController.m */,
 				F34666BB1ACADE1200E83B7F /* Chat */,
 			);
 			name = Member;
@@ -845,8 +840,8 @@
 		F346669D1AC9ABAE00E83B7F /* LoginIn and Register */ = {
 			isa = PBXGroup;
 			children = (
-				F346669E1AC9ABCB00E83B7F /* LoginManager.h */,
-				F346669F1AC9ABCB00E83B7F /* LoginManager.m */,
+				F346669E1AC9ABCB00E83B7F /* TJLoginManager.h */,
+				F346669F1AC9ABCB00E83B7F /* TJLoginManager.m */,
 			);
 			name = "LoginIn and Register";
 			sourceTree = "<group>";
@@ -854,12 +849,12 @@
 		F34666BB1ACADE1200E83B7F /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				F34666B81ACADE0900E83B7F /* ChatViewController.h */,
-				F34666B91ACADE0900E83B7F /* ChatViewController.m */,
-				F34666BC1ACADE3700E83B7F /* SingleChatViewController.h */,
-				F34666BD1ACADE3700E83B7F /* SingleChatViewController.m */,
-				F34666BF1ACADE4400E83B7F /* GroupChatViewController.h */,
-				F34666C01ACADE4400E83B7F /* GroupChatViewController.m */,
+				F34666B81ACADE0900E83B7F /* TJChatViewController.h */,
+				F34666B91ACADE0900E83B7F /* TJChatViewController.m */,
+				F34666BC1ACADE3700E83B7F /* TJSingleChatViewController.h */,
+				F34666BD1ACADE3700E83B7F /* TJSingleChatViewController.m */,
+				F34666BF1ACADE4400E83B7F /* TJGroupChatViewController.h */,
+				F34666C01ACADE4400E83B7F /* TJGroupChatViewController.m */,
 				F34666C91ACC56B600E83B7F /* TJMessage.h */,
 				F34666CA1ACC56B600E83B7F /* TJMessage.m */,
 				F35F57AA1ACD75D300114D29 /* EMMessage+MessageTranform.h */,
@@ -871,8 +866,8 @@
 		F34666C51ACBD9A000E83B7F /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				F34666C61ACBD9B000E83B7F /* MemberListCell.h */,
-				F34666C71ACBD9B000E83B7F /* MemberListCell.m */,
+				F34666C61ACBD9B000E83B7F /* TJMemberListCell.h */,
+				F34666C71ACBD9B000E83B7F /* TJMemberListCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -961,10 +956,10 @@
 			files = (
 				18145E861ABDA69300040AB7 /* Main.storyboard in Resources */,
 				24F1D1F818E063E1007E2309 /* Images.xcassets in Resources */,
-				244ACBC8198E8CED003E640A /* welcome2.xib in Resources */,
+				244ACBC8198E8CED003E640A /* TJWelcome2.xib in Resources */,
 				18145E801ABD83CC00040AB7 /* viewController.plist in Resources */,
-				24686C80196E870300D8CF86 /* welcome3.xib in Resources */,
-				244ACBC5198E8C72003E640A /* welcome1.xib in Resources */,
+				24686C80196E870300D8CF86 /* TJWelcome3.xib in Resources */,
+				244ACBC5198E8C72003E640A /* TJWelcome1.xib in Resources */,
 				2458D4AE19A75AB5004123BA /* download_ewm.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1016,84 +1011,83 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				249F1440195D6FBB0038DF42 /* NewsManager.m in Sources */,
+				249F1440195D6FBB0038DF42 /* TJNewsManager.m in Sources */,
 				18190ED519CFFFE200D0488F /* TJTeam.m in Sources */,
-				24E58E8C18E815C1007BFFD8 /* MatchManager.m in Sources */,
-				F34666AD1ACA8B7600E83B7F /* UserCenterTableViewController.m in Sources */,
-				2495BA2A19691E28009BB60F /* NewsCell.m in Sources */,
-				240AE6D5195EC5F100F7820D /* DashboardButton.m in Sources */,
-				24686C7A196E7B4C00D8CF86 /* WelcomeViewController.m in Sources */,
+				24E58E8C18E815C1007BFFD8 /* TJMatchManager.m in Sources */,
+				F34666AD1ACA8B7600E83B7F /* TJUserCenterTableViewController.m in Sources */,
+				2495BA2A19691E28009BB60F /* TJNewsCell.m in Sources */,
+				240AE6D5195EC5F100F7820D /* TJDashboardButton.m in Sources */,
+				24686C7A196E7B4C00D8CF86 /* TJWelcomeViewController.m in Sources */,
 				24C6FE4E195E8574008B594C /* News.m in Sources */,
 				F34666981AC997C300E83B7F /* CALayer+XibConfiguration.m in Sources */,
 				F34666901AC9909900E83B7F /* TJUser.m in Sources */,
-				244ACBC3198E8C55003E640A /* Welcome1.m in Sources */,
+				244ACBC3198E8C55003E640A /* TJWelcome1.m in Sources */,
 				240099F519600BF60036EFF4 /* UIDevice+DeviceInfo.m in Sources */,
 				24C6FE4F195E8574008B594C /* Team.m in Sources */,
-				24B1542619834CF4004F87DA /* CompetitionCell.m in Sources */,
+				24B1542619834CF4004F87DA /* TJCompetitionCell.m in Sources */,
 				F35F57AC1ACD75D300114D29 /* EMMessage+MessageTranform.m in Sources */,
-				24D42BCA197CDC200069F224 /* RedCardTableViewCell.m in Sources */,
+				24D42BCA197CDC200069F224 /* TJRedCardTableViewCell.m in Sources */,
 				241D4A4F196E917C00E3FC02 /* UIApplication+MainNav.m in Sources */,
-				24D42BC7197CD79A0069F224 /* RedCardViewController.m in Sources */,
-				24B1542D1983C87E004F87DA /* TopScoreTableViewCell.m in Sources */,
-				24B154291983C234004F87DA /* YellowCardTableViewCell.m in Sources */,
+				24D42BC7197CD79A0069F224 /* TJRedCardViewController.m in Sources */,
+				24B1542D1983C87E004F87DA /* TJTopScoreTableViewCell.m in Sources */,
+				24B154291983C234004F87DA /* TJYellowCardTableViewCell.m in Sources */,
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
-				244ACBCB198E8CFD003E640A /* Welcome2.m in Sources */,
+				244ACBCB198E8CFD003E640A /* TJWelcome2.m in Sources */,
 				246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */,
-				F34666A01AC9ABCB00E83B7F /* LoginManager.m in Sources */,
-				2447B3AA198CAA7300B297BB /* Developer.m in Sources */,
-				24C84BC11976CADE00980720 /* RootViewController.m in Sources */,
+				F34666A01AC9ABCB00E83B7F /* TJLoginManager.m in Sources */,
+				2447B3AA198CAA7300B297BB /* TJDeveloper.m in Sources */,
+				24C84BC11976CADE00980720 /* TJRootViewController.m in Sources */,
 				24C6FE4C195E8574008B594C /* Match.m in Sources */,
-				F34666B41ACA9C4400E83B7F /* MemberMatchViewController.m in Sources */,
-				24686C83196E875600D8CF86 /* Welcome3.m in Sources */,
+				F34666B41ACA9C4400E83B7F /* TJMemberMatchViewController.m in Sources */,
+				24686C83196E875600D8CF86 /* TJWelcome3.m in Sources */,
 				18190ED419CFFFE200D0488F /* TJPlayer.m in Sources */,
-				18145E831ABD8AB100040AB7 /* NotificationCenter.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
 				F34666CB1ACC56B600E83B7F /* TJMessage.m in Sources */,
-				18145E8C1ABDBDFF00040AB7 /* BaseTableViewController.m in Sources */,
-				24E58E7F18E7FC29007BFFD8 /* PlayerManager.m in Sources */,
-				249CF67818E16DDE0084DDBB /* CompetitionManager.m in Sources */,
-				24B154311983CD7E004F87DA /* TeamViewController.m in Sources */,
+				18145E8C1ABDBDFF00040AB7 /* TJBaseTableViewController.m in Sources */,
+				24E58E7F18E7FC29007BFFD8 /* TJPlayerManager.m in Sources */,
+				249CF67818E16DDE0084DDBB /* TJCompetitionManager.m in Sources */,
+				24B154311983CD7E004F87DA /* TJTeamViewController.m in Sources */,
 				2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */,
-				24686C7E196E7DD000D8CF86 /* UserData.m in Sources */,
-				F34666A61AC9B1F400E83B7F /* RegisterViewController.m in Sources */,
-				F34666B71ACAA87700E83B7F /* ModifyNameViewController.m in Sources */,
-				F34666951AC991E000E83B7F /* LoginInViewController.m in Sources */,
-				24B154341983D8E0004F87DA /* TeamTableViewCell.m in Sources */,
-				248BD093197E508D00419603 /* GroupScoreViewController.m in Sources */,
-				24B8C1C51977B7F800B2FAD0 /* MatchTableViewCell.m in Sources */,
-				24D42BCD197D013F0069F224 /* CompetitionDetailViewController.m in Sources */,
-				24686C74196E66DC00D8CF86 /* AboutManager.m in Sources */,
-				24B8C1C11977B46D00B2FAD0 /* YellowCardViewController.m in Sources */,
-				24C84BBE1976BC0E00980720 /* MatchViewController.m in Sources */,
-				F34666C81ACBD9B000E83B7F /* MemberListCell.m in Sources */,
+				24686C7E196E7DD000D8CF86 /* TJUserData.m in Sources */,
+				F34666A61AC9B1F400E83B7F /* TJRegisterViewController.m in Sources */,
+				F34666B71ACAA87700E83B7F /* TJModifyNameViewController.m in Sources */,
+				F34666951AC991E000E83B7F /* TJLoginInViewController.m in Sources */,
+				24B154341983D8E0004F87DA /* TJTeamTableViewCell.m in Sources */,
+				248BD093197E508D00419603 /* TJGroupScoreViewController.m in Sources */,
+				24B8C1C51977B7F800B2FAD0 /* TJMatchTableViewCell.m in Sources */,
+				24D42BCD197D013F0069F224 /* TJCompetitionDetailViewController.m in Sources */,
+				24686C74196E66DC00D8CF86 /* TJAboutManager.m in Sources */,
+				24B8C1C11977B46D00B2FAD0 /* TJYellowCardViewController.m in Sources */,
+				24C84BBE1976BC0E00980720 /* TJMatchViewController.m in Sources */,
+				F34666C81ACBD9B000E83B7F /* TJMemberListCell.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
 				18190ED319CFFFE200D0488F /* TJNews.m in Sources */,
-				240099F9196024BE0036EFF4 /* AppInfo.m in Sources */,
+				240099F9196024BE0036EFF4 /* TJAppInfo.m in Sources */,
 				18190ED119CFFFE200D0488F /* TJCompetition.m in Sources */,
-				24CECC3418E2A3D700D43E0D /* NetworkClient.m in Sources */,
+				24CECC3418E2A3D700D43E0D /* TJNetworkClient.m in Sources */,
 				24CECBF118E27F5300D43E0D /* NSDate+Date2Str.m in Sources */,
-				240AE6D0195EC52300F7820D /* DashboardViewController.m in Sources */,
+				240AE6D0195EC52300F7820D /* TJDashboardViewController.m in Sources */,
 				18190ED219CFFFE200D0488F /* TJMatch.m in Sources */,
-				24B8C1BD1977B43F00B2FAD0 /* TopScoreViewController.m in Sources */,
-				240AE6D8195EDCC600F7820D /* DashboardCell.m in Sources */,
-				24686C6F196E562F00D8CF86 /* SettingViewController.m in Sources */,
-				248BD09A197E60C600419603 /* TeamManager.m in Sources */,
-				24FED22D195A774900A9F0DA /* DatabaseManager.m in Sources */,
-				F34666C41ACB002A00E83B7F /* MemberListViewController.m in Sources */,
+				24B8C1BD1977B43F00B2FAD0 /* TJTopScoreViewController.m in Sources */,
+				240AE6D8195EDCC600F7820D /* TJDashboardCell.m in Sources */,
+				24686C6F196E562F00D8CF86 /* TJSettingViewController.m in Sources */,
+				248BD09A197E60C600419603 /* TJTeamManager.m in Sources */,
+				24FED22D195A774900A9F0DA /* TJDatabaseManager.m in Sources */,
+				F34666C41ACB002A00E83B7F /* TJMemberListViewController.m in Sources */,
 				24C6FE4B195E8574008B594C /* Player.m in Sources */,
 				240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */,
-				F34666C11ACADE4400E83B7F /* GroupChatViewController.m in Sources */,
-				F34666BA1ACADE0900E83B7F /* ChatViewController.m in Sources */,
+				F34666C11ACADE4400E83B7F /* TJGroupChatViewController.m in Sources */,
+				F34666BA1ACADE0900E83B7F /* TJChatViewController.m in Sources */,
 				24A3B4931986ACDB00F6D263 /* NSNumber+Assign.m in Sources */,
-				F34666BE1ACADE3700E83B7F /* SingleChatViewController.m in Sources */,
-				2495BA2719690C1F009BB60F /* NewsViewController.m in Sources */,
+				F34666BE1ACADE3700E83B7F /* TJSingleChatViewController.m in Sources */,
+				2495BA2719690C1F009BB60F /* TJNewsViewController.m in Sources */,
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
-				246753B7196BE2BA007BDE90 /* NewsContentViewController.m in Sources */,
-				18145E891ABDBD1600040AB7 /* BaseViewController.m in Sources */,
-				ADEDA1E1195FE00D009B8D20 /* CompetitionViewController.m in Sources */,
-				248BD096197E593000419603 /* GroupScoreCell.m in Sources */,
-				24C84BC41976CFF700980720 /* MenuViewController.m in Sources */,
-				F34666A31AC9B1E400E83B7F /* ForgetPasswordViewController.m in Sources */,
+				246753B7196BE2BA007BDE90 /* TJNewsContentViewController.m in Sources */,
+				18145E891ABDBD1600040AB7 /* TJBaseViewController.m in Sources */,
+				ADEDA1E1195FE00D009B8D20 /* TJCompetitionViewController.m in Sources */,
+				248BD096197E593000419603 /* TJGroupScoreCell.m in Sources */,
+				24C84BC41976CFF700980720 /* TJMenuViewController.m in Sources */,
+				F34666A31AC9B1E400E83B7F /* TJForgetPasswordViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

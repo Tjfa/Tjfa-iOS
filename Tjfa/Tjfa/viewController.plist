@@ -3,34 +3,34 @@
 <plist version="1.0">
 <dict>
 	<key>home</key>
-	<string>DashboardViewController</string>
+	<string>TJDashboardViewController</string>
 	<key>setting</key>
-	<string>SettingViewController</string>
+	<string>TJSettingViewController</string>
 	<key>news_content</key>
-	<string>NewsContentViewController</string>
+	<string>TJNewsContentViewController</string>
 	<key>news</key>
-	<string>NewsViewController</string>
+	<string>TJNewsViewController</string>
 	<key>competition_detail</key>
-	<string>RootViewController</string>
+	<string>TJRootViewController</string>
 	<key>competition</key>
-	<string>CompetitionViewController</string>
+	<string>TJCompetitionViewController</string>
 	<key>login</key>
-	<string>LoginInViewController</string>
+	<string>TJLoginInViewController</string>
 	<key>register</key>
-	<string>RegisterViewController</string>
+	<string>TJRegisterViewController</string>
 	<key>forget</key>
-	<string>ForgetPasswordViewController</string>
+	<string>TJForgetPasswordViewController</string>
 	<key>usercenter</key>
-	<string>UserCenterTableViewController</string>
+	<string>TJUserCenterTableViewController</string>
 	<key>memberMatch</key>
-	<string>MemberMatchViewController</string>
+	<string>TJMemberMatchViewController</string>
 	<key>mofifyName</key>
-	<string>ModifyNameViewController</string>
+	<string>TJModifyNameViewController</string>
 	<key>singleChat</key>
-	<string>SingleChatViewController</string>
+	<string>TJSingleChatViewController</string>
 	<key>groupChat</key>
-	<string>GroupChatViewController</string>
+	<string>TJGroupChatViewController</string>
 	<key>memberList</key>
-	<string>MemberListViewController</string>
+	<string>TJMemberListViewController</string>
 </dict>
 </plist>

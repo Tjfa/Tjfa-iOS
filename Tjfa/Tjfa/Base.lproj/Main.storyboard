@@ -9,7 +9,7 @@
         <!--Competition View Controller-->
         <scene sceneID="bcI-eG-IlB">
             <objects>
-                <viewController storyboardIdentifier="CompetitionViewController" id="Enf-WD-3sQ" customClass="CompetitionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJCompetitionViewController" id="Enf-WD-3sQ" customClass="TJCompetitionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q4j-9w-wEW"/>
                         <viewControllerLayoutGuide type="bottom" id="UVN-Mh-AIi"/>
@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CompetitionCell" rowHeight="60" id="mjW-CH-Ske" customClass="CompetitionCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TJCompetitionCell" rowHeight="60" id="mjW-CH-Ske" customClass="TJCompetitionCell">
                                         <rect key="frame" x="0.0" y="119" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mjW-CH-Ske" id="mEh-uq-ZWa">
@@ -106,7 +106,7 @@
         <!--射手榜-->
         <scene sceneID="bLs-BG-ysd">
             <objects>
-                <viewController storyboardIdentifier="TopScoreViewController" id="yo5-Kg-39o" customClass="TopScoreViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJTopScoreViewController" id="yo5-Kg-39o" customClass="TJTopScoreViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WWg-fz-Xgl"/>
                         <viewControllerLayoutGuide type="bottom" id="OqY-1R-HIR"/>
@@ -176,7 +176,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TopScoreTableViewCell" rowHeight="60" id="Xpu-2T-wph" customClass="TopScoreTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TJTopScoreTableViewCell" rowHeight="60" id="Xpu-2T-wph" customClass="TJTopScoreTableViewCell">
                                         <rect key="frame" x="0.0" y="110" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xpu-2T-wph" id="ZHg-19-Kph">
@@ -248,7 +248,7 @@
         <!--比赛-->
         <scene sceneID="J0f-pJ-sdG">
             <objects>
-                <viewController storyboardIdentifier="MatchViewController" id="E92-Je-I0X" customClass="MatchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJMatchViewController" id="E92-Je-I0X" customClass="TJMatchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jrT-LC-LQw"/>
                         <viewControllerLayoutGuide type="bottom" id="LOC-m2-W8M"/>
@@ -270,7 +270,7 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MatchTableViewCell" rowHeight="100" id="6YI-xq-A6L" customClass="MatchTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TJMatchTableViewCell" rowHeight="100" id="6YI-xq-A6L" customClass="TJMatchTableViewCell">
                                         <rect key="frame" x="0.0" y="66" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6YI-xq-A6L" id="boN-la-u5Q">
@@ -502,7 +502,7 @@
         <!--黄牌纪录-->
         <scene sceneID="W1b-hI-3Xh">
             <objects>
-                <viewController storyboardIdentifier="YellowCardViewController" id="WHv-DK-A7B" customClass="YellowCardViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJYellowCardViewController" id="WHv-DK-A7B" customClass="TJYellowCardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8LP-if-KbT"/>
                         <viewControllerLayoutGuide type="bottom" id="GHJ-VR-zOe"/>
@@ -571,7 +571,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="YellowCardTableViewCell" rowHeight="60" id="dqP-kN-WMV" customClass="YellowCardTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TJYellowCardTableViewCell" rowHeight="60" id="dqP-kN-WMV" customClass="TJYellowCardTableViewCell">
                                         <rect key="frame" x="0.0" y="110" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dqP-kN-WMV" id="S9Y-PS-cOh">
@@ -643,7 +643,7 @@
         <!--红牌纪录-->
         <scene sceneID="2dL-Nf-LK8">
             <objects>
-                <viewController storyboardIdentifier="RedCardViewController" id="mJG-Ru-EJF" customClass="RedCardViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJRedCardViewController" id="mJG-Ru-EJF" customClass="TJRedCardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ipc-mn-l08"/>
                         <viewControllerLayoutGuide type="bottom" id="ufT-Iz-dDh"/>
@@ -712,7 +712,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="RedCardTableViewCell" rowHeight="60" id="L9x-7e-Rtd" customClass="RedCardTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TJRedCardTableViewCell" rowHeight="60" id="L9x-7e-Rtd" customClass="TJRedCardTableViewCell">
                                         <rect key="frame" x="0.0" y="110" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L9x-7e-Rtd" id="voh-Jn-65M">
@@ -784,7 +784,7 @@
         <!--小组积分-->
         <scene sceneID="Cgk-td-h1A">
             <objects>
-                <viewController storyboardIdentifier="GroupScoreViewController" id="i3l-Ze-PMa" customClass="GroupScoreViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJGroupScoreViewController" id="i3l-Ze-PMa" customClass="TJGroupScoreViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xQE-MX-jcW"/>
                         <viewControllerLayoutGuide type="bottom" id="QMc-gz-muu"/>
@@ -902,7 +902,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GroupScoreCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="GroupScoreCell" id="FWD-E7-Eba" customClass="GroupScoreCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TJGroupScoreCell" id="FWD-E7-Eba" customClass="TJGroupScoreCell">
                                         <rect key="frame" x="0.0" y="143" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FWD-E7-Eba" id="7hD-lA-rvG">
@@ -1024,7 +1024,7 @@
         <!--参赛球队-->
         <scene sceneID="hhr-Ey-lJ4">
             <objects>
-                <viewController storyboardIdentifier="TeamViewController" id="uaq-8B-4Kv" customClass="TeamViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJTeamViewController" id="uaq-8B-4Kv" customClass="TJTeamViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UNC-rg-w3b"/>
                         <viewControllerLayoutGuide type="bottom" id="JH2-jo-ro6"/>
@@ -1046,7 +1046,7 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TeamTableViewCell" id="vCi-hM-JNy" customClass="TeamTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TJTeamTableViewCell" id="vCi-hM-JNy" customClass="TJTeamTableViewCell">
                                         <rect key="frame" x="0.0" y="66" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vCi-hM-JNy" id="TvO-f9-HuF">
@@ -1157,7 +1157,7 @@
         <!--本周比赛-->
         <scene sceneID="tV9-q2-9M1">
             <objects>
-                <viewController storyboardIdentifier="MemberMatchViewController" id="ns5-Hk-HlL" customClass="MemberMatchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJMemberMatchViewController" id="ns5-Hk-HlL" customClass="TJMemberMatchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8jk-3t-dMy"/>
                         <viewControllerLayoutGuide type="bottom" id="7bv-RI-YnO"/>
@@ -1182,7 +1182,7 @@
         <!--登录-->
         <scene sceneID="1Ho-vS-OBX">
             <objects>
-                <viewController storyboardIdentifier="LoginInViewController" id="RC4-sq-ZTp" customClass="LoginInViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJLoginInViewController" id="RC4-sq-ZTp" customClass="TJLoginInViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="F2i-rR-KMt"/>
                         <viewControllerLayoutGuide type="bottom" id="iUW-up-1Em"/>
@@ -1330,7 +1330,7 @@
         <!--重置密码-->
         <scene sceneID="7ja-b4-soP">
             <objects>
-                <viewController storyboardIdentifier="ForgetPasswordViewController" id="kak-jf-BVj" customClass="ForgetPasswordViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJForgetPasswordViewController" id="kak-jf-BVj" customClass="TJForgetPasswordViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gOo-VB-vqu"/>
                         <viewControllerLayoutGuide type="bottom" id="j0B-2O-t8i"/>
@@ -1503,7 +1503,7 @@
         <!--注册-->
         <scene sceneID="Nly-cX-sdH">
             <objects>
-                <viewController storyboardIdentifier="RegisterViewController" id="qyD-T0-WfL" customClass="RegisterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJRegisterViewController" id="qyD-T0-WfL" customClass="TJRegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NmG-if-lRG"/>
                         <viewControllerLayoutGuide type="bottom" id="tLY-S8-07l"/>
@@ -1675,7 +1675,7 @@
         <!--成员-->
         <scene sceneID="4m6-Sh-p7j">
             <objects>
-                <viewController storyboardIdentifier="MemberListViewController" id="0MY-sL-5T5" customClass="MemberListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJMemberListViewController" id="0MY-sL-5T5" customClass="TJMemberListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PVn-u7-bTa"/>
                         <viewControllerLayoutGuide type="bottom" id="pit-b6-K3R"/>
@@ -1688,7 +1688,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemberListCell" id="9hD-mv-Xsw" customClass="MemberListCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TJMemberListCell" id="9hD-mv-Xsw" customClass="TJMemberListCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9hD-mv-Xsw" id="IjU-UN-SSH">
@@ -1731,7 +1731,7 @@
         <!--修改姓名-->
         <scene sceneID="TJO-H9-SD1">
             <objects>
-                <viewController storyboardIdentifier="ModifyNameViewController" id="2VM-ws-g4N" customClass="ModifyNameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJModifyNameViewController" id="2VM-ws-g4N" customClass="TJModifyNameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HIY-PE-Rqd"/>
                         <viewControllerLayoutGuide type="bottom" id="WTf-Ew-js8"/>
@@ -1809,7 +1809,7 @@
         <!--User Center Table View Controller-->
         <scene sceneID="bwB-dt-Zx3">
             <objects>
-                <tableViewController storyboardIdentifier="UserCenterTableViewController" id="GHd-TC-UNL" customClass="UserCenterTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TJUserCenterTableViewController" id="GHd-TC-UNL" customClass="TJUserCenterTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="2oW-UM-ec7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1987,7 +1987,7 @@
         <!--比 赛-->
         <scene sceneID="cOH-9H-oaX">
             <objects>
-                <viewController storyboardIdentifier="RootViewController" id="Fj6-dn-b1P" customClass="RootViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJRootViewController" id="Fj6-dn-b1P" customClass="TJRootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Ui-ql-srd"/>
                         <viewControllerLayoutGuide type="bottom" id="FFR-VW-596"/>
@@ -2012,7 +2012,7 @@
         <!--Menu View Controller-->
         <scene sceneID="ryQ-We-Pom">
             <objects>
-                <tableViewController storyboardIdentifier="MenuViewController" id="OYp-oK-Hjt" customClass="MenuViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TJMenuViewController" id="OYp-oK-Hjt" customClass="TJMenuViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="995-RO-Rky">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2162,7 +2162,7 @@
         <!--News-->
         <scene sceneID="Joq-ww-uJG">
             <objects>
-                <viewController storyboardIdentifier="NewsViewController" id="Wed-kW-t8i" userLabel="News" customClass="NewsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJNewsViewController" id="Wed-kW-t8i" userLabel="News" customClass="TJNewsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G2Z-xI-fMJ"/>
                         <viewControllerLayoutGuide type="bottom" id="uKk-q8-1pK"/>
@@ -2178,7 +2178,7 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NewsCell" rowHeight="80" id="fNm-bp-NNJ" customClass="NewsCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TJNewsCell" rowHeight="80" id="fNm-bp-NNJ" customClass="TJNewsCell">
                                         <rect key="frame" x="0.0" y="86" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fNm-bp-NNJ" id="hQH-hH-5sn">
@@ -2272,7 +2272,7 @@
         <!--news content-->
         <scene sceneID="nX4-VQ-uRk">
             <objects>
-                <viewController storyboardIdentifier="NewsContentViewController" id="ku5-kP-33e" customClass="NewsContentViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJNewsContentViewController" id="ku5-kP-33e" customClass="TJNewsContentViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rvd-QX-Ehq"/>
                         <viewControllerLayoutGuide type="bottom" id="hqo-wF-M1J"/>
@@ -2306,7 +2306,7 @@
         <!--设置-->
         <scene sceneID="erZ-IX-lU4">
             <objects>
-                <tableViewController storyboardIdentifier="SettingViewController" id="ET9-lm-tC4" customClass="SettingViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TJSettingViewController" id="ET9-lm-tC4" customClass="TJSettingViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ile-Up-D6N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2577,7 +2577,7 @@
         <!-- -->
         <scene sceneID="m1H-Xn-pkh">
             <objects>
-                <viewController storyboardIdentifier="DashboardViewController" id="2hP-Y8-Nbb" customClass="DashboardViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJDashboardViewController" id="2hP-Y8-Nbb" customClass="TJDashboardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6cE-Da-xcS"/>
                         <viewControllerLayoutGuide type="bottom" id="kQA-Ca-weC"/>
@@ -2648,7 +2648,7 @@
         <!--Welcome View Controller-->
         <scene sceneID="wdy-TH-c86">
             <objects>
-                <viewController id="AAB-m2-roq" customClass="WelcomeViewController" sceneMemberID="viewController">
+                <viewController id="AAB-m2-roq" customClass="TJWelcomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aa0-mB-NAc"/>
                         <viewControllerLayoutGuide type="bottom" id="sES-bK-jOT"/>
@@ -2711,7 +2711,7 @@
         <!--聊天-->
         <scene sceneID="dvh-Ee-ama">
             <objects>
-                <viewController storyboardIdentifier="SingleChatViewController" id="Bzd-qo-Ddw" customClass="SingleChatViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJSingleChatViewController" id="Bzd-qo-Ddw" customClass="TJSingleChatViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5W7-M3-pBq"/>
                         <viewControllerLayoutGuide type="bottom" id="SsB-uU-jrn"/>

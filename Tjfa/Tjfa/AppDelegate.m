@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "AppInfo.h"
+#import "TJAppInfo.h"
 #import "TJModule.h"
 #import <CoreData+MagicalRecord.h>
 #import <AVOSCloud.h>
@@ -16,8 +16,7 @@
 #import "TjfaConst.h"
 #import "UIDevice+DeviceInfo.h"
 #import "RennShareComponent.h"
-#import "NotificationCenter.h"
-#import "UserData.h"
+#import "TJUserData.h"
 #import <Routable.h>
 #import "UIApplication+MainNav.h"
 #import <EaseMob.h>
@@ -30,31 +29,28 @@
     [MagicalRecord setupCoreDataStack];
 
     [self setupRoutable];
-    
+
     [self registerAppKeyWithApplication:application launchingOptions:launchOptions];
-    
+
     if ([UIDevice iOSVersion] >= 8.0) {
-        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert| UIUserNotificationTypeBadge| UIUserNotificationTypeSound categories:nil];
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [application registerUserNotificationSettings:settings];
         [application registerForRemoteNotifications];
-    } else {
-        [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
     }
-    
-    
-    if ([UserData sharedUserData].isFirstLaunch == NO) {
+    else {
+        [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
+    }
+
+    if ([TJUserData sharedUserData].isFirstLaunch == NO) {
         [UIApplication showMain];
-        
-        
+
         if (launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey]) {
             NSDictionary *remoteDic = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kLaunchFromRemoteNotificationKey object:remoteDic];
             [[Routable sharedRouter] setNavigationController:(UINavigationController *)self.window.rootViewController];
             [[Routable sharedRouter] open:remoteDic[@"page"] withParams:remoteDic[@"ext"]];
         }
-
     }
-    
+
     return YES;
 }
 
@@ -78,16 +74,16 @@
 {
     UIApplicationState state = [UIApplication sharedApplication].applicationState;
     if (state == UIApplicationStateActive) {
-         [[Routable sharedRouter] setNavigationController:(UINavigationController*)self.window.rootViewController];
-        [UIAlertView bk_showAlertViewWithTitle:@"新的消息来啦" message:userInfo[@"aps"][@"alert"] cancelButtonTitle:@"取消" otherButtonTitles:@[@"去看看"] handler:^(UIAlertView *alertView, NSInteger index) {
+        [[Routable sharedRouter] setNavigationController:(UINavigationController *)self.window.rootViewController];
+        [UIAlertView bk_showAlertViewWithTitle:@"新的消息来啦" message:userInfo[@"aps"][@"alert"] cancelButtonTitle:@"取消" otherButtonTitles:@[ @"去看看" ] handler:^(UIAlertView *alertView, NSInteger index) {
             if (index != 0) {
                 [[Routable sharedRouter] open:userInfo[@"page"] withParams:userInfo[@"ext"]];
             }
         }];
-    } else if (state == UIApplicationStateInactive) {
+    }
+    else if (state == UIApplicationStateInactive) {
         [[Routable sharedRouter] open:userInfo[@"page"] withParams:userInfo[@"ext"]];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:kPushNotification object:userInfo];
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
@@ -96,9 +92,8 @@
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation setObject:[UIDevice deviceName] forKey:@"deviceName"];
     [currentInstallation saveInBackground];
-    
+
     if (DEBUG) {
-        
     }
 }
 
@@ -152,22 +147,22 @@
     [AVOSCloud setApplicationId:AVOS_APP_ID clientKey:AVOS_CLIENT_KEY];
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [self registerAVClass];
-    
+
     //WeiXin
     [WXApi registerApp:@"wx6cba695c52dfdeb0"];
     // Override point for customization after application launch.
-    
+
     //RenRen
     [RennShareComponent initWithAppId:@"474177" apiKey:@"313e2277c5d14cee9b83441f03c5ab53" secretKey:@"313e2277c5d14cee9b83441f03c5ab53"];
-    
+
     //EaseMob
     [[EaseMob sharedInstance] registerSDKWithAppKey:EASE_MOB_APP_KEY apnsCertName:EASE_MOB_APNS];
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 
     //Umeng
     if (DEBUG) {
-        
-    } else {
+    }
+    else {
         [MobClick startWithAppkey:@"542396dafd98c5933102f25e"];
         [MobClick setCrashReportEnabled:YES];
     }
@@ -185,19 +180,18 @@
     [TJTeam registerSubclass];
 }
 
-#pragma mark - Routable 
+#pragma mark - Routable
 
 - (void)setupRoutable
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"viewController" ofType:@"plist"];
     NSDictionary *controllers = [[NSDictionary alloc] initWithContentsOfFile:path];
-    
+
     for (NSString *key in controllers.allKeys) {
         [[Routable sharedRouter] map:key toController:NSClassFromString(controllers[key])];
     }
-    
+
     [[Routable sharedRouter] setIgnoresExceptions:YES];
 }
-
 
 @end

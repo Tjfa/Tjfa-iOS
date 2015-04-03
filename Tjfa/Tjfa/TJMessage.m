@@ -15,7 +15,7 @@
 {
     TJMessage *tjMessage = [[TJMessage alloc] init];
     tjMessage.emMessage = message;
-    tjMessage.senderId = message.from;
+    tjMessage.senderId = message.ext[@"senderId"];
     tjMessage.senderDisplayName = message.ext[@"senderDisplayName"];
     tjMessage.date = [NSDate dateWithTimeIntervalSince1970:message.timestamp];
     tjMessage.isMediaMessage = NO;

@@ -13,7 +13,7 @@
 + (UIView *)mainWindow
 {
     NSEnumerator *frontToBackWindows = [[[UIApplication sharedApplication] windows] reverseObjectEnumerator];
-    
+
     for (UIWindow *window in frontToBackWindows)
         if (window.windowLevel == UIWindowLevelNormal) {
             return window;
@@ -24,7 +24,7 @@
 + (MBProgressHUD *)determinateProgressHUDInView:(UIView *)view withText:(NSString *)text
 {
     if (view == nil) {
-        view =[self mainWindow];
+        view = [self mainWindow];
     }
     MBProgressHUD *progress = [[MBProgressHUD alloc] initWithView:view];
     [view addSubview:progress];
@@ -34,7 +34,7 @@
     else {
         progress.labelText = text;
     }
- 
+
     progress.mode = MBProgressHUDModeDeterminate;
     progress.dimBackground = YES;
     [progress show:YES];
@@ -46,7 +46,7 @@
     if (view == nil) {
         view = [self mainWindow];
     }
-    MBProgressHUD* progress = [[MBProgressHUD alloc] initWithView:view];
+    MBProgressHUD *progress = [[MBProgressHUD alloc] initWithView:view];
     [view addSubview:progress];
     if (text == nil) {
         progress.labelText = @"加载中...";
@@ -55,13 +55,14 @@
         progress.labelText = text;
     }
     progress.dimBackground = YES;
-    
+    [progress show:YES];
+
     return progress;
 }
 
 + (MBProgressHUD *)progressHUDNetworkErrorInView:(UIView *)view withText:(NSString *)text
 {
-    MBProgressHUD* progress = [[MBProgressHUD alloc] initWithView:view];
+    MBProgressHUD *progress = [[MBProgressHUD alloc] initWithView:view];
 
     progress.labelText = text;
     progress.mode = MBProgressHUDModeCustomView;
@@ -70,14 +71,13 @@
     return progress;
 }
 
-
 + (void)showWhenNetworkErrorInView:(UIView *)view
 {
     if (view == nil) {
         view = [self mainWindow];
     }
-    
-    MBProgressHUD* progress = [self progressHUDNetworkErrorInView:view withText:@"网络错误"];
+
+    MBProgressHUD *progress = [self progressHUDNetworkErrorInView:view withText:@"网络错误"];
     [view addSubview:progress];
 
     progress.dimBackground = YES;
@@ -104,19 +104,18 @@
     if (view == nil) {
         view = [self mainWindow];
     }
-    
-    MBProgressHUD *progress =  [[MBProgressHUD alloc] initWithView:view];
+
+    MBProgressHUD *progress = [[MBProgressHUD alloc] initWithView:view];
     progress.mode = MBProgressHUDModeCustomView;
     progress.dimBackground = YES;
     progress.labelText = text;
-    progress.mode= MBProgressHUDModeCustomView;
+    progress.mode = MBProgressHUDModeCustomView;
     progress.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"checkMark"]];
-    
+
     [view addSubview:progress];
-    [progress showAnimated:YES whileExecutingBlock:^(){
+    [progress showAnimated:YES whileExecutingBlock:^() {
         sleep(1);
     }];
-
 }
 
 @end
