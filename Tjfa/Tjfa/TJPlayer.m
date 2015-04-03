@@ -18,7 +18,7 @@
 @dynamic teamId;
 @dynamic competitionId;
 
-+ (NSString*)parseClassName
++ (NSString *)parseClassName
 {
     return @"Player";
 }

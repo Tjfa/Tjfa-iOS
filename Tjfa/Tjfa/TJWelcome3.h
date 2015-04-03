@@ -12,6 +12,6 @@
 
 + (TJWelcome3 *)getInstance;
 
-@property (nonatomic, weak) UIView* rootView;
+@property (nonatomic, weak) UIView *rootView;
 
 @end

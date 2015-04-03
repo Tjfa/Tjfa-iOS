@@ -17,7 +17,7 @@
 @dynamic isRead;
 @dynamic precontent;
 
-+ (NSString*)parseClassName
++ (NSString *)parseClassName
 {
     return @"News";
 }

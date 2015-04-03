@@ -10,6 +10,6 @@
 
 @interface NSNumber (Assign)
 
-+ (NSNumber*)assignValue:(id)value;
++ (NSNumber *)assignValue:(id)value;
 
 @end

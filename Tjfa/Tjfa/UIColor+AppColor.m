@@ -10,7 +10,7 @@
 
 @implementation UIColor (AppColor)
 
-+ (UIColor*)colorWith16Number:(int)number andAlpha:(float)alpha
++ (UIColor *)colorWith16Number:(int)number andAlpha:(float)alpha
 {
     int ff = (1 << 8) - 1;
     int r = (number >> 16) & ff;
@@ -19,47 +19,47 @@
     return [UIColor colorWithRed:r / 255.0 green:g / 255.0 blue:b / 255.0 alpha:alpha];
 }
 
-+ (UIColor*)colorWith16Number:(int)number
++ (UIColor *)colorWith16Number:(int)number
 {
     return [UIColor colorWith16Number:number andAlpha:1.0];
 }
 
-+ (UIColor*)appBackgroundColor
++ (UIColor *)appBackgroundColor
 {
     return [UIColor colorWith16Number:0xF8F8F8];
 }
 
-+ (UIColor*)appGrayColor
++ (UIColor *)appGrayColor
 {
     return [UIColor colorWith16Number:0xebebeb];
 }
 
-+ (UIColor*)benbuItemColor
++ (UIColor *)benbuItemColor
 {
     return [UIColor colorWith16Number:0x06ac8f];
 }
 
-+ (UIColor*)jiadingItemColor
++ (UIColor *)jiadingItemColor
 {
     return [UIColor colorWith16Number:0xcf9335];
 }
 
-+ (UIColor*)newsItemColor
++ (UIColor *)newsItemColor
 {
     return [UIColor colorWith16Number:0x23367f];
 }
 
-+ (UIColor*)aboutItemColor
++ (UIColor *)aboutItemColor
 {
     return [UIColor colorWith16Number:0xb8125c];
 }
 
-+ (UIColor*)appNavigationBarTintColor
++ (UIColor *)appNavigationBarTintColor
 {
     return [UIColor colorWith16Number:0x910100];
 }
 
-+ (UIColor*)appRedColor
++ (UIColor *)appRedColor
 {
     return [UIColor colorWith16Number:0x910100];
 }

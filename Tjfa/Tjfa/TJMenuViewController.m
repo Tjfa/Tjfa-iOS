@@ -35,34 +35,34 @@
 #define GROUP_SCORE_VIEW_CONTROLLER_INDEX 4
 #define TEAM_VIEW_CONTROLLER_INDEX 5
 
-- (void)tableView:(UITableView*)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TJCompetitionDetailViewController* viewController;
+    TJCompetitionDetailViewController *viewController;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == MATCH_VIEW_CONTROLLER_INDEX) {
         viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(TJMatchViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"比 赛";
-
-    } else if (indexPath.row == SCORE_LIST_VIEW_CONTROLLER_INDEX) {
+    }
+    else if (indexPath.row == SCORE_LIST_VIEW_CONTROLLER_INDEX) {
 
         viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(TJTopScoreViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"射手榜";
-
-    } else if (indexPath.row == YELLOW_CARD_VIEW_CONTROLLER_INDEX) {
+    }
+    else if (indexPath.row == YELLOW_CARD_VIEW_CONTROLLER_INDEX) {
 
         viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(TJYellowCardViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"黄 牌";
-
-    } else if (indexPath.row == RED_CARD_VIEW_CONTROLLER_INDEX) {
+    }
+    else if (indexPath.row == RED_CARD_VIEW_CONTROLLER_INDEX) {
         viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(TJRedCardViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"红 牌";
-
-    } else if (indexPath.row == GROUP_SCORE_VIEW_CONTROLLER_INDEX) {
+    }
+    else if (indexPath.row == GROUP_SCORE_VIEW_CONTROLLER_INDEX) {
 
         viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(TJGroupScoreViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"积 分";
-
-    } else if (indexPath.row == TEAM_VIEW_CONTROLLER_INDEX) {
+    }
+    else if (indexPath.row == TEAM_VIEW_CONTROLLER_INDEX) {
         viewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(TJTeamViewController.class)];
         self.sideMenuViewController.navigationItem.title = @"球 队";
     }

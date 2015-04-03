@@ -14,11 +14,11 @@
 
 @implementation TJDashboardButton
 
-- (instancetype)initWithFrame:(CGRect)frame andImage:(UIImage*)image andTarget:(id)target action:(SEL)action
+- (instancetype)initWithFrame:(CGRect)frame andImage:(UIImage *)image andTarget:(id)target action:(SEL)action
 {
     if (self = [super initWithFrame:frame]) {
         [self setImage:image forState:UIControlStateNormal];
-        self.exclusiveTouch=YES;
+        self.exclusiveTouch = YES;
         [self addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     }
     return self;

@@ -19,7 +19,7 @@
 const CGFloat animateDuration = 0.3;
 const CGFloat animateCacheDuration = 0.1;
 
-- (instancetype)initWithFrame:(CGRect)frame image:(UIImage*)image labelName:(NSString*)label direction:(DashboardLabelDirection)direction target:(id)target action:(SEL)action dashboardSize:(CGFloat)size
+- (instancetype)initWithFrame:(CGRect)frame image:(UIImage *)image labelName:(NSString *)label direction:(DashboardLabelDirection)direction target:(id)target action:(SEL)action dashboardSize:(CGFloat)size
 {
     if (self = [super initWithFrame:frame]) {
         dashboardButtonSize = size;
@@ -40,7 +40,8 @@ const CGFloat animateCacheDuration = 0.1;
         nameLableFrame = CGRectMake(0, size, frame.size.width, frame.size.height - size);
         if (direction == kDashboardLabelLeft) {
             animateFrameCache = CGRectMake(nameLableFrame.origin.x + 15, nameLableFrame.origin.y, nameLableFrame.size.width, nameLableFrame.size.height);
-        } else {
+        }
+        else {
             animateFrameCache = CGRectMake(nameLableFrame.origin.x - 15, nameLableFrame.origin.y, nameLableFrame.size.width, nameLableFrame.size.height);
         }
         self.nameLable.exclusiveTouch = YES;
@@ -61,7 +62,8 @@ const CGFloat animateCacheDuration = 0.1;
 
     if (dahboardLableDirection == kDashboardLabelLeft) {
         self.nameLable.frame = CGRectMake(-self.frame.size.width, self.nameLable.frame.origin.y, self.nameLable.frame.size.width, self.nameLable.frame.size.height);
-    } else {
+    }
+    else {
         self.nameLable.frame = CGRectMake(self.frame.size.width, self.nameLable.frame.origin.y, self.nameLable.frame.size.width, self.nameLable.frame.size.height);
     }
 }
@@ -78,7 +80,8 @@ const CGFloat animateCacheDuration = 0.1;
     self.dashboardButton.frame = CGRectMake(self.dashboardButton.frame.origin.x, self.dashboardButton.frame.origin.y, 0, 0);
     if (dahboardLableDirection == kDashboardLabelLeft) {
         self.nameLable.frame = CGRectMake(-self.frame.size.width, self.nameLable.frame.origin.y, self.nameLable.frame.size.width, self.nameLable.frame.size.height);
-    } else {
+    }
+    else {
         self.nameLable.frame = CGRectMake(self.frame.size.width, self.nameLable.frame.origin.y, self.nameLable.frame.size.width, self.nameLable.frame.size.height);
     }
 }

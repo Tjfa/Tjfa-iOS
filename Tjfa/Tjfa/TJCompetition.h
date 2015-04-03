@@ -13,31 +13,31 @@
 /**
  *  competitionId
  */
-@property (nonatomic, retain) NSNumber* competitionId;
+@property (nonatomic, retain) NSNumber *competitionId;
 
 /**
  *  1 表示本部 2表示 嘉定
  */
-@property (nonatomic, retain) NSNumber* type;
+@property (nonatomic, retain) NSNumber *type;
 
 /**
  *  这个赛事是否开始 0 未开始 1正在进行 2已经结束
  */
-@property (nonatomic, retain) NSNumber* isStart;
+@property (nonatomic, retain) NSNumber *isStart;
 
 /**
  *  赛事名称
  */
-@property (nonatomic, retain) NSString* name;
+@property (nonatomic, retain) NSString *name;
 
 /**
  *  第几届赛事
  */
-@property (nonatomic, retain) NSNumber* number;
+@property (nonatomic, retain) NSNumber *number;
 
 /**x
  *  赛事时间 20131与20132表示第一学期和第二学期
  */
-@property (nonatomic, retain) NSString* time;
+@property (nonatomic, retain) NSString *time;
 
 @end

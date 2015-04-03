@@ -11,6 +11,6 @@
 
 @interface CALayer (XibConfiguration)
 
-@property(nonatomic, assign) UIColor* borderUIColor;
+@property (nonatomic, assign) UIColor *borderUIColor;
 
 @end

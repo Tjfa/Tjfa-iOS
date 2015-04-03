@@ -10,5 +10,5 @@
 
 @interface TJDashboardButton : UIButton
 
-- (instancetype)initWithFrame:(CGRect)frame andImage:(UIImage*)image andTarget:(id)target action:(SEL)action;
+- (instancetype)initWithFrame:(CGRect)frame andImage:(UIImage *)image andTarget:(id)target action:(SEL)action;
 @end

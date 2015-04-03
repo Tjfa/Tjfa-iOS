@@ -10,38 +10,38 @@
 
 @implementation NSDate (Date2Str)
 
-- (NSString*)date2str
+- (NSString *)date2str
 {
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 
     //zzz表示时区，zzz可以删除，这样返回的日期字符将不包含时区信息。
 
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 
-    NSString* dateString = [dateFormatter stringFromDate:self];
+    NSString *dateString = [dateFormatter stringFromDate:self];
 
     return dateString;
 }
 
-- (NSString*)date2ShortStr
+- (NSString *)date2ShortStr
 {
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 
     //zzz表示时区，zzz可以删除，这样返回的日期字符将不包含时区信息。
 
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
 
-    NSString* dateString = [dateFormatter stringFromDate:self];
+    NSString *dateString = [dateFormatter stringFromDate:self];
 
     return dateString;
 }
 
-- (NSString*)date2CompetitionStr
+- (NSString *)date2CompetitionStr
 {
-    NSCalendar* calendar = [NSCalendar currentCalendar];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
     unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
-    NSDateComponents* components = [calendar components:unitFlags fromDate:self];
-    NSInteger curYear = [components year]; //当前的年份
+    NSDateComponents *components = [calendar components:unitFlags fromDate:self];
+    NSInteger curYear = [components year];   //当前的年份
     NSInteger curMonth = [components month]; //当前的月份
 
     if (curMonth >= 9 && curYear <= 1)
@@ -52,24 +52,24 @@
     return nil;
 }
 
-+ (NSDate*)str2ShortDate:(NSString*)str
++ (NSDate *)str2ShortDate:(NSString *)str
 {
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
 
-    NSDate* destDate = [dateFormatter dateFromString:str];
+    NSDate *destDate = [dateFormatter dateFromString:str];
 
     return destDate;
 }
 
-+ (NSDate*)str2Date:(NSString*)str
++ (NSDate *)str2Date:(NSString *)str
 {
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
 
-    NSDate* destDate = [dateFormatter dateFromString:str];
+    NSDate *destDate = [dateFormatter dateFromString:str];
 
     return destDate;
 }

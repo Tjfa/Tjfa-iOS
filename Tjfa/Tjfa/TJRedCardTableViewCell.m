@@ -11,9 +11,9 @@
 
 @interface TJRedCardTableViewCell ()
 
-@property (nonatomic, weak) IBOutlet UILabel* nameLabel;
-@property (nonatomic, weak) IBOutlet UILabel* teamNameLable;
-@property (nonatomic, weak) IBOutlet UILabel* redCardCount;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *teamNameLable;
+@property (nonatomic, weak) IBOutlet UILabel *redCardCount;
 
 @end
 

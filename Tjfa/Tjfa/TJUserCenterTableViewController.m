@@ -12,7 +12,7 @@
 #import <UIActionSheet+BlocksKit.h>
 #import "MBProgressHUD+AppProgressView.h"
 
-@interface TJUserCenterTableViewController()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface TJUserCenterTableViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) TJUser *user;
 
@@ -64,14 +64,14 @@ const int avatar_index = 0;
 
 - (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType
 {
-    
+
     if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-        
+
         picker.sourceType = sourceType;
         picker.delegate = self;
         picker.allowsEditing = YES;
-        
+
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self presentViewController:picker animated:YES completion:nil];
         }];
@@ -119,10 +119,9 @@ const int avatar_index = 0;
         } progressBlock:^(NSInteger percentDone) {
             loading.progress = percentDone / 100.0 * 99.0;
         }];
-        
+
     }];
 }
-
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {

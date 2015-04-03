@@ -23,7 +23,7 @@
 @dynamic penaltyA;
 @dynamic penaltyB;
 
-+ (NSString*)parseClassName
++ (NSString *)parseClassName
 {
     return @"Match";
 }

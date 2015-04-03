@@ -11,15 +11,15 @@
 
 @interface TJTopScoreTableViewCell ()
 
-@property (nonatomic, weak) IBOutlet UILabel* nameLabel;
-@property (nonatomic, weak) IBOutlet UILabel* teamNameLable;
-@property (nonatomic, weak) IBOutlet UILabel* scoreCount;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *teamNameLable;
+@property (nonatomic, weak) IBOutlet UILabel *scoreCount;
 
 @end
 
 @implementation TJTopScoreTableViewCell
 
-- (void)setCellWithPlayer:(Player*)player
+- (void)setCellWithPlayer:(Player *)player
 {
     self.nameLabel.text = player.name;
     self.teamNameLable.text = player.team.name;

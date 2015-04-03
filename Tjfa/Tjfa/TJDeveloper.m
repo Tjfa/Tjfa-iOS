@@ -10,7 +10,7 @@
 
 @implementation TJDeveloper
 
-- (instancetype)initWithName:(NSString*)name imageName:(NSString*)imageName
+- (instancetype)initWithName:(NSString *)name imageName:(NSString *)imageName
 {
     if (self = [super init]) {
         self.name = name;

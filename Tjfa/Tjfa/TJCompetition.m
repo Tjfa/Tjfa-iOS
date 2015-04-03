@@ -17,7 +17,7 @@
 @dynamic time;
 @dynamic type;
 
-+ (NSString*)parseClassName
++ (NSString *)parseClassName
 {
     return @"Competition";
 }

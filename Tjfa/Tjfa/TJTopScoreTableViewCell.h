@@ -11,6 +11,6 @@
 
 @interface TJTopScoreTableViewCell : UITableViewCell
 
-- (void)setCellWithPlayer:(Player*)player;
+- (void)setCellWithPlayer:(Player *)player;
 
 @end

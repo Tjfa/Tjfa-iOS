@@ -10,11 +10,12 @@
 
 @implementation NSNumber (Assign)
 
-+ (NSNumber*)assignValue:(id)value
++ (NSNumber *)assignValue:(id)value
 {
     if ([value isKindOfClass:[NSString class]]) {
         return @([value intValue]);
-    } else {
+    }
+    else {
         return value;
     }
 }

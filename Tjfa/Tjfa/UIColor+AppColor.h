@@ -15,9 +15,9 @@
  *
  *  @return backgroud of app color .
  */
-+ (UIColor*)appBackgroundColor;
++ (UIColor *)appBackgroundColor;
 
-+ (UIColor*)appGrayColor;
++ (UIColor *)appGrayColor;
 
 /**
  *  输入16进制的颜色  不要输入＃
@@ -27,7 +27,7 @@
  *
  *  @return  number对应的rgb
  */
-+ (UIColor*)colorWith16Number:(int)number andAlpha:(float)alpha;
++ (UIColor *)colorWith16Number:(int)number andAlpha:(float)alpha;
 
 /**
  *  对应默认的alpha＝1 的16进制颜色
@@ -36,16 +36,16 @@
  *
  *  @return number对应的rgb
  */
-+ (UIColor*)colorWith16Number:(int)number;
++ (UIColor *)colorWith16Number:(int)number;
 
 /**
  *  dashboard 上 4个字体的颜色
  */
-+ (UIColor*)benbuItemColor;
-+ (UIColor*)jiadingItemColor;
-+ (UIColor*)newsItemColor;
-+ (UIColor*)aboutItemColor;
-+ (UIColor*)appNavigationBarTintColor;
-+ (UIColor*)appRedColor;
++ (UIColor *)benbuItemColor;
++ (UIColor *)jiadingItemColor;
++ (UIColor *)newsItemColor;
++ (UIColor *)aboutItemColor;
++ (UIColor *)appNavigationBarTintColor;
++ (UIColor *)appRedColor;
 
 @end

@@ -10,9 +10,9 @@
 
 @interface NSDate (Date2Str)
 
-- (NSString*)date2str;
+- (NSString *)date2str;
 
-- (NSString*)date2CompetitionStr;
+- (NSString *)date2CompetitionStr;
 
 /**
  *  将string转化为nsdate
@@ -21,10 +21,10 @@
  *
  *  @return the date of str
  */
-+ (NSDate*)str2Date:(NSString*)str;
++ (NSDate *)str2Date:(NSString *)str;
 
-+ (NSDate*)str2ShortDate:(NSString*)str;
++ (NSDate *)str2ShortDate:(NSString *)str;
 
-- (NSString*)date2ShortStr;
+- (NSString *)date2ShortStr;
 
 @end

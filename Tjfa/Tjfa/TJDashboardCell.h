@@ -17,9 +17,9 @@ typedef NS_ENUM(NSInteger, DashboardLabelDirection) {
     kDashboardLabelRight = 1,
 };
 
-@property (nonatomic, strong) TJDashboardButton* dashboardButton;
+@property (nonatomic, strong) TJDashboardButton *dashboardButton;
 
-@property (nonatomic, strong) UIButton* nameLable;
+@property (nonatomic, strong) UIButton *nameLable;
 
 /**
  *  DashboardView init
@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, DashboardLabelDirection) {
  *  @param size      button的size  button将是圆形
  *
  */
-- (instancetype)initWithFrame:(CGRect)frame image:(UIImage*)image labelName:(NSString*)label direction:(DashboardLabelDirection)direction target:(id)target action:(SEL)action dashboardSize:(CGFloat)size;
+- (instancetype)initWithFrame:(CGRect)frame image:(UIImage *)image labelName:(NSString *)label direction:(DashboardLabelDirection)direction target:(id)target action:(SEL)action dashboardSize:(CGFloat)size;
 
 - (void)showWithAnimateComplete:(void (^)(BOOL finished))complete;
 

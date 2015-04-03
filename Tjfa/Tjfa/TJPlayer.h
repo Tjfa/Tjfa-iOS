@@ -13,36 +13,36 @@
 /**
  *  进球数
  */
-@property (nonatomic, retain) NSNumber* goalCount;
+@property (nonatomic, retain) NSNumber *goalCount;
 
 /**
  *  playerId  主键
  */
-@property (nonatomic, retain) NSNumber* playerId;
+@property (nonatomic, retain) NSNumber *playerId;
 
 /**
  *  名字
  */
-@property (nonatomic, retain) NSString* name;
+@property (nonatomic, retain) NSString *name;
 
 /**
  *  红牌数量
  */
-@property (nonatomic, retain) NSNumber* redCard;
+@property (nonatomic, retain) NSNumber *redCard;
 
 /**
  *  黄牌数量
  */
-@property (nonatomic, retain) NSNumber* yellowCard;
+@property (nonatomic, retain) NSNumber *yellowCard;
 
 /**
  *  所属于的球队
  */
-@property (nonatomic, retain) NSNumber* teamId;
+@property (nonatomic, retain) NSNumber *teamId;
 
 /**
  *  所属比赛
  */
-@property (nonatomic, retain) NSNumber* competitionId;
+@property (nonatomic, retain) NSNumber *competitionId;
 
 @end

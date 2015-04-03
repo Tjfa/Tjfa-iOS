@@ -14,17 +14,17 @@
 
 + (TJNetworkClient *)sharedNetworkClient;
 
-+ (NSString*)competitionAddress;
++ (NSString *)competitionAddress;
 
-+ (NSString*)newsAddress;
++ (NSString *)newsAddress;
 
-+ (NSString*)newsContentAddress;
++ (NSString *)newsContentAddress;
 
-+ (NSString*)matchAdderss;
++ (NSString *)matchAdderss;
 
-+ (NSString*)playerAddress;
++ (NSString *)playerAddress;
 
-+ (NSString*)teamAddress;
++ (NSString *)teamAddress;
 
 /**
  *  complete block will call on main thread

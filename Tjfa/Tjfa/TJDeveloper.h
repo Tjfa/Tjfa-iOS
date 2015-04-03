@@ -10,9 +10,9 @@
 
 @interface TJDeveloper : NSObject
 
-@property (nonatomic, strong) NSString* name;
-@property (nonatomic, strong) UIImage* image;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) UIImage *image;
 
-- (instancetype)initWithName:(NSString*)name imageName:(NSString*)imageName;
+- (instancetype)initWithName:(NSString *)name imageName:(NSString *)imageName;
 
 @end

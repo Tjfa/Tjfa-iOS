@@ -8,12 +8,10 @@
 
 #import "TJMemberMatchViewController.h"
 
-@interface TJMemberMatchViewController()<UITableViewDataSource, UITableViewDelegate>
+@interface TJMemberMatchViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
 @implementation TJMemberMatchViewController
-
-
 
 @end

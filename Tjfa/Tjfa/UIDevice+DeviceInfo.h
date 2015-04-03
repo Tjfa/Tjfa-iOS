@@ -10,7 +10,7 @@
 
 @interface UIDevice (DeviceInfo)
 
-+ (NSString*)deviceInfo;
++ (NSString *)deviceInfo;
 
 + (float)iOSVersion;
 

@@ -13,7 +13,7 @@
 #import "UIColor+AppColor.h"
 #import "EMMessage+MessageTranform.h"
 
-@interface TJChatViewController()<EMChatManagerDelegate, JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout>
+@interface TJChatViewController () <EMChatManagerDelegate, JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) TJUser *currentUser;
 
@@ -43,10 +43,10 @@
     [super viewDidLoad];
     self.currentUser = [TJUser currentUser];
     [self setupView];
-    
+
     [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
     BOOL isLogin = [[EaseMob sharedInstance].chatManager isLoggedIn];
-    
+
     if (isLogin) {
         [self setupConversation];
     }
@@ -82,7 +82,7 @@
 - (MBProgressHUD *)loadingView
 {
     if (_loadingView == nil) {
-         _loadingView = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"初始化中"];
+        _loadingView = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"初始化中"];
     }
     return _loadingView;
 }
@@ -148,7 +148,6 @@
 
 - (void)willAutoReconnect
 {
-    
 }
 
 #pragma mark - JSQMessagesCollectionViewDataSource
@@ -185,7 +184,6 @@
     }
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return self.messages.count;
@@ -201,11 +199,10 @@
     return kJSQMessagesCollectionViewCellLabelHeightDefault;
 }
 
-
 - (UICollectionViewCell *)collectionView:(JSQMessagesCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
-    
+
     TJMessage *message = self.messages[indexPath.item];
     cell.textView.text = message.text;
     if (message.senderId == [self senderId]) {
@@ -214,7 +211,7 @@
     else {
         cell.textView.textColor = [UIColor blackColor];
     }
-    
+
     return cell;
 }
 
@@ -235,7 +232,7 @@
     if (message.senderId == [self senderId]) {
         return nil;
     }
-    
+
     if (indexPath.item > 0) {
         TJMessage *preMessage = self.messages[indexPath.item - 1];
         if (preMessage.senderId == [self senderId]) {

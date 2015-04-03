@@ -13,14 +13,14 @@
 /**
  *  please set uiviewcontroller delegate first
  */
-@property (nonatomic, weak) UIViewController* instanceController;
+@property (nonatomic, weak) UIViewController *instanceController;
 
 /**
  *  singleton instance
  *
  *  @return instance
  */
-+ (TJAboutManager*)sharedAboutManager;
++ (TJAboutManager *)sharedAboutManager;
 
 /**
  *   到 app store为我评分

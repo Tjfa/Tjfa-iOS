@@ -28,7 +28,7 @@
 @dynamic lostCount;
 @dynamic rank;
 
-+ (NSString*)parseClassName
++ (NSString *)parseClassName
 {
     return @"Team";
 }

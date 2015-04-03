@@ -11,12 +11,12 @@
 
 @interface TJNewsCell ()
 
-@property (nonatomic, weak) IBOutlet UILabel* titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 
-@property (nonatomic, weak) IBOutlet UILabel* dateLabel;
+@property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 
-@property (nonatomic, weak) IBOutlet UIView* markReadView;
-@property (nonatomic, weak) IBOutlet UILabel* preContent;
+@property (nonatomic, weak) IBOutlet UIView *markReadView;
+@property (nonatomic, weak) IBOutlet UILabel *preContent;
 
 @end
 
@@ -30,7 +30,8 @@
     if (![news.isRead boolValue]) {
         self.markReadView.hidden = NO;
         self.markReadView.layer.cornerRadius = self.markReadView.frame.size.width / 2;
-    } else {
+    }
+    else {
         self.markReadView.hidden = YES;
     }
 }

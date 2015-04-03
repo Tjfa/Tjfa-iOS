@@ -15,13 +15,13 @@
 @interface TJCompetitionDetailViewController : TJBaseViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate> {
 }
 
-@property (nonatomic, weak) IBOutlet UITableView* tableView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
-@property (nonatomic, weak) IBOutlet UISearchBar* searchBar;
+@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
-@property (nonatomic, strong) NSArray* data;
+@property (nonatomic, strong) NSArray *data;
 
-@property (nonatomic, strong) void (^completeBlock)(NSArray* array, NSError* error);
+@property (nonatomic, strong) void (^completeBlock)(NSArray *array, NSError *error);
 
 - (void)getLasterData:(BOOL)isFirstEnter;
 
@@ -33,10 +33,10 @@
  *  the follow class need to implement by subclass
  *  the example to see the RedCardViewController
  */
-- (NSArray*)getDataFromCoreDataCompetition:(Competition*)compeition;
+- (NSArray *)getDataFromCoreDataCompetition:(Competition *)compeition;
 
-- (NSArray*)getDataFromCoreDataCompetition:(Competition*)competition whenSearch:(NSString*)key;
+- (NSArray *)getDataFromCoreDataCompetition:(Competition *)competition whenSearch:(NSString *)key;
 
-- (void)getDataFromNetwork:(Competition*)competition complete:(void (^)(NSArray* results, NSError* error))complete;
+- (void)getDataFromNetwork:(Competition *)competition complete:(void (^)(NSArray *results, NSError *error))complete;
 
 @end

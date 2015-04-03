@@ -15,14 +15,14 @@
 
 @interface TJDashboardViewController ()
 
-@property (nonatomic, strong) TJDashboardCell* newsView;
-@property (nonatomic, strong) TJDashboardCell* settingView;
-@property (nonatomic, strong) TJDashboardCell* matchView;
-@property (nonatomic, strong) TJDashboardCell* memberView;
+@property (nonatomic, strong) TJDashboardCell *newsView;
+@property (nonatomic, strong) TJDashboardCell *settingView;
+@property (nonatomic, strong) TJDashboardCell *matchView;
+@property (nonatomic, strong) TJDashboardCell *memberView;
 
-@property (nonatomic, strong) NSArray* dashBoardCellArray;
+@property (nonatomic, strong) NSArray *dashBoardCellArray;
 
-@property (nonatomic, weak) IBOutlet UIView* rootView;
+@property (nonatomic, weak) IBOutlet UIView *rootView;
 
 @end
 
@@ -35,7 +35,7 @@ const CGFloat delayAnimate = 0.1;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     [[Routable sharedRouter] setNavigationController:self.navigationController];
 
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dashboardTitle"]];
@@ -61,7 +61,7 @@ const CGFloat delayAnimate = 0.1;
  */
 - (void)showDashboardButtonWithAsyn
 {
-    for (TJDashboardCell* cell in self.dashBoardCellArray) {
+    for (TJDashboardCell *cell in self.dashBoardCellArray) {
         [cell showWithAnimateComplete:nil];
     }
 }
@@ -72,7 +72,7 @@ const CGFloat delayAnimate = 0.1;
 - (void)showDashboardButtonWithSyn
 {
     for (int i = 0; i < self.dashBoardCellArray.count; i++) {
-        TJDashboardCell* cell = self.dashBoardCellArray[i];
+        TJDashboardCell *cell = self.dashBoardCellArray[i];
         [cell showWithAnimateAfterDelay:delayAnimate * i complete:nil];
     }
 }
@@ -102,7 +102,7 @@ const CGFloat delayAnimate = 0.1;
     return _memberView;
 }
 
-- (TJDashboardCell*)newsView
+- (TJDashboardCell *)newsView
 {
     if (_newsView == nil) {
 
@@ -114,7 +114,7 @@ const CGFloat delayAnimate = 0.1;
     return _newsView;
 }
 
-- (TJDashboardCell*)settingView
+- (TJDashboardCell *)settingView
 {
     if (_settingView == nil) {
         CGRect cellFrame = CGRectMake(self.rootView.frame.size.width / 2, self.rootView.frame.size.height / 2 + [self offsetY], self.rootView.frame.size.width / 2, dashboardButtonSize + labelHeight);
@@ -125,7 +125,7 @@ const CGFloat delayAnimate = 0.1;
     return _settingView;
 }
 
-- (NSArray*)dashBoardCellArray
+- (NSArray *)dashBoardCellArray
 {
     if (_dashBoardCellArray == nil) {
         _dashBoardCellArray = [[NSArray alloc] initWithObjects:self.matchView, self.memberView, self.newsView, self.settingView, nil];
@@ -135,18 +135,19 @@ const CGFloat delayAnimate = 0.1;
 
 #pragma mark - hide cell and push to next controller
 
-- (void)hideWithAnimateAsynCompleteToController:(UIViewController*)controller
+- (void)hideWithAnimateAsynCompleteToController:(UIViewController *)controller
 {
-    __weak TJDashboardViewController* weakSelf = self;
+    __weak TJDashboardViewController *weakSelf = self;
     for (int i = 0; i < self.dashBoardCellArray.count; i++) {
-        TJDashboardCell* cell = self.dashBoardCellArray[i];
+        TJDashboardCell *cell = self.dashBoardCellArray[i];
         if (i == self.dashBoardCellArray.count - 1) {
             [cell hideWithAnimateComplete:^(BOOL finished) {
                 if (finished){
                     [weakSelf.navigationController pushViewController:controller animated:YES];
                 }
             }];
-        } else {
+        }
+        else {
             [cell hideWithAnimateComplete:nil];
         }
     }
@@ -155,14 +156,15 @@ const CGFloat delayAnimate = 0.1;
 - (void)hideWithAnimateSynCompleteToController:(NSString *)controllerMap withParams:(NSDictionary *)params
 {
     for (int i = 0; i < self.dashBoardCellArray.count; i++) {
-        TJDashboardCell* cell = self.dashBoardCellArray[i];
+        TJDashboardCell *cell = self.dashBoardCellArray[i];
         if (i == 0) {
             [cell hideWithAnimateAfterDelay:delayAnimate * (self.dashBoardCellArray.count - i)complete:^(BOOL finished) {
                 if (finished){
                     [[Routable sharedRouter] open:controllerMap withParams:params];
                 }
             }];
-        } else {
+        }
+        else {
             [cell hideWithAnimateAfterDelay:delayAnimate * (self.dashBoardCellArray.count - i)complete:nil];
         }
     }
@@ -172,7 +174,7 @@ const CGFloat delayAnimate = 0.1;
 
 - (void)closeDashboardCellUserInterface
 {
-    for (TJDashboardCell* cell in self.dashBoardCellArray) {
+    for (TJDashboardCell *cell in self.dashBoardCellArray) {
         cell.userInteractionEnabled = NO;
     }
 }
@@ -180,7 +182,7 @@ const CGFloat delayAnimate = 0.1;
 - (void)matchClick:(id)sender
 {
     [self closeDashboardCellUserInterface];
-    [self hideWithAnimateSynCompleteToController:@"competition" withParams:@{@"type":@1}];
+    [self hideWithAnimateSynCompleteToController:@"competition" withParams:@{ @"type" : @1 }];
 }
 
 - (void)memberClick:(id)sender
@@ -201,7 +203,7 @@ const CGFloat delayAnimate = 0.1;
 
 - (void)settingClick:(id)sender
 {
-    
+
     [self closeDashboardCellUserInterface];
     [self hideWithAnimateSynCompleteToController:@"setting" withParams:nil];
 }

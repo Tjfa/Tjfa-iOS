@@ -10,7 +10,7 @@
 
 @class AVFile;
 
-@interface TJUser : AVUser<AVSubclassing>
+@interface TJUser : AVUser <AVSubclassing>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) AVFile *avatar;
