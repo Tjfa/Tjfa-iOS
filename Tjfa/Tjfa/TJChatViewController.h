@@ -9,6 +9,8 @@
 #import <JSQMessagesViewController/JSQMessages.h>
 #import <EaseMob.h>
 
+extern const int kDefaultMessageCount;
+
 @interface TJChatViewController : JSQMessagesViewController
 
 @property (nonatomic, strong) NSString *targetEmId;

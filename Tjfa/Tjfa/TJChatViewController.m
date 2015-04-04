@@ -12,6 +12,9 @@
 #import "TJMessage.h"
 #import "UIColor+AppColor.h"
 #import "EMMessage+MessageTranform.h"
+#import "EMConversation+LoadMessage.h"
+
+const int kDefaultMessageCount = 20;
 
 @interface TJChatViewController () <EMChatManagerDelegate, JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout>
 
@@ -26,6 +29,8 @@
 @property (nonatomic, strong) JSQMessagesBubbleImageFactory *messageBubbleImageFactory;
 
 @property (nonatomic, strong) JSQMessagesAvatarImage *selfAvatarImage;
+
+@property (nonatomic, strong) TJAccessoryView *accessoryView;
 
 @end
 
@@ -63,6 +68,8 @@
 {
     [super viewDidAppear:animated];
     self.collectionView.collectionViewLayout.springinessEnabled = YES;
+    self.showLoadEarlierMessagesHeader = YES;
+    self.collectionView.loadEarlierMessagesHeaderTextColor = [UIColor redColor];
 }
 
 - (void)setupView
@@ -75,6 +82,10 @@
 - (void)setupConversation
 {
     self.conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:self.targetEmId isGroup:self.isGroup];
+    NSArray *emMessages = [self.conversation loadNumbersOfMessages:kDefaultMessageCount];
+    [self.messages addObjectsFromArray:[TJMessage generalTJMessagesWithEMMessages:emMessages]];
+    [self finishReceivingMessage];
+    [self.loadingView hide:YES];
 }
 
 #pragma mark - Getter & Setter
@@ -116,8 +127,8 @@
 
 - (void)didLoginWithInfo:(NSDictionary *)loginInfo error:(EMError *)error
 {
-    [self.loadingView hide:YES];
     if (error) {
+        [self.loadingView hide:YES];
         [MBProgressHUD showErrorProgressInView:nil withText:@"初始化失败"];
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -129,8 +140,8 @@
 
 - (void)didAutoLoginWithInfo:(NSDictionary *)loginInfo error:(EMError *)error
 {
-    [self.loadingView hide:YES];
     if (error) {
+        [self.loadingView hide:YES];
         [MBProgressHUD showErrorProgressInView:nil withText:@"初始化失败"];
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -159,13 +170,13 @@
 
 - (NSString *)senderId
 {
-    return self.currentUser.name;
+    return self.currentUser.username;
 }
 
 - (id<JSQMessageAvatarImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView avatarImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TJMessage *message = self.messages[indexPath.item];
-    if (message.senderId == [self senderId]) {
+    if ([message.senderId isEqualToString:[self senderId]]) {
         return self.selfAvatarImage;
     }
     else {
@@ -176,7 +187,7 @@
 - (id<JSQMessageBubbleImageDataSource>)collectionView:(JSQMessagesCollectionView *)collectionView messageBubbleImageDataForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TJMessage *message = self.messages[indexPath.item];
-    if (message.senderId == [self senderId]) {
+    if ([message.senderId isEqualToString:[self senderId]] ) {
         return [self.messageBubbleImageFactory outgoingMessagesBubbleImageWithColor:[UIColor appRedColor]];
     }
     else {
@@ -194,9 +205,14 @@
     return self.messages[indexPath.item];
 }
 
-- (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellBottomLabelAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
 {
-    return kJSQMessagesCollectionViewCellLabelHeightDefault;
+    if ([self isNeedToShowTime:indexPath]) {
+        return kJSQMessagesCollectionViewCellLabelHeightDefault;
+    }
+    else {
+        return 0;
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(JSQMessagesCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -205,7 +221,7 @@
 
     TJMessage *message = self.messages[indexPath.item];
     cell.textView.text = message.text;
-    if (message.senderId == [self senderId]) {
+    if ([message.senderId isEqualToString:[self senderId]]) {
         cell.textView.textColor = [UIColor whiteColor];
     }
     else {
@@ -217,7 +233,8 @@
 
 - (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellBottomLabelAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[NSAttributedString alloc] initWithString:@"cell bottom"];
+    TJMessage *message = self.messages[indexPath.item];
+    return [[NSAttributedString alloc] initWithString:message.senderDisplayName];
 }
 
 - (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForMessageBubbleTopLabelAtIndexPath:(NSIndexPath *)indexPath
@@ -227,19 +244,20 @@
 
 - (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[NSAttributedString alloc] initWithString:@"cell top"];
-    TJMessage *message = self.messages[indexPath.item];
-    if (message.senderId == [self senderId]) {
+    if (![self isNeedToShowTime:indexPath]) {
         return nil;
     }
-
-    if (indexPath.item > 0) {
-        TJMessage *preMessage = self.messages[indexPath.item - 1];
-        if (preMessage.senderId == [self senderId]) {
+    else {
+        TJMessage *message = self.messages[indexPath.item];
+        if (message.date) {
+            return [[NSAttributedString alloc] initWithString:message.date.description];
+        }
+        else {
             return nil;
         }
     }
 }
+
 
 - (void)didPressSendButton:(UIButton *)button withMessageText:(NSString *)text senderId:(NSString *)senderId senderDisplayName:(NSString *)senderDisplayName date:(NSDate *)date
 {
@@ -249,6 +267,36 @@
     [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
     [self.messages addObject:message];
     [self finishSendingMessage];
+}
+
+- (void)didPressAccessoryButton:(UIButton *)sender
+{
+    
+}
+
+- (void)collectionView:(JSQMessagesCollectionView *)collectionView header:(JSQMessagesLoadEarlierHeaderView *)headerView didTapLoadEarlierMessagesButton:(UIButton *)sender
+{
+    NSLog(@"============= load earlier");
+}
+
+#pragma mark - Collection Addition Method
+
+- (BOOL)isNeedToShowTime:(NSIndexPath *)indexPath
+{
+    if (indexPath.item ==  0) {
+        return YES;
+    }
+    else {
+        TJMessage *lastMessage = self.messages[indexPath.item - 1];
+        TJMessage *thisMessage = self.messages[indexPath.item];
+        if (thisMessage.date && lastMessage.date) {
+            NSTimeInterval timestamp= [thisMessage.date timeIntervalSinceDate:lastMessage.date];
+            if (timestamp > 60) {
+                return YES;
+            }
+        }
+    }
+    return NO;
 }
 
 @end

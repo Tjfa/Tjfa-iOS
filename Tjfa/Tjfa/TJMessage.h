@@ -30,4 +30,6 @@
 
 + (TJMessage *)generalTJMessageWithEMMessage:(EMMessage *)message;
 
++ (NSArray *)generalTJMessagesWithEMMessages:(NSArray *)emMessages;
+
 @end

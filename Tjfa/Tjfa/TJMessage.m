@@ -19,10 +19,21 @@
     tjMessage.senderDisplayName = message.ext[@"senderDisplayName"];
     tjMessage.date = [NSDate dateWithTimeIntervalSince1970:message.timestamp];
     tjMessage.isMediaMessage = NO;
+    tjMessage.messageHash = message.messageId.hash;
     id<IEMMessageBody> msgBody = message.messageBodies.firstObject;
     tjMessage.text = ((EMTextMessageBody *)msgBody).text;
     
     return tjMessage;
 }
+
++ (NSArray *)generalTJMessagesWithEMMessages:(NSArray *)emMessages
+{
+    NSMutableArray *messages = [NSMutableArray arrayWithCapacity:emMessages.count];
+    for (EMMessage *message in emMessages) {
+        [messages addObject:[self generalTJMessageWithEMMessage:message]];
+    }
+    return messages;
+}
+
 
 @end
