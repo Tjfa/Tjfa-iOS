@@ -13,10 +13,12 @@
 #import "UIColor+AppColor.h"
 #import "EMMessage+MessageTranform.h"
 #import "EMConversation+LoadMessage.h"
+#import "TJAccessoryView.h"
+#import "JSQMessagesToolbarButtonFactory+VoiceButton.h"
 
 const int kDefaultMessageCount = 20;
 
-@interface TJChatViewController () <EMChatManagerDelegate, JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout>
+@interface TJChatViewController () <EMChatManagerDelegate, JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout, UITextViewDelegate>
 
 @property (nonatomic, strong) TJUser *currentUser;
 
@@ -75,7 +77,10 @@ const int kDefaultMessageCount = 20;
 - (void)setupView
 {
     self.automaticallyScrollsToMostRecentMessage = true;
-    self.inputToolbar.contentView.rightBarButtonItem = [JSQMessagesToolbarButtonFactory defaultSendButtonItem];
+    UIButton *voiceButton = [JSQMessagesToolbarButtonFactory defaultVoiceButtonItem];
+    self.inputToolbar.contentView.rightBarButtonItem = voiceButton;
+    [voiceButton addTarget:self action:@selector(voiceButtonBeginRecord) forControlEvents:UIControlEventTouchDown];
+    [voiceButton addTarget:self action:@selector(voiceButtonEndRecord) forControlEvents:UIControlEventTouchUpInside];
     self.inputToolbar.contentView.leftBarButtonItem = [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem];
 }
 
@@ -259,7 +264,7 @@ const int kDefaultMessageCount = 20;
 }
 
 
-- (void)didPressSendButton:(UIButton *)button withMessageText:(NSString *)text senderId:(NSString *)senderId senderDisplayName:(NSString *)senderDisplayName date:(NSDate *)date
+- (void)didPressSendButtonWithText:(NSString *)text
 {
     [JSQSystemSoundPlayer jsq_playMessageSentSound];
     EMMessage *emMessage = [EMMessage generalMessageWithText:text sender:self.currentUser to:self.targetEmId];
@@ -267,6 +272,14 @@ const int kDefaultMessageCount = 20;
     [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
     [self.messages addObject:message];
     [self finishSendingMessage];
+}
+
+/**
+ *  这个方法被音效取代 所以 直接return nil
+ */
+- (void)didPressSendButton:(UIButton *)button withMessageText:(NSString *)text senderId:(NSString *)senderId senderDisplayName:(NSString *)senderDisplayName date:(NSDate *)date
+{
+    return ;
 }
 
 - (void)didPressAccessoryButton:(UIButton *)sender
@@ -277,6 +290,32 @@ const int kDefaultMessageCount = 20;
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView header:(JSQMessagesLoadEarlierHeaderView *)headerView didTapLoadEarlierMessagesButton:(UIButton *)sender
 {
     NSLog(@"============= load earlier");
+}
+
+#pragma mark - TextView Delegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"]) {
+        [self didPressSendButtonWithText:textView.text];
+        return NO;
+    }
+    else {
+        return YES;
+        //return [super textView:textView shouldChangeTextInRange:range replacementText:text];
+    }
+}
+
+#pragma mark - VoiceButton
+
+- (void)voiceButtonBeginRecord
+{
+    NSLog(@"Begin Record");
+}
+
+- (void)voiceButtonEndRecord
+{
+    NSLog(@"END Record");
 }
 
 #pragma mark - Collection Addition Method
