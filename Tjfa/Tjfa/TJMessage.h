@@ -28,6 +28,16 @@
 
 @property (nonatomic, strong) EMMessage *emMessage;
 
+@property (nonatomic, assign) BOOL isImage;
+
+@property (nonatomic, assign) BOOL isLocation;
+
+@property (nonatomic, assign) BOOL isVoice;
+
+@property (nonatomic, assign) BOOL isVideo;
+
+@property (nonatomic, strong) id<IEMMessageBody> messageBody;
+
 + (TJMessage *)generalTJMessageWithEMMessage:(EMMessage *)message;
 
 + (NSArray *)generalTJMessagesWithEMMessages:(NSArray *)emMessages;

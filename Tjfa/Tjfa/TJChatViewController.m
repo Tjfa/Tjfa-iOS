@@ -15,10 +15,12 @@
 #import "EMConversation+LoadMessage.h"
 #import "TJAccessoryView.h"
 #import "JSQMessagesToolbarButtonFactory+VoiceButton.h"
+#import <UIActionSheet+BlocksKit.h>
+#import <UIAlertView+BlocksKit.h>
 
 const int kDefaultMessageCount = 20;
 
-@interface TJChatViewController () <EMChatManagerDelegate, JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout, UITextViewDelegate>
+@interface TJChatViewController () <EMChatManagerDelegate, JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) TJUser *currentUser;
 
@@ -158,6 +160,9 @@ const int kDefaultMessageCount = 20;
 - (void)didReceiveMessage:(EMMessage *)message
 {
     TJMessage *tjMessage = [TJMessage generalTJMessageWithEMMessage:message];
+    if (tjMessage == nil) {
+        return;
+    }
     [self.messages addObject:tjMessage];
     [self finishReceivingMessage];
 }
@@ -225,14 +230,21 @@ const int kDefaultMessageCount = 20;
     JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
 
     TJMessage *message = self.messages[indexPath.item];
-    cell.textView.text = message.text;
-    if ([message.senderId isEqualToString:[self senderId]]) {
-        cell.textView.textColor = [UIColor whiteColor];
+    
+    if (message.isMediaMessage) {
+        cell.textView.text = message.text;
+        if ([message.senderId isEqualToString:[self senderId]]) {
+            cell.textView.textColor = [UIColor whiteColor];
+        }
+        else {
+            cell.textView.textColor = [UIColor blackColor];
+        }
     }
     else {
-        cell.textView.textColor = [UIColor blackColor];
+        if (message.isImage) {
+            
+        }
     }
-
     return cell;
 }
 
@@ -255,7 +267,7 @@ const int kDefaultMessageCount = 20;
     else {
         TJMessage *message = self.messages[indexPath.item];
         if (message.date) {
-            return [[NSAttributedString alloc] initWithString:message.date.description];
+            return [[JSQMessagesTimestampFormatter sharedFormatter] attributedTimestampForDate:message.date];
         }
         else {
             return nil;
@@ -267,8 +279,12 @@ const int kDefaultMessageCount = 20;
 - (void)didPressSendButtonWithText:(NSString *)text
 {
     [JSQSystemSoundPlayer jsq_playMessageSentSound];
-    EMMessage *emMessage = [EMMessage generalMessageWithText:text sender:self.currentUser to:self.targetEmId];
+    EMMessage *emMessage = [EMMessage generalMessageWithText:text sender:self.currentUser to:self.targetEmId isGroup:self.isGroup];
     TJMessage *message = [TJMessage generalTJMessageWithEMMessage:emMessage];
+    if (message == nil) {
+        [self finishSendingMessage];
+        return;
+    }
     [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
     [self.messages addObject:message];
     [self finishSendingMessage];
@@ -284,7 +300,16 @@ const int kDefaultMessageCount = 20;
 
 - (void)didPressAccessoryButton:(UIButton *)sender
 {
-    
+    UIActionSheet *actionSheet = [UIActionSheet bk_actionSheetWithTitle:nil];
+    [actionSheet bk_addButtonWithTitle:@"拍照" handler:^{
+        [self showImagePicker:UIImagePickerControllerSourceTypeCamera];
+    }];
+    [actionSheet bk_addButtonWithTitle:@"从相册选择" handler:^{
+        [self showImagePicker:UIImagePickerControllerSourceTypePhotoLibrary];
+    }];
+    [actionSheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
+    [actionSheet showInView:self.view];
+
 }
 
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView header:(JSQMessagesLoadEarlierHeaderView *)headerView didTapLoadEarlierMessagesButton:(UIButton *)sender
@@ -336,6 +361,56 @@ const int kDefaultMessageCount = 20;
         }
     }
     return NO;
+}
+
+#pragma mark - Accessory 
+
+- (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType
+{
+    
+    if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        
+        picker.sourceType = sourceType;
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self presentViewController:picker animated:YES completion:nil];
+        }];
+    }
+    else {
+        NSString *message;
+        if (sourceType == UIImagePickerControllerSourceTypeCamera) {
+            message = @"获取相机失败";
+        }
+        else {
+            message = @"获取照片失败";
+        }
+        [UIAlertView bk_showAlertViewWithTitle:nil message:message cancelButtonTitle:@"确定" otherButtonTitles:nil handler:nil];
+    }
+}
+
+#pragma mark - Image Picker Delegate
+
+#pragma mark - ImagePicker Delegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:^(void) {
+        UIImage *image = info[UIImagePickerControllerEditedImage];
+        EMChatImage *imgChat = [[EMChatImage alloc] initWithUIImage:image displayName:@""];
+        EMImageMessageBody *body = [[EMImageMessageBody alloc] initWithChatObject:imgChat];
+        
+        // 生成message
+        EMMessage *message = [[EMMessage alloc] initWithReceiver:@"6001" bodies:@[body]];
+        message.isGroup = NO; // 设置是否是群聊
+    }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
