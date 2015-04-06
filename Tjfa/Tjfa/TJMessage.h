@@ -8,35 +8,21 @@
 
 
 #import <JSQMessagesViewController/JSQMessage.h>
-#import <EMMessage.h>
+#import <EaseMob.h>
 
-@interface TJMessage : NSObject<JSQMessageData>
-
-- (NSString *)senderId;
-
-@property (nonatomic, strong) NSString *senderId;
-
-@property (nonatomic, strong) NSString *senderDisplayName;
-
-@property (nonatomic, strong) NSDate *date;
-
-@property (nonatomic, assign, readwrite) BOOL isMediaMessage;
-
-@property (nonatomic, assign, readwrite) NSUInteger messageHash;
-
-@property (nonatomic, strong, readwrite) NSString *text;
+@interface TJMessage : JSQMessage
 
 @property (nonatomic, strong) EMMessage *emMessage;
 
-@property (nonatomic, assign) BOOL isImage;
+- (void)setPhotoMessageWithImage:(UIImage *)image;
 
-@property (nonatomic, assign) BOOL isLocation;
-
-@property (nonatomic, assign) BOOL isVoice;
-
-@property (nonatomic, assign) BOOL isVideo;
-
-@property (nonatomic, strong) id<IEMMessageBody> messageBody;
+/**
+ *  在发送图片等消息后 下载完图片后 需要更新本地图片
+ *
+ *  @param emMessage 需要下载的图片
+ *  @param error 如果下载过程中出错了 那么显示这条消息错误了
+ */
+- (void)updateMessageWithEMMessage:(EMMessage *)emMessage withError:(EMError *)error;
 
 + (TJMessage *)generalTJMessageWithEMMessage:(EMMessage *)message;
 

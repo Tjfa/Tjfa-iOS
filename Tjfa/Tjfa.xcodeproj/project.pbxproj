@@ -863,6 +863,7 @@
 		F34666BB1ACADE1200E83B7F /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				F3ADCCBB1AD198160001B91F /* TJMessage */,
 				F395BBD51ACEADEE00733674 /* Category */,
 				F34666B81ACADE0900E83B7F /* TJChatViewController.h */,
 				F34666B91ACADE0900E83B7F /* TJChatViewController.m */,
@@ -870,8 +871,6 @@
 				F34666BD1ACADE3700E83B7F /* TJSingleChatViewController.m */,
 				F34666BF1ACADE4400E83B7F /* TJGroupChatViewController.h */,
 				F34666C01ACADE4400E83B7F /* TJGroupChatViewController.m */,
-				F34666C91ACC56B600E83B7F /* TJMessage.h */,
-				F34666CA1ACC56B600E83B7F /* TJMessage.m */,
 				F3ADCC651ACFADAE0001B91F /* TJAccessoryView.h */,
 				F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */,
 				F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */,
@@ -901,6 +900,15 @@
 				F3ADCC771ACFC01A0001B91F /* UIImage+VoiceButton.m */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		F3ADCCBB1AD198160001B91F /* TJMessage */ = {
+			isa = PBXGroup;
+			children = (
+				F34666C91ACC56B600E83B7F /* TJMessage.h */,
+				F34666CA1ACC56B600E83B7F /* TJMessage.m */,
+			);
+			name = TJMessage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

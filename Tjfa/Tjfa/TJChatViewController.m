@@ -130,6 +130,18 @@ const int kDefaultMessageCount = 20;
     return _selfAvatarImage;
 }
 
+#pragma mark - TJMessage
+
+- (TJMessage *)findTJMessageWithEMMessage:(EMMessage *)emMessage
+{
+    for (TJMessage *tjMessage in self.messages) {
+        if ([tjMessage.emMessage.messageId isEqualToString:emMessage.messageId]) {
+            return tjMessage;
+        }
+    }
+    return nil;
+}
+
 #pragma mark - ChatManager Delegate
 
 - (void)didLoginWithInfo:(NSDictionary *)loginInfo error:(EMError *)error
@@ -163,8 +175,25 @@ const int kDefaultMessageCount = 20;
     if (tjMessage == nil) {
         return;
     }
+    
+    if (tjMessage.isMediaMessage) {
+        if ([tjMessage.media isKindOfClass:[JSQPhotoMediaItem class]]) {
+            [[EaseMob sharedInstance].chatManager asyncFetchMessageThumbnail:message progress:nil];
+        }
+    }
     [self.messages addObject:tjMessage];
     [self finishReceivingMessage];
+}
+
+// 当收到图片或视频时，SDK会自动下载缩略图，并回调该方法，如果下载失败，可以通过
+// asyncFetchMessageThumbnail:progress 方法主动获取
+-(void)didFetchMessageThumbnail:(EMMessage *)aMessage error:(EMError *)error
+{
+    TJMessage *tjMessage = [self findTJMessageWithEMMessage:aMessage];
+    if (tjMessage) {
+        [tjMessage updateMessageWithEMMessage:aMessage withError:error];
+        [self finishReceivingMessage];
+    }
 }
 
 - (void)willAutoReconnect
@@ -212,7 +241,14 @@ const int kDefaultMessageCount = 20;
 
 - (id<JSQMessageData>)collectionView:(JSQMessagesCollectionView *)collectionView messageDataForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.messages[indexPath.item];
+    TJMessage * tjMessage = self.messages[indexPath.item];
+    if (tjMessage.isMediaMessage) {
+        if ( [tjMessage.media isKindOfClass:[JSQPhotoMediaItem class]]) {
+            JSQPhotoMediaItem *photoMedia = (JSQPhotoMediaItem *)tjMessage.media;
+            photoMedia.appliesMediaViewMaskAsOutgoing =  [tjMessage.senderId isEqualToString:[self senderId ]] ? YES : NO;
+        }
+    }
+    return tjMessage;
 }
 
 - (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellTopLabelAtIndexPath:(NSIndexPath *)indexPath
@@ -231,7 +267,7 @@ const int kDefaultMessageCount = 20;
 
     TJMessage *message = self.messages[indexPath.item];
     
-    if (message.isMediaMessage) {
+    if (! message.isMediaMessage) {
         cell.textView.text = message.text;
         if ([message.senderId isEqualToString:[self senderId]]) {
             cell.textView.textColor = [UIColor whiteColor];
@@ -241,9 +277,6 @@ const int kDefaultMessageCount = 20;
         }
     }
     else {
-        if (message.isImage) {
-            
-        }
     }
     return cell;
 }
@@ -327,7 +360,6 @@ const int kDefaultMessageCount = 20;
     }
     else {
         return YES;
-        //return [super textView:textView shouldChangeTextInRange:range replacementText:text];
     }
 }
 
@@ -393,18 +425,23 @@ const int kDefaultMessageCount = 20;
 
 #pragma mark - Image Picker Delegate
 
-#pragma mark - ImagePicker Delegate
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     [picker dismissViewControllerAnimated:YES completion:^(void) {
         UIImage *image = info[UIImagePickerControllerEditedImage];
-        EMChatImage *imgChat = [[EMChatImage alloc] initWithUIImage:image displayName:@""];
-        EMImageMessageBody *body = [[EMImageMessageBody alloc] initWithChatObject:imgChat];
         
-        // 生成message
-        EMMessage *message = [[EMMessage alloc] initWithReceiver:@"6001" bodies:@[body]];
-        message.isGroup = NO; // 设置是否是群聊
+        EMMessage *emMessage = [EMMessage generalMessageWithImage:image sender:self.currentUser to:self.targetEmId isGroup:self.isGroup];
+        TJMessage *tjMessage = [TJMessage generalTJMessageWithEMMessage:emMessage];
+        if (tjMessage) {
+            /**
+             *  这里环信存在一个异步bug  他把文件写入磁盘 然后是一个异步操作 我们找不到回调的方法 所以 要重新设置image
+             */
+            [tjMessage setPhotoMessageWithImage:image];
+            
+            [self.messages addObject:tjMessage];
+            [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
+            [self finishSendingMessage];
+        }
     }];
 }
 

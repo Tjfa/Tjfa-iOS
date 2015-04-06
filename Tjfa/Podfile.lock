@@ -58,6 +58,8 @@ PODS:
   - SDWebImage/Core (3.7.2)
   - SVPullToRefresh (0.4.1)
   - TMRoutable (0.1.6)
+  - UIActivityIndicator-for-SDWebImage (1.2):
+    - SDWebImage (~> 3.7)
   - UMeng (2.2.1)
 
 DEPENDENCIES:
@@ -75,6 +77,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.7.2)
   - SVPullToRefresh (~> 0.4.1)
   - TMRoutable (~> 0.1.6)
+  - UIActivityIndicator-for-SDWebImage (~> 1.2)
   - UMeng (~> 2.2.1)
 
 SPEC CHECKSUMS:
@@ -93,6 +96,7 @@ SPEC CHECKSUMS:
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   TMRoutable: 8482d7e7afbec946de0ce81eec9b95e9e2ce0d01
+  UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UMeng: a4fe3231efeb223015d9649e92538dd16a92685f
 
 COCOAPODS: 0.35.0

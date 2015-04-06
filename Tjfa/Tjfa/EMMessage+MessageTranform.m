@@ -32,6 +32,9 @@
     EMMessage *message = [[EMMessage alloc] initWithReceiver:emId bodies:@[body]];
     message.isGroup = isGroup; // 设置是否是群聊
     
+    message.ext = @{ @"senderDisplayName" : sender.name,
+                     @"senderId" : sender.username };
+    
     return message;
 }
 
