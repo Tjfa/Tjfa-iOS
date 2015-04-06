@@ -28,4 +28,6 @@
 
 + (NSArray *)generalTJMessagesWithEMMessages:(NSArray *)emMessages;
 
++ (UIImage *)getImageWithEMMessage:(EMMessage *)message;
+
 @end

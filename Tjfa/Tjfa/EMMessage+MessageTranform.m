@@ -38,4 +38,16 @@
     return message;
 }
 
++ (EMMessage *)generalMessageWithVoice:(EMChatVoice *)chatVoice sender:(TJUser *)sender to:(NSString *)emId isGroup:(BOOL)isGroup
+{
+    EMVoiceMessageBody *body = [[EMVoiceMessageBody alloc] initWithChatObject:chatVoice];
+    EMMessage *message = [[EMMessage alloc] initWithReceiver:emId bodies:@[body]];
+    message.isGroup = isGroup;
+    
+    message.ext = @{ @"senderDisplayName" : sender.name,
+                     @"senderId" : sender.username };
+    
+    return message;
+}
+
 @end

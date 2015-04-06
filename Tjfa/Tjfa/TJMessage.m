@@ -11,6 +11,7 @@
 #import <JSQPhotoMediaItem.h>
 #import <JSQMediaItem.h>
 #import <JSQLocationMediaItem.h>
+#import <JSQVideoMediaItem.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImageDownloader.h>
 
@@ -53,7 +54,7 @@
 + (UIImage *)getImageWithEMMessage:(EMMessage *)message
 {
     id<IEMMessageBody> msgBody = message.messageBodies.firstObject;
-    if (msgBody.messageBodyType) {
+    if (msgBody.messageBodyType == eMessageBodyType_Image) {
         EMImageMessageBody *body = ((EMImageMessageBody *)msgBody);
         UIImage *image = [UIImage imageWithContentsOfFile:body.localPath];
         if (image == nil) {
@@ -64,6 +65,24 @@
     else {
         return [UIImage imageNamed:@"downloadImageFail"];
     }
+}
+
++ (NSURL *)getVoicePathWithEMMessage:(EMMessage *)message
+{
+    id<IEMMessageBody> msgBody = message.messageBodies.firstObject;
+    if (msgBody.messageBodyType == eMessageBodyType_Voice) {
+        EMImageMessageBody *body = ((EMImageMessageBody *)msgBody);
+        if (body.localPath) {
+            return [NSURL URLWithString:body.localPath];
+        }
+        else {
+            return [NSURL URLWithString:body.remotePath];
+        }
+    }
+    else {
+        return nil;
+    }
+
 }
 
 + (TJMessage *)generalTJMessageWithEMMessage:(EMMessage *)message
@@ -99,12 +118,12 @@
 //            tjMessage.isLocation = YES;
 //            break;
 //        }
-//        case eMessageBodyType_Video:
-//        {
-//            tjMessage.isVideo = YES;
-//            tjMessage.isMediaMessage = YES;
-//            break;
-//        }
+        case eMessageBodyType_Voice:
+        {
+            JSQVideoMediaItem *vieoItem = [[JSQVideoMediaItem alloc] initWithFileURL:[self getVoicePathWithEMMessage:message] isReadyToPlay:NO];
+            tjMessage = [[TJMessage alloc] initWithSenderId:senderId senderDisplayName:displayName date:date media:vieoItem];
+            break;
+        }
         default:
             return nil;
     }

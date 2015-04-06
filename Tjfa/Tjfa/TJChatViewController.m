@@ -418,11 +418,31 @@ const int kDefaultMessageCount = 20;
                     id<IEMMessageBody> msgBody =tjMessage.emMessage.messageBodies.firstObject;
                     EMImageMessageBody *body = ((EMImageMessageBody *)msgBody);
                     self.photos = [NSMutableArray array];
-                    [self.photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:body.remotePath]]];
+                    if (body.remotePath) {
+                        [self.photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:body.remotePath]]];
+                    }
+                    else {
+                        [self.photos addObject:[MWPhoto photoWithImage:[TJMessage getImageWithEMMessage:tjMessage.emMessage]]];
+                    }
                     [self.navigationController pushViewController:browser animated:YES];
                 }
             }
         }
+    }
+}
+
+- (void)didRecordAudio:(EMChatVoice *)aChatVoice error:(NSError *)error
+{
+    if (error == nil) {
+        EMMessage *message = [EMMessage generalMessageWithVoice:aChatVoice sender:self.currentUser to:self.targetEmId isGroup:self.isGroup];
+        TJMessage *tjMessage = [TJMessage generalTJMessageWithEMMessage:message];
+        if (tjMessage) {
+            [self.messages addObject:tjMessage];
+            [self finishSendingMessage];
+        }
+    }
+    else {
+        [MBProgressHUD showErrorProgressInView:nil withText:error.description];
     }
 }
 
@@ -449,11 +469,13 @@ const int kDefaultMessageCount = 20;
 - (void)voiceButtonBeginRecord
 {
     NSLog(@"Begin Record");
+    [[EaseMob sharedInstance].chatManager startRecordingAudioWithError:nil];
 }
 
 - (void)voiceButtonEndRecord
 {
     NSLog(@"END Record");
+    [[EaseMob sharedInstance].chatManager asyncStopRecordingAudio];
 }
 
 #pragma mark - Collection Addition Method

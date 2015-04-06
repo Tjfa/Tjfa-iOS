@@ -107,6 +107,7 @@
 		F3ADCC6D1ACFB6EF0001B91F /* TJAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */; };
 		F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC711ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m */; };
 		F3ADCC781ACFC01A0001B91F /* UIImage+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC771ACFC01A0001B91F /* UIImage+VoiceButton.m */; };
+		F3ADCCC41AD29E1F0001B91F /* JSQVoiceMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCCC31AD29E1F0001B91F /* JSQVoiceMediaItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -306,6 +307,8 @@
 		F3ADCC711ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSQMessagesToolbarButtonFactory+VoiceButton.m"; sourceTree = "<group>"; };
 		F3ADCC761ACFC01A0001B91F /* UIImage+VoiceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+VoiceButton.h"; sourceTree = "<group>"; };
 		F3ADCC771ACFC01A0001B91F /* UIImage+VoiceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+VoiceButton.m"; sourceTree = "<group>"; };
+		F3ADCCC21AD29E1F0001B91F /* JSQVoiceMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQVoiceMediaItem.h; sourceTree = "<group>"; };
+		F3ADCCC31AD29E1F0001B91F /* JSQVoiceMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQVoiceMediaItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -907,6 +910,8 @@
 			children = (
 				F34666C91ACC56B600E83B7F /* TJMessage.h */,
 				F34666CA1ACC56B600E83B7F /* TJMessage.m */,
+				F3ADCCC21AD29E1F0001B91F /* JSQVoiceMediaItem.h */,
+				F3ADCCC31AD29E1F0001B91F /* JSQVoiceMediaItem.m */,
 			);
 			name = TJMessage;
 			sourceTree = "<group>";
@@ -1092,6 +1097,7 @@
 				F3ADCC781ACFC01A0001B91F /* UIImage+VoiceButton.m in Sources */,
 				2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */,
 				24686C7E196E7DD000D8CF86 /* TJUserData.m in Sources */,
+				F3ADCCC41AD29E1F0001B91F /* JSQVoiceMediaItem.m in Sources */,
 				F34666A61AC9B1F400E83B7F /* TJRegisterViewController.m in Sources */,
 				F34666B71ACAA87700E83B7F /* TJModifyNameViewController.m in Sources */,
 				F34666951AC991E000E83B7F /* TJLoginInViewController.m in Sources */,

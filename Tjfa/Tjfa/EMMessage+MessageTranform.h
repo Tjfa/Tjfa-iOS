@@ -9,10 +9,14 @@
 #import "EMMessage.h"
 #import "TJUser.h"
 
+@class EMChatVoice;
+
 @interface EMMessage (MessageTranform)
 
 + (EMMessage *)generalMessageWithText:(NSString *)text sender:(TJUser *)sender to:(NSString *)emId isGroup:(BOOL)isGroup;
 
 + (EMMessage *)generalMessageWithImage:(UIImage *)image sender:(TJUser *)sender to:(NSString *)emId isGroup:(BOOL)isGroup;
+
++ (EMMessage *)generalMessageWithVoice:(EMChatVoice *)chatVoice sender:(TJUser *)sender to:(NSString *)emId isGroup:(BOOL)isGroup;
 
 @end
