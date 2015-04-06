@@ -24,25 +24,45 @@
     }
 }
 
+- (void)updateMessagePhotoWithFilePath:(NSString *)path
+{
+    [self updateMessagePhotoWithImage:[UIImage imageWithContentsOfFile:path]];
+}
+
+- (void)updateMessagePhotoWithImage:(UIImage *)image
+{
+    [self setPhotoMessageWithImage:image];
+}
+
 - (void)updateMessageWithEMMessage:(EMMessage *)emMessage withError:(EMError *)error
 {
-    if (error) {
-        
+    if (self.isMediaMessage) {
+        id<IEMMessageBody> msgBody = emMessage.messageBodies.firstObject;
+        switch (msgBody.messageBodyType) {
+            case eMessageBodyType_Image:
+            {
+                [self updateMessagePhotoWithImage:[TJMessage getImageWithEMMessage:emMessage]];
+                break;
+            }
+            default:
+                break;
+        }
+    }
+}
+
++ (UIImage *)getImageWithEMMessage:(EMMessage *)message
+{
+    id<IEMMessageBody> msgBody = message.messageBodies.firstObject;
+    if (msgBody.messageBodyType) {
+        EMImageMessageBody *body = ((EMImageMessageBody *)msgBody);
+        UIImage *image = [UIImage imageWithContentsOfFile:body.localPath];
+        if (image == nil) {
+            image = [UIImage imageWithContentsOfFile:body.thumbnailLocalPath];
+        }
+        return image;
     }
     else {
-        if (self.isMediaMessage) {
-            id<IEMMessageBody> msgBody = emMessage.messageBodies.firstObject;
-             switch (msgBody.messageBodyType) {
-                case eMessageBodyType_Image:
-                {
-                    EMImageMessageBody *body = ((EMImageMessageBody *)msgBody);
-                    [self setPhotoMessageWithImage:[UIImage imageWithContentsOfFile:body.thumbnailLocalPath]];
-                    break;
-                }
-                default:
-                     break;
-             }
-        }
+        return [UIImage imageNamed:@"downloadImageFail"];
     }
 }
 
@@ -63,10 +83,11 @@
         }
         case eMessageBodyType_Image:
         {
-            EMImageMessageBody *body = ((EMImageMessageBody *)msgBody);
-            
-
-            JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:[UIImage imageWithContentsOfFile:body.thumbnailLocalPath]];
+            UIImage *image = [self getImageWithEMMessage:message];
+            if (image == nil) {
+                [[EaseMob sharedInstance].chatManager asyncFetchMessageThumbnail:message progress:nil];
+            }
+            JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:[self getImageWithEMMessage:message]];
             tjMessage = [[TJMessage alloc] initWithSenderId:senderId senderDisplayName:displayName date:date media:photoItem];
             tjMessage.emMessage = message;
             break;

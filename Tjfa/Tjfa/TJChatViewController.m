@@ -176,12 +176,14 @@ const int kDefaultMessageCount = 20;
         return;
     }
     
-    if (tjMessage.isMediaMessage) {
-        if ([tjMessage.media isKindOfClass:[JSQPhotoMediaItem class]]) {
-            [[EaseMob sharedInstance].chatManager asyncFetchMessageThumbnail:message progress:nil];
-        }
-    }
     [self.messages addObject:tjMessage];
+    [self finishReceivingMessage];
+}
+
+- (void)didFinishedReceiveOfflineMessages:(NSArray *)offlineMessages
+{
+    NSArray *messages = [TJMessage generalTJMessagesWithEMMessages:offlineMessages];
+    [self.messages addObjectsFromArray:messages];
     [self finishReceivingMessage];
 }
 
