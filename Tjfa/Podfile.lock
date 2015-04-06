@@ -38,6 +38,7 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - DACircularProgress (2.2.0)
   - EaseMobSDK (2.1.4.1)
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
@@ -52,6 +53,12 @@ PODS:
     - MagicalRecord/Core (= 2.2)
   - MagicalRecord/Core (2.2)
   - MBProgressHUD (0.8)
+  - MWPhotoBrowser (1.4.1):
+    - DACircularProgress
+    - MBProgressHUD (~> 0.8)
+    - PSTCollectionView (~> 1.2)
+    - SDWebImage (~> 3.7)
+  - PSTCollectionView (1.2.3)
   - RESideMenu (4.0.5)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
@@ -73,6 +80,7 @@ DEPENDENCIES:
   - libWeChatSDK (~> 1.4.2.1)
   - MagicalRecord (~> 2.2)
   - MBProgressHUD (~> 0.8)
+  - MWPhotoBrowser (~> 1.4.1)
   - RESideMenu (~> 4.0.5)
   - SDWebImage (~> 3.7.2)
   - SVPullToRefresh (~> 0.4.1)
@@ -85,6 +93,7 @@ SPEC CHECKSUMS:
   AVOSCloud: c4e261f5d68f42c6e4c4a64934490b2f38c9cff7
   AVOSCloudSNS: bbeb6d2e21cb7971850565e41e0b4c0f2a9ce7d5
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  DACircularProgress: 0f92b77239d5f3c612fc66185e2998391ac8e054
   EaseMobSDK: 258b552cf9ccade12742277f443cc01fd3a3db1a
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   JSQMessagesViewController: 9fd7e9ac96e9fc91f2deca86928e2cc916aeebaa
@@ -92,6 +101,8 @@ SPEC CHECKSUMS:
   libWeChatSDK: 7847d4de770ad195a56aa105ea9b72532440e4a0
   MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
   MBProgressHUD: 8688c331cb64702283be37ab8d7d329cdd25f251
+  MWPhotoBrowser: 2531e682860d62b8a7ba8659de02eb9040e431e5
+  PSTCollectionView: 6749df92885353521f55279a7ce2b293762e2be4
   RESideMenu: 4453c9ce8c309accba4c04ce31850a6303abaee4
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c

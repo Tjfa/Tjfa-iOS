@@ -18,10 +18,11 @@
 #import "UIColor+AppColor.h"
 #import <UIActionSheet+BlocksKit.h>
 #import <UIAlertView+BlocksKit.h>
+#import <MWPhotoBrowser.h>
 
 const int kDefaultMessageCount = 20;
 
-@interface TJChatViewController () <EMChatManagerDelegate, JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface TJChatViewController () <EMChatManagerDelegate, JSQMessagesCollectionViewDataSource, JSQMessagesCollectionViewDelegateFlowLayout, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MWPhotoBrowserDelegate>
 
 @property (nonatomic, strong) TJUser *currentUser;
 
@@ -36,6 +37,8 @@ const int kDefaultMessageCount = 20;
 @property (nonatomic, strong) JSQMessagesAvatarImage *selfAvatarImage;
 
 @property (nonatomic, strong) TJAccessoryView *accessoryView;
+
+@property (nonatomic, strong) NSMutableArray *photos;
 
 @end
 
@@ -408,6 +411,18 @@ const int kDefaultMessageCount = 20;
             [actionSheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
             [actionSheet showInView:self.view];
         }
+        else {
+            if (tjMessage.isMediaMessage) {
+                if ([tjMessage.media isKindOfClass:[JSQPhotoMediaItem class]]) {
+                    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+                    id<IEMMessageBody> msgBody =tjMessage.emMessage.messageBodies.firstObject;
+                    EMImageMessageBody *body = ((EMImageMessageBody *)msgBody);
+                    self.photos = [NSMutableArray array];
+                    [self.photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:body.remotePath]]];
+                    [self.navigationController pushViewController:browser animated:YES];
+                }
+            }
+        }
     }
 }
 
@@ -514,6 +529,18 @@ const int kDefaultMessageCount = 20;
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - MWPhotoBrowser Delegate
+
+- (NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser
+{
+    return self.photos.count;
+}
+
+- (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index
+{
+    return self.photos[index];
 }
 
 @end
