@@ -68,6 +68,7 @@
 
 + (TJMessage *)generalTJMessageWithEMMessage:(EMMessage *)message
 {
+    [[EaseMob sharedInstance].chatManager sendHasReadResponseForMessage:message];
     TJMessage *tjMessage = nil;
     NSString *senderId = message.ext[@"senderId"];
     NSString *displayName = message.ext[@"senderDisplayName"];

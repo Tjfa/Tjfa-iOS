@@ -15,6 +15,7 @@
 #import "EMConversation+LoadMessage.h"
 #import "TJAccessoryView.h"
 #import "JSQMessagesToolbarButtonFactory+VoiceButton.h"
+#import "UIColor+AppColor.h"
 #import <UIActionSheet+BlocksKit.h>
 #import <UIAlertView+BlocksKit.h>
 
@@ -71,7 +72,7 @@ const int kDefaultMessageCount = 20;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.collectionView.collectionViewLayout.springinessEnabled = YES;
+    self.collectionView.collectionViewLayout.springinessEnabled = NO;
     self.showLoadEarlierMessagesHeader = YES;
     self.collectionView.loadEarlierMessagesHeaderTextColor = [UIColor redColor];
 }
@@ -89,6 +90,7 @@ const int kDefaultMessageCount = 20;
 - (void)setupConversation
 {
     self.conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:self.targetEmId isGroup:self.isGroup];
+    [[EaseMob sharedInstance].chatManager enableDeliveryNotification];
     NSArray *emMessages = [self.conversation loadNumbersOfMessages:kDefaultMessageCount];
     [self.messages addObjectsFromArray:[TJMessage generalTJMessagesWithEMMessages:emMessages]];
     [self finishReceivingMessage];
@@ -202,6 +204,16 @@ const int kDefaultMessageCount = 20;
 {
 }
 
+- (void)didSendMessage:(EMMessage *)message error:(EMError *)error
+{
+    [self finishSendingMessage];
+}
+
+- (void)didReceiveHasReadResponse:(EMReceipt *)resp
+{
+    [self.collectionView reloadData];
+}
+
 #pragma mark - JSQMessagesCollectionViewDataSource
 
 - (NSString *)senderDisplayName
@@ -263,30 +275,47 @@ const int kDefaultMessageCount = 20;
     }
 }
 
-- (UICollectionViewCell *)collectionView:(JSQMessagesCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)collectionView:(JSQMessagesCollectionView *)collectionView layout:(JSQMessagesCollectionViewFlowLayout *)collectionViewLayout heightForCellBottomLabelAtIndexPath:(NSIndexPath *)indexPath
 {
-    JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
-
-    TJMessage *message = self.messages[indexPath.item];
-    
-    if (! message.isMediaMessage) {
-        cell.textView.text = message.text;
-        if ([message.senderId isEqualToString:[self senderId]]) {
-            cell.textView.textColor = [UIColor whiteColor];
-        }
-        else {
-            cell.textView.textColor = [UIColor blackColor];
-        }
+    TJMessage * tjMessage = self.messages[indexPath.item];
+    if ([tjMessage.senderId isEqualToString:[self senderId]]) {
+        return kJSQMessagesCollectionViewCellLabelHeightDefault;
     }
     else {
+        return 0;
     }
-    return cell;
 }
+
 
 - (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForCellBottomLabelAtIndexPath:(NSIndexPath *)indexPath
 {
     TJMessage *message = self.messages[indexPath.item];
-    return [[NSAttributedString alloc] initWithString:message.senderDisplayName];
+    EMMessage *emMessage = message.emMessage;
+    
+    if ([message.senderId isEqualToString:self.senderId]) {
+        switch (emMessage.deliveryState) {
+            case eMessageDeliveryState_Pending:
+                return [[NSAttributedString alloc] initWithString:@"等待中" attributes:nil];
+            case eMessageDeliveryState_Delivering:
+                return [[NSAttributedString alloc] initWithString:@"发送中" attributes:nil];
+            case eMessageDeliveryState_Failure:
+                return [[NSAttributedString alloc] initWithString:@"发送失败" attributes:@{NSForegroundColorAttributeName: [UIColor appRedColor]}];
+            case eMessageDeliveryState_Delivered:
+            {
+                if (emMessage.isDeliveredAcked) {
+                    return [[NSAttributedString alloc] initWithString:@"已 读" attributes:@{NSForegroundColorAttributeName: [UIColor grayColor]}];
+                }
+                else {
+                    return [[NSAttributedString alloc] initWithString:@"已发送" attributes:@{NSForegroundColorAttributeName: [UIColor grayColor]}];
+                }
+            }
+            default:
+                break;
+        }
+    }
+    else {
+        return nil;
+    }
 }
 
 - (NSAttributedString *)collectionView:(JSQMessagesCollectionView *)collectionView attributedTextForMessageBubbleTopLabelAtIndexPath:(NSIndexPath *)indexPath
@@ -310,6 +339,25 @@ const int kDefaultMessageCount = 20;
     }
 }
 
+- (UICollectionViewCell *)collectionView:(JSQMessagesCollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    JSQMessagesCollectionViewCell *cell = (JSQMessagesCollectionViewCell *)[super collectionView:collectionView cellForItemAtIndexPath:indexPath];
+
+    TJMessage *message = self.messages[indexPath.item];
+    
+    if (! message.isMediaMessage) {
+        cell.textView.text = message.text;
+        if ([message.senderId isEqualToString:[self senderId]]) {
+            cell.textView.textColor = [UIColor whiteColor];
+        }
+        else {
+            cell.textView.textColor = [UIColor blackColor];
+        }
+    }
+    else {
+    }
+    return cell;
+}
 
 - (void)didPressSendButtonWithText:(NSString *)text
 {
@@ -345,6 +393,22 @@ const int kDefaultMessageCount = 20;
     [actionSheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
     [actionSheet showInView:self.view];
 
+}
+
+- (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapMessageBubbleAtIndexPath:(NSIndexPath *)indexPath
+{
+    TJMessage *tjMessage = self.messages[indexPath.item];
+    if (tjMessage) {
+        if (tjMessage.emMessage.deliveryState == eMessageDeliveryState_Failure) {
+            UIActionSheet *actionSheet = [UIActionSheet bk_actionSheetWithTitle:nil];
+            [actionSheet bk_addButtonWithTitle:@"再次发送" handler:^{
+                [[EaseMob sharedInstance].chatManager asyncSendMessage:tjMessage.emMessage progress:nil];
+                [self.collectionView reloadData];
+            }];
+            [actionSheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
+            [actionSheet showInView:self.view];
+        }
+    }
 }
 
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView header:(JSQMessagesLoadEarlierHeaderView *)headerView didTapLoadEarlierMessagesButton:(UIButton *)sender
