@@ -10,10 +10,4 @@
 
 @implementation JSQVoiceMediaItem
 
-- (UIView *)mediaView
-{
-    return nil;
-  //  return [UIImageView]
-}
-
 @end

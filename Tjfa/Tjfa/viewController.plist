@@ -32,5 +32,7 @@
 	<string>TJGroupChatViewController</string>
 	<key>memberList</key>
 	<string>TJMemberListViewController</string>
+	<key>userCenter</key>
+	<string>TJMemberCenterTableViewController</string>
 </dict>
 </plist>

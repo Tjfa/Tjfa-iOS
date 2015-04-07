@@ -76,12 +76,12 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([sender isKindOfClass:[TJMemberListCell class]]) {
-        TJSingleChatViewController *chatViewController = segue.destinationViewController;
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-        TJUser *targetUser = self.data[indexPath.row];
-        chatViewController.targetUser = targetUser;
-    }
+//    if ([sender isKindOfClass:[TJMemberListCell class]]) {
+//        TJSingleChatViewController *chatViewController = segue.destinationViewController;
+//        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+//        TJUser *targetUser = self.data[indexPath.row];
+//        chatViewController.targetUser = targetUser;
+//    }
 }
 
 @end

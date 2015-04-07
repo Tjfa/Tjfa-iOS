@@ -101,13 +101,14 @@
 		F34666C41ACB002A00E83B7F /* TJMemberListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C31ACB002A00E83B7F /* TJMemberListViewController.m */; };
 		F34666C81ACBD9B000E83B7F /* TJMemberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C71ACBD9B000E83B7F /* TJMemberListCell.m */; };
 		F34666CB1ACC56B600E83B7F /* TJMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666CA1ACC56B600E83B7F /* TJMessage.m */; };
+		F34FD72F1AD42B0200311730 /* TJMemberCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34FD72E1AD42B0200311730 /* TJMemberCenterTableViewController.m */; };
 		F35F57AC1ACD75D300114D29 /* EMMessage+MessageTranform.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */; };
 		F395BBD81ACEAE0D00733674 /* EMConversation+LoadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F395BBD71ACEAE0D00733674 /* EMConversation+LoadMessage.m */; };
 		F3ADCC671ACFADAE0001B91F /* TJAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */; };
 		F3ADCC6D1ACFB6EF0001B91F /* TJAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */; };
 		F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC711ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m */; };
 		F3ADCC781ACFC01A0001B91F /* UIImage+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC771ACFC01A0001B91F /* UIImage+VoiceButton.m */; };
-		F3ADCCC41AD29E1F0001B91F /* JSQVoiceMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCCC31AD29E1F0001B91F /* JSQVoiceMediaItem.m */; };
+		F3ADCCCA1AD2A2BF0001B91F /* JSQVoiceMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -296,6 +297,8 @@
 		F34666C71ACBD9B000E83B7F /* TJMemberListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMemberListCell.m; sourceTree = "<group>"; };
 		F34666C91ACC56B600E83B7F /* TJMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMessage.h; sourceTree = "<group>"; };
 		F34666CA1ACC56B600E83B7F /* TJMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMessage.m; sourceTree = "<group>"; };
+		F34FD72D1AD42B0200311730 /* TJMemberCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMemberCenterTableViewController.h; sourceTree = "<group>"; };
+		F34FD72E1AD42B0200311730 /* TJMemberCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMemberCenterTableViewController.m; sourceTree = "<group>"; };
 		F35F57AA1ACD75D300114D29 /* EMMessage+MessageTranform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMMessage+MessageTranform.h"; sourceTree = "<group>"; };
 		F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMMessage+MessageTranform.m"; sourceTree = "<group>"; };
 		F395BBD61ACEAE0D00733674 /* EMConversation+LoadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMConversation+LoadMessage.h"; sourceTree = "<group>"; };
@@ -307,8 +310,8 @@
 		F3ADCC711ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JSQMessagesToolbarButtonFactory+VoiceButton.m"; sourceTree = "<group>"; };
 		F3ADCC761ACFC01A0001B91F /* UIImage+VoiceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+VoiceButton.h"; sourceTree = "<group>"; };
 		F3ADCC771ACFC01A0001B91F /* UIImage+VoiceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+VoiceButton.m"; sourceTree = "<group>"; };
-		F3ADCCC21AD29E1F0001B91F /* JSQVoiceMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQVoiceMediaItem.h; sourceTree = "<group>"; };
-		F3ADCCC31AD29E1F0001B91F /* JSQVoiceMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQVoiceMediaItem.m; sourceTree = "<group>"; };
+		F3ADCCC81AD2A2BF0001B91F /* JSQVoiceMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQVoiceMediaItem.h; sourceTree = "<group>"; };
+		F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQVoiceMediaItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -834,6 +837,7 @@
 		F34666921AC991BC00E83B7F /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				F34FD7291AD41C6100311730 /* TJMemberCenter */,
 				F34666C51ACBD9A000E83B7F /* Cell */,
 				F34666931AC991E000E83B7F /* TJLoginInViewController.h */,
 				F34666941AC991E000E83B7F /* TJLoginInViewController.m */,
@@ -890,6 +894,15 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		F34FD7291AD41C6100311730 /* TJMemberCenter */ = {
+			isa = PBXGroup;
+			children = (
+				F34FD72D1AD42B0200311730 /* TJMemberCenterTableViewController.h */,
+				F34FD72E1AD42B0200311730 /* TJMemberCenterTableViewController.m */,
+			);
+			name = TJMemberCenter;
+			sourceTree = "<group>";
+		};
 		F395BBD51ACEADEE00733674 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -910,8 +923,8 @@
 			children = (
 				F34666C91ACC56B600E83B7F /* TJMessage.h */,
 				F34666CA1ACC56B600E83B7F /* TJMessage.m */,
-				F3ADCCC21AD29E1F0001B91F /* JSQVoiceMediaItem.h */,
-				F3ADCCC31AD29E1F0001B91F /* JSQVoiceMediaItem.m */,
+				F3ADCCC81AD2A2BF0001B91F /* JSQVoiceMediaItem.h */,
+				F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */,
 			);
 			name = TJMessage;
 			sourceTree = "<group>";
@@ -1075,6 +1088,7 @@
 				241D4A4F196E917C00E3FC02 /* UIApplication+MainNav.m in Sources */,
 				24D42BC7197CD79A0069F224 /* TJRedCardViewController.m in Sources */,
 				24B1542D1983C87E004F87DA /* TJTopScoreTableViewCell.m in Sources */,
+				F34FD72F1AD42B0200311730 /* TJMemberCenterTableViewController.m in Sources */,
 				24B154291983C234004F87DA /* TJYellowCardTableViewCell.m in Sources */,
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
 				244ACBCB198E8CFD003E640A /* TJWelcome2.m in Sources */,
@@ -1097,7 +1111,7 @@
 				F3ADCC781ACFC01A0001B91F /* UIImage+VoiceButton.m in Sources */,
 				2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */,
 				24686C7E196E7DD000D8CF86 /* TJUserData.m in Sources */,
-				F3ADCCC41AD29E1F0001B91F /* JSQVoiceMediaItem.m in Sources */,
+				F3ADCCCA1AD2A2BF0001B91F /* JSQVoiceMediaItem.m in Sources */,
 				F34666A61AC9B1F400E83B7F /* TJRegisterViewController.m in Sources */,
 				F34666B71ACAA87700E83B7F /* TJModifyNameViewController.m in Sources */,
 				F34666951AC991E000E83B7F /* TJLoginInViewController.m in Sources */,

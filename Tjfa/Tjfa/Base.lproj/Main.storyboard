@@ -1695,7 +1695,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Bzd-qo-Ddw" kind="push" id="R95-gD-gbm"/>
+                                            <segue destination="m7o-Gq-w5N" kind="push" id="0er-6x-WOo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2708,6 +2708,186 @@
             </objects>
             <point key="canvasLocation" x="-1490" y="658"/>
         </scene>
+        <!--Member Center Table View Controller-->
+        <scene sceneID="6c2-cR-qic">
+            <objects>
+                <tableViewController storyboardIdentifier="TJMemberCenterTableViewController" id="m7o-Gq-w5N" customClass="TJMemberCenterTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="e8o-QF-65l">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="or5-aX-3hU">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProvide" translatesAutoresizingMaskIntoConstraints="NO" id="ivo-qd-qOG">
+                                    <rect key="frame" x="20" y="36" width="60" height="60"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="60" id="37f-Ka-4vT"/>
+                                        <constraint firstAttribute="height" constant="60" id="cDj-zS-zVG"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                            <integer key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="30"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                            <color key="value" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="邱峰" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DiA-sG-Bct">
+                                    <rect key="frame" x="88" y="55" width="34" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="centerY" secondItem="ivo-qd-qOG" secondAttribute="centerY" id="AgY-oE-WJe"/>
+                                <constraint firstItem="ivo-qd-qOG" firstAttribute="leading" secondItem="or5-aX-3hU" secondAttribute="leading" constant="20" id="XYb-Iy-z7y"/>
+                            </constraints>
+                        </view>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="51z-jK-IB4">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <sections>
+                            <tableViewSection id="5Xe-P5-vfw">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Y4K-6S-6sP">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y4K-6S-6sP" id="tC1-Xl-KD2">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18817367675" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMa-24-QrK">
+                                                    <rect key="frame" x="20" y="19" width="105" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wiW-9j-IH4">
+                                                    <rect key="frame" x="276" y="8" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="OUI-J8-xB6"/>
+                                                        <constraint firstAttribute="height" constant="44" id="hbo-lh-B3r"/>
+                                                    </constraints>
+                                                    <state key="normal" image="btn_chat">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXx-4v-cdz">
+                                                    <rect key="frame" x="232" y="8" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="Mwv-Ks-wLe"/>
+                                                        <constraint firstAttribute="height" constant="44" id="RsM-D1-9VA"/>
+                                                    </constraints>
+                                                    <state key="normal" image="btn_msg">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zub-Uc-tdq">
+                                                    <rect key="frame" x="188" y="8" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="eIT-FP-sSh"/>
+                                                        <constraint firstAttribute="width" constant="44" id="ogc-Uo-iEE"/>
+                                                    </constraints>
+                                                    <state key="normal" image="btn_phone">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="tintColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="lMa-24-QrK" secondAttribute="centerY" id="77F-TH-7cI"/>
+                                                <constraint firstAttribute="centerY" secondItem="wiW-9j-IH4" secondAttribute="centerY" id="7fU-zd-I2W"/>
+                                                <constraint firstItem="wiW-9j-IH4" firstAttribute="leading" secondItem="cXx-4v-cdz" secondAttribute="trailing" id="HIy-NK-lqU"/>
+                                                <constraint firstAttribute="centerY" secondItem="Zub-Uc-tdq" secondAttribute="centerY" id="U7J-T9-mk0"/>
+                                                <constraint firstAttribute="trailing" secondItem="wiW-9j-IH4" secondAttribute="trailing" id="Ukm-HD-yKi"/>
+                                                <constraint firstItem="cXx-4v-cdz" firstAttribute="leading" secondItem="Zub-Uc-tdq" secondAttribute="trailing" id="eOZ-dM-w7d"/>
+                                                <constraint firstItem="lMa-24-QrK" firstAttribute="leading" secondItem="tC1-Xl-KD2" secondAttribute="leading" constant="20" id="pGd-R2-cEv"/>
+                                                <constraint firstAttribute="centerY" secondItem="cXx-4v-cdz" secondAttribute="centerY" id="pZz-tj-IBg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="yxh-LK-cLr">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yxh-LK-cLr" id="foK-ff-GpM">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cC7-Nz-mMd">
+                                                    <rect key="frame" x="20" y="15" width="60" height="30"/>
+                                                    <state key="normal" title="发送短信">
+                                                        <color key="titleColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="cC7-Nz-mMd" secondAttribute="centerY" id="0W3-I8-AJZ"/>
+                                                <constraint firstItem="cC7-Nz-mMd" firstAttribute="leading" secondItem="foK-ff-GpM" secondAttribute="leading" constant="20" id="czI-uP-117"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Cw0-LI-TOn">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cw0-LI-TOn" id="bdy-8h-Cpw">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hbx-J3-kaa">
+                                                    <rect key="frame" x="20" y="15" width="75" height="30"/>
+                                                    <state key="normal" title="分享联系人">
+                                                        <color key="titleColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="shareMemberPress:" destination="m7o-Gq-w5N" eventType="touchUpInside" id="Rl8-xc-Sh5"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Hbx-J3-kaa" firstAttribute="leading" secondItem="bdy-8h-Cpw" secondAttribute="leading" constant="20" id="YRa-Y1-IkV"/>
+                                                <constraint firstAttribute="centerY" secondItem="Hbx-J3-kaa" secondAttribute="centerY" id="uGh-Zx-LTs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Ebu-kE-JoL">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ebu-kE-JoL" id="QoW-Lt-5Py">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uS-Ue-Gqv">
+                                                    <rect key="frame" x="20" y="15" width="90" height="30"/>
+                                                    <state key="normal" title="添加到通讯录">
+                                                        <color key="titleColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="7uS-Ue-Gqv" secondAttribute="centerY" id="gpg-yw-AYt"/>
+                                                <constraint firstItem="7uS-Ue-Gqv" firstAttribute="leading" secondItem="QoW-Lt-5Py" secondAttribute="leading" constant="20" id="p7P-zR-zUc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="m7o-Gq-w5N" id="0k9-Tj-uFN"/>
+                            <outlet property="delegate" destination="m7o-Gq-w5N" id="BH5-A1-pOf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="sP2-PW-m8a"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ras-AV-DX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1249" y="-2069"/>
+        </scene>
         <!--聊天-->
         <scene sceneID="dvh-Ee-ama">
             <objects>
@@ -2717,7 +2897,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SsB-uU-jrn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PTU-Ze-1cE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -2754,6 +2934,9 @@
     <resources>
         <image name="aboutLogo" width="139" height="60"/>
         <image name="backMenu" width="12" height="20"/>
+        <image name="btn_chat" width="66" height="66"/>
+        <image name="btn_msg" width="32" height="28"/>
+        <image name="btn_phone" width="19" height="19"/>
         <image name="caomeilun" width="50" height="50"/>
         <image name="chengzhiming" width="50" height="50"/>
         <image name="competitionCup0" width="24" height="24"/>

@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 邱峰. All rights reserved.
 //
 
-#import "JSQVideoMediaItem.h"
+#import "JSQPhotoMediaItem.h"
 
-@interface JSQVoiceMediaItem : JSQVideoMediaItem
+@interface JSQVoiceMediaItem : JSQPhotoMediaItem
 
 @end
