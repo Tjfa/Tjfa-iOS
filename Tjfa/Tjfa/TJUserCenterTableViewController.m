@@ -117,7 +117,7 @@ const int avatar_index = 0;
                 [MBProgressHUD showErrorProgressInView:nil withText:@"修改失败"];
             }
         } progressBlock:^(NSInteger percentDone) {
-            loading.progress = percentDone / 100.0 * 99.0;
+            loading.progress = percentDone / 100.0 * 99.0 / 100;
         }];
 
     }];

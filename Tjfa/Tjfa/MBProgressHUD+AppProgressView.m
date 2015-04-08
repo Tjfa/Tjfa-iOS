@@ -35,7 +35,7 @@
         progress.labelText = text;
     }
 
-    progress.mode = MBProgressHUDModeDeterminate;
+    progress.mode = MBProgressHUDModeAnnularDeterminate;
     progress.dimBackground = YES;
     [progress show:YES];
     return progress;

@@ -89,7 +89,6 @@
 		F34666901AC9909900E83B7F /* TJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F346668F1AC9909900E83B7F /* TJUser.m */; };
 		F34666951AC991E000E83B7F /* TJLoginInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666941AC991E000E83B7F /* TJLoginInViewController.m */; };
 		F34666981AC997C300E83B7F /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666971AC997C300E83B7F /* CALayer+XibConfiguration.m */; };
-		F34666A01AC9ABCB00E83B7F /* TJLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F346669F1AC9ABCB00E83B7F /* TJLoginManager.m */; };
 		F34666A31AC9B1E400E83B7F /* TJForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666A21AC9B1E400E83B7F /* TJForgetPasswordViewController.m */; };
 		F34666A61AC9B1F400E83B7F /* TJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666A51AC9B1F400E83B7F /* TJRegisterViewController.m */; };
 		F34666AD1ACA8B7600E83B7F /* TJUserCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666AC1ACA8B7600E83B7F /* TJUserCenterTableViewController.m */; };
@@ -102,6 +101,7 @@
 		F34666C81ACBD9B000E83B7F /* TJMemberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C71ACBD9B000E83B7F /* TJMemberListCell.m */; };
 		F34666CB1ACC56B600E83B7F /* TJMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666CA1ACC56B600E83B7F /* TJMessage.m */; };
 		F34FD72F1AD42B0200311730 /* TJMemberCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34FD72E1AD42B0200311730 /* TJMemberCenterTableViewController.m */; };
+		F34FD7331AD4353F00311730 /* TJVCFFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F34FD7321AD4353F00311730 /* TJVCFFileManager.m */; };
 		F35F57AC1ACD75D300114D29 /* EMMessage+MessageTranform.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */; };
 		F395BBD81ACEAE0D00733674 /* EMConversation+LoadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F395BBD71ACEAE0D00733674 /* EMConversation+LoadMessage.m */; };
 		F3ADCC671ACFADAE0001B91F /* TJAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */; };
@@ -109,6 +109,7 @@
 		F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC711ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m */; };
 		F3ADCC781ACFC01A0001B91F /* UIImage+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC771ACFC01A0001B91F /* UIImage+VoiceButton.m */; };
 		F3ADCCCA1AD2A2BF0001B91F /* JSQVoiceMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */; };
+		F3ECD2851AD56E0C0072C750 /* TJUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2841AD56E0C0072C750 /* TJUserManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,8 +274,6 @@
 		F34666941AC991E000E83B7F /* TJLoginInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLoginInViewController.m; sourceTree = "<group>"; };
 		F34666961AC997C300E83B7F /* CALayer+XibConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+XibConfiguration.h"; sourceTree = "<group>"; };
 		F34666971AC997C300E83B7F /* CALayer+XibConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibConfiguration.m"; sourceTree = "<group>"; };
-		F346669E1AC9ABCB00E83B7F /* TJLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJLoginManager.h; sourceTree = "<group>"; };
-		F346669F1AC9ABCB00E83B7F /* TJLoginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLoginManager.m; sourceTree = "<group>"; };
 		F34666A11AC9B1E400E83B7F /* TJForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJForgetPasswordViewController.h; sourceTree = "<group>"; };
 		F34666A21AC9B1E400E83B7F /* TJForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJForgetPasswordViewController.m; sourceTree = "<group>"; };
 		F34666A41AC9B1F400E83B7F /* TJRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJRegisterViewController.h; sourceTree = "<group>"; };
@@ -299,6 +298,8 @@
 		F34666CA1ACC56B600E83B7F /* TJMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMessage.m; sourceTree = "<group>"; };
 		F34FD72D1AD42B0200311730 /* TJMemberCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMemberCenterTableViewController.h; sourceTree = "<group>"; };
 		F34FD72E1AD42B0200311730 /* TJMemberCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMemberCenterTableViewController.m; sourceTree = "<group>"; };
+		F34FD7311AD4353F00311730 /* TJVCFFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJVCFFileManager.h; sourceTree = "<group>"; };
+		F34FD7321AD4353F00311730 /* TJVCFFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJVCFFileManager.m; sourceTree = "<group>"; };
 		F35F57AA1ACD75D300114D29 /* EMMessage+MessageTranform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMMessage+MessageTranform.h"; sourceTree = "<group>"; };
 		F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMMessage+MessageTranform.m"; sourceTree = "<group>"; };
 		F395BBD61ACEAE0D00733674 /* EMConversation+LoadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMConversation+LoadMessage.h"; sourceTree = "<group>"; };
@@ -312,6 +313,8 @@
 		F3ADCC771ACFC01A0001B91F /* UIImage+VoiceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+VoiceButton.m"; sourceTree = "<group>"; };
 		F3ADCCC81AD2A2BF0001B91F /* JSQVoiceMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQVoiceMediaItem.h; sourceTree = "<group>"; };
 		F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQVoiceMediaItem.m; sourceTree = "<group>"; };
+		F3ECD2831AD56E0C0072C750 /* TJUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUserManager.h; sourceTree = "<group>"; };
+		F3ECD2841AD56E0C0072C750 /* TJUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUserManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -690,7 +693,8 @@
 		24CFD62518E1517100D706D1 /* LogicalLayer */ = {
 			isa = PBXGroup;
 			children = (
-				F346669D1AC9ABAE00E83B7F /* LoginIn and Register */,
+				F3ECD2821AD56DFD0072C750 /* User */,
+				F34FD7301AD4352000311730 /* VCF */,
 				2447B3A7198CA08600B297BB /* Shared */,
 				24FED22B195A774900A9F0DA /* TJDatabaseManager.h */,
 				24FED22C195A774900A9F0DA /* TJDatabaseManager.m */,
@@ -858,15 +862,6 @@
 			name = Member;
 			sourceTree = "<group>";
 		};
-		F346669D1AC9ABAE00E83B7F /* LoginIn and Register */ = {
-			isa = PBXGroup;
-			children = (
-				F346669E1AC9ABCB00E83B7F /* TJLoginManager.h */,
-				F346669F1AC9ABCB00E83B7F /* TJLoginManager.m */,
-			);
-			name = "LoginIn and Register";
-			sourceTree = "<group>";
-		};
 		F34666BB1ACADE1200E83B7F /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -903,6 +898,15 @@
 			name = TJMemberCenter;
 			sourceTree = "<group>";
 		};
+		F34FD7301AD4352000311730 /* VCF */ = {
+			isa = PBXGroup;
+			children = (
+				F34FD7311AD4353F00311730 /* TJVCFFileManager.h */,
+				F34FD7321AD4353F00311730 /* TJVCFFileManager.m */,
+			);
+			name = VCF;
+			sourceTree = "<group>";
+		};
 		F395BBD51ACEADEE00733674 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -927,6 +931,15 @@
 				F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */,
 			);
 			name = TJMessage;
+			sourceTree = "<group>";
+		};
+		F3ECD2821AD56DFD0072C750 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				F3ECD2831AD56E0C0072C750 /* TJUserManager.h */,
+				F3ECD2841AD56E0C0072C750 /* TJUserManager.m */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1093,7 +1106,6 @@
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
 				244ACBCB198E8CFD003E640A /* TJWelcome2.m in Sources */,
 				246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */,
-				F34666A01AC9ABCB00E83B7F /* TJLoginManager.m in Sources */,
 				2447B3AA198CAA7300B297BB /* TJDeveloper.m in Sources */,
 				24C84BC11976CADE00980720 /* TJRootViewController.m in Sources */,
 				24C6FE4C195E8574008B594C /* Match.m in Sources */,
@@ -1102,6 +1114,7 @@
 				24686C83196E875600D8CF86 /* TJWelcome3.m in Sources */,
 				18190ED419CFFFE200D0488F /* TJPlayer.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
+				F34FD7331AD4353F00311730 /* TJVCFFileManager.m in Sources */,
 				F34666CB1ACC56B600E83B7F /* TJMessage.m in Sources */,
 				18145E8C1ABDBDFF00040AB7 /* TJBaseTableViewController.m in Sources */,
 				F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */,
@@ -1116,6 +1129,7 @@
 				F34666B71ACAA87700E83B7F /* TJModifyNameViewController.m in Sources */,
 				F34666951AC991E000E83B7F /* TJLoginInViewController.m in Sources */,
 				24B154341983D8E0004F87DA /* TJTeamTableViewCell.m in Sources */,
+				F3ECD2851AD56E0C0072C750 /* TJUserManager.m in Sources */,
 				248BD093197E508D00419603 /* TJGroupScoreViewController.m in Sources */,
 				24B8C1C51977B7F800B2FAD0 /* TJMatchTableViewCell.m in Sources */,
 				24D42BCD197D013F0069F224 /* TJCompetitionDetailViewController.m in Sources */,

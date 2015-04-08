@@ -8,7 +8,7 @@
 
 #import "TJLoginInViewController.h"
 #import "MBProgressHUD+AppProgressView.h"
-#import "TJLoginManager.h"
+#import "TJUserManager.h"
 #import "TJModule.h"
 #import <Routable.h>
 
@@ -32,14 +32,14 @@
     NSString *account = self.accountTextField.text;
     NSString *password = self.passwordTextField.text;
 
-    if (![TJLoginManager isAvailableAccount:account]) {
+    if (![TJUserManager isAvailableAccount:account]) {
         [MBProgressHUD showErrorProgressInView:nil withText:@"手机号码错误"];
         [self.accountTextField becomeFirstResponder];
         return;
     }
 
-    if (![TJLoginManager isAvailablePassword:password]) {
-        [MBProgressHUD showErrorProgressInView:nil withText:[NSString stringWithFormat:@"密码最少%d位", [TJLoginManager getMinPasswordLength]]];
+    if (![TJUserManager isAvailablePassword:password]) {
+        [MBProgressHUD showErrorProgressInView:nil withText:[NSString stringWithFormat:@"密码最少%d位", [TJUserManager getMinPasswordLength]]];
         [self.passwordTextField becomeFirstResponder];
         return;
     }

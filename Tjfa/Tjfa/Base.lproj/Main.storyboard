@@ -2759,7 +2759,7 @@
                         <sections>
                             <tableViewSection id="5Xe-P5-vfw">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Y4K-6S-6sP">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Y4K-6S-6sP">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y4K-6S-6sP" id="tC1-Xl-KD2">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -2789,6 +2789,9 @@
                                                     <state key="normal" image="btn_msg">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="sendMessagePress:" destination="m7o-Gq-w5N" eventType="touchUpInside" id="aQD-LA-lqZ"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zub-Uc-tdq">
                                                     <rect key="frame" x="188" y="8" width="44" height="44"/>
@@ -2799,6 +2802,9 @@
                                                     <state key="normal" image="btn_phone">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="callPhonePress:" destination="m7o-Gq-w5N" eventType="touchUpInside" id="cfp-lW-dGq"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="tintColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2814,7 +2820,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="yxh-LK-cLr">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="yxh-LK-cLr">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yxh-LK-cLr" id="foK-ff-GpM">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -2825,6 +2831,9 @@
                                                         <color key="titleColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="sendMessagePress:" destination="m7o-Gq-w5N" eventType="touchUpInside" id="S1k-mj-Oxt"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -2833,7 +2842,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Cw0-LI-TOn">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Cw0-LI-TOn">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cw0-LI-TOn" id="bdy-8h-Cpw">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -2855,7 +2864,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Ebu-kE-JoL">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Ebu-kE-JoL">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ebu-kE-JoL" id="QoW-Lt-5Py">
                                             <autoresizingMask key="autoresizingMask"/>

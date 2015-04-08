@@ -163,7 +163,7 @@
     imgTextMessage.title = @"快来下载同济足协iOS版app";
     imgTextMessage.desc = [TJAppInfo sharedMessage];
     imgTextMessage.thumbData = UIImagePNGRepresentation([UIImage imageNamed:@"tjfaIcon.png"]);
-    NSInteger err = [RennShareComponent SendMessage:imgTextMessage msgTarget:To_Renren];
+    [RennShareComponent SendMessage:imgTextMessage msgTarget:To_Renren];
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result

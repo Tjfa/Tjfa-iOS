@@ -7,7 +7,14 @@
 //
 
 #import "TJBaseTableViewController.h"
+#import "TJUser.h"
 
 @interface TJMemberCenterTableViewController : TJBaseTableViewController
+
+/**
+ *  这两个信息只需要一个即可
+ */
+@property (nonatomic, strong) TJUser *targerUser;
+@property (nonatomic, strong) NSString *userAccount;
 
 @end
