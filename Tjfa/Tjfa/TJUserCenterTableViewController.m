@@ -11,15 +11,20 @@
 #import <UIAlertView+BlocksKit.h>
 #import <UIActionSheet+BlocksKit.h>
 #import "MBProgressHUD+AppProgressView.h"
+#import "TJUserManager.h"
 
 @interface TJUserCenterTableViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) TJUser *user;
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
 @end
 
 const int avatar_index = 0;
+const int name_index = 1;
+const int password_index = 2;
 
 @implementation TJUserCenterTableViewController
 
@@ -30,6 +35,10 @@ const int avatar_index = 0;
     if (self.user.avatar) {
         NSData *data = [self.user.avatar getData];
         [self.avatarImageView setImage:[UIImage imageWithData:data]];
+    }
+    
+    if (self.user.name) {
+        self.nameLabel.text = self.user.name;
     }
 }
 
@@ -47,6 +56,36 @@ const int avatar_index = 0;
     if (indexPath.row == avatar_index) {
         [self changeAvatar];
     }
+    else if (indexPath.row == name_index) {
+        [self changeName];
+    }
+    else if (indexPath.row == password_index) {
+        [self changePassword];
+    }
+}
+
+- (void)changeName
+{
+    UIAlertView *alertView = [UIAlertView bk_alertViewWithTitle:@"修改名字" message:@"请使用真实姓名"];
+    alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alertView bk_setCancelButtonWithTitle:@"取消" handler:nil];
+    [alertView bk_addButtonWithTitle:@"确定" handler:^(){
+        
+        NSString *name = [alertView textFieldAtIndex:0].text;
+        
+        if (![TJUserManager isAvailableName:name]) {
+            [MBProgressHUD showErrorProgressInView:nil withText:@"名字不合法"];
+            return ;
+        }
+        
+        self.user.name = name;
+        [self.user saveInBackgroundWithBlock:^(BOOL success, NSError *error) {
+            [MBProgressHUD showSucessProgressInView:nil withText:@"账号修改成功"];
+            self.nameLabel.text = self.user.name;
+        }];
+    }];
+    [alertView show];
+
 }
 
 - (void)changeAvatar
@@ -60,6 +99,44 @@ const int avatar_index = 0;
     }];
     [actionSheet bk_setCancelButtonWithTitle:@"取消" handler:nil];
     [actionSheet showInView:self.view];
+}
+
+
+- (void)changePassword
+{
+    UIAlertView *alertView = [UIAlertView bk_alertViewWithTitle:@"修改密码"];
+    alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+    [alertView textFieldAtIndex:0].secureTextEntry = YES;
+    [alertView textFieldAtIndex:0].placeholder = @"原密码";
+    [alertView textFieldAtIndex:1].placeholder = @"新密码";
+    [alertView bk_setCancelButtonWithTitle:@"取消" handler:nil];
+    [alertView bk_addButtonWithTitle:@"确定" handler:^(){
+        NSString *oldPassword = [alertView textFieldAtIndex:0].text;
+        NSString *newPassword = [alertView textFieldAtIndex:1].text;
+        
+        if (![TJUserManager isAvailablePassword:newPassword]) {
+            [MBProgressHUD showErrorProgressInView:nil withText:[NSString stringWithFormat:@"密码不足%d位",[TJUserManager getMinPasswordLength]]];
+            return;
+        }
+        
+        MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"请稍后"];
+        [self.user updatePassword:oldPassword newPassword:newPassword block:^(id object, NSError *error) {
+            [loading hide:YES];
+            if (error) {
+                if (error.userInfo[@"NSLocalizedDescription"]) {
+                     [MBProgressHUD showErrorProgressInView:nil withText:error.userInfo[@"NSLocalizedDescription"]];
+                }
+                else {
+                    [MBProgressHUD showErrorProgressInView:nil withText:@"密码修改失败"];
+                }
+            }
+            else {
+                [MBProgressHUD showSucessProgressInView:nil withText:@"修改密码成功"];
+            }
+        }];
+    }];
+    [alertView show];
+
 }
 
 - (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType
@@ -105,6 +182,7 @@ const int avatar_index = 0;
                 self.user.avatar = avatar;
                 [self.user saveInBackgroundWithBlock:^(BOOL success, NSError *error) {
                     if (success) {
+                        [self.user saveInBackground];
                         [MBProgressHUD showSucessProgressInView:nil withText:@"修改成功"];
                         [self.avatarImageView setImage:[UIImage imageWithData:mediaData]];
                     }

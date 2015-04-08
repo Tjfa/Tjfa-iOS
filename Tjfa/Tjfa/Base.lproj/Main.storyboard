@@ -1728,84 +1728,6 @@
             </objects>
             <point key="canvasLocation" x="-837" y="-1565"/>
         </scene>
-        <!--修改姓名-->
-        <scene sceneID="TJO-H9-SD1">
-            <objects>
-                <viewController storyboardIdentifier="TJModifyNameViewController" id="2VM-ws-g4N" customClass="TJModifyNameViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HIY-PE-Rqd"/>
-                        <viewControllerLayoutGuide type="bottom" id="WTf-Ew-js8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="olz-5C-Py6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请填写真实姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="glp-1j-GwO">
-                                <rect key="frame" x="100" y="143" width="119" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1u9-qo-Vgx" userLabel="InputContainer">
-                                <rect key="frame" x="10" y="79" width="300" height="44"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="姓名" placeholder="姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Psy-uk-Ar2">
-                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="3ZS-zq-L8X"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="46z-7q-rTL"/>
-                                    <constraint firstItem="Psy-uk-Ar2" firstAttribute="top" secondItem="1u9-qo-Vgx" secondAttribute="top" id="WRB-lb-Cn9"/>
-                                    <constraint firstAttribute="bottom" secondItem="Psy-uk-Ar2" secondAttribute="bottom" id="w5f-iX-Drw"/>
-                                    <constraint firstItem="Psy-uk-Ar2" firstAttribute="leading" secondItem="1u9-qo-Vgx" secondAttribute="leading" constant="20" id="wxT-WG-MG3"/>
-                                    <constraint firstAttribute="trailing" secondItem="Psy-uk-Ar2" secondAttribute="trailing" id="yFp-hL-T05"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
-                                        <color key="value" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="方便其他成员能够找到你" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVh-ye-S6F">
-                                <rect key="frame" x="67" y="173" width="187" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="glp-1j-GwO" firstAttribute="top" secondItem="1u9-qo-Vgx" secondAttribute="bottom" constant="20" id="66h-pk-qnx"/>
-                            <constraint firstItem="1u9-qo-Vgx" firstAttribute="top" secondItem="HIY-PE-Rqd" secondAttribute="bottom" constant="15" id="DzN-af-zfZ"/>
-                            <constraint firstItem="bVh-ye-S6F" firstAttribute="top" secondItem="glp-1j-GwO" secondAttribute="bottom" constant="10" id="FqW-Mv-sTm"/>
-                            <constraint firstItem="1u9-qo-Vgx" firstAttribute="leading" secondItem="olz-5C-Py6" secondAttribute="leading" constant="10" id="G0r-CN-wKf"/>
-                            <constraint firstAttribute="trailing" secondItem="1u9-qo-Vgx" secondAttribute="trailing" constant="10" id="MjX-pQ-6xw"/>
-                            <constraint firstAttribute="centerX" secondItem="glp-1j-GwO" secondAttribute="centerX" id="RvH-De-Ypy"/>
-                            <constraint firstAttribute="centerX" secondItem="bVh-ye-S6F" secondAttribute="centerX" id="Xmi-hR-Xx2"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="修改姓名" id="DrR-cl-YOW">
-                        <barButtonItem key="leftBarButtonItem" title="返回" id="6Xc-0s-DYa">
-                            <connections>
-                                <action selector="backButtonClick:" destination="2VM-ws-g4N" id="qGH-7h-uTI"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r1v-HA-0lF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="140" y="-2006"/>
-        </scene>
         <!--User Center Table View Controller-->
         <scene sceneID="bwB-dt-Zx3">
             <objects>
@@ -1908,7 +1830,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="修改姓名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbe-rK-iSo">
-                                                    <rect key="frame" x="20" y="39" width="68" height="21"/>
+                                                    <rect key="frame" x="20" y="39" width="68" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1920,8 +1842,7 @@
                                                         <constraint firstAttribute="width" constant="12" id="uEJ-hy-40P"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邱峰" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VW4-GG-ZAZ">
-                                                    <rect key="frame" x="234" y="40" width="34" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VW4-GG-ZAZ">
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1936,9 +1857,6 @@
                                                 <constraint firstItem="KPF-ki-whb" firstAttribute="leading" secondItem="VW4-GG-ZAZ" secondAttribute="trailing" constant="20" id="jvd-dh-hCj"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="mjI-Dp-uWi" kind="modal" id="HsM-Ch-zhy"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="98" id="IqV-g2-Iui">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1978,6 +1896,7 @@
                     <navigationItem key="navigationItem" id="1wL-1N-vuQ"/>
                     <connections>
                         <outlet property="avatarImageView" destination="bih-0H-pKz" id="3ih-Hi-xkx"/>
+                        <outlet property="nameLabel" destination="VW4-GG-ZAZ" id="PMA-KQ-ZIA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6U-vV-UTR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2915,29 +2834,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qza-pF-z5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-778" y="-2081"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="fFJ-vj-3By">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mjI-Dp-uWi" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="d0V-M1-iH4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="2VM-ws-g4N" kind="relationship" relationship="rootViewController" id="a0Q-em-We1"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fee-dc-UR4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-392" y="-2006"/>
         </scene>
     </scenes>
     <resources>

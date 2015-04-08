@@ -46,6 +46,17 @@
     }
 }
 
++ (BOOL)isAvailableName:(NSString *)name
+{
+    if ([name isEqualToString:@""]){
+        return NO;
+    }
+    if ([name rangeOfString:@" "].location != NSNotFound) {
+        return NO;
+    }
+    return YES;
+}
+
 - (void)findUserWithAccount:(NSString *)account complete:(void (^)(TJUser *, NSError *))complete
 {
     AVQuery *query = [TJUser query];

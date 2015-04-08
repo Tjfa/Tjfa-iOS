@@ -30,6 +30,8 @@
  */
 + (BOOL)isAvailablePassword:(NSString *)password;
 
++ (BOOL)isAvailableName:(NSString *)name;
+
 - (void)findUserWithAccount:(NSString *)account complete:(void (^)(TJUser *user, NSError *error))complete;
 
 @end
