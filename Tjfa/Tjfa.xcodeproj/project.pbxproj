@@ -109,6 +109,7 @@
 		F3ADCC781ACFC01A0001B91F /* UIImage+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC771ACFC01A0001B91F /* UIImage+VoiceButton.m */; };
 		F3ADCCCA1AD2A2BF0001B91F /* JSQVoiceMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */; };
 		F3ECD2851AD56E0C0072C750 /* TJUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2841AD56E0C0072C750 /* TJUserManager.m */; };
+		F3ECD2891AD5894E0072C750 /* TJPasteBoardLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2881AD5894E0072C750 /* TJPasteBoardLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -312,6 +313,8 @@
 		F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQVoiceMediaItem.m; sourceTree = "<group>"; };
 		F3ECD2831AD56E0C0072C750 /* TJUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUserManager.h; sourceTree = "<group>"; };
 		F3ECD2841AD56E0C0072C750 /* TJUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUserManager.m; sourceTree = "<group>"; };
+		F3ECD2871AD5894E0072C750 /* TJPasteBoardLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPasteBoardLabel.h; sourceTree = "<group>"; };
+		F3ECD2881AD5894E0072C750 /* TJPasteBoardLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPasteBoardLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -838,6 +841,7 @@
 		F34666921AC991BC00E83B7F /* Member */ = {
 			isa = PBXGroup;
 			children = (
+				F3ECD2861AD5893D0072C750 /* View */,
 				F34FD7291AD41C6100311730 /* TJMemberCenter */,
 				F34666C51ACBD9A000E83B7F /* Cell */,
 				F34666931AC991E000E83B7F /* TJLoginInViewController.h */,
@@ -935,6 +939,15 @@
 				F3ECD2841AD56E0C0072C750 /* TJUserManager.m */,
 			);
 			name = User;
+			sourceTree = "<group>";
+		};
+		F3ECD2861AD5893D0072C750 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F3ECD2871AD5894E0072C750 /* TJPasteBoardLabel.h */,
+				F3ECD2881AD5894E0072C750 /* TJPasteBoardLabel.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1130,6 +1143,7 @@
 				24686C74196E66DC00D8CF86 /* TJAboutManager.m in Sources */,
 				24B8C1C11977B46D00B2FAD0 /* TJYellowCardViewController.m in Sources */,
 				24C84BBE1976BC0E00980720 /* TJMatchViewController.m in Sources */,
+				F3ECD2891AD5894E0072C750 /* TJPasteBoardLabel.m in Sources */,
 				F34666C81ACBD9B000E83B7F /* TJMemberListCell.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
 				18190ED319CFFFE200D0488F /* TJNews.m in Sources */,

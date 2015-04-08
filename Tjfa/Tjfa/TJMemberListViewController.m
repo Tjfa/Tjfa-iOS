@@ -11,6 +11,7 @@
 #import <SVPullToRefresh.h>
 #import "TJMemberListCell.h"
 #import "TJSingleChatViewController.h"
+#import "TJMemberCenterTableViewController.h"
 
 @interface TJMemberListViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -23,7 +24,6 @@
 
 - (void)viewDidLoad
 {
-
     __weak typeof(self) weakSelf = self;
     [self.tableView addPullToRefreshWithActionHandler:^() {
         AVQuery *query = [TJUser query];
@@ -36,9 +36,7 @@
                 weakSelf.data = array;
                 [weakSelf.tableView reloadData];
             }
-
         }];
-
     }];
 }
 
@@ -76,12 +74,13 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    if ([sender isKindOfClass:[TJMemberListCell class]]) {
-//        TJSingleChatViewController *chatViewController = segue.destinationViewController;
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-//        TJUser *targetUser = self.data[indexPath.row];
-//        chatViewController.targetUser = targetUser;
-//    }
+    if ([sender isKindOfClass:[TJMemberListCell class]]) {
+        if ([segue.destinationViewController isKindOfClass:[TJMemberCenterTableViewController class]]) {
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+            TJMemberCenterTableViewController *controller = segue.destinationViewController;
+            controller.targerUser = self.data[indexPath.row];
+        }
+    }
 }
 
 @end
