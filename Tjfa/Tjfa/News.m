@@ -45,9 +45,9 @@
     }
     news.newsId = tjNews.newsId;
     news.date = tjNews.date;
-    news.title = tjNews.title;
-    news.precontent = tjNews.precontent;
-    news.content = tjNews.content;
+    news.title = tjNews.title? tjNews.title : @"";
+    news.precontent = tjNews.precontent? tjNews.precontent : @"";
+    news.content = tjNews.content? tjNews.content : @"";
     return news;
 }
 
