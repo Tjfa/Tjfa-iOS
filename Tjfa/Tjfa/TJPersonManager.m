@@ -1,14 +1,14 @@
 //
-//  TJVCFFileManager.m
+//  TJPersonManager.m
 //  Tjfa
 //
 //  Created by 邱峰 on 4/7/15.
 //  Copyright (c) 2015 邱峰. All rights reserved.
 //
 
-#import "TJVCFFileManager.h"
+#import "TJPersonManager.h"
 #import "TJUser.h"
-@implementation TJVCFFileManager
+@implementation TJPersonManager
 
 + (NSData *)generalVCFStringWithUser:(TJUser *)user
 {
@@ -50,6 +50,29 @@
     }
     
     return person;
+}
+
++ (TJMergeCreateToContact)mergeOrAddToContactWithUser:(TJUser *)user
+{
+    ABRecordRef person = [self generalWithUser:user];
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+    ABAddressBookRequestAccessWithCompletion(addressBook, ^(bool greanted, CFErrorRef error) {
+        dispatch_semaphore_signal(sema);
+    });
+    dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+    
+    if (addressBook == nil) {
+        return TJMergetOrAddFail;
+    }
+    
+    CFArrayRef contacts = ABAddressBookCopyArrayOfAllPeople(addressBook);
+    for (int i = 0; i< CFArrayGetCount(contacts); i++) {
+        ABRecordRef oldPerson = CFArrayGetValueAtIndex(contacts, i);
+        CFTypeRef firstName = ABRecordCopyValue(oldPerson, abreco)
+    }
+    
+    return TJAddToContact;
 }
 
 @end

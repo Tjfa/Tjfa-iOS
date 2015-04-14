@@ -7,7 +7,7 @@
 //
 
 #import "TJMemberCenterTableViewController.h"
-#import "TJVCFFileManager.h"
+#import "TJPersonManager.h"
 #import "MBProgressHUD+AppProgressView.h"
 #import "TJUserManager.h"
 
@@ -69,7 +69,7 @@
 
 - (IBAction)shareMemberPress:(UIButton *)sender
 {
-    NSData *personData = [TJVCFFileManager generalVCFStringWithUser:self.targerUser];
+    NSData *personData = [TJPersonManager generalVCFStringWithUser:self.targerUser];
     NSString *tempVcfFile = [NSTemporaryDirectory() stringByAppendingFormat:@"%@.vcf", self.targerUser.name];
     BOOL writeFileSuccess = [personData writeToFile:tempVcfFile atomically:YES];
     
@@ -85,6 +85,7 @@
 
 - (IBAction)addToContact:(id)sender
 {
+    
 }
 
 

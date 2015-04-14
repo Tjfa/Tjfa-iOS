@@ -1,5 +1,5 @@
 //
-//  TJVCFFileManager.h
+//  TJPersonManager.h
 //  Tjfa
 //
 //  Created by 邱峰 on 4/7/15.
@@ -11,10 +11,18 @@
 
 @class TJUser;
 
-@interface TJVCFFileManager : NSObject
+typedef NS_ENUM(NSInteger, TJMergeCreateToContact) {
+    TJMergetToContact = 0,
+    TJAddToContact = 1,
+    TJMergetOrAddFail = 2,
+};
+
+@interface TJPersonManager : NSObject
 
 + (NSData *)generalVCFStringWithUser:(TJUser *)user;
 
 + (ABRecordRef)generalWithUser:(TJUser *)user;
+
++ (TJMergeCreateToContact)mergeOrAddToContactWithUser:(TJUser *)user;
 
 @end

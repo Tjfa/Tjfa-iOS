@@ -100,7 +100,7 @@
 		F34666C81ACBD9B000E83B7F /* TJMemberListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666C71ACBD9B000E83B7F /* TJMemberListCell.m */; };
 		F34666CB1ACC56B600E83B7F /* TJMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F34666CA1ACC56B600E83B7F /* TJMessage.m */; };
 		F34FD72F1AD42B0200311730 /* TJMemberCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34FD72E1AD42B0200311730 /* TJMemberCenterTableViewController.m */; };
-		F34FD7331AD4353F00311730 /* TJVCFFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F34FD7321AD4353F00311730 /* TJVCFFileManager.m */; };
+		F34FD7331AD4353F00311730 /* TJPersonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F34FD7321AD4353F00311730 /* TJPersonManager.m */; };
 		F35F57AC1ACD75D300114D29 /* EMMessage+MessageTranform.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */; };
 		F395BBD81ACEAE0D00733674 /* EMConversation+LoadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F395BBD71ACEAE0D00733674 /* EMConversation+LoadMessage.m */; };
 		F3ADCC671ACFADAE0001B91F /* TJAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */; };
@@ -296,8 +296,8 @@
 		F34666CA1ACC56B600E83B7F /* TJMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMessage.m; sourceTree = "<group>"; };
 		F34FD72D1AD42B0200311730 /* TJMemberCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMemberCenterTableViewController.h; sourceTree = "<group>"; };
 		F34FD72E1AD42B0200311730 /* TJMemberCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMemberCenterTableViewController.m; sourceTree = "<group>"; };
-		F34FD7311AD4353F00311730 /* TJVCFFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJVCFFileManager.h; sourceTree = "<group>"; };
-		F34FD7321AD4353F00311730 /* TJVCFFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJVCFFileManager.m; sourceTree = "<group>"; };
+		F34FD7311AD4353F00311730 /* TJPersonManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPersonManager.h; sourceTree = "<group>"; };
+		F34FD7321AD4353F00311730 /* TJPersonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPersonManager.m; sourceTree = "<group>"; };
 		F35F57AA1ACD75D300114D29 /* EMMessage+MessageTranform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMMessage+MessageTranform.h"; sourceTree = "<group>"; };
 		F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMMessage+MessageTranform.m"; sourceTree = "<group>"; };
 		F395BBD61ACEAE0D00733674 /* EMConversation+LoadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMConversation+LoadMessage.h"; sourceTree = "<group>"; };
@@ -694,7 +694,7 @@
 			isa = PBXGroup;
 			children = (
 				F3ECD2821AD56DFD0072C750 /* User */,
-				F34FD7301AD4352000311730 /* VCF */,
+				F34FD7301AD4352000311730 /* ABPersonManager */,
 				2447B3A7198CA08600B297BB /* Shared */,
 				24FED22B195A774900A9F0DA /* TJDatabaseManager.h */,
 				24FED22C195A774900A9F0DA /* TJDatabaseManager.m */,
@@ -897,13 +897,13 @@
 			name = TJMemberCenter;
 			sourceTree = "<group>";
 		};
-		F34FD7301AD4352000311730 /* VCF */ = {
+		F34FD7301AD4352000311730 /* ABPersonManager */ = {
 			isa = PBXGroup;
 			children = (
-				F34FD7311AD4353F00311730 /* TJVCFFileManager.h */,
-				F34FD7321AD4353F00311730 /* TJVCFFileManager.m */,
+				F34FD7311AD4353F00311730 /* TJPersonManager.h */,
+				F34FD7321AD4353F00311730 /* TJPersonManager.m */,
 			);
-			name = VCF;
+			name = ABPersonManager;
 			sourceTree = "<group>";
 		};
 		F395BBD51ACEADEE00733674 /* Category */ = {
@@ -1122,7 +1122,7 @@
 				24686C83196E875600D8CF86 /* TJWelcome3.m in Sources */,
 				18190ED419CFFFE200D0488F /* TJPlayer.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
-				F34FD7331AD4353F00311730 /* TJVCFFileManager.m in Sources */,
+				F34FD7331AD4353F00311730 /* TJPersonManager.m in Sources */,
 				F34666CB1ACC56B600E83B7F /* TJMessage.m in Sources */,
 				18145E8C1ABDBDFF00040AB7 /* TJBaseTableViewController.m in Sources */,
 				F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */,
