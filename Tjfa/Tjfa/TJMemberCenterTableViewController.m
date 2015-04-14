@@ -53,8 +53,11 @@
 {
     self.phoneLabel.text = self.targerUser.mobilePhoneNumber;
     if (self.targerUser.avatar) {
-        NSData *data = [self.targerUser.avatar getData];
-        [self.avatarImageView setImage:[UIImage imageWithData:data]];
+        [self.targerUser.avatar getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (error == nil) {
+                [self.avatarImageView setImage:[UIImage imageWithData:data]];
+            }
+        }];
     }
     
     self.nameLabel.text = self.targerUser.name;
@@ -66,8 +69,24 @@
 
 - (IBAction)shareMemberPress:(UIButton *)sender
 {
-    NSString *str = [TJVCFFileManager generalVCFStringWithUser:self.targerUser];
+    NSData *personData = [TJVCFFileManager generalVCFStringWithUser:self.targerUser];
+    NSString *tempVcfFile = [NSTemporaryDirectory() stringByAppendingFormat:@"%@.vcf", self.targerUser.name];
+    BOOL writeFileSuccess = [personData writeToFile:tempVcfFile atomically:YES];
+    
+    if (writeFileSuccess) {
+        NSURL *fileUrl = [NSURL fileURLWithPath:tempVcfFile];
+        UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[fileUrl] applicationActivities:nil];
+        [self.navigationController presentViewController:activityViewController animated:YES completion:nil];
+    }
+    else {
+        [MBProgressHUD showErrorProgressInView:nil withText:@"生成名片失败"];
+    }
 }
+
+- (IBAction)addToContact:(id)sender
+{
+}
+
 
 - (IBAction)sendMessagePress:(id)sender
 {

@@ -8,41 +8,48 @@
 
 #import "TJVCFFileManager.h"
 #import "TJUser.h"
-
 @implementation TJVCFFileManager
 
-+ (NSString *)generalVCFStringWithUser:(TJUser *)user
++ (NSData *)generalVCFStringWithUser:(TJUser *)user
+{
+    ABRecordRef person = [self generalWithUser:user];
+    NSArray *individual = [[NSArray alloc]initWithObjects:(__bridge id)(person), nil];
+    CFArrayRef arrayRef = (__bridge CFArrayRef)individual;
+    NSData *vcards = (__bridge NSData *)ABPersonCreateVCardRepresentationWithPeople(arrayRef);
+    
+    return vcards;
+}
+
++ (ABRecordRef)generalWithUser:(TJUser *)user
 {
     if (user == nil) {
-        return @"";
+        return nil;
     }
-    NSString *vCard = @"";
+    
+    ABRecordRef person = ABPersonCreate();
+
     
     NSString *lastName = @"";
     if (user.name.length >= 1) {
-        lastName = [user.name substringFromIndex:1];
+        lastName = [user.name substringToIndex:1];
     }
-
+    
     NSString *firstName = @"";
     if (user.name.length >= 2) {
         firstName = [user.name substringFromIndex:1];
     }
     
-    NSString *middleName = @"";
-    NSString *prefix = @"";
-    NSString *suffix = @"";
-    
-    vCard = [vCard stringByAppendingFormat:@"BEGIN:VCARD\nVERSION:3.0\nN:%@;%@;%@;%@;%@\n", firstName, lastName, middleName, prefix, suffix];
-    vCard = [vCard stringByAppendingFormat:@"TEL;type=CELL:%@\n", user.mobilePhoneNumber];
-    
+    ABRecordSetValue(person, kABPersonPhoneProperty, (__bridge CFTypeRef)(user.mobilePhoneNumber), nil);
+    ABRecordSetValue(person, kABPersonFirstNameProperty, (__bridge CFTypeRef)(firstName), nil);
+    ABRecordSetValue(person, kABPersonLastNameProperty, (__bridge CFTypeRef)(lastName), nil);
     if (user.avatar) {
         NSData *avatar = [user.avatar getData];
-        NSString *avatarString = [[NSString alloc] initWithData:avatar encoding:NSUTF8StringEncoding];
+        if (avatar) {
+            ABPersonSetImageData(person, (__bridge CFDataRef)(avatar), nil);
+        }
     }
     
-    vCard = [vCard stringByAppendingString:@"END:VCARD"];
-    
-    return vCard;
+    return person;
 }
 
 @end

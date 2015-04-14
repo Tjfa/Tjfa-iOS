@@ -33,8 +33,11 @@ const int password_index = 2;
     [super viewDidLoad];
     self.user = [TJUser currentUser];
     if (self.user.avatar) {
-        NSData *data = [self.user.avatar getData];
-        [self.avatarImageView setImage:[UIImage imageWithData:data]];
+        [self.user.avatar getDataInBackgroundWithBlock:^(NSData *data , NSError *error) {
+            if (error == nil) {
+                [self.avatarImageView setImage:[UIImage imageWithData:data]];
+            }
+        }];
     }
     
     if (self.user.name) {

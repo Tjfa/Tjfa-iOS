@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AddressBook/AddressBook.h>
 
 @class TJUser;
 
 @interface TJVCFFileManager : NSObject
 
-+ (NSString *)generalVCFStringWithUser:(TJUser *)user;
++ (NSData *)generalVCFStringWithUser:(TJUser *)user;
+
++ (ABRecordRef)generalWithUser:(TJUser *)user;
 
 @end
