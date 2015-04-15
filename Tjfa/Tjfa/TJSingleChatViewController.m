@@ -11,6 +11,15 @@
 
 @implementation TJSingleChatViewController
 
++ (id)allocWithRouterParams:(NSDictionary *)params
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    TJSingleChatViewController *instance = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(self)];
+    instance.targetEmId = params[@"targetEmId"];
+    return instance;
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

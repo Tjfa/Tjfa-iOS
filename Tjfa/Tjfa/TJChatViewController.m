@@ -92,6 +92,11 @@ const int kDefaultMessageCount = 20;
 
 - (void)setupConversation
 {
+    if ([self.targetEmId isEqualToString:self.currentUser.username]) {
+        [MBProgressHUD showErrorProgressInView:nil withText:@"不要无聊和自己聊天啦"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
     self.conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:self.targetEmId isGroup:self.isGroup];
     [[EaseMob sharedInstance].chatManager enableDeliveryNotification];
     NSArray *emMessages = [self.conversation loadNumbersOfMessages:kDefaultMessageCount];

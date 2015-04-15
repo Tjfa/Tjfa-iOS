@@ -2694,6 +2694,9 @@
                                                     <state key="normal" image="btn_chat">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="chatPress:" destination="m7o-Gq-w5N" eventType="touchUpInside" id="DTz-PD-rJO"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXx-4v-cdz" userLabel="message">
                                                     <rect key="frame" x="232" y="8" width="44" height="44"/>

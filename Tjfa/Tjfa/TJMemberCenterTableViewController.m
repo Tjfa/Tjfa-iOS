@@ -10,6 +10,7 @@
 #import "TJPersonManager.h"
 #import "MBProgressHUD+AppProgressView.h"
 #import "TJUserManager.h"
+#import <Routable.h>
 
 @interface TJMemberCenterTableViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
@@ -102,6 +103,11 @@
         });
     });
  
+}
+
+- (IBAction)chatPress:(id)sender
+{
+    [[Routable sharedRouter] open:@"singleChat" withParams:@{@"targetEmId" : self.targerUser.username}];
 }
 
 - (IBAction)sendMessagePress:(id)sender

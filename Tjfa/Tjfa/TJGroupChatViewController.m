@@ -10,4 +10,13 @@
 
 @implementation TJGroupChatViewController
 
++ (id)allocWithRouterParams:(NSDictionary *)params
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    TJGroupChatViewController *instance = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass(self)];
+    instance.targetEmId = params[@"targetEmId"];
+    return instance;
+}
+
+
 @end
