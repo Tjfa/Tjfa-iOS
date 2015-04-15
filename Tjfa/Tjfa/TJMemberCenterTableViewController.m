@@ -85,9 +85,24 @@
 
 - (IBAction)addToContact:(id)sender
 {
-    
+    MBProgressHUD *progress = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"添加中"];
+    dispatch_async(dispatch_queue_create("Add To Contact", nil), ^(){
+        TJMergeCreateToContact status = [TJPersonManager mergeOrAddToContactWithUser:self.targerUser];
+        dispatch_async(dispatch_get_main_queue(), ^() {
+            [progress hide:YES];
+            if (status == TJMergetToContact) {
+                [MBProgressHUD showErrorProgressInView:nil withText:@"该联系人已存在"];
+            }
+            else if (status == TJMergetOrAddFail) {
+                [MBProgressHUD showErrorProgressInView:nil withText:@"添加失败"];
+            }
+            else {
+                [MBProgressHUD showErrorProgressInView:nil withText:@"添加成功"];
+            }
+        });
+    });
+ 
 }
-
 
 - (IBAction)sendMessagePress:(id)sender
 {

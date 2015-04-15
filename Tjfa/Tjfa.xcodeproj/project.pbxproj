@@ -482,13 +482,6 @@
 			name = Player;
 			sourceTree = "<group>";
 		};
-		2447B3A7198CA08600B297BB /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Shared;
-			sourceTree = "<group>";
-		};
 		24686C71196E66B600D8CF86 /* About */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,7 +688,6 @@
 			children = (
 				F3ECD2821AD56DFD0072C750 /* User */,
 				F34FD7301AD4352000311730 /* ABPersonManager */,
-				2447B3A7198CA08600B297BB /* Shared */,
 				24FED22B195A774900A9F0DA /* TJDatabaseManager.h */,
 				24FED22C195A774900A9F0DA /* TJDatabaseManager.m */,
 				24CECC3218E2A3D700D43E0D /* TJNetworkClient.h */,
