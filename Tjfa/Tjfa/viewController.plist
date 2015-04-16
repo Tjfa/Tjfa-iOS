@@ -34,5 +34,7 @@
 	<string>TJMemberListViewController</string>
 	<key>userCenter</key>
 	<string>TJMemberCenterTableViewController</string>
+	<key>notificationCenter</key>
+	<string>TJNotificationViewController</string>
 </dict>
 </plist>

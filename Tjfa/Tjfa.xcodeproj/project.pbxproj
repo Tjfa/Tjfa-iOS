@@ -110,6 +110,12 @@
 		F3ADCCCA1AD2A2BF0001B91F /* JSQVoiceMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */; };
 		F3ECD2851AD56E0C0072C750 /* TJUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2841AD56E0C0072C750 /* TJUserManager.m */; };
 		F3ECD2891AD5894E0072C750 /* TJPasteBoardLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2881AD5894E0072C750 /* TJPasteBoardLabel.m */; };
+		F3FD69CB1ADFECE400C57930 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD69C81ADFECE400C57930 /* UIBarButtonItem+Badge.m */; };
+		F3FD69CC1ADFECE400C57930 /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD69CA1ADFECE400C57930 /* UIButton+Badge.m */; };
+		F3FD69D01ADFEE8800C57930 /* TJNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD69CF1ADFEE8800C57930 /* TJNotificationViewController.m */; };
+		F3FD69D41ADFF24E00C57930 /* TJBaseNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD69D31ADFF24E00C57930 /* TJBaseNotificationCell.m */; };
+		F3FD69D71ADFF2A500C57930 /* TJSystemNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD69D61ADFF2A500C57930 /* TJSystemNotificationCell.m */; };
+		F3FD69DA1ADFF2B300C57930 /* TJChatNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD69D91ADFF2B300C57930 /* TJChatNotificationCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,6 +321,18 @@
 		F3ECD2841AD56E0C0072C750 /* TJUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUserManager.m; sourceTree = "<group>"; };
 		F3ECD2871AD5894E0072C750 /* TJPasteBoardLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPasteBoardLabel.h; sourceTree = "<group>"; };
 		F3ECD2881AD5894E0072C750 /* TJPasteBoardLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPasteBoardLabel.m; sourceTree = "<group>"; };
+		F3FD69C71ADFECE400C57930 /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
+		F3FD69C81ADFECE400C57930 /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
+		F3FD69C91ADFECE400C57930 /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
+		F3FD69CA1ADFECE400C57930 /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
+		F3FD69CE1ADFEE8800C57930 /* TJNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJNotificationViewController.h; sourceTree = "<group>"; };
+		F3FD69CF1ADFEE8800C57930 /* TJNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJNotificationViewController.m; sourceTree = "<group>"; };
+		F3FD69D21ADFF24E00C57930 /* TJBaseNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJBaseNotificationCell.h; sourceTree = "<group>"; };
+		F3FD69D31ADFF24E00C57930 /* TJBaseNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJBaseNotificationCell.m; sourceTree = "<group>"; };
+		F3FD69D51ADFF2A500C57930 /* TJSystemNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJSystemNotificationCell.h; sourceTree = "<group>"; };
+		F3FD69D61ADFF2A500C57930 /* TJSystemNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJSystemNotificationCell.m; sourceTree = "<group>"; };
+		F3FD69D81ADFF2B300C57930 /* TJChatNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJChatNotificationCell.h; sourceTree = "<group>"; };
+		F3FD69D91ADFF2B300C57930 /* TJChatNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJChatNotificationCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,6 +425,7 @@
 				18145E881ABDBD1600040AB7 /* TJBaseViewController.m */,
 				18145E8A1ABDBDFF00040AB7 /* TJBaseTableViewController.h */,
 				18145E8B1ABDBDFF00040AB7 /* TJBaseTableViewController.m */,
+				F3FD69CD1ADFEE6300C57930 /* Notification */,
 				F34666921AC991BC00E83B7F /* Member */,
 				24B8C1B91977B33300B2FAD0 /* CompetitionDetail */,
 				24686C77196E7B2D00D8CF86 /* Welcome */,
@@ -566,6 +585,8 @@
 		249CF66518E16A840084DDBB /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				24FED22B195A774900A9F0DA /* TJDatabaseManager.h */,
+				24FED22C195A774900A9F0DA /* TJDatabaseManager.m */,
 				18190EC519CFFFCA00D0488F /* TJModule */,
 				18190EC419CFFFB200D0488F /* LocalModule */,
 				24A3B4901986ACBE00F6D263 /* Category */,
@@ -688,8 +709,6 @@
 			children = (
 				F3ECD2821AD56DFD0072C750 /* User */,
 				F34FD7301AD4352000311730 /* ABPersonManager */,
-				24FED22B195A774900A9F0DA /* TJDatabaseManager.h */,
-				24FED22C195A774900A9F0DA /* TJDatabaseManager.m */,
 				24CECC3218E2A3D700D43E0D /* TJNetworkClient.h */,
 				24CECC3318E2A3D700D43E0D /* TJNetworkClient.m */,
 				24686C71196E66B600D8CF86 /* About */,
@@ -758,6 +777,7 @@
 				24686C7B196E7DAF00D8CF86 /* UserData */,
 				240AE6C9195EC1FA00F7820D /* UILayer */,
 				24CFD62518E1517100D706D1 /* LogicalLayer */,
+				F3FD69C61ADFECD400C57930 /* Vender */,
 				24F1D1E618E063E1007E2309 /* Supporting Files */,
 			);
 			path = Tjfa;
@@ -942,6 +962,40 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		F3FD69C61ADFECD400C57930 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				F3FD69C71ADFECE400C57930 /* UIBarButtonItem+Badge.h */,
+				F3FD69C81ADFECE400C57930 /* UIBarButtonItem+Badge.m */,
+				F3FD69C91ADFECE400C57930 /* UIButton+Badge.h */,
+				F3FD69CA1ADFECE400C57930 /* UIButton+Badge.m */,
+			);
+			name = Vender;
+			sourceTree = "<group>";
+		};
+		F3FD69CD1ADFEE6300C57930 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				F3FD69D11ADFF22F00C57930 /* NotificationCell */,
+				F3FD69CE1ADFEE8800C57930 /* TJNotificationViewController.h */,
+				F3FD69CF1ADFEE8800C57930 /* TJNotificationViewController.m */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
+		F3FD69D11ADFF22F00C57930 /* NotificationCell */ = {
+			isa = PBXGroup;
+			children = (
+				F3FD69D21ADFF24E00C57930 /* TJBaseNotificationCell.h */,
+				F3FD69D31ADFF24E00C57930 /* TJBaseNotificationCell.m */,
+				F3FD69D51ADFF2A500C57930 /* TJSystemNotificationCell.h */,
+				F3FD69D61ADFF2A500C57930 /* TJSystemNotificationCell.m */,
+				F3FD69D81ADFF2B300C57930 /* TJChatNotificationCell.h */,
+				F3FD69D91ADFF2B300C57930 /* TJChatNotificationCell.m */,
+			);
+			name = NotificationCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1087,6 +1141,7 @@
 				24E58E8C18E815C1007BFFD8 /* TJMatchManager.m in Sources */,
 				F34666AD1ACA8B7600E83B7F /* TJUserCenterTableViewController.m in Sources */,
 				2495BA2A19691E28009BB60F /* TJNewsCell.m in Sources */,
+				F3FD69D01ADFEE8800C57930 /* TJNotificationViewController.m in Sources */,
 				240AE6D5195EC5F100F7820D /* TJDashboardButton.m in Sources */,
 				24686C7A196E7B4C00D8CF86 /* TJWelcomeViewController.m in Sources */,
 				24C6FE4E195E8574008B594C /* News.m in Sources */,
@@ -1103,8 +1158,10 @@
 				24B1542D1983C87E004F87DA /* TJTopScoreTableViewCell.m in Sources */,
 				F34FD72F1AD42B0200311730 /* TJMemberCenterTableViewController.m in Sources */,
 				24B154291983C234004F87DA /* TJYellowCardTableViewCell.m in Sources */,
+				F3FD69DA1ADFF2B300C57930 /* TJChatNotificationCell.m in Sources */,
 				24C6FE4D195E8574008B594C /* Competition.m in Sources */,
 				244ACBCB198E8CFD003E640A /* TJWelcome2.m in Sources */,
+				F3FD69CC1ADFECE400C57930 /* UIButton+Badge.m in Sources */,
 				246753BD196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m in Sources */,
 				2447B3AA198CAA7300B297BB /* TJDeveloper.m in Sources */,
 				24C84BC11976CADE00980720 /* TJRootViewController.m in Sources */,
@@ -1137,6 +1194,7 @@
 				24C84BBE1976BC0E00980720 /* TJMatchViewController.m in Sources */,
 				F3ECD2891AD5894E0072C750 /* TJPasteBoardLabel.m in Sources */,
 				F34666C81ACBD9B000E83B7F /* TJMemberListCell.m in Sources */,
+				F3FD69D71ADFF2A500C57930 /* TJSystemNotificationCell.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,
 				18190ED319CFFFE200D0488F /* TJNews.m in Sources */,
 				240099F9196024BE0036EFF4 /* TJAppInfo.m in Sources */,
@@ -1155,12 +1213,14 @@
 				240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */,
 				F34666C11ACADE4400E83B7F /* TJGroupChatViewController.m in Sources */,
 				F34666BA1ACADE0900E83B7F /* TJChatViewController.m in Sources */,
+				F3FD69D41ADFF24E00C57930 /* TJBaseNotificationCell.m in Sources */,
 				24A3B4931986ACDB00F6D263 /* NSNumber+Assign.m in Sources */,
 				F34666BE1ACADE3700E83B7F /* TJSingleChatViewController.m in Sources */,
 				2495BA2719690C1F009BB60F /* TJNewsViewController.m in Sources */,
 				24F1D1EC18E063E1007E2309 /* main.m in Sources */,
 				246753B7196BE2BA007BDE90 /* TJNewsContentViewController.m in Sources */,
 				18145E891ABDBD1600040AB7 /* TJBaseViewController.m in Sources */,
+				F3FD69CB1ADFECE400C57930 /* UIBarButtonItem+Badge.m in Sources */,
 				ADEDA1E1195FE00D009B8D20 /* TJCompetitionViewController.m in Sources */,
 				F395BBD81ACEAE0D00733674 /* EMConversation+LoadMessage.m in Sources */,
 				248BD096197E593000419603 /* TJGroupScoreCell.m in Sources */,

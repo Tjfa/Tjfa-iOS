@@ -28,7 +28,7 @@
     [self.tableView addPullToRefreshWithActionHandler:^() {
         AVQuery *query = [TJUser query];
         [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-            [self.tableView.pullToRefreshView stopAnimating];
+            [weakSelf.tableView.pullToRefreshView stopAnimating];
             if (error) {
                 NSLog(@"%@", error.description);
             }
@@ -66,7 +66,7 @@
 {
     TJMemberListCell *cell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass(TJMemberListCell.class)];
     TJUser *user = self.data[indexPath.row];
-    cell.textLabel.text = user.name;
+    [cell setCellWithUser:user];
     return cell;
 }
 

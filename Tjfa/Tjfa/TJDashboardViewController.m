@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSArray *dashBoardCellArray;
 
 @property (nonatomic, weak) IBOutlet UIView *rootView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *notificationBarButton;
 
 @end
 
@@ -208,4 +209,13 @@ const CGFloat delayAnimate = 0.1;
     [self hideWithAnimateSynCompleteToController:@"setting" withParams:nil];
 }
 
+- (IBAction)pressNotificationButton:(UIBarButtonItem *)sender
+{
+    [self closeDashboardCellUserInterface];
+    NSString *controllerId = @"login";
+    if ([TJUser currentUser] != nil) {
+        controllerId = @"notificationCenter";
+    }
+    [self hideWithAnimateSynCompleteToController:controllerId withParams:nil];
+}
 @end

@@ -78,5 +78,22 @@
     }];
 }
 
+- (void)getUsersWithLimit:(int)limit page:(int)page complete:(void (^)(NSArray *users, NSError* error))complete
+{
+    AVQuery *query = [TJUser query];
+    query.limit = limit;
+    query.skip = page * limit;
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+        if (complete) {
+            if (error) {
+                complete(nil, error);
+            }
+            else {
+                complete(users, nil);
+            }
+        }
+    }];
+}
 
 @end

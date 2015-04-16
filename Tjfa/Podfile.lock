@@ -45,6 +45,7 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
+  - HexColors (2.2.1)
   - JSQMessagesViewController (7.0.0):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
@@ -58,6 +59,7 @@ PODS:
     - MBProgressHUD (~> 0.8)
     - PSTCollectionView (~> 1.2)
     - SDWebImage (~> 3.7)
+  - pop (1.0.7)
   - PSTCollectionView (1.2.3)
   - RESideMenu (4.0.5)
   - SDWebImage (3.7.2):
@@ -65,6 +67,8 @@ PODS:
   - SDWebImage/Core (3.7.2)
   - SVPullToRefresh (0.4.1)
   - TMRoutable (0.1.6)
+  - TSMessages (0.9.12):
+    - HexColors
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
   - UMeng (2.2.1)
@@ -81,10 +85,12 @@ DEPENDENCIES:
   - MagicalRecord (~> 2.2)
   - MBProgressHUD (~> 0.8)
   - MWPhotoBrowser (~> 1.4.1)
+  - pop (~> 1.0.7)
   - RESideMenu (~> 4.0.5)
   - SDWebImage (~> 3.7.2)
   - SVPullToRefresh (~> 0.4.1)
   - TMRoutable (~> 0.1.6)
+  - TSMessages (~> 0.9.12)
   - UIActivityIndicator-for-SDWebImage (~> 1.2)
   - UMeng (~> 2.2.1)
 
@@ -96,17 +102,20 @@ SPEC CHECKSUMS:
   DACircularProgress: 0f92b77239d5f3c612fc66185e2998391ac8e054
   EaseMobSDK: 258b552cf9ccade12742277f443cc01fd3a3db1a
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  HexColors: abfd172e329dab59888614ccba6f216cec59289d
   JSQMessagesViewController: 9fd7e9ac96e9fc91f2deca86928e2cc916aeebaa
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   libWeChatSDK: 7847d4de770ad195a56aa105ea9b72532440e4a0
   MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
   MBProgressHUD: 8688c331cb64702283be37ab8d7d329cdd25f251
   MWPhotoBrowser: 2531e682860d62b8a7ba8659de02eb9040e431e5
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   PSTCollectionView: 6749df92885353521f55279a7ce2b293762e2be4
   RESideMenu: 4453c9ce8c309accba4c04ce31850a6303abaee4
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
   TMRoutable: 8482d7e7afbec946de0ce81eec9b95e9e2ce0d01
+  TSMessages: 2a52642128d7ab15b46930c810b9c9403a2b58f3
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UMeng: a4fe3231efeb223015d9649e92538dd16a92685f
 

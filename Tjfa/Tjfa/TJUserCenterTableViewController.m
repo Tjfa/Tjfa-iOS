@@ -10,6 +10,7 @@
 #import "TJModule.h"
 #import <UIAlertView+BlocksKit.h>
 #import <UIActionSheet+BlocksKit.h>
+#import <SVPullToRefresh.h>
 #import "MBProgressHUD+AppProgressView.h"
 #import "TJUserManager.h"
 
@@ -31,7 +32,9 @@ const int password_index = 2;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.user = [TJUser currentUser];
+
     if (self.user.avatar) {
         [self.user.avatar getDataInBackgroundWithBlock:^(NSData *data , NSError *error) {
             if (error == nil) {
@@ -151,7 +154,7 @@ const int password_index = 2;
         picker.sourceType = sourceType;
         picker.delegate = self;
         picker.allowsEditing = YES;
-
+        
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self presentViewController:picker animated:YES completion:nil];
         }];
@@ -200,6 +203,7 @@ const int password_index = 2;
         } progressBlock:^(NSInteger percentDone) {
             loading.progress = percentDone / 100.0 * 99.0 / 100;
         }];
+        
 
     }];
 }

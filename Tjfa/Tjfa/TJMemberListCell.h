@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TJUser;
 
 @interface TJMemberListCell : UITableViewCell
+
+- (void)setCellWithUser:(TJUser *)user;
 
 @end
