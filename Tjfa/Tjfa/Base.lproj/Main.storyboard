@@ -1157,7 +1157,7 @@
         <!--比赛日-->
         <scene sceneID="y7w-Hb-Cao">
             <objects>
-                <viewController id="b88-2J-unT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TJMatchDayViewController" id="b88-2J-unT" customClass="TJMatchDayViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VFS-rc-bCU"/>
                         <viewControllerLayoutGuide type="bottom" id="gmN-xh-0Nm"/>
