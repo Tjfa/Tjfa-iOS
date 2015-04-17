@@ -12,11 +12,17 @@
 #import "TJMemberListCell.h"
 #import "TJSingleChatViewController.h"
 #import "TJMemberCenterTableViewController.h"
+#import "TJUserManager.h"
+#import "TjfaConst.h"
+#import "MBProgressHUD+AppProgressView.h"
 
 @interface TJMemberListViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) NSArray *data;
+@property (nonatomic, strong) NSMutableArray *data;
+
+@property (nonatomic, assign) NSInteger currentPage;
+@property (nonatomic, assign) BOOL hasMore;
 
 @end
 
@@ -26,26 +32,55 @@
 {
     __weak typeof(self) weakSelf = self;
     [self.tableView addPullToRefreshWithActionHandler:^() {
-        AVQuery *query = [TJUser query];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-            [weakSelf.tableView.pullToRefreshView stopAnimating];
-            if (error) {
-                NSLog(@"%@", error.description);
+        weakSelf.currentPage = 0;
+        [weakSelf getDataAtPage:weakSelf.currentPage];
+    }];
+    [self.tableView triggerPullToRefresh];
+}
+
+#pragma mark - Get Data
+
+- (void)getDataAtPage:(int)page
+{
+    MBProgressHUD *progress = nil;
+    if (self.data.count == 0) {
+        progress = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"载入中.."];
+    }
+    
+    if (page == 0) {
+        self.hasMore = YES;
+    }
+    
+    [[TJUserManager sharedUserManager] getUsersWithLimit:DEFAULT_LIMIT page:page complete:^(NSArray *users, NSError *error) {
+        [progress hide:YES];
+        
+        if (error) {
+            [MBProgressHUD showErrorProgressInView:nil withText:@"加载失败"];
+        }
+        else {
+            if (page == 0) {
+                [self.tableView.pullToRefreshView stopAnimating];
+                self.data = [users mutableCopy];
             }
             else {
-                weakSelf.data = array;
-                [weakSelf.tableView reloadData];
+                [self.data addObjectsFromArray:users];
             }
-        }];
+            
+            if (users.count < DEFAULT_LIMIT) {
+                self.hasMore = NO;
+            }
+            
+            [self.tableView reloadData];
+        }
     }];
 }
 
 #pragma mark - getter & setter
 
-- (NSArray *)data
+- (NSMutableArray *)data
 {
     if (_data == nil) {
-        _data = [NSArray array];
+        _data = [NSMutableArray array];
     }
     return _data;
 }
@@ -67,6 +102,12 @@
     TJMemberListCell *cell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass(TJMemberListCell.class)];
     TJUser *user = self.data[indexPath.row];
     [cell setCellWithUser:user];
+
+    if ((indexPath.row == self.data.count - 1) && self.hasMore) {
+        self.currentPage = self.currentPage + 1;
+        [self getDataAtPage:self.currentPage];
+    }
+    
     return cell;
 }
 
