@@ -7,11 +7,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "btn_phone.png"
+      "filename" : "for qf-01.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "for qf-01-1.png"
     }
   ],
   "info" : {
