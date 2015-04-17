@@ -58,18 +58,21 @@
     }
     self.nameLabel.text = user.name;
     self.phoneLabel.text = user.mobilePhoneNumber;
+}
+
+- (void)showAnimate
+{
     [self showAvatoarImageViewAnimation];
-    [self showPhoneLabelAnimation];
-    [self showNameLabelAnimation];
+//    [self showPhoneLabelAnimation];
+//    [self showNameLabelAnimation];
 }
 
 - (void)showPhoneLabelAnimation
 {
-    POPSpringAnimation *moveAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionX];
-    CGFloat x = self.phoneLabel.frame.origin.x;
-    CGFloat width = self.phoneLabel.frame.size.width;
-    moveAnimation.fromValue = @(width / 2);
-    moveAnimation.toValue = @(width / 2 + x);
+    POPSpringAnimation *moveAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
+    CGSize size = self.phoneLabel.frame.size;
+    moveAnimation.fromValue = [NSValue valueWithCGSize:CGSizeZero];
+    moveAnimation.toValue = [NSValue valueWithCGSize:size];
     moveAnimation.springBounciness = 20;
     moveAnimation.springSpeed = 5;
     [self.phoneLabel.layer pop_addAnimation:moveAnimation forKey:@"phone_move"];
@@ -77,15 +80,13 @@
 
 - (void)showNameLabelAnimation
 {
-    POPSpringAnimation *moveAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPositionX];
-    CGFloat x = self.phoneLabel.frame.origin.x;
-    CGFloat width = self.phoneLabel.frame.size.width;
-    moveAnimation.fromValue = @(self.frame.size.width);
-    moveAnimation.toValue = @(x + width + 15);
+    POPSpringAnimation *moveAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerSize];
+    CGSize size = self.nameLabel.frame.size;
+    moveAnimation.fromValue = [NSValue valueWithCGSize:CGSizeZero];
+    moveAnimation.toValue = [NSValue valueWithCGSize:size];
     moveAnimation.springBounciness = 20;
     moveAnimation.springSpeed = 5;
     [self.nameLabel pop_addAnimation:moveAnimation forKey:@"name_move"];
-
 }
 
 @end

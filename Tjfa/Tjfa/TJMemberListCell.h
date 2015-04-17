@@ -13,4 +13,6 @@
 
 - (void)setCellWithUser:(TJUser *)user;
 
+- (void)showAnimate;
+
 @end

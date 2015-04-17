@@ -40,7 +40,7 @@
 
 #pragma mark - Get Data
 
-- (void)getDataAtPage:(int)page
+- (void)getDataAtPage:(NSInteger)page
 {
     MBProgressHUD *progress = nil;
     if (self.data.count == 0) {
@@ -65,12 +65,11 @@
             else {
                 [self.data addObjectsFromArray:users];
             }
+            [self.tableView reloadData];
             
             if (users.count < DEFAULT_LIMIT) {
                 self.hasMore = NO;
             }
-            
-            [self.tableView reloadData];
         }
     }];
 }
@@ -109,6 +108,17 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TJMemberListCell *tjCell = (TJMemberListCell *)cell;
+    [tjCell showAnimate];
 }
 
 #pragma mark - Segue

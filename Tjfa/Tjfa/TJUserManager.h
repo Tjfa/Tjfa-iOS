@@ -34,6 +34,6 @@
 
 - (void)findUserWithAccount:(NSString *)account complete:(void (^)(TJUser *user, NSError *error))complete;
 
-- (void)getUsersWithLimit:(int)limit page:(int)page complete:(void (^)(NSArray *users, NSError *error))complete;
+- (void)getUsersWithLimit:(int)limit page:(NSInteger)page complete:(void (^)(NSArray *users, NSError *error))complete;
 
 @end

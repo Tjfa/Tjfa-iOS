@@ -78,7 +78,7 @@
     }];
 }
 
-- (void)getUsersWithLimit:(int)limit page:(int)page complete:(void (^)(NSArray *users, NSError* error))complete
+- (void)getUsersWithLimit:(int)limit page:(NSInteger)page complete:(void (^)(NSArray *users, NSError* error))complete
 {
     AVQuery *query = [TJUser query];
     query.limit = limit;
