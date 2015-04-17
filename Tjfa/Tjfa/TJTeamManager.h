@@ -23,4 +23,6 @@
 
 - (NSArray *)insertTeamsWithArray:(NSArray *)arr andCompetition:(Competition *)competition;
 
+- (void)getTeamsByTeamId:(NSNumber *)teamId complete:(void (^)(TJTeam *, NSError *))complete;
+
 @end

@@ -62,23 +62,22 @@
     return results;
 }
 
+- (void)getMatchesFrom:(NSDate *)fromDate to:(NSDate *)toDate complete:(void (^)(NSArray *, NSError *))complete
+{
+    AVQuery *query = [TJMatch query];
+    [query whereKey:@"date" greaterThanOrEqualTo:fromDate];
+    [query whereKey:@"date" lessThanOrEqualTo:toDate];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *matches, NSError *error) {
+        if (complete) {
+            complete(matches, error);
+        }
+    }];
+}
+
+
 - (void)getMatchesByCompetitionFromNetwork:(Competition *)competition complete:(void (^)(NSArray *, NSError *))complete
 {
-    //    NSDictionary* parameters = @{ @"competitionId" : competition.competitionId };
-    //
-    //    __weak MatchManager* weakSelf = self;
-    //    [[NetworkClient sharedNetworkClient] searchForAddress:[NetworkClient matchAdderss] withParameters:parameters complete:^(NSDictionary* results, NSError* error) {
-    //            if (error){
-    //                complete(nil,error);
-    //            }else{
-    //                [[TeamManager sharedTeamManager] insertTeamsWithArray:results[@"teams"] andCompetition:competition];
-    //                NSArray* matches=[weakSelf insertMatchesWithArray:results[@"matches"] andCompetition:competition];
-    //                complete(matches,nil);
-    //            }
-    //    }];
-
     __weak typeof(self) weakSelf = self;
-    NSLog(@"%@", competition.competitionId);
     AVQuery *teamQuery = [TJTeam query];
     [teamQuery whereKey:@"competitionId" equalTo:competition.competitionId];
     [teamQuery findObjectsInBackgroundWithBlock:^(NSArray *teamsResult, NSError *error) {

@@ -44,6 +44,13 @@
                                   complete:(void (^)(NSArray *results,
                                                      NSError *error))complete;
 
+
+/**
+ * 返回从某个时间到某个时间点的所有match  第一个 时间点间隔不要太长 一周左右比较好 
+ * complete中的 NSArray 是 TJMatch类型 因此 并不保证有对应的team 需要重新find一次
+ */
+- (void)getMatchesFrom:(NSDate *)fromDate to:(NSDate *)toDate complete:(void (^)(NSArray *, NSError *))complete;
+
 - (void)clearAllMatch;
 
 @end

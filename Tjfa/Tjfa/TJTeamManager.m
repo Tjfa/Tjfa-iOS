@@ -75,6 +75,27 @@
     }];
 }
 
+- (void)getTeamsByTeamId:(NSNumber *)teamId complete:(void (^)(TJTeam *, NSError *))complete
+{
+    AVQuery *query = [TJTeam query];
+    [query whereKey:@"teamId" equalTo:teamId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error){
+        if (complete) {
+            if (error) {
+                complete(nil, error);
+            }
+            else {
+                if (results.count == 0) {
+                    complete(nil, [[NSError alloc] init]);
+                }
+                else {
+                    complete([results firstObject], nil);
+                }
+            }
+        }
+    }];
+}
+
 - (void)clearAllTeam
 {
     [Team MR_truncateAll];

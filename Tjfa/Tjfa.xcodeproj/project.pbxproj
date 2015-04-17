@@ -108,6 +108,8 @@
 		F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC711ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m */; };
 		F3ADCC781ACFC01A0001B91F /* UIImage+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC771ACFC01A0001B91F /* UIImage+VoiceButton.m */; };
 		F3ADCCCA1AD2A2BF0001B91F /* JSQVoiceMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */; };
+		F3C4FA0B1AE158B8000BD302 /* TJMemberMatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4FA0A1AE158B8000BD302 /* TJMemberMatchCell.m */; };
+		F3C4FA0E1AE16741000BD302 /* TJMatchDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4FA0D1AE16741000BD302 /* TJMatchDayViewController.m */; };
 		F3ECD2851AD56E0C0072C750 /* TJUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2841AD56E0C0072C750 /* TJUserManager.m */; };
 		F3ECD2891AD5894E0072C750 /* TJPasteBoardLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2881AD5894E0072C750 /* TJPasteBoardLabel.m */; };
 		F3FD69CB1ADFECE400C57930 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD69C81ADFECE400C57930 /* UIBarButtonItem+Badge.m */; };
@@ -317,6 +319,10 @@
 		F3ADCC771ACFC01A0001B91F /* UIImage+VoiceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+VoiceButton.m"; sourceTree = "<group>"; };
 		F3ADCCC81AD2A2BF0001B91F /* JSQVoiceMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQVoiceMediaItem.h; sourceTree = "<group>"; };
 		F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQVoiceMediaItem.m; sourceTree = "<group>"; };
+		F3C4FA091AE158B8000BD302 /* TJMemberMatchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMemberMatchCell.h; sourceTree = "<group>"; };
+		F3C4FA0A1AE158B8000BD302 /* TJMemberMatchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMemberMatchCell.m; sourceTree = "<group>"; };
+		F3C4FA0C1AE16741000BD302 /* TJMatchDayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMatchDayViewController.h; sourceTree = "<group>"; };
+		F3C4FA0D1AE16741000BD302 /* TJMatchDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMatchDayViewController.m; sourceTree = "<group>"; };
 		F3ECD2831AD56E0C0072C750 /* TJUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUserManager.h; sourceTree = "<group>"; };
 		F3ECD2841AD56E0C0072C750 /* TJUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUserManager.m; sourceTree = "<group>"; };
 		F3ECD2871AD5894E0072C750 /* TJPasteBoardLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPasteBoardLabel.h; sourceTree = "<group>"; };
@@ -869,6 +875,8 @@
 				F34666C21ACB002A00E83B7F /* TJMemberListViewController.h */,
 				F34666C31ACB002A00E83B7F /* TJMemberListViewController.m */,
 				F34666BB1ACADE1200E83B7F /* Chat */,
+				F3C4FA0C1AE16741000BD302 /* TJMatchDayViewController.h */,
+				F3C4FA0D1AE16741000BD302 /* TJMatchDayViewController.m */,
 			);
 			name = Member;
 			sourceTree = "<group>";
@@ -896,6 +904,8 @@
 			children = (
 				F34666C61ACBD9B000E83B7F /* TJMemberListCell.h */,
 				F34666C71ACBD9B000E83B7F /* TJMemberListCell.m */,
+				F3C4FA091AE158B8000BD302 /* TJMemberMatchCell.h */,
+				F3C4FA0A1AE158B8000BD302 /* TJMemberMatchCell.m */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -1181,6 +1191,7 @@
 				F3ADCC781ACFC01A0001B91F /* UIImage+VoiceButton.m in Sources */,
 				2495FA0D196D005C00319872 /* UIView+RefreshFooterView.m in Sources */,
 				24686C7E196E7DD000D8CF86 /* TJUserData.m in Sources */,
+				F3C4FA0E1AE16741000BD302 /* TJMatchDayViewController.m in Sources */,
 				F3ADCCCA1AD2A2BF0001B91F /* JSQVoiceMediaItem.m in Sources */,
 				F34666A61AC9B1F400E83B7F /* TJRegisterViewController.m in Sources */,
 				F34666951AC991E000E83B7F /* TJLoginInViewController.m in Sources */,
@@ -1204,6 +1215,7 @@
 				240AE6D0195EC52300F7820D /* TJDashboardViewController.m in Sources */,
 				18190ED219CFFFE200D0488F /* TJMatch.m in Sources */,
 				24B8C1BD1977B43F00B2FAD0 /* TJTopScoreViewController.m in Sources */,
+				F3C4FA0B1AE158B8000BD302 /* TJMemberMatchCell.m in Sources */,
 				240AE6D8195EDCC600F7820D /* TJDashboardCell.m in Sources */,
 				24686C6F196E562F00D8CF86 /* TJSettingViewController.m in Sources */,
 				248BD09A197E60C600419603 /* TJTeamManager.m in Sources */,
