@@ -38,6 +38,11 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
+  - CocoaLumberjack (1.9.2):
+    - CocoaLumberjack/Extensions (= 1.9.2)
+  - CocoaLumberjack/Core (1.9.2)
+  - CocoaLumberjack/Extensions (1.9.2):
+    - CocoaLumberjack/Core
   - DACircularProgress (2.2.0)
   - EaseMobSDK (2.1.4.1)
   - FMDB (2.5):
@@ -72,6 +77,12 @@ PODS:
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
   - UMeng (2.2.1)
+  - YapDatabase (2.6.1):
+    - YapDatabase/standard (= 2.6.1)
+  - YapDatabase/common (2.6.1):
+    - CocoaLumberjack (~> 1)
+  - YapDatabase/standard (2.6.1):
+    - YapDatabase/common
 
 DEPENDENCIES:
   - AFNetworking (~> 2.3.1)
@@ -93,12 +104,14 @@ DEPENDENCIES:
   - TSMessages (~> 0.9.12)
   - UIActivityIndicator-for-SDWebImage (~> 1.2)
   - UMeng (~> 2.2.1)
+  - YapDatabase (~> 2.6.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 05b9f6e3aa5ac45bc383b4bb108ef338080a26c7
   AVOSCloud: c4e261f5d68f42c6e4c4a64934490b2f38c9cff7
   AVOSCloudSNS: bbeb6d2e21cb7971850565e41e0b4c0f2a9ce7d5
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  CocoaLumberjack: 628fca2e88ef06f7cf6817309aa405f325d9a6fa
   DACircularProgress: 0f92b77239d5f3c612fc66185e2998391ac8e054
   EaseMobSDK: 258b552cf9ccade12742277f443cc01fd3a3db1a
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
@@ -118,5 +131,6 @@ SPEC CHECKSUMS:
   TSMessages: 2a52642128d7ab15b46930c810b9c9403a2b58f3
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
   UMeng: a4fe3231efeb223015d9649e92538dd16a92685f
+  YapDatabase: 13566c87dc9226a0f15d755edba08e8ad94cac9f
 
 COCOAPODS: 0.35.0

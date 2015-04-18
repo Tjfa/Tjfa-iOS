@@ -74,7 +74,7 @@
     }];
 }
 
-- (void)getMatchWithMatchId:(NSNumber *)matchId complete:(void (^)(NSArray *, NSError *))complete
+- (void)getMatchWithMatchId:(NSNumber *)matchId complete:(void (^)(TJMatch *, NSError *))complete
 {
     AVQuery *query = [TJMatch query];
     [query whereKey:@"matchId" equalTo:matchId];
@@ -93,7 +93,7 @@
     }];
 }
 
-- (void)getMatchWithObjectId:(NSString *)objectId complete:(void (^)(NSArray *, NSError *))complete
+- (void)getMatchWithObjectId:(NSString *)objectId complete:(void (^)(TJMatch *, NSError *))complete
 {
     AVQuery *query = [TJMatch query];
     [query whereKey:@"objectId" equalTo:objectId];

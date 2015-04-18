@@ -97,7 +97,6 @@ const NSTimeInterval weekTimeInterval = 3600 * 24 * 7;
             [MBProgressHUD showErrorProgressInView:nil withText:@"加载失败"];
         }
         else {
-            NSLog(@"%lu", (unsigned long)matches.count);
             self.data = matches;
             [self.tableView reloadData];
         }
@@ -122,6 +121,11 @@ const NSTimeInterval weekTimeInterval = 3600 * 24 * 7;
     [cell setCellWithTJMatch:self.data[indexPath.row]];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Segue

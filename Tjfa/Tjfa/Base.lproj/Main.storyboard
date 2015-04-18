@@ -1293,7 +1293,7 @@
                                         </connections>
                                     </button>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cc5-AA-kk4">
-                                        <rect key="frame" x="0.0" y="64" width="320" height="216"/>
+                                        <rect key="frame" x="0.0" y="42" width="320" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="451024378.57601702">
                                             <!--2015-04-18 04:32:58 +0000-->
                                         </date>
@@ -1302,7 +1302,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="cc5-AA-kk4" secondAttribute="trailing" id="1Kj-1j-w1e"/>
-                                    <constraint firstItem="cc5-AA-kk4" firstAttribute="top" secondItem="3ho-f2-6kA" secondAttribute="top" constant="44" placeholder="YES" id="2WF-HT-MMH"/>
+                                    <constraint firstItem="cc5-AA-kk4" firstAttribute="top" secondItem="3ho-f2-6kA" secondAttribute="top" placeholder="YES" id="2WF-HT-MMH"/>
                                     <constraint firstItem="dbc-UV-Puf" firstAttribute="leading" secondItem="3ho-f2-6kA" secondAttribute="leading" constant="20" id="2jE-dE-TKg"/>
                                     <constraint firstItem="dbc-UV-Puf" firstAttribute="top" secondItem="3ho-f2-6kA" secondAttribute="top" id="FHN-JM-MvC"/>
                                     <constraint firstAttribute="bottom" secondItem="cc5-AA-kk4" secondAttribute="bottom" id="ax9-vO-UOp"/>
@@ -1331,6 +1331,7 @@
                         <outlet property="datePickerContainer" destination="3ho-f2-6kA" id="rNo-jx-arc"/>
                         <outlet property="datePickerContainerHeightConstraint" destination="slB-Af-pOS" id="AeG-YV-ERK"/>
                         <outlet property="mainContainer" destination="tLX-sn-DLe" id="XUn-Oz-uXY"/>
+                        <outlet property="remindButton" destination="1bL-c1-dvf" id="1O6-IC-N9y"/>
                         <outlet property="teamABadgeImageView" destination="gtx-1p-fwf" id="rWB-Ki-dXh"/>
                         <outlet property="teamANameLabel" destination="tWe-02-czS" id="Il8-fu-RTh"/>
                         <outlet property="teamBBadgeImageView" destination="fbu-Og-nur" id="8uU-Qf-6OV"/>
@@ -1357,8 +1358,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="jdZ-1E-p8h">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="kRD-rh-Wvi">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="LdR-Hq-OF4">
+                                    <rect key="frame" x="0.0" y="92" width="320" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
@@ -1951,6 +1952,14 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a4j-7t-Z5h">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" placeholder="会员名字" id="oUO-eW-Yuw">
+                                    <rect key="frame" x="-1" y="-20" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="0MY-sL-5T5" id="23z-F1-479"/>
+                                    </connections>
+                                </searchBar>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="SVf-MT-QWO">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2036,10 +2045,20 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchDisplayController" destination="Eg2-pg-ZFj" id="GKh-EP-J88"/>
                         <outlet property="tableView" destination="a4j-7t-Z5h" id="gnI-L5-HAt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKV-1u-LB7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Eg2-pg-ZFj">
+                    <connections>
+                        <outlet property="delegate" destination="0MY-sL-5T5" id="gnS-iH-iXJ"/>
+                        <outlet property="searchBar" destination="oUO-eW-Yuw" id="FgQ-iS-Doy"/>
+                        <outlet property="searchContentsController" destination="0MY-sL-5T5" id="9GN-TI-u0z"/>
+                        <outlet property="searchResultsDataSource" destination="0MY-sL-5T5" id="TN2-8Q-liZ"/>
+                        <outlet property="searchResultsDelegate" destination="0MY-sL-5T5" id="8G3-1y-Q0n"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-837" y="-1565"/>
         </scene>

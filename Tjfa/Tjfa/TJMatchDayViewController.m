@@ -16,6 +16,7 @@
 #import <UIImageView+UIActivityIndicatorForSDWebImage.h>
 #import <TSMessage.h>
 #import <POP.h>
+#import "TJLocalPushNotificationManager.h"
 
 @interface TJMatchDayViewController ()
 
@@ -26,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIView *mainContainer;
+
+@property (weak, nonatomic) IBOutlet UIButton *remindButton;
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UIView *datePickerContainer;
@@ -124,6 +127,14 @@ const NSTimeInterval anHourInterval = 3600;
 
     }];
     
+    [self setRemindButtonTitle];
+    
+    
+    NSDate *date = [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] getMatchRemindTime:self.match];
+    if (date) {
+        [TSMessage showNotificationInViewController:self title:@"已添加提醒" subtitle:[[NSString alloc] initWithFormat:@"已添加%@的提醒", date] type:TSMessageNotificationTypeSuccess duration:2.0f];
+    }
+
 }
 
 #pragma mark - Getter & Setter
@@ -153,16 +164,33 @@ const NSTimeInterval anHourInterval = 3600;
         _showDatePickerAnimation.springSpeed = 15;
         _showDatePickerAnimation.springBounciness = 20;
         _showDatePickerAnimation.fromValue = @(44);
-        _showDatePickerAnimation.toValue = @(300);
+        _showDatePickerAnimation.toValue = @(250);
     }
     return _showDatePickerAnimation;
 }
 
 #pragma mark - DatePicker
 
+- (void)setRemindButtonTitle
+{
+    NSDate *remindDate = [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] getMatchRemindTime:self.match];
+    if (remindDate) {
+        [self.remindButton setTitle:@"取消提醒" forState:UIControlStateNormal];
+    }
+    else {
+        [self.remindButton setTitle:@"比赛提醒" forState:UIControlStateNormal];
+    }
+}
+
 - (void)showDatePicker
 {
     self.datePickerContainer.hidden = NO;
+    
+    NSDate *remindDate = [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] getMatchRemindTime:self.match];
+    if (remindDate) {
+        self.datePicker.date = remindDate;
+    }
+    
     [self.view addSubview:self.gassiganBlurView];
     [self.view bringSubviewToFront:self.datePickerContainer];
     [self.datePickerContainerHeightConstraint pop_addAnimation:self.showDatePickerAnimate forKey:@"showDatePickerAnimate"];
@@ -174,16 +202,50 @@ const NSTimeInterval anHourInterval = 3600;
     self.datePickerContainer.hidden = YES;
 }
 
+- (void)cancelRemind
+{
+    self.remindButton.enabled = NO;
+    
+    [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] asyncRemoveMatchRemindNotification:self.match complete:^(BOOL success) {
+        dispatch_async(dispatch_get_main_queue(), ^(){
+            self.remindButton.enabled = YES;
+            [self setRemindButtonTitle];
+            
+            if (success) {
+                [TSMessage showNotificationInViewController:self title:@"取消啦" subtitle:@"已经取消提醒啦~" type:TSMessageNotificationTypeSuccess duration:2.0f];
+            }
+            else {
+                [TSMessage showNotificationInViewController:self title:@"取消失败" subtitle:@"该比赛不存在" type:TSMessageNotificationTypeError duration:2.0f];
+            }
+        });
+
+    }];
+}
+
 #pragma mark - Action
+
 - (IBAction)datePickerConfirmButtonPress:(UIButton *)sender
 {
     [self hideDatePicker];
     
     NSDate *date = self.datePicker.date;
     
-    NSString *subTitle = [[NSString alloc] initWithFormat:@"我会在%@的时候提醒你哦~~",date];
+    self.remindButton.enabled = NO;
+    [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] asyncAddMatchRemindNotification:self.match date:date complete:^(BOOL success) {
+        dispatch_async(dispatch_get_main_queue(), ^(){
+            self.remindButton.enabled = YES;
+            [self setRemindButtonTitle];
+            
+            if (success) {
+                NSString *subTitle = [[NSString alloc] initWithFormat:@"我会在%@的时候提醒你哦~~",date];
+                [TSMessage showNotificationInViewController:self title:@"我知道啦" subtitle:subTitle type:TSMessageNotificationTypeSuccess duration:2.0f];
+            }
+            else {
+                [TSMessage showNotificationInViewController:self title:@"提醒失败" subtitle:@"该比赛不存在" type:TSMessageNotificationTypeError duration:2.0f];
+            }
 
-    [TSMessage showNotificationInViewController:self title:@"我知道啦" subtitle:subTitle type:TSMessageNotificationTypeSuccess duration:2.0f];
+        });
+    }];
 }
 
 - (IBAction)datePickerCancelButtonPress:(UIButton *)sender
@@ -193,8 +255,12 @@ const NSTimeInterval anHourInterval = 3600;
 
 - (IBAction)remindButtonPress:(UIButton *)sender
 {
-    [self showDatePicker];
-    //self.datePicker.date =
+    if ([self.remindButton.titleLabel.text isEqualToString:@"取消提醒"]) {
+        [self cancelRemind];
+    }
+    else {
+        [self showDatePicker];
+    }
 }
 
 - (void)gassiganBlurViewTapGesture:(UITapGestureRecognizer *)gesture
