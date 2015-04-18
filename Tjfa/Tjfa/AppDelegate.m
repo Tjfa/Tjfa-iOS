@@ -22,6 +22,10 @@
 #import <EaseMob.h>
 #import <UIAlertView+BlocksKit.h>
 
+@interface AppDelegate()
+
+@end
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

@@ -8,6 +8,12 @@
 
 #import "TJBaseViewController.h"
 
+@class TJMatch;
+
 @interface TJMatchDayViewController : TJBaseViewController
+
+@property (nonatomic, strong) TJMatch *match;
+@property (nonatomic, assign) NSString *matchObjectId;
+@property (nonatomic, assign) NSNumber *matchId;
 
 @end

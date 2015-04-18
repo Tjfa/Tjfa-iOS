@@ -10,6 +10,7 @@
 #import "TJMatchManager.h"
 #import "MBProgressHUD+AppProgressView.h"
 #import "TJMemberMatchCell.h"
+#import "TJMatchDayViewController.h"
 #import <SVPullToRefresh.h>
 
 @interface TJMemberMatchViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -53,9 +54,13 @@ const NSTimeInterval weekTimeInterval = 3600 * 24 * 7;
 - (NSDate *)nowDate
 {
     if (_nowDate == nil) {
-#warning remember to change _nowdate to [NSDate date]
+#if DEBUG
         NSDate *date = [NSDate date];
         _nowDate = [NSDate dateWithTimeInterval:-2 * weekTimeInterval sinceDate:date];
+#else
+        _nowDate = [NSDate date];
+
+#endif
     }
     return _nowDate;
 }
@@ -117,6 +122,18 @@ const NSTimeInterval weekTimeInterval = 3600 * 24 * 7;
     [cell setCellWithTJMatch:self.data[indexPath.row]];
     
     return cell;
+}
+
+#pragma mark - Segue
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.destinationViewController isKindOfClass:[TJMatchDayViewController class]]) {
+        TJMatchDayViewController *destinationViewController = segue.destinationViewController;
+        UITableViewCell *cell = (UITableViewCell *)sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        destinationViewController.match = self.data[indexPath.row];
+    }
 }
 
 @end

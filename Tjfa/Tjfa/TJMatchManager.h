@@ -51,6 +51,10 @@
  */
 - (void)getMatchesFrom:(NSDate *)fromDate to:(NSDate *)toDate complete:(void (^)(NSArray *, NSError *))complete;
 
+- (void)getMatchWithMatchId:(NSNumber *)matchId complete:(void (^)(TJMatch *, NSError *))complete;
+
+- (void)getMatchWithObjectId:(NSString *)objectId complete:(void (^)(TJMatch *, NSError *))complete;
+
 - (void)clearAllMatch;
 
 @end

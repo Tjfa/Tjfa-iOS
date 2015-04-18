@@ -24,16 +24,13 @@
 
 @implementation TJMemberMatchCell
 
-- (void)prepareForReuse
+- (void)setCellWithTJMatch:(TJMatch *)match
 {
     self.dateLabel.text = @"";
     self.teamANameLabel.text = @"";
     self.teamBNameLabel.text = @"";
     self.timeLabel.text = @"";
-}
-
-- (void)setCellWithTJMatch:(TJMatch *)match
-{
+    
     NSString *dateStr = [match.date date2str];
     NSInteger index = [dateStr rangeOfString:@" "].location;
     self.dateLabel.text = [dateStr substringToIndex:index];

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Team.h"
+#import "TJTeam.h"
 
 @interface TJTeamManager : NSObject
 

@@ -74,6 +74,44 @@
     }];
 }
 
+- (void)getMatchWithMatchId:(NSNumber *)matchId complete:(void (^)(NSArray *, NSError *))complete
+{
+    AVQuery *query = [TJMatch query];
+    [query whereKey:@"matchId" equalTo:matchId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *matches, NSError *error) {
+        if (error) {
+            complete(nil,error);
+        }
+        else {
+            if (matches.count > 0) {
+                complete([matches firstObject], nil);
+            }
+            else {
+                complete(nil, [[NSError alloc] init]);
+            }
+        }
+    }];
+}
+
+- (void)getMatchWithObjectId:(NSString *)objectId complete:(void (^)(NSArray *, NSError *))complete
+{
+    AVQuery *query = [TJMatch query];
+    [query whereKey:@"objectId" equalTo:objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *matches, NSError *error) {
+        if (error) {
+            complete(nil,error);
+        }
+        else {
+            if (matches.count > 0) {
+                complete([matches firstObject], nil);
+            }
+            else {
+                complete(nil, [[NSError alloc] init]);
+            }
+        }
+    }];
+
+}
 
 - (void)getMatchesByCompetitionFromNetwork:(Competition *)competition complete:(void (^)(NSArray *, NSError *))complete
 {
@@ -83,7 +121,6 @@
     [teamQuery findObjectsInBackgroundWithBlock:^(NSArray *teamsResult, NSError *error) {
         if (error) {
             complete(nil,error);
-            return ;
         }
         else {
             [[TJTeamManager sharedTeamManager] insertTeamsWithArray:teamsResult andCompetition:competition];
@@ -91,9 +128,10 @@
             AVQuery* avquery = [TJMatch query];
             [avquery whereKey:@"competitionId" equalTo:competition.competitionId];
             [avquery findObjectsInBackgroundWithBlock:^(NSArray* results, NSError* error) {
-                if (error){
+                if (error) {
                     complete(nil,error);
-                }else{
+                }
+                else {
                     NSArray* matches=[weakSelf insertMatchesWithArray:results andCompetition:competition];
                     complete(matches,nil);
                 }
