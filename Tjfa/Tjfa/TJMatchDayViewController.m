@@ -56,6 +56,8 @@ const NSTimeInterval anHourInterval = 3600;
 {
     [super viewDidLoad];
     [self findMatch];
+    
+    [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] setupAllLocalPushNotifications];
 }
 
 - (void)errorFindAndPop

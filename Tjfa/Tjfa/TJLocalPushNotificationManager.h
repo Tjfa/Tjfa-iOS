@@ -53,5 +53,14 @@
 - (BOOL)removeMatchRemindNotification:(TJMatch *)match;
 - (void)asyncRemoveMatchRemindNotification:(TJMatch *)match complete:(void (^)(BOOL success))complete;
 
+/**
+ *  根据YAP DATABASE 生成对应的提醒推送
+ */
+- (void)setupAllLocalPushNotifications;
+
+/**
+ *  取消推送
+ */
+- (void)cancelAllLocalPushNotifications;
 
 @end

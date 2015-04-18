@@ -138,4 +138,34 @@
     }
 }
 
+#pragma mark - Local Push Notification
+
+- (void)setupAllLocalPushNotifications
+{
+    NSDate *nowDate = [NSDate date];
+    [self.connection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
+        NSMutableArray *removeShedule = [NSMutableArray array];
+        [transaction enumerateKeysAndObjectsInCollection:self.remindCollection usingBlock:^(NSString *key, id object, BOOL *stop) {
+            NSDate *remindDate = object;
+            if ([remindDate compare:nowDate] == NSOrderedAscending) {
+                [removeShedule addObject:key];
+            }
+            else {
+#warning add code here
+                //to do
+                
+            }
+        }];
+        
+        for (NSString *key in removeShedule) {
+            [transaction removeObjectForKey:key inCollection:self.remindCollection];
+        }
+    }];
+}
+
+- (void)cancelAllLocalPushNotifications
+{
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+}
+
 @end

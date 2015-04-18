@@ -96,9 +96,6 @@
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation setObject:[UIDevice deviceName] forKey:@"deviceName"];
     [currentInstallation saveInBackground];
-
-    if (DEBUG) {
-    }
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application

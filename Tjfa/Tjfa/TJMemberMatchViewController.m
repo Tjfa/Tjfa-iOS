@@ -54,13 +54,13 @@ const NSTimeInterval weekTimeInterval = 3600 * 24 * 7;
 - (NSDate *)nowDate
 {
     if (_nowDate == nil) {
-#if DEBUG
-        NSDate *date = [NSDate date];
-        _nowDate = [NSDate dateWithTimeInterval:-2 * weekTimeInterval sinceDate:date];
-#else
-        _nowDate = [NSDate date];
-
-#endif
+        if (DEBUG) {
+            NSDate *date = [NSDate date];
+            _nowDate = [NSDate dateWithTimeInterval:-2 * weekTimeInterval sinceDate:date];
+        }
+        else {
+           _nowDate = [NSDate date];
+        }
     }
     return _nowDate;
 }
