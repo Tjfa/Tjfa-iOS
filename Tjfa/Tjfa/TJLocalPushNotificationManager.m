@@ -142,6 +142,8 @@
 
 - (void)setupAllLocalPushNotifications
 {
+    [self cancelAllLocalPushNotifications];
+    
     NSDate *nowDate = [NSDate date];
     [self.connection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
         NSMutableArray *removeShedule = [NSMutableArray array];
@@ -151,9 +153,11 @@
                 [removeShedule addObject:key];
             }
             else {
-#warning add code here
-                //to do
+                UILocalNotification *notification = [[UILocalNotification alloc] init];
+                notification.fireDate = remindDate;
+                notification.alertTitle = @"比赛要开始啦~~~";
                 
+                [[UIApplication sharedApplication] scheduleLocalNotification:notification];
             }
         }];
         

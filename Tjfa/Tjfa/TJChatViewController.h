@@ -11,10 +11,19 @@
 
 extern const int kDefaultMessageCount;
 
+@class TJUser;
+
 @interface TJChatViewController : JSQMessagesViewController
 
 @property (nonatomic, strong) NSString *targetEmId;
 
 @property (nonatomic, assign) BOOL isGroup;
+
+/**
+ *  Implement by sub class
+ *
+ *  @param senderId <#senderId description#>
+ */
+- (TJUser *)getTargetUserBySenderId:(NSString *)senderId;
 
 @end

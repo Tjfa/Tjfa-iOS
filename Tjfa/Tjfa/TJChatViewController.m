@@ -19,6 +19,7 @@
 #import <UIActionSheet+BlocksKit.h>
 #import <UIAlertView+BlocksKit.h>
 #import <MWPhotoBrowser.h>
+#import <SVPullToRefresh.h>
 
 const int kDefaultMessageCount = 20;
 
@@ -33,8 +34,6 @@ const int kDefaultMessageCount = 20;
 @property (nonatomic, strong) NSMutableArray *messages;
 
 @property (nonatomic, strong) JSQMessagesBubbleImageFactory *messageBubbleImageFactory;
-
-@property (nonatomic, strong) JSQMessagesAvatarImage *selfAvatarImage;
 
 @property (nonatomic, strong) TJAccessoryView *accessoryView;
 
@@ -76,8 +75,11 @@ const int kDefaultMessageCount = 20;
 {
     [super viewDidAppear:animated];
     self.collectionView.collectionViewLayout.springinessEnabled = NO;
-    self.showLoadEarlierMessagesHeader = YES;
-    self.collectionView.loadEarlierMessagesHeaderTextColor = [UIColor redColor];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.collectionView addPullToRefreshWithActionHandler:^(){
+        [weakSelf loadHistoryMessage];
+    }];
 }
 
 - (void)setupView
@@ -105,6 +107,28 @@ const int kDefaultMessageCount = 20;
     [self.loadingView hide:YES];
 }
 
+#pragma mark - Load History Message
+- (void)loadHistoryMessage
+{
+    TJMessage *firstMessage = [self.messages firstObject];
+    if (firstMessage == nil) {
+        [self.collectionView.pullToRefreshView stopAnimating];
+        return;
+    }
+    
+    
+    [self.conversation ayncLoadNumberOfMessages:kDefaultMessageCount before:firstMessage.emMessage complete:^(NSArray *array) {
+        for (EMMessage *emMessage in array) {
+            TJMessage *tjMessage = [TJMessage generalTJMessageWithEMMessage:emMessage];
+            [self.messages insertObject:tjMessage atIndex:0];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^() {
+            [self.collectionView.pullToRefreshView stopAnimating];
+            [self.collectionView reloadData];
+        });
+    }];
+}
+
 #pragma mark - Getter & Setter
 
 - (MBProgressHUD *)loadingView
@@ -129,15 +153,6 @@ const int kDefaultMessageCount = 20;
         _messageBubbleImageFactory = [[JSQMessagesBubbleImageFactory alloc] init];
     }
     return _messageBubbleImageFactory;
-}
-
-- (JSQMessagesAvatarImage *)selfAvatarImage
-{
-    if (_selfAvatarImage == nil) {
-        UIImage *image = [UIImage imageWithData:[self.currentUser.avatar getData]];
-        _selfAvatarImage = [[JSQMessagesAvatarImage alloc] initWithAvatarImage:image highlightedImage:image placeholderImage:[UIImage imageNamed:@"defaultProvide"]];
-    }
-    return _selfAvatarImage;
 }
 
 #pragma mark - TJMessage
@@ -238,10 +253,10 @@ const int kDefaultMessageCount = 20;
 {
     TJMessage *message = self.messages[indexPath.item];
     if ([message.senderId isEqualToString:[self senderId]]) {
-        return self.selfAvatarImage;
+        return self.currentUser.jsqMessageAvatarImage;
     }
     else {
-        return nil;
+        return [self getTargetUserBySenderId:message.senderId].jsqMessageAvatarImage;
     }
 }
 
@@ -451,11 +466,6 @@ const int kDefaultMessageCount = 20;
     }
 }
 
-- (void)collectionView:(JSQMessagesCollectionView *)collectionView header:(JSQMessagesLoadEarlierHeaderView *)headerView didTapLoadEarlierMessagesButton:(UIButton *)sender
-{
-    NSLog(@"============= load earlier");
-}
-
 #pragma mark - TextView Delegate
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
@@ -495,7 +505,7 @@ const int kDefaultMessageCount = 20;
         TJMessage *thisMessage = self.messages[indexPath.item];
         if (thisMessage.date && lastMessage.date) {
             NSTimeInterval timestamp= [thisMessage.date timeIntervalSinceDate:lastMessage.date];
-            if (timestamp > 60) {
+            if (timestamp > 60 * 5) {
                 return YES;
             }
         }
@@ -568,6 +578,13 @@ const int kDefaultMessageCount = 20;
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index
 {
     return self.photos[index];
+}
+
+#pragma mark - implement by sub class
+
+- (TJUser *)getTargetUserBySenderId:(NSString *)senderId
+{
+    return nil;
 }
 
 @end

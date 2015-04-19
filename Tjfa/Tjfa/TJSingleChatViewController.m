@@ -8,8 +8,11 @@
 
 #import "TJSingleChatViewController.h"
 #import "TJModule.h"
+#import "TJUserManager.h"
 
 @implementation TJSingleChatViewController
+
+@synthesize targetUser = _targetUser;
 
 + (id)allocWithRouterParams:(NSDictionary *)params
 {
@@ -32,6 +35,27 @@
         self.targetEmId = targetUser.username;
         self.isGroup = NO;
     }
+}
+
+- (TJUser *)targetUser
+{
+    if (_targetUser == nil) {
+        [[TJUserManager sharedUserManager] findUserWithAccount:self.targetEmId complete:^(TJUser *user, NSError *error) {
+            if (error) {
+                
+            }
+            else {
+                _targetUser = user;
+            }
+        }];
+    }
+    return _targetUser;
+}
+
+#pragma mark - Override 
+- (TJUser *)getTargetUserBySenderId:(NSString *)senderId
+{
+    return self.targetUser;
 }
 
 @end
