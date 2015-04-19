@@ -16,10 +16,14 @@
 #import "TjfaConst.h"
 #import "MBProgressHUD+AppProgressView.h"
 
-@interface TJMemberListViewController () <UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate>
+@interface TJMemberListViewController () <UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate, UISearchBarDelegate>
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *data;
+
+@property (nonatomic, strong) NSArray *searchResult;
 
 @property (nonatomic, assign) NSInteger currentPage;
 @property (nonatomic, assign) BOOL hasMore;
@@ -84,6 +88,14 @@
     return _data;
 }
 
+- (NSArray *)searchResult
+{
+    if (_searchResult == nil) {
+        _searchResult = [NSArray array];
+    }
+    return _searchResult;
+}
+
 #pragma mark - TableView Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -93,7 +105,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.data.count;
+    if (tableView == self.tableView) {
+        return self.data.count;
+    }
+    else {
+        return self.searchResult.count;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,12 +121,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TJMemberListCell *cell = [self.tableView dequeueReusableCellWithIdentifier:NSStringFromClass(TJMemberListCell.class)];
-    TJUser *user = self.data[indexPath.row];
-    [cell setCellWithUser:user];
-
-    if ((indexPath.row == self.data.count - 1) && self.hasMore) {
-        self.currentPage = self.currentPage + 1;
-        [self getDataAtPage:self.currentPage];
+    
+    if (tableView == self.tableView) {
+        TJUser *user = self.data[indexPath.row];
+        [cell setCellWithUser:user];
+        if ((indexPath.row == self.data.count - 1) && self.hasMore) {
+            self.currentPage = self.currentPage + 1;
+            [self getDataAtPage:self.currentPage];
+        }
+    }
+    else {
+        TJUser *user = self.searchResult[indexPath.row];
+        [cell setCellWithUser:user andSearchKey:self.searchBar.text];
     }
     
     return cell;
@@ -126,15 +149,32 @@
     [tjCell showAnimate];
 }
 
+#pragma mark - SearchBar
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [[TJUserManager sharedUserManager] searchForUserWithKey:searchText complete:^(NSArray *users, NSError*error) {
+        self.searchResult = users;
+        [self.searchDisplayController.searchResultsTableView reloadData];
+    }];
+}
+
 #pragma mark - Segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([sender isKindOfClass:[TJMemberListCell class]]) {
         if ([segue.destinationViewController isKindOfClass:[TJMemberCenterTableViewController class]]) {
-            NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
             TJMemberCenterTableViewController *controller = segue.destinationViewController;
-            controller.targerUser = self.data[indexPath.row];
+            if (self.searchDisplayController.active) {
+                NSIndexPath *indexpath = [self.searchDisplayController.searchResultsTableView indexPathForCell:sender];
+                controller.targerUser = self.searchResult[indexpath.row];
+            }
+            else {
+                NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+                
+                controller.targerUser = self.data[indexPath.row];
+            }
         }
     }
 }

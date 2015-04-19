@@ -1996,7 +1996,6 @@
                                                         <constraint firstAttribute="width" constant="200" id="w4F-pp-8Yh"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18817367675" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOh-a1-2Q9">
@@ -2045,6 +2044,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="oUO-eW-Yuw" id="fOz-SL-ee4"/>
                         <outlet property="searchDisplayController" destination="Eg2-pg-ZFj" id="GKh-EP-J88"/>
                         <outlet property="tableView" destination="a4j-7t-Z5h" id="gnI-L5-HAt"/>
                     </connections>

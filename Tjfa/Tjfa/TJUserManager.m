@@ -96,4 +96,22 @@
     }];
 }
 
+- (void)searchForUserWithKey:(NSString *)key complete:(void (^)(NSArray *, NSError *))complete
+{
+    AVQuery *query = [TJUser query];
+    query.limit = 1000;
+    [query whereKey:@"name" containsString:key];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *users, NSError *error) {
+        if (complete) {
+            if (error) {
+                complete(nil, error);
+            }
+            else {
+                complete(users, nil);
+            }
+        }
+    }];
+}
+
 @end

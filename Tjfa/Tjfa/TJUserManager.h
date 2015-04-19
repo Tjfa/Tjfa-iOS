@@ -36,4 +36,6 @@
 
 - (void)getUsersWithLimit:(int)limit page:(NSInteger)page complete:(void (^)(NSArray *users, NSError *error))complete;
 
+- (void)searchForUserWithKey:(NSString *)key complete:(void (^)(NSArray *users, NSError *error))complete;
+
 @end

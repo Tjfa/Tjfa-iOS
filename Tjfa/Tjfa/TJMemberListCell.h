@@ -13,6 +13,8 @@
 
 - (void)setCellWithUser:(TJUser *)user;
 
+- (void)setCellWithUser:(TJUser *)user andSearchKey:(NSString *)key;
+
 - (void)showAnimate;
 
 @end

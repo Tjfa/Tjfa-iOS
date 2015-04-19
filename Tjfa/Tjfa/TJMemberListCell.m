@@ -8,6 +8,7 @@
 
 #import "TJMemberListCell.h"
 #import "TJUser.h"
+#import "UIColor+AppColor.h"
 #import <POP.h>
 
 @interface TJMemberListCell()
@@ -58,6 +59,22 @@
     }
     self.nameLabel.text = user.name;
     self.phoneLabel.text = user.mobilePhoneNumber;
+}
+
+- (void)setCellWithUser:(TJUser *)user andSearchKey:(NSString *)key
+{
+    if (user.avatar) {
+        [user.avatar getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+            if (error == nil) {
+                [self.avatarImageView setImage:[UIImage imageWithData:data]];
+            }
+        }];
+    }
+    NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] initWithString:user.name];
+    [attribute addAttribute:NSForegroundColorAttributeName value:[UIColor appRedColor] range:[user.name rangeOfString:key]];
+    self.nameLabel.attributedText = attribute;
+    self.phoneLabel.text = user.mobilePhoneNumber;
+
 }
 
 - (void)showAnimate
