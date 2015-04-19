@@ -10,4 +10,16 @@
 
 @implementation JSQVoiceMediaItem
 
+- (CGSize)mediaViewDisplaySize
+{
+    return CGSizeMake(44, 44);
+}
+
+- (UIView *)mediaView
+{
+    return [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chat_record"]];
+}
+
+
+
 @end

@@ -20,6 +20,9 @@
 #import <UIAlertView+BlocksKit.h>
 #import <MWPhotoBrowser.h>
 #import <SVPullToRefresh.h>
+#import "TJStreamPlayer.h"
+#import "JSQVoiceMediaItem.h"
+#import "TJAudioFile.h"
 
 const int kDefaultMessageCount = 20;
 
@@ -38,6 +41,8 @@ const int kDefaultMessageCount = 20;
 @property (nonatomic, strong) TJAccessoryView *accessoryView;
 
 @property (nonatomic, strong) NSMutableArray *photos;
+
+@property (nonatomic, strong) TJStreamPlayer *streamPlayer;
 
 @end
 
@@ -153,6 +158,14 @@ const int kDefaultMessageCount = 20;
         _messageBubbleImageFactory = [[JSQMessagesBubbleImageFactory alloc] init];
     }
     return _messageBubbleImageFactory;
+}
+
+- (TJStreamPlayer *)streamPlayer
+{
+    if (_streamPlayer == nil) {
+        _streamPlayer = [[TJStreamPlayer alloc] init];
+    }
+    return _streamPlayer;
 }
 
 #pragma mark - TJMessage
@@ -446,18 +459,26 @@ const int kDefaultMessageCount = 20;
                     }
                     [self.navigationController pushViewController:browser animated:YES];
                 }
+                else if ([tjMessage.media isKindOfClass:[JSQVoiceMediaItem class]]) {
+                    id<IEMMessageBody> msgBody = tjMessage.emMessage.messageBodies.firstObject;
+                    EMVoiceMessageBody *body = (EMVoiceMessageBody *)msgBody;
+                    [self.streamPlayer playUrl:[NSURL URLWithString:body.remotePath]];
+                }
             }
         }
     }
 }
 
+
 - (void)didRecordAudio:(EMChatVoice *)aChatVoice error:(NSError *)error
 {
     if (error == nil) {
-        EMMessage *message = [EMMessage generalMessageWithVoice:aChatVoice sender:self.currentUser to:self.targetEmId isGroup:self.isGroup];
-        TJMessage *tjMessage = [TJMessage generalTJMessageWithEMMessage:message];
+        EMMessage *emMessage = [EMMessage generalMessageWithVoice:aChatVoice sender:self.currentUser to:self.targetEmId isGroup:self.isGroup];
+        TJMessage *tjMessage = [TJMessage generalTJMessageWithEMMessage:emMessage];
         if (tjMessage) {
             [self.messages addObject:tjMessage];
+            [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
+            [JSQSystemSoundPlayer jsq_playMessageSentSound];
             [self finishSendingMessage];
         }
     }
@@ -483,13 +504,11 @@ const int kDefaultMessageCount = 20;
 
 - (void)voiceButtonBeginRecord
 {
-    NSLog(@"Begin Record");
     [[EaseMob sharedInstance].chatManager startRecordingAudioWithError:nil];
 }
 
 - (void)voiceButtonEndRecord
 {
-    NSLog(@"END Record");
     [[EaseMob sharedInstance].chatManager asyncStopRecordingAudio];
 }
 
@@ -517,7 +536,6 @@ const int kDefaultMessageCount = 20;
 
 - (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType
 {
-    
     if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         
@@ -558,6 +576,7 @@ const int kDefaultMessageCount = 20;
             
             [self.messages addObject:tjMessage];
             [[EaseMob sharedInstance].chatManager asyncSendMessage:emMessage progress:nil];
+             [JSQSystemSoundPlayer jsq_playMessageSentSound];
             [self finishSendingMessage];
         }
     }];

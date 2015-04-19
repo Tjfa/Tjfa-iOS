@@ -14,6 +14,7 @@
 #import <JSQVideoMediaItem.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImageDownloader.h>
+#import "JSQVoiceMediaItem.h"
 
 @implementation TJMessage
 
@@ -120,8 +121,9 @@
 //        }
         case eMessageBodyType_Voice:
         {
-            JSQVideoMediaItem *vieoItem = [[JSQVideoMediaItem alloc] initWithFileURL:[self getVoicePathWithEMMessage:message] isReadyToPlay:NO];
+            JSQVoiceMediaItem *vieoItem = [[JSQVoiceMediaItem alloc] initWithFileURL:[self getVoicePathWithEMMessage:message] isReadyToPlay:NO];
             tjMessage = [[TJMessage alloc] initWithSenderId:senderId senderDisplayName:displayName date:date media:vieoItem];
+            tjMessage.emMessage = message;
             break;
         }
         default:

@@ -103,6 +103,8 @@
 		F34FD7331AD4353F00311730 /* TJPersonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F34FD7321AD4353F00311730 /* TJPersonManager.m */; };
 		F35F57AC1ACD75D300114D29 /* EMMessage+MessageTranform.m in Sources */ = {isa = PBXBuildFile; fileRef = F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */; };
 		F395BBD81ACEAE0D00733674 /* EMConversation+LoadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F395BBD71ACEAE0D00733674 /* EMConversation+LoadMessage.m */; };
+		F399D4911AE3E55E009A8507 /* TJAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4901AE3E55E009A8507 /* TJAudioFile.m */; };
+		F399D4951AE3F7C4009A8507 /* TJStreamPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4941AE3F7C4009A8507 /* TJStreamPlayer.m */; };
 		F3ADCC671ACFADAE0001B91F /* TJAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */; };
 		F3ADCC6D1ACFB6EF0001B91F /* TJAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */; };
 		F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC711ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m */; };
@@ -311,6 +313,10 @@
 		F35F57AB1ACD75D300114D29 /* EMMessage+MessageTranform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMMessage+MessageTranform.m"; sourceTree = "<group>"; };
 		F395BBD61ACEAE0D00733674 /* EMConversation+LoadMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EMConversation+LoadMessage.h"; sourceTree = "<group>"; };
 		F395BBD71ACEAE0D00733674 /* EMConversation+LoadMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EMConversation+LoadMessage.m"; sourceTree = "<group>"; };
+		F399D48F1AE3E55E009A8507 /* TJAudioFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJAudioFile.h; sourceTree = "<group>"; };
+		F399D4901AE3E55E009A8507 /* TJAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJAudioFile.m; sourceTree = "<group>"; };
+		F399D4931AE3F7C4009A8507 /* TJStreamPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJStreamPlayer.h; sourceTree = "<group>"; };
+		F399D4941AE3F7C4009A8507 /* TJStreamPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJStreamPlayer.m; sourceTree = "<group>"; };
 		F3ADCC651ACFADAE0001B91F /* TJAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJAccessoryView.h; sourceTree = "<group>"; };
 		F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJAccessoryView.m; sourceTree = "<group>"; };
 		F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJAccessoryView.xib; sourceTree = "<group>"; };
@@ -855,6 +861,7 @@
 		ADEDA1E2195FED2C009B8D20 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				F399D4921AE3F7B5009A8507 /* TJStreamPlayer */,
 				63A3E9861A4F13CE009CAA6A /* Renren Share */,
 			);
 			name = Library;
@@ -945,6 +952,17 @@
 				F3ADCC771ACFC01A0001B91F /* UIImage+VoiceButton.m */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		F399D4921AE3F7B5009A8507 /* TJStreamPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				F399D48F1AE3E55E009A8507 /* TJAudioFile.h */,
+				F399D4901AE3E55E009A8507 /* TJAudioFile.m */,
+				F399D4931AE3F7C4009A8507 /* TJStreamPlayer.h */,
+				F399D4941AE3F7C4009A8507 /* TJStreamPlayer.m */,
+			);
+			name = TJStreamPlayer;
 			sourceTree = "<group>";
 		};
 		F3ADCCBB1AD198160001B91F /* TJMessage */ = {
@@ -1162,6 +1180,7 @@
 				249F1440195D6FBB0038DF42 /* TJNewsManager.m in Sources */,
 				18190ED519CFFFE200D0488F /* TJTeam.m in Sources */,
 				24E58E8C18E815C1007BFFD8 /* TJMatchManager.m in Sources */,
+				F399D4951AE3F7C4009A8507 /* TJStreamPlayer.m in Sources */,
 				F34666AD1ACA8B7600E83B7F /* TJUserCenterTableViewController.m in Sources */,
 				2495BA2A19691E28009BB60F /* TJNewsCell.m in Sources */,
 				F3FD69D01ADFEE8800C57930 /* TJNotificationViewController.m in Sources */,
@@ -1191,6 +1210,7 @@
 				24C6FE4C195E8574008B594C /* Match.m in Sources */,
 				F3ADCC671ACFADAE0001B91F /* TJAccessoryView.m in Sources */,
 				F34666B41ACA9C4400E83B7F /* TJMemberMatchViewController.m in Sources */,
+				F399D4911AE3E55E009A8507 /* TJAudioFile.m in Sources */,
 				24686C83196E875600D8CF86 /* TJWelcome3.m in Sources */,
 				18190ED419CFFFE200D0488F /* TJPlayer.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,

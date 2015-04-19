@@ -96,6 +96,8 @@
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation setObject:[UIDevice deviceName] forKey:@"deviceName"];
     [currentInstallation saveInBackground];
+    
+    [[EaseMob sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -153,11 +155,11 @@
     [WXApi registerApp:@"wx6cba695c52dfdeb0"];
     // Override point for customization after application launch.
 
-    //RenRen
-    [RennShareComponent initWithAppId:@"474177" apiKey:@"313e2277c5d14cee9b83441f03c5ab53" secretKey:@"313e2277c5d14cee9b83441f03c5ab53"];
+//    //RenRen
+//    [RennShareComponent initWithAppId:@"474177" apiKey:@"313e2277c5d14cee9b83441f03c5ab53" secretKey:@"313e2277c5d14cee9b83441f03c5ab53"];
 
     //EaseMob
-    [[EaseMob sharedInstance] registerSDKWithAppKey:EASE_MOB_APP_KEY apnsCertName:EASE_MOB_APNS];
+    [[EaseMob sharedInstance] registerSDKWithAppKey:EASE_MOB_APP_KEY apnsCertName:EASE_MOB_APNS otherConfig:@{kSDKConfigEnableConsoleLogger: @(NO)}];
     [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 
     //Umeng

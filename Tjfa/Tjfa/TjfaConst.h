@@ -17,7 +17,11 @@
     #define AVOS_CLIENT_KEY @"ks5u25gdqcm5laox6oj9gfq195p4ymfaytb9eix5fb6yq6nt"
 #endif
 
-#define EASE_MOB_APP_KEY @"tongjiuniversity#tjfadebug"
+#if DEUBG
+    #define EASE_MOB_APP_KEY @"tongjiuniversity#tjfadebug"
+#else
+    #define EASE_MOB_APP_KEY @"tongjiuniversity#tjfa"
+#endif
 
 #define EASE_MOB_APNS @"tjfa_apns"
 
