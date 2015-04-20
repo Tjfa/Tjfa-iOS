@@ -23,6 +23,7 @@
 #import "TJStreamPlayer.h"
 #import "JSQVoiceMediaItem.h"
 #import "TJAudioFile.h"
+#import "TJjsqMessagesAvatarImageManager.h"
 
 const int kDefaultMessageCount = 20;
 
@@ -113,6 +114,7 @@ const int kDefaultMessageCount = 20;
 }
 
 #pragma mark - Load History Message
+
 - (void)loadHistoryMessage
 {
     TJMessage *firstMessage = [self.messages firstObject];
@@ -120,8 +122,7 @@ const int kDefaultMessageCount = 20;
         [self.collectionView.pullToRefreshView stopAnimating];
         return;
     }
-    
-    
+
     [self.conversation ayncLoadNumberOfMessages:kDefaultMessageCount before:firstMessage.emMessage complete:^(NSArray *array) {
         for (EMMessage *emMessage in array) {
             TJMessage *tjMessage = [TJMessage generalTJMessageWithEMMessage:emMessage];
@@ -266,10 +267,11 @@ const int kDefaultMessageCount = 20;
 {
     TJMessage *message = self.messages[indexPath.item];
     if ([message.senderId isEqualToString:[self senderId]]) {
-        return self.currentUser.jsqMessageAvatarImage;
+        return [[TJjsqMessagesAvatarImageManager sharedJsqMessagesAvatarImageManager] getJSQMessagesAvatarImageWithUser:self.currentUser];
     }
     else {
-        return [self getTargetUserBySenderId:message.senderId].jsqMessageAvatarImage;
+        TJUser *user = [self getTargetUserBySenderId:message.senderId];
+        return [[TJjsqMessagesAvatarImageManager sharedJsqMessagesAvatarImageManager] getJSQMessagesAvatarImageWithUser:user];
     }
 }
 

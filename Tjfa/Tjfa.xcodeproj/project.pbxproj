@@ -105,6 +105,7 @@
 		F395BBD81ACEAE0D00733674 /* EMConversation+LoadMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = F395BBD71ACEAE0D00733674 /* EMConversation+LoadMessage.m */; };
 		F399D4911AE3E55E009A8507 /* TJAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4901AE3E55E009A8507 /* TJAudioFile.m */; };
 		F399D4951AE3F7C4009A8507 /* TJStreamPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4941AE3F7C4009A8507 /* TJStreamPlayer.m */; };
+		F399D4A01AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D49F1AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.m */; };
 		F3ADCC671ACFADAE0001B91F /* TJAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */; };
 		F3ADCC6D1ACFB6EF0001B91F /* TJAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */; };
 		F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC711ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m */; };
@@ -317,6 +318,8 @@
 		F399D4901AE3E55E009A8507 /* TJAudioFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJAudioFile.m; sourceTree = "<group>"; };
 		F399D4931AE3F7C4009A8507 /* TJStreamPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJStreamPlayer.h; sourceTree = "<group>"; };
 		F399D4941AE3F7C4009A8507 /* TJStreamPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJStreamPlayer.m; sourceTree = "<group>"; };
+		F399D49E1AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJjsqMessagesAvatarImageManager.h; sourceTree = "<group>"; };
+		F399D49F1AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJjsqMessagesAvatarImageManager.m; sourceTree = "<group>"; };
 		F3ADCC651ACFADAE0001B91F /* TJAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJAccessoryView.h; sourceTree = "<group>"; };
 		F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJAccessoryView.m; sourceTree = "<group>"; };
 		F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJAccessoryView.xib; sourceTree = "<group>"; };
@@ -906,6 +909,8 @@
 				F3ADCC651ACFADAE0001B91F /* TJAccessoryView.h */,
 				F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */,
 				F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */,
+				F399D49E1AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.h */,
+				F399D49F1AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.m */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -1184,6 +1189,7 @@
 				F34666AD1ACA8B7600E83B7F /* TJUserCenterTableViewController.m in Sources */,
 				2495BA2A19691E28009BB60F /* TJNewsCell.m in Sources */,
 				F3FD69D01ADFEE8800C57930 /* TJNotificationViewController.m in Sources */,
+				F399D4A01AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.m in Sources */,
 				240AE6D5195EC5F100F7820D /* TJDashboardButton.m in Sources */,
 				24686C7A196E7B4C00D8CF86 /* TJWelcomeViewController.m in Sources */,
 				24C6FE4E195E8574008B594C /* News.m in Sources */,

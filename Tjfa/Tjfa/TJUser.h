@@ -9,13 +9,10 @@
 #import <AVOSCloud/AVOSCloud.h>
 
 @class AVFile;
-@class JSQMessagesAvatarImage;
 
 @interface TJUser : AVUser <AVSubclassing>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) AVFile *avatar;
-
-@property (nonatomic, strong) JSQMessagesAvatarImage* jsqMessageAvatarImage;
 
 @end

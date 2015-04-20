@@ -13,6 +13,7 @@
 #import <SVPullToRefresh.h>
 #import "MBProgressHUD+AppProgressView.h"
 #import "TJUserManager.h"
+#import <EaseMob.h>
 
 @interface TJUserCenterTableViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
