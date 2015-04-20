@@ -106,6 +106,10 @@
 		F399D4911AE3E55E009A8507 /* TJAudioFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4901AE3E55E009A8507 /* TJAudioFile.m */; };
 		F399D4951AE3F7C4009A8507 /* TJStreamPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4941AE3F7C4009A8507 /* TJStreamPlayer.m */; };
 		F399D4A01AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D49F1AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.m */; };
+		F399D4AB1AE4E428009A8507 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F399D4A41AE4E428009A8507 /* libopencore-amrnb.a */; };
+		F399D4AC1AE4E428009A8507 /* amr_wav_converter.c in Sources */ = {isa = PBXBuildFile; fileRef = F399D4A61AE4E428009A8507 /* amr_wav_converter.c */; };
+		F399D4AD1AE4E428009A8507 /* PRNAmrRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4A81AE4E428009A8507 /* PRNAmrRecorder.m */; };
+		F399D4AE1AE4E428009A8507 /* PRNAmrPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4AA1AE4E428009A8507 /* PRNAmrPlayer.m */; };
 		F3ADCC671ACFADAE0001B91F /* TJAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */; };
 		F3ADCC6D1ACFB6EF0001B91F /* TJAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */; };
 		F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC711ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m */; };
@@ -320,6 +324,13 @@
 		F399D4941AE3F7C4009A8507 /* TJStreamPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJStreamPlayer.m; sourceTree = "<group>"; };
 		F399D49E1AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJjsqMessagesAvatarImageManager.h; sourceTree = "<group>"; };
 		F399D49F1AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJjsqMessagesAvatarImageManager.m; sourceTree = "<group>"; };
+		F399D4A41AE4E428009A8507 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		F399D4A51AE4E428009A8507 /* amr_wav_converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amr_wav_converter.h; sourceTree = "<group>"; };
+		F399D4A61AE4E428009A8507 /* amr_wav_converter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = amr_wav_converter.c; sourceTree = "<group>"; };
+		F399D4A71AE4E428009A8507 /* PRNAmrRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRNAmrRecorder.h; sourceTree = "<group>"; };
+		F399D4A81AE4E428009A8507 /* PRNAmrRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRNAmrRecorder.m; sourceTree = "<group>"; };
+		F399D4A91AE4E428009A8507 /* PRNAmrPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRNAmrPlayer.h; sourceTree = "<group>"; };
+		F399D4AA1AE4E428009A8507 /* PRNAmrPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRNAmrPlayer.m; sourceTree = "<group>"; };
 		F3ADCC651ACFADAE0001B91F /* TJAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJAccessoryView.h; sourceTree = "<group>"; };
 		F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJAccessoryView.m; sourceTree = "<group>"; };
 		F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJAccessoryView.xib; sourceTree = "<group>"; };
@@ -362,6 +373,7 @@
 				24F1D1E218E063E1007E2309 /* CoreGraphics.framework in Frameworks */,
 				24F1D1E418E063E1007E2309 /* UIKit.framework in Frameworks */,
 				63A3E9891A4F142A009CAA6A /* libShareComponent.a in Frameworks */,
+				F399D4AB1AE4E428009A8507 /* libopencore-amrnb.a in Frameworks */,
 				24F1D1E018E063E0007E2309 /* Foundation.framework in Frameworks */,
 				571F1BFD12CA4E6E8E04F93C /* libPods.a in Frameworks */,
 			);
@@ -789,7 +801,6 @@
 				18145E841ABDA69300040AB7 /* Main.storyboard */,
 				F3C4FA131AE2314A000BD302 /* PushNotification */,
 				240099F6196024A80036EFF4 /* AppInfo */,
-				ADEDA1E2195FED2C009B8D20 /* Library */,
 				24F1D1EE18E063E1007E2309 /* AppDelegate.h */,
 				24F1D1EF18E063E1007E2309 /* AppDelegate.m */,
 				24F1D1F718E063E1007E2309 /* Images.xcassets */,
@@ -859,15 +870,6 @@
 				24B1542519834CF4004F87DA /* TJCompetitionCell.m */,
 			);
 			name = Competition;
-			sourceTree = "<group>";
-		};
-		ADEDA1E2195FED2C009B8D20 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				F399D4921AE3F7B5009A8507 /* TJStreamPlayer */,
-				63A3E9861A4F13CE009CAA6A /* Renren Share */,
-			);
-			name = Library;
 			sourceTree = "<group>";
 		};
 		F34666921AC991BC00E83B7F /* Member */ = {
@@ -959,7 +961,18 @@
 			name = Category;
 			sourceTree = "<group>";
 		};
-		F399D4921AE3F7B5009A8507 /* TJStreamPlayer */ = {
+		F399D4A11AE4E3D3009A8507 /* UIBarButtonItem+Badge */ = {
+			isa = PBXGroup;
+			children = (
+				F3FD69C71ADFECE400C57930 /* UIBarButtonItem+Badge.h */,
+				F3FD69C81ADFECE400C57930 /* UIBarButtonItem+Badge.m */,
+				F3FD69C91ADFECE400C57930 /* UIButton+Badge.h */,
+				F3FD69CA1ADFECE400C57930 /* UIButton+Badge.m */,
+			);
+			name = "UIBarButtonItem+Badge";
+			sourceTree = "<group>";
+		};
+		F399D4A21AE4E3E2009A8507 /* TJStreamPlayer */ = {
 			isa = PBXGroup;
 			children = (
 				F399D48F1AE3E55E009A8507 /* TJAudioFile.h */,
@@ -968,6 +981,20 @@
 				F399D4941AE3F7C4009A8507 /* TJStreamPlayer.m */,
 			);
 			name = TJStreamPlayer;
+			sourceTree = "<group>";
+		};
+		F399D4A31AE4E418009A8507 /* ARMMedia */ = {
+			isa = PBXGroup;
+			children = (
+				F399D4A41AE4E428009A8507 /* libopencore-amrnb.a */,
+				F399D4A51AE4E428009A8507 /* amr_wav_converter.h */,
+				F399D4A61AE4E428009A8507 /* amr_wav_converter.c */,
+				F399D4A71AE4E428009A8507 /* PRNAmrRecorder.h */,
+				F399D4A81AE4E428009A8507 /* PRNAmrRecorder.m */,
+				F399D4A91AE4E428009A8507 /* PRNAmrPlayer.h */,
+				F399D4AA1AE4E428009A8507 /* PRNAmrPlayer.m */,
+			);
+			name = ARMMedia;
 			sourceTree = "<group>";
 		};
 		F3ADCCBB1AD198160001B91F /* TJMessage */ = {
@@ -1011,10 +1038,10 @@
 		F3FD69C61ADFECD400C57930 /* Vender */ = {
 			isa = PBXGroup;
 			children = (
-				F3FD69C71ADFECE400C57930 /* UIBarButtonItem+Badge.h */,
-				F3FD69C81ADFECE400C57930 /* UIBarButtonItem+Badge.m */,
-				F3FD69C91ADFECE400C57930 /* UIButton+Badge.h */,
-				F3FD69CA1ADFECE400C57930 /* UIButton+Badge.m */,
+				F399D4A31AE4E418009A8507 /* ARMMedia */,
+				63A3E9861A4F13CE009CAA6A /* Renren Share */,
+				F399D4A21AE4E3E2009A8507 /* TJStreamPlayer */,
+				F399D4A11AE4E3D3009A8507 /* UIBarButtonItem+Badge */,
 			);
 			name = Vender;
 			sourceTree = "<group>";
@@ -1221,6 +1248,7 @@
 				18190ED419CFFFE200D0488F /* TJPlayer.m in Sources */,
 				24F1D1F018E063E1007E2309 /* AppDelegate.m in Sources */,
 				F34FD7331AD4353F00311730 /* TJPersonManager.m in Sources */,
+				F399D4AC1AE4E428009A8507 /* amr_wav_converter.c in Sources */,
 				F34666CB1ACC56B600E83B7F /* TJMessage.m in Sources */,
 				18145E8C1ABDBDFF00040AB7 /* TJBaseTableViewController.m in Sources */,
 				F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */,
@@ -1258,8 +1286,10 @@
 				F3C4FA161AE23189000BD302 /* TJLocalPushNotificationManager.m in Sources */,
 				240AE6D8195EDCC600F7820D /* TJDashboardCell.m in Sources */,
 				24686C6F196E562F00D8CF86 /* TJSettingViewController.m in Sources */,
+				F399D4AE1AE4E428009A8507 /* PRNAmrPlayer.m in Sources */,
 				248BD09A197E60C600419603 /* TJTeamManager.m in Sources */,
 				24FED22D195A774900A9F0DA /* TJDatabaseManager.m in Sources */,
+				F399D4AD1AE4E428009A8507 /* PRNAmrRecorder.m in Sources */,
 				F34666C41ACB002A00E83B7F /* TJMemberListViewController.m in Sources */,
 				24C6FE4B195E8574008B594C /* Player.m in Sources */,
 				240AE6CD195EC23300F7820D /* UIColor+AppColor.m in Sources */,

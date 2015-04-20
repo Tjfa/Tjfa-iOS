@@ -20,9 +20,8 @@
 #import <UIAlertView+BlocksKit.h>
 #import <MWPhotoBrowser.h>
 #import <SVPullToRefresh.h>
-#import "TJStreamPlayer.h"
 #import "JSQVoiceMediaItem.h"
-#import "TJAudioFile.h"
+#import "PRNAmrPlayer.h"
 #import "TJjsqMessagesAvatarImageManager.h"
 
 const int kDefaultMessageCount = 20;
@@ -43,7 +42,7 @@ const int kDefaultMessageCount = 20;
 
 @property (nonatomic, strong) NSMutableArray *photos;
 
-@property (nonatomic, strong) TJStreamPlayer *streamPlayer;
+@property (nonatomic, strong) PRNAmrPlayer *armPlayer;
 
 @end
 
@@ -161,12 +160,12 @@ const int kDefaultMessageCount = 20;
     return _messageBubbleImageFactory;
 }
 
-- (TJStreamPlayer *)streamPlayer
+- (PRNAmrPlayer *)armPlayer
 {
-    if (_streamPlayer == nil) {
-        _streamPlayer = [[TJStreamPlayer alloc] init];
+    if (_armPlayer == nil) {
+        _armPlayer = [[PRNAmrPlayer alloc] init];
     }
-    return _streamPlayer;
+    return _armPlayer;
 }
 
 #pragma mark - TJMessage
@@ -464,7 +463,7 @@ const int kDefaultMessageCount = 20;
                 else if ([tjMessage.media isKindOfClass:[JSQVoiceMediaItem class]]) {
                     id<IEMMessageBody> msgBody = tjMessage.emMessage.messageBodies.firstObject;
                     EMVoiceMessageBody *body = (EMVoiceMessageBody *)msgBody;
-                    [self.streamPlayer playUrl:[NSURL URLWithString:body.remotePath]];
+                    [self.armPlayer playWithURL:[NSURL URLWithString:body.remotePath]];
                 }
             }
         }
