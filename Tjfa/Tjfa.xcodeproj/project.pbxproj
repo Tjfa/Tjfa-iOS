@@ -110,6 +110,8 @@
 		F399D4AC1AE4E428009A8507 /* amr_wav_converter.c in Sources */ = {isa = PBXBuildFile; fileRef = F399D4A61AE4E428009A8507 /* amr_wav_converter.c */; };
 		F399D4AD1AE4E428009A8507 /* PRNAmrRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4A81AE4E428009A8507 /* PRNAmrRecorder.m */; };
 		F399D4AE1AE4E428009A8507 /* PRNAmrPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4AA1AE4E428009A8507 /* PRNAmrPlayer.m */; };
+		F399D4B11AE4FF70009A8507 /* JSQSelfVoiceMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4B01AE4FF70009A8507 /* JSQSelfVoiceMediaItem.m */; };
+		F399D4B41AE4FF9A009A8507 /* JSQOtherVoiceMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4B31AE4FF9A009A8507 /* JSQOtherVoiceMediaItem.m */; };
 		F3ADCC671ACFADAE0001B91F /* TJAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */; };
 		F3ADCC6D1ACFB6EF0001B91F /* TJAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */; };
 		F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC711ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m */; };
@@ -331,6 +333,10 @@
 		F399D4A81AE4E428009A8507 /* PRNAmrRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRNAmrRecorder.m; sourceTree = "<group>"; };
 		F399D4A91AE4E428009A8507 /* PRNAmrPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRNAmrPlayer.h; sourceTree = "<group>"; };
 		F399D4AA1AE4E428009A8507 /* PRNAmrPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRNAmrPlayer.m; sourceTree = "<group>"; };
+		F399D4AF1AE4FF70009A8507 /* JSQSelfVoiceMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQSelfVoiceMediaItem.h; sourceTree = "<group>"; };
+		F399D4B01AE4FF70009A8507 /* JSQSelfVoiceMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQSelfVoiceMediaItem.m; sourceTree = "<group>"; };
+		F399D4B21AE4FF9A009A8507 /* JSQOtherVoiceMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQOtherVoiceMediaItem.h; sourceTree = "<group>"; };
+		F399D4B31AE4FF9A009A8507 /* JSQOtherVoiceMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQOtherVoiceMediaItem.m; sourceTree = "<group>"; };
 		F3ADCC651ACFADAE0001B91F /* TJAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJAccessoryView.h; sourceTree = "<group>"; };
 		F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJAccessoryView.m; sourceTree = "<group>"; };
 		F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJAccessoryView.xib; sourceTree = "<group>"; };
@@ -1004,6 +1010,10 @@
 				F34666CA1ACC56B600E83B7F /* TJMessage.m */,
 				F3ADCCC81AD2A2BF0001B91F /* JSQVoiceMediaItem.h */,
 				F3ADCCC91AD2A2BF0001B91F /* JSQVoiceMediaItem.m */,
+				F399D4AF1AE4FF70009A8507 /* JSQSelfVoiceMediaItem.h */,
+				F399D4B01AE4FF70009A8507 /* JSQSelfVoiceMediaItem.m */,
+				F399D4B21AE4FF9A009A8507 /* JSQOtherVoiceMediaItem.h */,
+				F399D4B31AE4FF9A009A8507 /* JSQOtherVoiceMediaItem.m */,
 			);
 			name = TJMessage;
 			sourceTree = "<group>";
@@ -1284,6 +1294,7 @@
 				24B8C1BD1977B43F00B2FAD0 /* TJTopScoreViewController.m in Sources */,
 				F3C4FA0B1AE158B8000BD302 /* TJMemberMatchCell.m in Sources */,
 				F3C4FA161AE23189000BD302 /* TJLocalPushNotificationManager.m in Sources */,
+				F399D4B11AE4FF70009A8507 /* JSQSelfVoiceMediaItem.m in Sources */,
 				240AE6D8195EDCC600F7820D /* TJDashboardCell.m in Sources */,
 				24686C6F196E562F00D8CF86 /* TJSettingViewController.m in Sources */,
 				F399D4AE1AE4E428009A8507 /* PRNAmrPlayer.m in Sources */,
@@ -1308,6 +1319,7 @@
 				248BD096197E593000419603 /* TJGroupScoreCell.m in Sources */,
 				24C84BC41976CFF700980720 /* TJMenuViewController.m in Sources */,
 				F34666A31AC9B1E400E83B7F /* TJForgetPasswordViewController.m in Sources */,
+				F399D4B41AE4FF9A009A8507 /* JSQOtherVoiceMediaItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

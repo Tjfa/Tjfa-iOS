@@ -102,6 +102,7 @@ const int kDefaultMessageCount = 20;
     if ([self.targetEmId isEqualToString:self.currentUser.username]) {
         [MBProgressHUD showErrorProgressInView:nil withText:@"不要无聊和自己聊天啦"];
         [self.navigationController popViewControllerAnimated:YES];
+        return;
     }
     
     self.conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:self.targetEmId isGroup:self.isGroup];

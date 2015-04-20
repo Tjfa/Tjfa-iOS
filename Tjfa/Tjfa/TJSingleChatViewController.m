@@ -13,6 +13,7 @@
 @implementation TJSingleChatViewController
 
 @synthesize targetUser = _targetUser;
+@synthesize targetEmId = _targetEmId;
 
 + (id)allocWithRouterParams:(NSDictionary *)params
 {
@@ -37,6 +38,14 @@
     }
 }
 
+- (void)setTargetEmId:(NSString *)targetEmId
+{
+    if (_targetEmId != targetEmId) {
+        _targetEmId = targetEmId;
+        [self targetUser];
+    }
+}
+
 - (TJUser *)targetUser
 {
     if (_targetUser == nil) {
@@ -46,6 +55,7 @@
             }
             else {
                 _targetUser = user;
+                self.title = [NSString stringWithFormat:@"与 %@ 聊天中", user.name];
             }
         }];
     }

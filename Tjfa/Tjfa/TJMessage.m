@@ -15,6 +15,9 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SDWebImageDownloader.h>
 #import "JSQVoiceMediaItem.h"
+#import "JSQSelfVoiceMediaItem.h"
+#import "JSQOtherVoiceMediaItem.h"
+#import "TJUser.h"
 
 @implementation TJMessage
 
@@ -121,8 +124,15 @@
 //        }
         case eMessageBodyType_Voice:
         {
-            JSQVoiceMediaItem *vieoItem = [[JSQVoiceMediaItem alloc] initWithFileURL:[self getVoicePathWithEMMessage:message] isReadyToPlay:NO];
-            tjMessage = [[TJMessage alloc] initWithSenderId:senderId senderDisplayName:displayName date:date media:vieoItem];
+            JSQVoiceMediaItem *voiceItem = nil;
+            NSString *currentUserId = [TJUser currentUser].username;
+            if ([senderId isEqualToString:currentUserId] ) {
+                voiceItem = [[JSQSelfVoiceMediaItem alloc] initWithFileURL:[self getVoicePathWithEMMessage:message] isReadyToPlay:NO];
+            }
+            else {
+                voiceItem = [[JSQOtherVoiceMediaItem alloc] initWithFileURL:[self getVoicePathWithEMMessage:message] isReadyToPlay:NO];
+            }
+            tjMessage = [[TJMessage alloc] initWithSenderId:senderId senderDisplayName:displayName date:date media:voiceItem];
             tjMessage.emMessage = message;
             break;
         }

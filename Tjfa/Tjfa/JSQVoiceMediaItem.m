@@ -20,6 +20,4 @@
     return [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"chat_record"]];
 }
 
-
-
 @end
