@@ -29,6 +29,11 @@
     self = [super init];
     if (self) {
         audioPlayers = [[NSMutableSet alloc] init];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(sensorStateChange:)
+                                                     name:UIDeviceProximityStateDidChangeNotification
+                                                   object:nil];
+
     }
     return self;
 }
@@ -60,8 +65,9 @@
         objc_setAssociatedObject(audioPlayer, "callback", callback, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
     
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
+    [[UIDevice currentDevice] setProximityMonitoringEnabled:YES];
     
     [audioPlayer play];
 }
@@ -107,5 +113,22 @@
 {
     [player stop];
 }
+
+-(void)sensorStateChange:(NSNotificationCenter *)notification;
+{
+    //如果此时手机靠近面部放在耳朵旁，那么声音将通过听筒输出，并将屏幕变暗（省电啊）
+    if ([[UIDevice currentDevice] proximityState] == YES)
+    {
+        NSLog(@"Device is close to user");
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+        
+    }
+    else
+    {
+        NSLog(@"Device is not close to user");
+        [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    }
+}
+
 
 @end

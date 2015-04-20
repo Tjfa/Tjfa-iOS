@@ -463,7 +463,28 @@ const int kDefaultMessageCount = 20;
                 else if ([tjMessage.media isKindOfClass:[JSQVoiceMediaItem class]]) {
                     id<IEMMessageBody> msgBody = tjMessage.emMessage.messageBodies.firstObject;
                     EMVoiceMessageBody *body = (EMVoiceMessageBody *)msgBody;
-                    [self.armPlayer playWithURL:[NSURL URLWithString:body.remotePath]];
+                    
+                    
+                    if ([[NSFileManager defaultManager] fileExistsAtPath:body.localPath]) {
+                        [self.armPlayer playWithURL:[NSURL URLWithString:body.localPath]];
+                    }
+                    else {
+                        if (body.remotePath) {
+                            [[EaseMob sharedInstance].chatManager asyncFetchMessage:tjMessage.emMessage progress:nil completion:^(EMMessage *message, EMError *error) {
+                                if (error) {
+                                    [MBProgressHUD showErrorProgressInView:nil withText:@"语音下载失败"];
+                                }
+                                else {
+                                    id<IEMMessageBody> msgBody = message.messageBodies.firstObject;
+                                    EMVoiceMessageBody *body = (EMVoiceMessageBody *)msgBody;
+                                    [self.armPlayer playWithURL:[NSURL URLWithString:body.localPath]];
+                                }
+                            }onQueue:dispatch_get_main_queue()];
+                        }
+                        else {
+                            [MBProgressHUD showErrorProgressInView:nil withText:@"消息已被删除"];
+                        }
+                    }
                 }
             }
         }

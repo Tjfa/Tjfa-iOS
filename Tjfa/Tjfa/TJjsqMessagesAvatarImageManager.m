@@ -55,7 +55,7 @@
 - (JSQMessagesAvatarImage *)getJSQMessagesAvatarImageWithUser:(TJUser *)user
 {
     if (user == nil) {
-        return nil;
+        return [[self class] defaultAvatar];
     }
     
     if (self.avatarDictionary[user.objectId] !=  nil) {
