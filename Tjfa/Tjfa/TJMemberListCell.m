@@ -45,7 +45,8 @@
     cornerRadius.springSpeed = 10;
     [self.avatarImageView.layer pop_addAnimation:cornerRadius forKey:@"avator_corner"];
     [self.avatarImageView pop_addAnimation:springAnimation forKey:@"avator_show"];
-
+    
+   
 }
 
 - (void)setCellWithUser:(TJUser *)user

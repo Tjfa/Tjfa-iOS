@@ -53,6 +53,9 @@
 - (BOOL)removeMatchRemindNotification:(TJMatch *)match;
 - (void)asyncRemoveMatchRemindNotification:(TJMatch *)match complete:(void (^)(BOOL success))complete;
 
+- (NSArray *)getAllRemindMatchIds;
+- (void)asyncGetAllRemindMatchIds:(void (^)(NSArray *matches))complete;
+
 /**
  *  根据YAP DATABASE 生成对应的提醒推送
  */

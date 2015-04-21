@@ -61,9 +61,18 @@ const int kDefaultMessageCount = 20;
     self.currentUser = [TJUser currentUser];
     [self setupView];
 
-    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
-    BOOL isLogin = [[EaseMob sharedInstance].chatManager isLoggedIn];
 
+    [[EaseMob sharedInstance].chatManager addDelegate:self delegateQueue:nil];
+    
+
+    BOOL isLogin = [[EaseMob sharedInstance].chatManager isLoggedIn];
+ 
+    NSDictionary *loginInfo =  [[EaseMob sharedInstance].chatManager loginInfo];
+    if (![loginInfo[@"username"] isEqualToString:self.currentUser.username]) {
+        isLogin = NO;
+        [[EaseMob sharedInstance].chatManager logoffWithUnbindDeviceToken:YES error:nil];
+    }
+    
     if (isLogin) {
         [self setupConversation];
     }

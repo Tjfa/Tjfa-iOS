@@ -36,5 +36,7 @@
 	<string>TJMemberCenterTableViewController</string>
 	<key>matchDay</key>
 	<string>TJMatchDayViewController</string>
+	<key>notificationCenter</key>
+	<string>TJNotificationViewController</string>
 </dict>
 </plist>

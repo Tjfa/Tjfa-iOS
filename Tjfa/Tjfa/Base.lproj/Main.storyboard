@@ -2839,16 +2839,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PSB-Ec-Dv3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PSB-Ec-Dv3">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="HsI-2b-a1k">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TJChatNotificationCell" rowHeight="80" id="HsI-2b-a1k" customClass="TJChatNotificationCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HsI-2b-a1k" id="jJk-tW-YNP">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnV-CF-J9m">
+                                                    <rect key="frame" x="245" y="29" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryH-uw-xRo">
+                                                    <rect key="frame" x="10" y="29" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="XnV-CF-J9m" secondAttribute="trailing" id="FED-dD-fUV"/>
+                                                <constraint firstAttribute="centerY" secondItem="ryH-uw-xRo" secondAttribute="centerY" id="LI9-ST-GKL"/>
+                                                <constraint firstAttribute="centerY" secondItem="XnV-CF-J9m" secondAttribute="centerY" id="pC9-TJ-NfB"/>
+                                                <constraint firstItem="ryH-uw-xRo" firstAttribute="leading" secondItem="jJk-tW-YNP" secondAttribute="leading" constant="10" id="zzw-n9-KWN"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="message" destination="XnV-CF-J9m" id="srX-oW-L77"/>
+                                            <outlet property="nameLabel" destination="ryH-uw-xRo" id="Jgd-ic-Hqd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -2866,6 +2890,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="消息中心" id="D37-aS-0mb"/>
+                    <connections>
+                        <outlet property="tableView" destination="PSB-Ec-Dv3" id="UZJ-WL-koC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="04L-fM-D4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

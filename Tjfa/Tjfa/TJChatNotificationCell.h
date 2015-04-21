@@ -8,6 +8,10 @@
 
 #import "TJBaseNotificationCell.h"
 
+@class EMMessage;
+
 @interface TJChatNotificationCell : TJBaseNotificationCell
+
+- (void)setCellWithEMMessage:(EMMessage *)emMessage;
 
 @end

@@ -217,6 +217,7 @@ const int password_index = 2;
 - (IBAction)logoutAction:(id)sender
 {
     [TJUser logOut];
+    [[EaseMob sharedInstance].chatManager logoffWithUnbindDeviceToken:YES error:nil];
     [MBProgressHUD showSucessProgressInView:nil withText:@"登出成功"];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }

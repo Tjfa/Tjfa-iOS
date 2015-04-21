@@ -7,15 +7,33 @@
 //
 
 #import "TJChatNotificationCell.h"
+#import "EMMessage+MessageTranform.h"
+#import "TJMessage.h"
+
+@interface TJChatNotificationCell()
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *message;
+@end
 
 @implementation TJChatNotificationCell
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)prepareForReuse
+{
+    
 }
-*/
+
+- (void)setCellWithEMMessage:(EMMessage *)emMessage
+{
+    self.nameLabel.text = emMessage.ext[@"senderDisplayName"];
+    TJMessage *tjMessage = [TJMessage generalTJMessageWithEMMessage:emMessage];
+    if ([tjMessage isMediaMessage]) {
+        self.message.text = @"消息";
+    }
+    else {
+        id<IEMMessageBody> msgBody = emMessage.messageBodies.firstObject;
+        self.message.text = ((EMTextMessageBody *)msgBody).text;
+    }
+}
 
 @end

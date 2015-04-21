@@ -138,6 +138,26 @@
     }
 }
 
+- (NSArray *)getAllRemindMatchIds
+{
+    __block NSArray *result = nil;
+    [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
+        result = [transaction allKeysInCollection:self.remindCollection];
+    }];
+    return result;
+}
+
+- (void)asyncGetAllRemindMatchIds:(void (^)(NSArray *))complete
+{
+    if (complete == nil) {
+        return;
+    }
+    [self.connection asyncReadWithBlock:^(YapDatabaseReadTransaction *transaction) {
+        NSArray *result = [transaction allKeysInCollection:self.remindCollection];
+        complete(result);
+    }];
+}
+
 #pragma mark - Local Push Notification
 
 - (void)setupAllLocalPushNotifications
