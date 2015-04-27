@@ -109,6 +109,7 @@ const int kDefaultMessageCount = 20;
 - (void)setupConversation
 {
     if ([self.targetEmId isEqualToString:self.currentUser.username]) {
+        [self.loadingView hide:YES];
         [MBProgressHUD showErrorProgressInView:nil withText:@"不要无聊和自己聊天啦"];
         [self.navigationController popViewControllerAnimated:YES];
         return;
@@ -120,6 +121,11 @@ const int kDefaultMessageCount = 20;
     [self.messages addObjectsFromArray:[TJMessage generalTJMessagesWithEMMessages:emMessages]];
     [self finishReceivingMessage];
     [self.loadingView hide:YES];
+}
+
+- (void)dealloc
+{
+    [[EaseMob sharedInstance].chatManager removeDelegate:self];
 }
 
 #pragma mark - Load History Message
@@ -194,8 +200,8 @@ const int kDefaultMessageCount = 20;
 
 - (void)didLoginWithInfo:(NSDictionary *)loginInfo error:(EMError *)error
 {
+    [self.loadingView hide:YES];
     if (error) {
-        [self.loadingView hide:YES];
         [MBProgressHUD showErrorProgressInView:nil withText:@"初始化失败"];
         [self.navigationController popViewControllerAnimated:YES];
     }
@@ -207,8 +213,8 @@ const int kDefaultMessageCount = 20;
 
 - (void)didAutoLoginWithInfo:(NSDictionary *)loginInfo error:(EMError *)error
 {
+    [self.loadingView hide:YES];
     if (error) {
-        [self.loadingView hide:YES];
         [MBProgressHUD showErrorProgressInView:nil withText:@"初始化失败"];
         [self.navigationController popViewControllerAnimated:YES];
     }

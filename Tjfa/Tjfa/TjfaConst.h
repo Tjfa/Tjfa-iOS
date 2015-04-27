@@ -19,11 +19,12 @@
 
 #if DEUBG
     #define EASE_MOB_APP_KEY @"tongjiuniversity#tjfadebug"
+    #define EASE_MOB_APNS @"tjfa_debug"
 #else
     #define EASE_MOB_APP_KEY @"tongjiuniversity#tjfa"
+    #define EASE_MOB_APNS @"tjfa"
 #endif
 
-#define EASE_MOB_APNS @"tjfa_apns"
 
 #define DEFAULT_LIMIT 20
 
