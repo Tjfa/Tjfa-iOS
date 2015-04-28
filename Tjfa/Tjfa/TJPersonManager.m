@@ -86,8 +86,7 @@
         if ([user.name isEqualToString:firstName] || [user.name isEqualToString:lastName] || [user.name isEqualToString:[lastName stringByAppendingString:firstName]] || [user.name isEqualToString:[firstName stringByAppendingString:lastName]]) {
             ABMutableMultiValueRef phoneNumbers = (ABRecordCopyValue(oldPerson, kABPersonPhoneProperty));
             for (int j = 0; j < ABMultiValueGetCount(phoneNumbers); j++) {
-                CFStringRef label = ABMultiValueCopyLabelAtIndex(phoneNumbers, j);
-                NSLog(@"%@", label);
+               // CFStringRef label = ABMultiValueCopyLabelAtIndex(phoneNumbers, j);
                 NSString* value = (__bridge NSString *)(ABMultiValueCopyValueAtIndex(phoneNumbers, j));
                 if ([user.mobilePhoneNumber isEqualToString:value] || [user.mobilePhoneNumber isEqualToString:[value substringFromIndex:2]]) {
                     CFRelease(oldPerson);

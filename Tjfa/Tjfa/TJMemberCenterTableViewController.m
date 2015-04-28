@@ -98,7 +98,7 @@
                 [MBProgressHUD showErrorProgressInView:nil withText:@"添加失败"];
             }
             else {
-                [MBProgressHUD showErrorProgressInView:nil withText:@"添加成功"];
+                [MBProgressHUD showSucessProgressInView:nil withText:@"添加成功"];
             }
         });
     });
