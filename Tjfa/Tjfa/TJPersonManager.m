@@ -75,6 +75,13 @@
         ABRecordRef oldPerson = CFArrayGetValueAtIndex(contacts, i);
         NSString *firstName = (__bridge NSString *)(ABRecordCopyValue(oldPerson, kABPersonFirstNameProperty));
         NSString *lastName = (__bridge NSString *)(ABRecordCopyValue(oldPerson, kABPersonLastNameProperty));
+        if (firstName == nil) {
+            firstName = @"";
+        }
+        
+        if (lastName == nil) {
+            lastName = @"";
+        }
         
         if ([user.name isEqualToString:firstName] || [user.name isEqualToString:lastName] || [user.name isEqualToString:[lastName stringByAppendingString:firstName]] || [user.name isEqualToString:[firstName stringByAppendingString:lastName]]) {
             ABMutableMultiValueRef phoneNumbers = (ABRecordCopyValue(oldPerson, kABPersonPhoneProperty));
