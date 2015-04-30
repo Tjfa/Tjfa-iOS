@@ -16,6 +16,7 @@
 #import <UIImageView+UIActivityIndicatorForSDWebImage.h>
 #import <TSMessage.h>
 #import <POP.h>
+#import "TSMessage+NavigationBar.h"
 #import "TJLocalPushNotificationManager.h"
 
 @interface TJMatchDayViewController ()
@@ -132,7 +133,7 @@ const NSTimeInterval anHourInterval = 3600;
     
     NSDate *date = [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] getMatchRemindTime:self.match];
     if (date) {
-        [TSMessage showNotificationInViewController:self title:@"已添加提醒" subtitle:[[NSString alloc] initWithFormat:@"已添加%@的提醒", date] type:TSMessageNotificationTypeSuccess duration:2.0f];
+        [TSMessage showNotificationOverNavigatonBarWithTitle:@"已添加提醒" subtitle:[[NSString alloc] initWithFormat:@"已添加%@的提醒", date] type:TSMessageNotificationTypeSuccess duration:2.0];
     }
 
 }
@@ -212,10 +213,10 @@ const NSTimeInterval anHourInterval = 3600;
             [self setRemindButtonTitle];
             
             if (success) {
-                [TSMessage showNotificationInViewController:self title:@"取消啦" subtitle:@"已经取消提醒啦~" type:TSMessageNotificationTypeSuccess duration:2.0f];
+                [TSMessage showNotificationOverNavigatonBarWithTitle:@"取消啦" subtitle:@"已经取消提醒啦~" type:TSMessageNotificationTypeSuccess duration:2.0];
             }
             else {
-                [TSMessage showNotificationInViewController:self title:@"取消失败" subtitle:@"该比赛不存在" type:TSMessageNotificationTypeError duration:2.0f];
+                [TSMessage showNotificationOverNavigatonBarWithTitle:@"取消失败" subtitle:@"该比赛不存在" type:TSMessageNotificationTypeSuccess duration:2.0];
             }
         });
 
@@ -238,10 +239,10 @@ const NSTimeInterval anHourInterval = 3600;
             
             if (success) {
                 NSString *subTitle = [[NSString alloc] initWithFormat:@"我会在%@的时候提醒你哦~~",date];
-                [TSMessage showNotificationInViewController:self title:@"我知道啦" subtitle:subTitle type:TSMessageNotificationTypeSuccess duration:2.0f];
+                [TSMessage showNotificationOverNavigatonBarWithTitle:@"我知道啦" subtitle:subTitle  type:TSMessageNotificationTypeSuccess duration:2.0];
             }
             else {
-                [TSMessage showNotificationInViewController:self title:@"提醒失败" subtitle:@"该比赛不存在" type:TSMessageNotificationTypeError duration:2.0f];
+                [TSMessage showNotificationOverNavigatonBarWithTitle:@"提醒失败" subtitle:@"该比赛不存在"  type:TSMessageNotificationTypeError duration:2.0];
             }
 
         });

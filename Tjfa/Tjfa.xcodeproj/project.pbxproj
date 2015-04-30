@@ -120,6 +120,7 @@
 		F3C4FA0B1AE158B8000BD302 /* TJMemberMatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4FA0A1AE158B8000BD302 /* TJMemberMatchCell.m */; };
 		F3C4FA0E1AE16741000BD302 /* TJMatchDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4FA0D1AE16741000BD302 /* TJMatchDayViewController.m */; };
 		F3C4FA161AE23189000BD302 /* TJLocalPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4FA151AE23189000BD302 /* TJLocalPushNotificationManager.m */; };
+		F3EC4F901AF1D2290090AF7A /* TSMessage+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EC4F8F1AF1D2290090AF7A /* TSMessage+NavigationBar.m */; };
 		F3ECD2851AD56E0C0072C750 /* TJUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2841AD56E0C0072C750 /* TJUserManager.m */; };
 		F3ECD2891AD5894E0072C750 /* TJPasteBoardLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2881AD5894E0072C750 /* TJPasteBoardLabel.m */; };
 		F3FD69CB1ADFECE400C57930 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD69C81ADFECE400C57930 /* UIBarButtonItem+Badge.m */; };
@@ -352,6 +353,8 @@
 		F3C4FA0D1AE16741000BD302 /* TJMatchDayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMatchDayViewController.m; sourceTree = "<group>"; };
 		F3C4FA141AE23189000BD302 /* TJLocalPushNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJLocalPushNotificationManager.h; sourceTree = "<group>"; };
 		F3C4FA151AE23189000BD302 /* TJLocalPushNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLocalPushNotificationManager.m; sourceTree = "<group>"; };
+		F3EC4F8E1AF1D2290090AF7A /* TSMessage+NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TSMessage+NavigationBar.h"; sourceTree = "<group>"; };
+		F3EC4F8F1AF1D2290090AF7A /* TSMessage+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TSMessage+NavigationBar.m"; sourceTree = "<group>"; };
 		F3ECD2831AD56E0C0072C750 /* TJUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUserManager.h; sourceTree = "<group>"; };
 		F3ECD2841AD56E0C0072C750 /* TJUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUserManager.m; sourceTree = "<group>"; };
 		F3ECD2871AD5894E0072C750 /* TJPasteBoardLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPasteBoardLabel.h; sourceTree = "<group>"; };
@@ -485,6 +488,8 @@
 				246753BC196BE52A007BDE90 /* MBProgressHUD+AppProgressView.m */,
 				F34666961AC997C300E83B7F /* CALayer+XibConfiguration.h */,
 				F34666971AC997C300E83B7F /* CALayer+XibConfiguration.m */,
+				F3EC4F8E1AF1D2290090AF7A /* TSMessage+NavigationBar.h */,
+				F3EC4F8F1AF1D2290090AF7A /* TSMessage+NavigationBar.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -1297,6 +1302,7 @@
 				F399D4B11AE4FF70009A8507 /* JSQSelfVoiceMediaItem.m in Sources */,
 				240AE6D8195EDCC600F7820D /* TJDashboardCell.m in Sources */,
 				24686C6F196E562F00D8CF86 /* TJSettingViewController.m in Sources */,
+				F3EC4F901AF1D2290090AF7A /* TSMessage+NavigationBar.m in Sources */,
 				F399D4AE1AE4E428009A8507 /* PRNAmrPlayer.m in Sources */,
 				248BD09A197E60C600419603 /* TJTeamManager.m in Sources */,
 				24FED22D195A774900A9F0DA /* TJDatabaseManager.m in Sources */,
