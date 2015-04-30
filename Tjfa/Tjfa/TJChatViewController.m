@@ -1,4 +1,4 @@
-//
+    //
 //  ChatViewController.m
 //  Tjfa
 //
@@ -96,6 +96,12 @@ const int kDefaultMessageCount = 20;
     }];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[EaseMob sharedInstance].chatManager removeDelegate:self];
+    [super viewDidDisappear:animated];
+}
+
 - (void)setupView
 {
     self.automaticallyScrollsToMostRecentMessage = true;
@@ -139,6 +145,7 @@ const int kDefaultMessageCount = 20;
     }
 
     [self.conversation ayncLoadNumberOfMessages:kDefaultMessageCount before:firstMessage.emMessage complete:^(NSArray *array) {
+        [self.conversation markAllMessagesAsRead:YES];
         for (EMMessage *emMessage in array) {
             TJMessage *tjMessage = [TJMessage generalTJMessageWithEMMessage:emMessage];
             [self.messages insertObject:tjMessage atIndex:0];

@@ -121,6 +121,7 @@
 		F3C4FA0E1AE16741000BD302 /* TJMatchDayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4FA0D1AE16741000BD302 /* TJMatchDayViewController.m */; };
 		F3C4FA161AE23189000BD302 /* TJLocalPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4FA151AE23189000BD302 /* TJLocalPushNotificationManager.m */; };
 		F3EC4F901AF1D2290090AF7A /* TSMessage+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EC4F8F1AF1D2290090AF7A /* TSMessage+NavigationBar.m */; };
+		F3EC4F931AF2160F0090AF7A /* EaseMobManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EC4F921AF2160F0090AF7A /* EaseMobManager.m */; };
 		F3ECD2851AD56E0C0072C750 /* TJUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2841AD56E0C0072C750 /* TJUserManager.m */; };
 		F3ECD2891AD5894E0072C750 /* TJPasteBoardLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2881AD5894E0072C750 /* TJPasteBoardLabel.m */; };
 		F3FD69CB1ADFECE400C57930 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD69C81ADFECE400C57930 /* UIBarButtonItem+Badge.m */; };
@@ -355,6 +356,8 @@
 		F3C4FA151AE23189000BD302 /* TJLocalPushNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJLocalPushNotificationManager.m; sourceTree = "<group>"; };
 		F3EC4F8E1AF1D2290090AF7A /* TSMessage+NavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TSMessage+NavigationBar.h"; sourceTree = "<group>"; };
 		F3EC4F8F1AF1D2290090AF7A /* TSMessage+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TSMessage+NavigationBar.m"; sourceTree = "<group>"; };
+		F3EC4F911AF2160F0090AF7A /* EaseMobManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EaseMobManager.h; sourceTree = "<group>"; };
+		F3EC4F921AF2160F0090AF7A /* EaseMobManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EaseMobManager.m; sourceTree = "<group>"; };
 		F3ECD2831AD56E0C0072C750 /* TJUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUserManager.h; sourceTree = "<group>"; };
 		F3ECD2841AD56E0C0072C750 /* TJUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUserManager.m; sourceTree = "<group>"; };
 		F3ECD2871AD5894E0072C750 /* TJPasteBoardLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPasteBoardLabel.h; sourceTree = "<group>"; };
@@ -748,6 +751,7 @@
 		24CFD62518E1517100D706D1 /* LogicalLayer */ = {
 			isa = PBXGroup;
 			children = (
+				F3EC4F941AF216190090AF7A /* EaseMobManager */,
 				F3ECD2821AD56DFD0072C750 /* User */,
 				F34FD7301AD4352000311730 /* ABPersonManager */,
 				24CECC3218E2A3D700D43E0D /* TJNetworkClient.h */,
@@ -1032,6 +1036,15 @@
 			name = PushNotification;
 			sourceTree = "<group>";
 		};
+		F3EC4F941AF216190090AF7A /* EaseMobManager */ = {
+			isa = PBXGroup;
+			children = (
+				F3EC4F911AF2160F0090AF7A /* EaseMobManager.h */,
+				F3EC4F921AF2160F0090AF7A /* EaseMobManager.m */,
+			);
+			name = EaseMobManager;
+			sourceTree = "<group>";
+		};
 		F3ECD2821AD56DFD0072C750 /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1286,6 +1299,7 @@
 				24B8C1C11977B46D00B2FAD0 /* TJYellowCardViewController.m in Sources */,
 				24C84BBE1976BC0E00980720 /* TJMatchViewController.m in Sources */,
 				F3ECD2891AD5894E0072C750 /* TJPasteBoardLabel.m in Sources */,
+				F3EC4F931AF2160F0090AF7A /* EaseMobManager.m in Sources */,
 				F34666C81ACBD9B000E83B7F /* TJMemberListCell.m in Sources */,
 				F3FD69D71ADFF2A500C57930 /* TJSystemNotificationCell.m in Sources */,
 				24F1D21618E0711E007E2309 /* Tjfa.xcdatamodeld in Sources */,

@@ -12,6 +12,8 @@
 #import "UIColor+AppColor.h"
 #import <Routable.h>
 #import "TJUser.h"
+#import <EaseMob.h>
+#import "UIBarButtonItem+Badge.h"
 
 @interface TJDashboardViewController ()
 
@@ -42,8 +44,15 @@ const CGFloat delayAnimate = 0.1;
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dashboardTitle"]];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self updateBadgeNumber];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [self showDashboardButtonWithSyn];
 }
 
@@ -218,4 +227,17 @@ const CGFloat delayAnimate = 0.1;
     }
     [self hideWithAnimateSynCompleteToController:controllerId withParams:nil];
 }
+
+#pragma mark - EaseMob
+
+- (void)updateBadgeNumber
+{
+    dispatch_async(dispatch_queue_create("", nil), ^() {
+        NSInteger count = [[EaseMob sharedInstance].chatManager totalUnreadMessagesCount];
+        dispatch_async(dispatch_get_main_queue(), ^() {
+            self.navigationItem.rightBarButtonItem.badgeValue =  [NSString stringWithFormat:@"%ld", (long)count];
+        });
+    });
+}
+
 @end

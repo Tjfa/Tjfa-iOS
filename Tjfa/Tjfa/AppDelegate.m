@@ -21,6 +21,7 @@
 #import "UIApplication+MainNav.h"
 #import <EaseMob.h>
 #import <UIAlertView+BlocksKit.h>
+#import "TSMessage+NavigationBar.h"
 
 @interface AppDelegate()
 
@@ -79,11 +80,12 @@
     UIApplicationState state = [UIApplication sharedApplication].applicationState;
     if (state == UIApplicationStateActive) {
         [[Routable sharedRouter] setNavigationController:(UINavigationController *)self.window.rootViewController];
-        [UIAlertView bk_showAlertViewWithTitle:@"新的消息来啦" message:userInfo[@"aps"][@"alert"] cancelButtonTitle:@"取消" otherButtonTitles:@[ @"去看看" ] handler:^(UIAlertView *alertView, NSInteger index) {
-            if (index != 0) {
-                [[Routable sharedRouter] open:userInfo[@"page"] withParams:userInfo[@"ext"]];
-            }
-        }];
+        [TSMessage showNotificationOverNavigatonBarWithTitle:@"新消息" subtitle:userInfo[@"aps"][@"alert"] type:TSMessageNotificationTypeMessage duration:0];
+        
+//        if (index != 0) {
+//            [[Routable sharedRouter] open:userInfo[@"page"] withParams:userInfo[@"ext"]];
+//        }
+
     }
     else if (state == UIApplicationStateInactive) {
         [[Routable sharedRouter] open:userInfo[@"page"] withParams:userInfo[@"ext"]];

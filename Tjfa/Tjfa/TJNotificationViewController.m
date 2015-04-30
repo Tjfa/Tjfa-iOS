@@ -53,7 +53,7 @@
 
 #pragma mark - Reload Data
 
-- (void)loadDataEndWithData:(NSMutableArray *)data
+- (void)updateData:(NSMutableArray *)data
 {
     dispatch_async(dispatch_get_main_queue(), ^() {
         if (data != nil) {
@@ -85,16 +85,15 @@
         }
             
         if (isLogin) {
-            [self loadDataEndWithData:[[[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:YES] mutableCopy]];
+            [self updateData:[[[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:YES] mutableCopy]];
         }
         else {
             [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:user.username password:user.username completion:^(NSDictionary *info, EMError *error) {
                 if (error) {
-                    NSLog(@"%@", error);
-                    [self loadDataEndWithData:nil];
+                    [self updateData:nil];
                 }
                 else {
-                    [self loadDataEndWithData:[[[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:YES] mutableCopy]];
+                    [self updateData:[[[EaseMob sharedInstance].chatManager loadAllConversationsFromDatabaseWithAppend2Chat:YES] mutableCopy]];
                 }
             }onQueue:nil];
         }
