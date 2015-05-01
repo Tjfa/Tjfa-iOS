@@ -2002,41 +2002,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYt-uW-Z3F" userLabel="InputContainer">
-                                <rect key="frame" x="10" y="179" width="300" height="44"/>
-                                <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邀请码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q5V-W6-P7m">
-                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="qyD-T0-WfL" id="u2l-su-fn2"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="q5V-W6-P7m" secondAttribute="bottom" id="FPo-ai-Q5W"/>
-                                    <constraint firstAttribute="trailing" secondItem="q5V-W6-P7m" secondAttribute="trailing" id="Ld6-Hy-oNu"/>
-                                    <constraint firstAttribute="height" constant="44" id="MPi-YU-JrO"/>
-                                    <constraint firstItem="q5V-W6-P7m" firstAttribute="leading" secondItem="vYt-uW-Z3F" secondAttribute="leading" constant="20" id="f7n-In-Wc8"/>
-                                    <constraint firstItem="q5V-W6-P7m" firstAttribute="top" secondItem="vYt-uW-Z3F" secondAttribute="top" id="s6p-h8-jrq"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="wuW-z5-YWE"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
-                                        <color key="value" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0a-gl-ZrH">
-                                <rect key="frame" x="10" y="243" width="300" height="44"/>
+                                <rect key="frame" x="10" y="302" width="300" height="44"/>
                                 <color key="backgroundColor" red="0.56862745100000001" green="0.0039215686269999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="k1A-PV-daf"/>
@@ -2061,20 +2028,87 @@
                                     <action selector="registerAndLogin:" destination="qyD-T0-WfL" eventType="touchUpInside" id="gbk-QK-56e"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36E-HX-Wyx" userLabel="InputContainer">
+                                <rect key="frame" x="10" y="179" width="300" height="44"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="姓名 (请填写真实姓名)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nms-RV-Agx">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="qyD-T0-WfL" id="cra-by-3Et"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="D2J-09-toC"/>
+                                    <constraint firstItem="nms-RV-Agx" firstAttribute="top" secondItem="36E-HX-Wyx" secondAttribute="top" id="Wai-gA-xd1"/>
+                                    <constraint firstAttribute="bottom" secondItem="nms-RV-Agx" secondAttribute="bottom" id="h4F-WA-S51"/>
+                                    <constraint firstItem="nms-RV-Agx" firstAttribute="leading" secondItem="36E-HX-Wyx" secondAttribute="leading" constant="20" id="phL-NB-Wsy"/>
+                                    <constraint firstAttribute="trailing" secondItem="nms-RV-Agx" secondAttribute="trailing" id="zt6-CV-uUe"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYt-uW-Z3F" userLabel="InputContainer">
+                                <rect key="frame" x="10" y="238" width="300" height="44"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邀请码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q5V-W6-P7m">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="qyD-T0-WfL" id="u2l-su-fn2"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="q5V-W6-P7m" secondAttribute="bottom" id="FPo-ai-Q5W"/>
+                                    <constraint firstAttribute="trailing" secondItem="q5V-W6-P7m" secondAttribute="trailing" id="Ld6-Hy-oNu"/>
+                                    <constraint firstAttribute="height" constant="44" id="MPi-YU-JrO"/>
+                                    <constraint firstItem="q5V-W6-P7m" firstAttribute="leading" secondItem="vYt-uW-Z3F" secondAttribute="leading" constant="20" id="f7n-In-Wc8"/>
+                                    <constraint firstItem="q5V-W6-P7m" firstAttribute="top" secondItem="vYt-uW-Z3F" secondAttribute="top" id="s6p-h8-jrq"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                        <color key="value" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="696-y3-vzK" secondAttribute="trailing" constant="10" id="4gu-9P-vSd"/>
+                            <constraint firstItem="vYt-uW-Z3F" firstAttribute="top" secondItem="36E-HX-Wyx" secondAttribute="bottom" constant="15" id="5x5-fr-TLo"/>
+                            <constraint firstAttribute="trailing" secondItem="36E-HX-Wyx" secondAttribute="trailing" constant="10" id="6op-sb-niC"/>
                             <constraint firstAttribute="trailing" secondItem="49A-Dl-gJP" secondAttribute="trailing" constant="10" id="EpQ-Wu-3ju"/>
                             <constraint firstAttribute="trailing" secondItem="O0a-gl-ZrH" secondAttribute="trailing" constant="10" id="FOu-8e-JzZ"/>
+                            <constraint firstItem="36E-HX-Wyx" firstAttribute="leading" secondItem="AYn-jx-bjW" secondAttribute="leading" constant="10" id="H1r-Ps-Byf"/>
                             <constraint firstItem="O0a-gl-ZrH" firstAttribute="top" secondItem="vYt-uW-Z3F" secondAttribute="bottom" constant="20" id="LyE-MU-hkC"/>
                             <constraint firstItem="696-y3-vzK" firstAttribute="leading" secondItem="AYn-jx-bjW" secondAttribute="leading" constant="10" id="RvA-5U-DsH"/>
                             <constraint firstAttribute="trailing" secondItem="vYt-uW-Z3F" secondAttribute="trailing" constant="10" id="UlF-lA-qjn"/>
-                            <constraint firstItem="vYt-uW-Z3F" firstAttribute="top" secondItem="49A-Dl-gJP" secondAttribute="bottom" constant="15" id="YEx-on-oQ8"/>
                             <constraint firstItem="O0a-gl-ZrH" firstAttribute="leading" secondItem="AYn-jx-bjW" secondAttribute="leading" constant="10" id="aN9-h3-OTC"/>
                             <constraint firstItem="49A-Dl-gJP" firstAttribute="leading" secondItem="AYn-jx-bjW" secondAttribute="leading" constant="10" id="dl7-dP-2pY"/>
                             <constraint firstAttribute="centerX" secondItem="U1I-rS-OeA" secondAttribute="centerX" id="ja6-pU-fvU"/>
                             <constraint firstItem="vYt-uW-Z3F" firstAttribute="leading" secondItem="AYn-jx-bjW" secondAttribute="leading" constant="10" id="m9a-UM-FsS"/>
+                            <constraint firstItem="36E-HX-Wyx" firstAttribute="top" secondItem="49A-Dl-gJP" secondAttribute="bottom" constant="15" id="rV0-Fj-2O6"/>
                             <constraint firstItem="U1I-rS-OeA" firstAttribute="top" secondItem="NmG-if-lRG" secondAttribute="bottom" constant="25" id="uKj-pO-MDg"/>
                             <constraint firstItem="696-y3-vzK" firstAttribute="top" secondItem="U1I-rS-OeA" secondAttribute="bottom" constant="15" id="yVM-8r-3ac"/>
                             <constraint firstItem="49A-Dl-gJP" firstAttribute="top" secondItem="696-y3-vzK" secondAttribute="bottom" constant="15" id="zNn-da-uqK"/>
@@ -2084,6 +2118,7 @@
                     <connections>
                         <outlet property="accountTextField" destination="UaS-PS-lat" id="P5b-aF-T9W"/>
                         <outlet property="codeTextField" destination="q5V-W6-P7m" id="osT-YI-14e"/>
+                        <outlet property="nameLabel" destination="nms-RV-Agx" id="DV2-3m-Hbv"/>
                         <outlet property="passwordTextField" destination="TJy-hq-IUS" id="iIP-pd-Jjl"/>
                     </connections>
                 </viewController>

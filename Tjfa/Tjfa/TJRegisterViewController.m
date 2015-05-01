@@ -22,6 +22,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *codeTextField;
 
+@property (weak, nonatomic) IBOutlet UITextField *nameLabel;
+
 @end
 
 @implementation TJRegisterViewController
@@ -43,6 +45,7 @@
     NSString *account = self.accountTextField.text;
     NSString *password = self.passwordTextField.text;
     NSString *promoCode = self.codeTextField.text.uppercaseString;
+    NSString *name = [self.nameLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     if (![TJUserManager isAvailableAccount:account]) {
         [MBProgressHUD showErrorProgressInView:nil withText:@"手机号码错误"];
@@ -56,15 +59,23 @@
         return;
     }
     
+    if (name == nil || [name isEqualToString:@""]) {
+        
+        [self.nameLabel becomeFirstResponder];
+        [MBProgressHUD showErrorProgressInView:nil withText:@"请填写真实姓名"];
+        return;
+    }
+    
     
     MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:nil];
     [AVCloud callFunctionInBackground:@"usePromocode" withParameters:@{@"codeStr" : promoCode} block:^(id object, NSError *error) {
         if (error == nil) {
             TJUser *user = [TJUser user];
             user.username = account;
-            user.name = account;
+            user.name = name;
             user.mobilePhoneNumber = account;
             user.password = password;
+            
             
             [user signUpInBackgroundWithBlock:^(BOOL success, NSError *error) {
                 [loading hide:YES];
@@ -107,6 +118,9 @@
         [self.passwordTextField becomeFirstResponder];
     }
     else if (textField == self.passwordTextField) {
+        [self.nameLabel becomeFirstResponder];
+    }
+    else if (textField == self.nameLabel) {
         [self.codeTextField becomeFirstResponder];
     }
     else if (textField == self.codeTextField) {
