@@ -122,6 +122,7 @@
 		F3C4FA161AE23189000BD302 /* TJLocalPushNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4FA151AE23189000BD302 /* TJLocalPushNotificationManager.m */; };
 		F3EC4F901AF1D2290090AF7A /* TSMessage+NavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EC4F8F1AF1D2290090AF7A /* TSMessage+NavigationBar.m */; };
 		F3EC4F931AF2160F0090AF7A /* EaseMobManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EC4F921AF2160F0090AF7A /* EaseMobManager.m */; };
+		F3EC4FC91AF375B90090AF7A /* TJGeneralCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EC4FC81AF375B90090AF7A /* TJGeneralCodeViewController.m */; };
 		F3ECD2851AD56E0C0072C750 /* TJUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2841AD56E0C0072C750 /* TJUserManager.m */; };
 		F3ECD2891AD5894E0072C750 /* TJPasteBoardLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ECD2881AD5894E0072C750 /* TJPasteBoardLabel.m */; };
 		F3FD69CB1ADFECE400C57930 /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = F3FD69C81ADFECE400C57930 /* UIBarButtonItem+Badge.m */; };
@@ -358,6 +359,8 @@
 		F3EC4F8F1AF1D2290090AF7A /* TSMessage+NavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TSMessage+NavigationBar.m"; sourceTree = "<group>"; };
 		F3EC4F911AF2160F0090AF7A /* EaseMobManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EaseMobManager.h; sourceTree = "<group>"; };
 		F3EC4F921AF2160F0090AF7A /* EaseMobManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EaseMobManager.m; sourceTree = "<group>"; };
+		F3EC4FC71AF375B90090AF7A /* TJGeneralCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJGeneralCodeViewController.h; sourceTree = "<group>"; };
+		F3EC4FC81AF375B90090AF7A /* TJGeneralCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJGeneralCodeViewController.m; sourceTree = "<group>"; };
 		F3ECD2831AD56E0C0072C750 /* TJUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUserManager.h; sourceTree = "<group>"; };
 		F3ECD2841AD56E0C0072C750 /* TJUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUserManager.m; sourceTree = "<group>"; };
 		F3ECD2871AD5894E0072C750 /* TJPasteBoardLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPasteBoardLabel.h; sourceTree = "<group>"; };
@@ -907,6 +910,8 @@
 				F34666C31ACB002A00E83B7F /* TJMemberListViewController.m */,
 				F3C4FA0C1AE16741000BD302 /* TJMatchDayViewController.h */,
 				F3C4FA0D1AE16741000BD302 /* TJMatchDayViewController.m */,
+				F3EC4FC71AF375B90090AF7A /* TJGeneralCodeViewController.h */,
+				F3EC4FC81AF375B90090AF7A /* TJGeneralCodeViewController.m */,
 				F34666BB1ACADE1200E83B7F /* Chat */,
 			);
 			name = Member;
@@ -1243,6 +1248,7 @@
 				F399D4951AE3F7C4009A8507 /* TJStreamPlayer.m in Sources */,
 				F34666AD1ACA8B7600E83B7F /* TJUserCenterTableViewController.m in Sources */,
 				2495BA2A19691E28009BB60F /* TJNewsCell.m in Sources */,
+				F3EC4FC91AF375B90090AF7A /* TJGeneralCodeViewController.m in Sources */,
 				F3FD69D01ADFEE8800C57930 /* TJNotificationViewController.m in Sources */,
 				F399D4A01AE4D003009A8507 /* TJjsqMessagesAvatarImageManager.m in Sources */,
 				240AE6D5195EC5F100F7820D /* TJDashboardButton.m in Sources */,

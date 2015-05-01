@@ -42,7 +42,8 @@
 {
     NSString *account = self.accountTextField.text;
     NSString *password = self.passwordTextField.text;
-
+    NSString *promoCode = self.codeTextField.text.uppercaseString;
+    
     if (![TJUserManager isAvailableAccount:account]) {
         [MBProgressHUD showErrorProgressInView:nil withText:@"手机号码错误"];
         [self.accountTextField becomeFirstResponder];
@@ -54,36 +55,46 @@
         [self.passwordTextField becomeFirstResponder];
         return;
     }
-
-    TJUser *user = [TJUser user];
-    user.username = account;
-    user.name = account;
-    user.mobilePhoneNumber = account;
-    user.password = password;
+    
+    
     MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:nil];
-    [user signUpInBackgroundWithBlock:^(BOOL success, NSError *error) {
-        [loading hide:YES];
-        if (error) {
-            NSString *errorString = error.userInfo[@"NSLocalizedDescription"];
-            if (error.code == 214) {
-                errorString = @"该手机号已被注册";
-            }
-            else {
-                errorString = error.userInfo[@"NSLocalizedDescription"];
-            }
-            [MBProgressHUD showErrorProgressInView:nil withText:errorString];
-        }
-        else {
-            [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:user.username password:user.username withCompletion:^(NSString *username, NSString *password, EMError *error) {
-                if (!error) {
-                    [MBProgressHUD showSucessProgressInView:nil withText:@"注册成功"];
-                    [self registerSuccess];
-                    NSLog(@"注册成功");
+    [AVCloud callFunctionInBackground:@"usePromocode" withParameters:@{@"codeStr" : promoCode} block:^(id object, NSError *error) {
+        if (error == nil) {
+            TJUser *user = [TJUser user];
+            user.username = account;
+            user.name = account;
+            user.mobilePhoneNumber = account;
+            user.password = password;
+            
+            [user signUpInBackgroundWithBlock:^(BOOL success, NSError *error) {
+                [loading hide:YES];
+                if (error) {
+                    NSString *errorString = error.userInfo[@"NSLocalizedDescription"];
+                    if (error.code == 214) {
+                        errorString = @"该手机号已被注册";
+                    }
+                    else {
+                        errorString = error.userInfo[@"NSLocalizedDescription"];
+                    }
+                    [MBProgressHUD showErrorProgressInView:nil withText:errorString];
                 }
                 else {
-                    [MBProgressHUD showErrorProgressInView:nil withText:error.description];
+                    [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:user.username password:user.username withCompletion:^(NSString *username, NSString *password, EMError *error) {
+                        if (!error) {
+                            [MBProgressHUD showSucessProgressInView:nil withText:@"注册成功"];
+                            [self registerSuccess];
+                            NSLog(@"注册成功");
+                        }
+                        else {
+                            [MBProgressHUD showErrorProgressInView:nil withText:error.description];
+                        }
+                    } onQueue:nil];
                 }
-            } onQueue:nil];
+            }];
+        }
+        else {
+            [loading hide:YES];
+            [MBProgressHUD showErrorProgressInView:nil withText:@"邀请码无效"];
         }
     }];
 }

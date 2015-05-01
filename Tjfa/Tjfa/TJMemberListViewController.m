@@ -57,13 +57,13 @@
     
     [[TJUserManager sharedUserManager] getUsersWithLimit:DEFAULT_LIMIT page:page complete:^(NSArray *users, NSError *error) {
         [progress hide:YES];
+        [self.tableView.pullToRefreshView stopAnimating];
         
         if (error) {
             [MBProgressHUD showErrorProgressInView:nil withText:@"加载失败"];
         }
         else {
             if (page == 0) {
-                [self.tableView.pullToRefreshView stopAnimating];
                 self.data = [users mutableCopy];
             }
             else {
