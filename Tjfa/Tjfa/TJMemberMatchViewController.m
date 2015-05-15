@@ -12,6 +12,7 @@
 #import "TJMemberMatchCell.h"
 #import "TJMatchDayViewController.h"
 #import "UIColor+AppColor.h"
+#import "TjfaConst.h"
 #import <SVPullToRefresh.h>
 
 @interface TJMemberMatchViewController () <UITableViewDataSource, UITableViewDelegate>

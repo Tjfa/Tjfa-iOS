@@ -10,6 +10,7 @@
 #import "TJPersonManager.h"
 #import "MBProgressHUD+AppProgressView.h"
 #import "TJUserManager.h"
+#import "TjfaConst.h"
 #import <Routable.h>
 
 @interface TJMemberCenterTableViewController ()

@@ -42,7 +42,13 @@ const CGFloat delayAnimate = 0.1;
     [[Routable sharedRouter] setNavigationController:self.navigationController];
 
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dashboardTitle"]];
-    self.navigationItem.rightBarButtonItem = nil;
+    
+    if (DEBUG) {
+        
+    }
+    else {
+        self.navigationItem.rightBarButtonItem = nil;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
