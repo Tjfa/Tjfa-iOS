@@ -45,7 +45,7 @@
 
     if ([MFMailComposeViewController canSendMail]) {
         //设置收件人
-        [mail setToRecipients:@[ @"tjzuxie@126.com.com" ]];
+        [mail setToRecipients:@[ @"tjzuxie@126.com" ]];
 
         //设置抄送人
         //[mail setCcRecipients:ccAddress];
