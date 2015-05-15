@@ -12,7 +12,7 @@
 
 - (id)sharedEaseMobManager;
 
-- (NSInteger)getAllUnreadMessageCount;
+//- (NSInteger)getAllUnreadMessageCount;
 
 
 @end

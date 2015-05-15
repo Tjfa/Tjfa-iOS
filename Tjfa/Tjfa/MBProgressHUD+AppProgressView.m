@@ -29,7 +29,7 @@
     MBProgressHUD *progress = [[MBProgressHUD alloc] initWithView:view];
     [view addSubview:progress];
     if (text == nil || text.length == 0) {
-        progress.labelText = @"加载中...";
+        progress.labelText = @"请稍后...";
     }
     else {
         progress.labelText = text;
@@ -49,7 +49,7 @@
     MBProgressHUD *progress = [[MBProgressHUD alloc] initWithView:view];
     [view addSubview:progress];
     if (text == nil) {
-        progress.labelText = @"加载中...";
+        progress.labelText = @"请稍后...";
     }
     else {
         progress.labelText = text;
