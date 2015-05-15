@@ -22,7 +22,7 @@ const int totalCupImage = 3;
 
 - (void)setCellWithCompetition:(Competition *)competition forIndexPath:(NSIndexPath *)indexPath
 {
-    self.cupView.image = [UIImage imageNamed:[NSString stringWithFormat:@"competitionCup%d", (indexPath.row + indexPath.section) % totalCupImage]];
+    self.cupView.image = [UIImage imageNamed:[NSString stringWithFormat:@"competitionCup%d", (int)(indexPath.row + indexPath.section) % totalCupImage]];
     self.title.text = [self converCompetitionTitle:competition.name];
 }
 

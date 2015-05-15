@@ -1417,7 +1417,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "04e8792c-9192-4ad7-9c97-17fb0f312015";
+				PROVISIONING_PROFILE = "4d4ea7a1-a0ef-4c00-b3c5-16da7d24233d";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1453,7 +1453,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "04e8792c-9192-4ad7-9c97-17fb0f312015";
+				PROVISIONING_PROFILE = "4d4ea7a1-a0ef-4c00-b3c5-16da7d24233d";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1476,7 +1476,7 @@
 					"$(PROJECT_DIR)/Tjfa",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "04e8792c-9192-4ad7-9c97-17fb0f312015";
+				PROVISIONING_PROFILE = "964ef42f-f26c-4f26-abbd-416881622403";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1488,9 +1488,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Feng Qiu (SY5GMWCX74)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Feng Qiu (SY5GMWCX74)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Feng Qiu (YPE39BAJY9)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Feng Qiu (YPE39BAJY9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Feng Qiu (YPE39BAJY9)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Tjfa/Tjfa-Prefix.pch";
 				INFOPLIST_FILE = "Tjfa/Tjfa-Info.plist";
@@ -1500,7 +1500,7 @@
 					"$(PROJECT_DIR)/Tjfa",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "04e8792c-9192-4ad7-9c97-17fb0f312015";
+				PROVISIONING_PROFILE = "ae8b446f-e5b0-48c6-8ddb-0f824ed142c6";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

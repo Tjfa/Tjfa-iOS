@@ -156,15 +156,15 @@
     [WXApi sendReq:req];
 }
 
-- (void)sharedWithRenRen
-{
-    RennImgTextMessage *imgTextMessage = [[RennImgTextMessage alloc] init];
-    imgTextMessage.url = @"http://www.lazyclutch.com";
-    imgTextMessage.title = @"快来下载同济足协iOS版app";
-    imgTextMessage.desc = [TJAppInfo sharedMessage];
-    imgTextMessage.thumbData = UIImagePNGRepresentation([UIImage imageNamed:@"tjfaIcon.png"]);
-    [RennShareComponent SendMessage:imgTextMessage msgTarget:To_Renren];
-}
+//- (void)sharedWithRenRen
+//{
+//    RennImgTextMessage *imgTextMessage = [[RennImgTextMessage alloc] init];
+//    imgTextMessage.url = @"http://www.lazyclutch.com";
+//    imgTextMessage.title = @"快来下载同济足协iOS版app";
+//    imgTextMessage.desc = [TJAppInfo sharedMessage];
+//    imgTextMessage.thumbData = UIImagePNGRepresentation([UIImage imageNamed:@"tjfaIcon.png"]);
+//    [RennShareComponent SendMessage:imgTextMessage msgTarget:To_Renren];
+//}
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
 {

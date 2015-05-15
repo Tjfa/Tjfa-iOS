@@ -119,7 +119,7 @@
 
 - (void)shared
 {
-    UIActionSheet *sharedActionSheet = [[UIActionSheet alloc] initWithTitle:@"我要分享" delegate:self cancelButtonTitle:@"手残。。点错了" destructiveButtonTitle:nil otherButtonTitles:@"短信分享给好友", @"微信分享到朋友圈", @"分享到人人", nil];
+    UIActionSheet *sharedActionSheet = [[UIActionSheet alloc] initWithTitle:@"我要分享" delegate:self cancelButtonTitle:@"手残。。点错了" destructiveButtonTitle:nil otherButtonTitles:@"短信分享给好友", @"微信分享到朋友圈", nil];
     [sharedActionSheet showInView:self.view];
 }
 
@@ -141,9 +141,9 @@
     else if (buttonIndex == MESSAGE_SHARED) {
         [self sharedWithMessage];
     }
-    else if (buttonIndex == RENREN_SHARED) {
-        [self sharedWithRenRen];
-    }
+//    else if (buttonIndex == RENREN_SHARED) {
+//        [self sharedWithRenRen];
+//    }
 }
 
 - (void)sharedWithMessage
@@ -160,11 +160,11 @@
     [aboutManager sharedWithWeiXin];
 }
 
-- (void)sharedWithRenRen
-{
-    TJAboutManager *aboutManager = [TJAboutManager sharedAboutManager];
-    aboutManager.instanceController = self;
-    [aboutManager sharedWithRenRen];
-}
+//- (void)sharedWithRenRen
+//{
+//    TJAboutManager *aboutManager = [TJAboutManager sharedAboutManager];
+//    aboutManager.instanceController = self;
+//    [aboutManager sharedWithRenRen];
+//}
 
 @end
