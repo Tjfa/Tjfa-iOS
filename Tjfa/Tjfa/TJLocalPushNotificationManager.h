@@ -36,9 +36,9 @@
                      YAP DATABASE  内部错误
                      match = nil
  */
-- (BOOL)addMatchRemindNotification:(TJMatch *)match date:(NSDate *)date;
+- (BOOL)addMatchRemindNotification:(TJMatch *)match teamAName:(NSString *)teamA teamBName:(NSString *)teamB date:(NSDate *)date;
 
-- (void)asyncAddMatchRemindNotification:(TJMatch *)match date:(NSDate *)date complete:(void (^)(BOOL success))complete;
+- (void)asyncAddMatchRemindNotification:(TJMatch *)match teamAName:(NSString *)teamA teamBName:(NSString *)teamB date:(NSDate *)date complete:(void (^)(BOOL success))complete;
 
 /**
  *  移除对应的提醒
@@ -53,8 +53,8 @@
 - (BOOL)removeMatchRemindNotification:(TJMatch *)match;
 - (void)asyncRemoveMatchRemindNotification:(TJMatch *)match complete:(void (^)(BOOL success))complete;
 
-- (NSArray *)getAllRemindMatchIds;
-- (void)asyncGetAllRemindMatchIds:(void (^)(NSArray *matches))complete;
+//- (NSArray *)getAllRemindMatchIds;
+//- (void)asyncGetAllRemindMatchIds:(void (^)(NSArray *matches))complete;
 
 /**
  *  根据YAP DATABASE 生成对应的提醒推送

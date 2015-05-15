@@ -129,13 +129,16 @@ const NSTimeInterval anHourInterval = 3600;
     }];
     
     [self setRemindButtonTitle];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     NSDate *date = [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] getMatchRemindTime:self.match];
-    if (date) {
-        [TSMessage showNotificationOverNavigatonBarWithTitle:@"已添加提醒" subtitle:[[NSString alloc] initWithFormat:@"已添加%@的提醒", date] type:TSMessageNotificationTypeSuccess duration:2.0];
+    if ([date compare:[NSDate date]] == NSOrderedDescending) {
+        [TSMessage showNotificationOverNavigatonBarWithTitle:@"已添加提醒" subtitle:[[NSString alloc] initWithFormat:@"已添加%@的提醒", [date date2str]] type:TSMessageNotificationTypeSuccess duration:2.0];
     }
-
 }
 
 #pragma mark - Getter & Setter
@@ -174,8 +177,8 @@ const NSTimeInterval anHourInterval = 3600;
 
 - (void)setRemindButtonTitle
 {
-    NSDate *remindDate = [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] getMatchRemindTime:self.match];
-    if (remindDate) {
+    NSDate *date = [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] getMatchRemindTime:self.match];
+    if ([date compare:[NSDate date]] == NSOrderedDescending) {
         [self.remindButton setTitle:@"取消提醒" forState:UIControlStateNormal];
     }
     else {
@@ -232,13 +235,20 @@ const NSTimeInterval anHourInterval = 3600;
     NSDate *date = self.datePicker.date;
     
     self.remindButton.enabled = NO;
-    [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] asyncAddMatchRemindNotification:self.match date:date complete:^(BOOL success) {
+    
+    if ( [date compare:[NSDate date]] == NSOrderedAscending) {
+        [TSMessage showNotificationOverNavigatonBarWithTitle:@"提醒失败" subtitle:@"该时间已经过去啦！"  type:TSMessageNotificationTypeError duration:2.0];
+        self.remindButton.enabled = YES;
+        return;
+    }
+    
+    [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] asyncAddMatchRemindNotification:self.match teamAName:self.teamA.name teamBName:self.teamB.name date:date complete:^(BOOL success) {
         dispatch_async(dispatch_get_main_queue(), ^(){
             self.remindButton.enabled = YES;
             [self setRemindButtonTitle];
             
             if (success) {
-                NSString *subTitle = [[NSString alloc] initWithFormat:@"我会在%@的时候提醒你哦~~",date];
+                NSString *subTitle = [[NSString alloc] initWithFormat:@"我会在%@的时候提醒你哦~~",[date date2str]];
                 [TSMessage showNotificationOverNavigatonBarWithTitle:@"我知道啦" subtitle:subTitle  type:TSMessageNotificationTypeSuccess duration:2.0];
             }
             else {

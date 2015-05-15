@@ -107,7 +107,12 @@
 
 - (IBAction)chatPress:(id)sender
 {
-    [[Routable sharedRouter] open:@"singleChat" withParams:@{@"targetEmId" : self.targerUser.username}];
+    if (DEBUG) {
+        [[Routable sharedRouter] open:@"singleChat" withParams:@{@"targetEmId" : self.targerUser.username}];
+    }
+    else {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"sms:%@",self.targerUser.mobilePhoneNumber]]];
+    }
 }
 
 - (IBAction)sendMessagePress:(id)sender

@@ -11,6 +11,7 @@
 #import "MBProgressHUD+AppProgressView.h"
 #import "TJMemberMatchCell.h"
 #import "TJMatchDayViewController.h"
+#import "UIColor+AppColor.h"
 #import <SVPullToRefresh.h>
 
 @interface TJMemberMatchViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -22,6 +23,8 @@
 @property (nonatomic, strong) NSDate *fromDate;
 @property (nonatomic, strong) NSDate *toDate;
 @property (nonatomic, strong) NSDate *nowDate;
+
+@property (nonatomic, strong) UIView *noMatchFooterView;
 
 @end
 
@@ -56,7 +59,7 @@ const NSTimeInterval weekTimeInterval = 3600 * 24 * 7;
     if (_nowDate == nil) {
         if (DEBUG) {
             NSDate *date = [NSDate date];
-            _nowDate = [NSDate dateWithTimeInterval:-2 * weekTimeInterval sinceDate:date];
+            _nowDate = [NSDate dateWithTimeInterval:-8 * weekTimeInterval sinceDate:date];
         }
         else {
            _nowDate = [NSDate date];
@@ -81,6 +84,26 @@ const NSTimeInterval weekTimeInterval = 3600 * 24 * 7;
     return _toDate;
 }
 
+- (UIView *)noMatchFooterView
+{
+    if (_noMatchFooterView == nil) {
+        _noMatchFooterView = [[UIView alloc] initWithFrame:self.view.frame];
+        UILabel *label = [[UILabel alloc] init];
+        label.font = [UIFont systemFontOfSize:30 weight:20];
+        label.textColor = [UIColor appGrayColor];
+        label.text = @"本 周 暂 无 比 赛";
+        [_noMatchFooterView addSubview:label];
+        
+        
+        label.translatesAutoresizingMaskIntoConstraints = NO;
+        [_noMatchFooterView addConstraint:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:_noMatchFooterView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
+        [_noMatchFooterView addConstraint:[NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:_noMatchFooterView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
+        
+    }
+    return _noMatchFooterView;
+}
+
+
 #pragma mark - Update Data
 
 - (void)updateData
@@ -99,8 +122,20 @@ const NSTimeInterval weekTimeInterval = 3600 * 24 * 7;
         else {
             self.data = matches;
             [self.tableView reloadData];
+            [self resetTableFooter];
         }
     }];
+}
+
+
+- (void)resetTableFooter
+{
+    if (self.data.count == 0) {
+        self.tableView.tableFooterView = self.noMatchFooterView;
+    }
+    else {
+        self.tableView.tableFooterView = [[UIView alloc] init];
+    }
 }
 
 #pragma mark - TableView DataSource & Delegate

@@ -22,6 +22,7 @@
 #import <EaseMob.h>
 #import <UIAlertView+BlocksKit.h>
 #import "TSMessage+NavigationBar.h"
+#import "TJLocalPushNotificationManager.h"
 #import <iRate.h>
 
 @interface AppDelegate()
@@ -40,7 +41,7 @@
     [iRate sharedInstance].usesUntilPrompt = 15;
     
     //enable preview mode
-    [iRate sharedInstance].previewMode = YES;
+    //[iRate sharedInstance].previewMode = YES;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -124,6 +125,8 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     [[EaseMob sharedInstance] applicationDidEnterBackground:application];
+    
+    [[TJLocalPushNotificationManager sharedLocalPushNotificationManager] setupAllLocalPushNotifications];
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }

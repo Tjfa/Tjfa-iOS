@@ -9,14 +9,13 @@
 #import "TJLocalPushNotificationManager.h"
 #import "TJMatch.h"
 #import <YapDatabase.h>
+#import "NSDate+Date2Str.h"
 
 @interface TJLocalPushNotificationManager()
 
 @property (nonatomic, strong) YapDatabase *database;
 
 @property (nonatomic, strong) YapDatabaseConnection *connection;
-
-@property (nonatomic, strong) NSString *remindCollection;
 
 @end
 
@@ -59,21 +58,14 @@
     return databaseURL.filePathURL.path;
 }
 
-- (NSString *)remindCollection
-{
-    if (_remindCollection == nil) {
-        _remindCollection = @"YapDatabase_RemindCollection";
-    }
-    return _remindCollection;
-}
-
 #pragma mark - Public Method
 
 - (NSDate *)getMatchRemindTime:(TJMatch *)match
 {
     __block NSDate *date;
     [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
-        date = [transaction objectForKey:match.objectId inCollection:self.remindCollection];
+        NSString *collection = [[NSString alloc] initWithFormat:@"%@",match.matchId];
+        date = [transaction objectForKey:@"remindDate" inCollection:collection];
     }];
     return date;
 }
@@ -81,34 +73,43 @@
 - (void)asyncGetMatchRemindTime:(TJMatch *)match complete:(void (^)(NSDate *))complete
 {
     [self.connection asyncReadWithBlock:^(YapDatabaseReadTransaction *transation) {
-        NSDate *date = [transation objectForKey:match.objectId inCollection:self.remindCollection];
+        NSString *collection = [[NSString alloc] initWithFormat:@"%@",match.matchId];
+        NSDate *date = [transation objectForKey:@"remindDate" inCollection:collection];
         if (complete) {
             complete(date);
         }
     }];
 }
 
-- (BOOL)addMatchRemindNotification:(TJMatch *)match date:(NSDate *)date
+- (BOOL)addMatchRemindNotification:(TJMatch *)match teamAName:(NSString *)teamA teamBName:(NSString *)teamB date:(NSDate *)date
 {
     if (match == nil) {
         return NO;
     }
     
     [self.connection readWriteWithBlock:^(YapDatabaseReadWriteTransaction* transaction) {
-        [transaction setObject:date forKey:match.objectId inCollection:self.remindCollection];
+        NSString *collection = [[NSString alloc] initWithFormat:@"%@",match.matchId];
+        [transaction setObject:date forKey:@"remindDate" inCollection:collection];
+        [transaction setObject:match.date forKey:@"date" inCollection:collection];
+        [transaction setObject:teamA forKey:@"teamA" inCollection:collection];
+        [transaction setObject:teamB forKey:@"teamB" inCollection:collection];
     }];
     
     return YES;
 }
 
-- (void)asyncAddMatchRemindNotification:(TJMatch *)match date:(NSDate *)date complete:(void (^)(BOOL))complete
+- (void)asyncAddMatchRemindNotification:(TJMatch *)match teamAName:(NSString *)teamA teamBName:(NSString *)teamB date:(NSDate *)date complete:(void (^)(BOOL))complete
 {
     if (match == nil) {
         complete(NO);
     }
     
     [self.connection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-        [transaction setObject:date forKey:match.objectId inCollection:self.remindCollection];
+        NSString *collection = [[NSString alloc] initWithFormat:@"%@",match.matchId];
+        [transaction setObject:date forKey:@"remindDate" inCollection:collection];
+        [transaction setObject:match.date forKey:@"date" inCollection:collection];
+        [transaction setObject:teamA forKey:@"teamA" inCollection:collection];
+        [transaction setObject:teamB forKey:@"teamB" inCollection:collection];
         complete(YES);
     }];
 }
@@ -120,7 +121,8 @@
     }
     
     [self.connection readWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-        [transaction removeObjectForKey:match.objectId inCollection:self.remindCollection];
+        NSString *collection = [[NSString alloc] initWithFormat:@"%@",match.matchId];
+        [transaction removeAllObjectsInCollection:collection];
     }];
     return YES;
 }
@@ -132,32 +134,33 @@
     }
     else {
         [self.connection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-            [transaction removeObjectForKey:match.objectId inCollection:self.remindCollection];
+            NSString *collection = [[NSString alloc] initWithFormat:@"%@",match.matchId];
+            [transaction removeAllObjectsInCollection:collection];
             complete(YES);
         }];
     }
 }
 
-- (NSArray *)getAllRemindMatchIds
-{
-    __block NSArray *result = nil;
-    [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
-        result = [transaction allKeysInCollection:self.remindCollection];
-    }];
-    return result;
-}
+//- (NSArray *)getAllRemindMatchIds
+//{
+//    __block NSArray *result = nil;
+//    [self.connection readWithBlock:^(YapDatabaseReadTransaction *transaction) {
+//        result = [transaction allCollections];
+//    }];
+//    return result;
+//}
 
-- (void)asyncGetAllRemindMatchIds:(void (^)(NSArray *))complete
-{
-    if (complete == nil) {
-        return;
-    }
-    [self.connection asyncReadWithBlock:^(YapDatabaseReadTransaction *transaction) {
-        NSArray *result = [transaction allKeysInCollection:self.remindCollection];
-        complete(result);
-    }];
-}
-
+//- (void)asyncGetAllRemindMatchIds:(void (^)(NSArray *))complete
+//{
+//    if (complete == nil) {
+//        return;
+//    }
+//    [self.connection asyncReadWithBlock:^(YapDatabaseReadTransaction *transaction) {
+//        NSArray *result = [transaction allKeysInCollection:self.remindCollection];
+//        complete(result);
+//    }];
+//}
+//
 #pragma mark - Local Push Notification
 
 - (void)setupAllLocalPushNotifications
@@ -166,23 +169,25 @@
     
     NSDate *nowDate = [NSDate date];
     [self.connection asyncReadWriteWithBlock:^(YapDatabaseReadWriteTransaction *transaction) {
-        NSMutableArray *removeShedule = [NSMutableArray array];
-        [transaction enumerateKeysAndObjectsInCollection:self.remindCollection usingBlock:^(NSString *key, id object, BOOL *stop) {
-            NSDate *remindDate = object;
+        NSArray *collections = [transaction allCollections];
+        
+        for (NSString *collection in collections) {
+            NSDate *remindDate = [transaction objectForKey:@"remindDate" inCollection:collection];
+            NSDate *date = [transaction objectForKey:@"date" inCollection:collection];
+            NSString *teamAName = [transaction objectForKey:@"teamA" inCollection:collection];
+            NSString *teamBName = [transaction objectForKey:@"teamB" inCollection:collection];
+            
             if ([remindDate compare:nowDate] == NSOrderedAscending) {
-                [removeShedule addObject:key];
+                [transaction removeAllObjectsInCollection:collection];
             }
             else {
                 UILocalNotification *notification = [[UILocalNotification alloc] init];
                 notification.fireDate = remindDate;
-                notification.alertTitle = @"比赛要开始啦~~~";
-                
+                notification.alertTitle = @"比赛提醒";
+                notification.alertBody = [[NSString alloc] initWithFormat:@"%@ 与 %@ 的比赛将在 %@ 开始,快去做好准备吧", teamAName, teamBName, [date date2str]];
                 [[UIApplication sharedApplication] scheduleLocalNotification:notification];
             }
-        }];
-        
-        for (NSString *key in removeShedule) {
-            [transaction removeObjectForKey:key inCollection:self.remindCollection];
+
         }
     }];
 }
