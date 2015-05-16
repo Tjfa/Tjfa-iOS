@@ -44,7 +44,6 @@ const CGFloat delayAnimate = 0.1;
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dashboardTitle"]];
     
     if (DEBUG) {
-        
     }
     else {
         self.navigationItem.rightBarButtonItem = nil;
