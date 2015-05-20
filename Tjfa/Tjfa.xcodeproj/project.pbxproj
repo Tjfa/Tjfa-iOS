@@ -112,6 +112,14 @@
 		F399D4AE1AE4E428009A8507 /* PRNAmrPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4AA1AE4E428009A8507 /* PRNAmrPlayer.m */; };
 		F399D4B11AE4FF70009A8507 /* JSQSelfVoiceMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4B01AE4FF70009A8507 /* JSQSelfVoiceMediaItem.m */; };
 		F399D4B41AE4FF9A009A8507 /* JSQOtherVoiceMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F399D4B31AE4FF9A009A8507 /* JSQOtherVoiceMediaItem.m */; };
+		F3A0B2251B0C7AE600196E16 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0B2241B0C7AE600196E16 /* InterfaceController.swift */; };
+		F3A0B2271B0C7AE600196E16 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0B2261B0C7AE600196E16 /* NotificationController.swift */; };
+		F3A0B2291B0C7AE600196E16 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A0B2281B0C7AE600196E16 /* GlanceController.swift */; };
+		F3A0B22B1B0C7AE600196E16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A0B22A1B0C7AE600196E16 /* Images.xcassets */; };
+		F3A0B22F1B0C7AE600196E16 /* Tjfa WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = F3A0B22E1B0C7AE600196E16 /* Tjfa WatchKit App.app */; };
+		F3A0B2371B0C7AE600196E16 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A0B2351B0C7AE600196E16 /* Interface.storyboard */; };
+		F3A0B2391B0C7AE600196E16 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A0B2381B0C7AE600196E16 /* Images.xcassets */; };
+		F3A0B23C1B0C7AE600196E16 /* Tjfa WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F3A0B21F1B0C7AE600196E16 /* Tjfa WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F3ADCC671ACFADAE0001B91F /* TJAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */; };
 		F3ADCC6D1ACFB6EF0001B91F /* TJAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */; };
 		F3ADCC721ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F3ADCC711ACFBE5F0001B91F /* JSQMessagesToolbarButtonFactory+VoiceButton.m */; };
@@ -141,7 +149,35 @@
 			remoteGlobalIDString = 24F1D1DB18E063E0007E2309;
 			remoteInfo = Tjfa;
 		};
+		F3A0B2301B0C7AE600196E16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F1D1D418E063E0007E2309 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3A0B22D1B0C7AE600196E16;
+			remoteInfo = "Tjfa WatchKit App";
+		};
+		F3A0B23A1B0C7AE600196E16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24F1D1D418E063E0007E2309 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3A0B21E1B0C7AE600196E16;
+			remoteInfo = "Tjfa WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F3A0B2431B0C7AE600196E16 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F3A0B23C1B0C7AE600196E16 /* Tjfa WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		052BE44AA22CDFC54CC3B9D2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -340,6 +376,17 @@
 		F399D4B01AE4FF70009A8507 /* JSQSelfVoiceMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQSelfVoiceMediaItem.m; sourceTree = "<group>"; };
 		F399D4B21AE4FF9A009A8507 /* JSQOtherVoiceMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQOtherVoiceMediaItem.h; sourceTree = "<group>"; };
 		F399D4B31AE4FF9A009A8507 /* JSQOtherVoiceMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQOtherVoiceMediaItem.m; sourceTree = "<group>"; };
+		F3A0B21F1B0C7AE600196E16 /* Tjfa WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Tjfa WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3A0B2221B0C7AE600196E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3A0B2231B0C7AE600196E16 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		F3A0B2241B0C7AE600196E16 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		F3A0B2261B0C7AE600196E16 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		F3A0B2281B0C7AE600196E16 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		F3A0B22A1B0C7AE600196E16 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F3A0B22E1B0C7AE600196E16 /* Tjfa WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tjfa WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F3A0B2341B0C7AE600196E16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3A0B2361B0C7AE600196E16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		F3A0B2381B0C7AE600196E16 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F3ADCC651ACFADAE0001B91F /* TJAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJAccessoryView.h; sourceTree = "<group>"; };
 		F3ADCC661ACFADAE0001B91F /* TJAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJAccessoryView.m; sourceTree = "<group>"; };
 		F3ADCC6C1ACFB6EF0001B91F /* TJAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJAccessoryView.xib; sourceTree = "<group>"; };
@@ -401,6 +448,13 @@
 				24F1D1FF18E063E1007E2309 /* XCTest.framework in Frameworks */,
 				24F1D20118E063E1007E2309 /* UIKit.framework in Frameworks */,
 				24F1D20018E063E1007E2309 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3A0B21C1B0C7AE600196E16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -785,6 +839,8 @@
 			children = (
 				24F1D1E518E063E1007E2309 /* Tjfa */,
 				24F1D20418E063E1007E2309 /* TjfaTests */,
+				F3A0B2201B0C7AE600196E16 /* Tjfa WatchKit Extension */,
+				F3A0B2321B0C7AE600196E16 /* Tjfa WatchKit App */,
 				24F1D1DE18E063E0007E2309 /* Frameworks */,
 				24F1D1DD18E063E0007E2309 /* Products */,
 				8334981AA72BB28E7C5479FA /* Pods */,
@@ -796,6 +852,8 @@
 			children = (
 				24F1D1DC18E063E0007E2309 /* Tjfa.app */,
 				24F1D1FD18E063E1007E2309 /* TjfaTests.xctest */,
+				F3A0B21F1B0C7AE600196E16 /* Tjfa WatchKit Extension.appex */,
+				F3A0B22E1B0C7AE600196E16 /* Tjfa WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1017,6 +1075,45 @@
 			name = ARMMedia;
 			sourceTree = "<group>";
 		};
+		F3A0B2201B0C7AE600196E16 /* Tjfa WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F3A0B2241B0C7AE600196E16 /* InterfaceController.swift */,
+				F3A0B2261B0C7AE600196E16 /* NotificationController.swift */,
+				F3A0B2281B0C7AE600196E16 /* GlanceController.swift */,
+				F3A0B22A1B0C7AE600196E16 /* Images.xcassets */,
+				F3A0B2211B0C7AE600196E16 /* Supporting Files */,
+			);
+			path = "Tjfa WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		F3A0B2211B0C7AE600196E16 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F3A0B2221B0C7AE600196E16 /* Info.plist */,
+				F3A0B2231B0C7AE600196E16 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F3A0B2321B0C7AE600196E16 /* Tjfa WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				F3A0B2351B0C7AE600196E16 /* Interface.storyboard */,
+				F3A0B2381B0C7AE600196E16 /* Images.xcassets */,
+				F3A0B2331B0C7AE600196E16 /* Supporting Files */,
+			);
+			path = "Tjfa WatchKit App";
+			sourceTree = "<group>";
+		};
+		F3A0B2331B0C7AE600196E16 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F3A0B2341B0C7AE600196E16 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		F3ADCCBB1AD198160001B91F /* TJMessage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1114,10 +1211,12 @@
 				24F1D1D918E063E0007E2309 /* Frameworks */,
 				24F1D1DA18E063E0007E2309 /* Resources */,
 				5F49035B7E9047E2A9F8BFE0 /* Copy Pods Resources */,
+				F3A0B2431B0C7AE600196E16 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				F3A0B23B1B0C7AE600196E16 /* PBXTargetDependency */,
 			);
 			name = Tjfa;
 			productName = Tjfa;
@@ -1142,6 +1241,39 @@
 			productReference = 24F1D1FD18E063E1007E2309 /* TjfaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F3A0B21E1B0C7AE600196E16 /* Tjfa WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3A0B2421B0C7AE600196E16 /* Build configuration list for PBXNativeTarget "Tjfa WatchKit Extension" */;
+			buildPhases = (
+				F3A0B21B1B0C7AE600196E16 /* Sources */,
+				F3A0B21C1B0C7AE600196E16 /* Frameworks */,
+				F3A0B21D1B0C7AE600196E16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F3A0B2311B0C7AE600196E16 /* PBXTargetDependency */,
+			);
+			name = "Tjfa WatchKit Extension";
+			productName = "Tjfa WatchKit Extension";
+			productReference = F3A0B21F1B0C7AE600196E16 /* Tjfa WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		F3A0B22D1B0C7AE600196E16 /* Tjfa WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F3A0B2411B0C7AE600196E16 /* Build configuration list for PBXNativeTarget "Tjfa WatchKit App" */;
+			buildPhases = (
+				F3A0B22C1B0C7AE600196E16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tjfa WatchKit App";
+			productName = "Tjfa WatchKit App";
+			productReference = F3A0B22E1B0C7AE600196E16 /* Tjfa WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1157,6 +1289,13 @@
 					24F1D1FC18E063E1007E2309 = {
 						DevelopmentTeam = YPE39BAJY9;
 						TestTargetID = 24F1D1DB18E063E0007E2309;
+					};
+					F3A0B21E1B0C7AE600196E16 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = YPE39BAJY9;
+					};
+					F3A0B22D1B0C7AE600196E16 = {
+						CreatedOnToolsVersion = 6.3.2;
 					};
 				};
 			};
@@ -1175,6 +1314,8 @@
 			targets = (
 				24F1D1DB18E063E0007E2309 /* Tjfa */,
 				24F1D1FC18E063E1007E2309 /* TjfaTests */,
+				F3A0B21E1B0C7AE600196E16 /* Tjfa WatchKit Extension */,
+				F3A0B22D1B0C7AE600196E16 /* Tjfa WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -1199,6 +1340,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3A0B21D1B0C7AE600196E16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3A0B22B1B0C7AE600196E16 /* Images.xcassets in Resources */,
+				F3A0B22F1B0C7AE600196E16 /* Tjfa WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3A0B22C1B0C7AE600196E16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3A0B2371B0C7AE600196E16 /* Interface.storyboard in Resources */,
+				F3A0B2391B0C7AE600196E16 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1358,6 +1517,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F3A0B21B1B0C7AE600196E16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F3A0B2271B0C7AE600196E16 /* NotificationController.swift in Sources */,
+				F3A0B2251B0C7AE600196E16 /* InterfaceController.swift in Sources */,
+				F3A0B2291B0C7AE600196E16 /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1365,6 +1534,16 @@
 			isa = PBXTargetDependency;
 			target = 24F1D1DB18E063E0007E2309 /* Tjfa */;
 			targetProxy = 24F1D20218E063E1007E2309 /* PBXContainerItemProxy */;
+		};
+		F3A0B2311B0C7AE600196E16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3A0B22D1B0C7AE600196E16 /* Tjfa WatchKit App */;
+			targetProxy = F3A0B2301B0C7AE600196E16 /* PBXContainerItemProxy */;
+		};
+		F3A0B23B1B0C7AE600196E16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F3A0B21E1B0C7AE600196E16 /* Tjfa WatchKit Extension */;
+			targetProxy = F3A0B23A1B0C7AE600196E16 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1375,6 +1554,14 @@
 				18145E851ABDA69300040AB7 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F3A0B2351B0C7AE600196E16 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F3A0B2361B0C7AE600196E16 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1552,6 +1739,92 @@
 			};
 			name = Release;
 		};
+		F3A0B23D1B0C7AE600196E16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Feng Qiu (SY5GMWCX74)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Tjfa WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F3A0B23E1B0C7AE600196E16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Feng Qiu (YPE39BAJY9)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Distribution: Feng Qiu (YPE39BAJY9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Feng Qiu (YPE39BAJY9)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Tjfa WatchKit Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F3A0B23F1B0C7AE600196E16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = Tjfa_WatchKit_Extension;
+				INFOPLIST_FILE = "Tjfa WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		F3A0B2401B0C7AE600196E16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IBSC_MODULE = Tjfa_WatchKit_Extension;
+				INFOPLIST_FILE = "Tjfa WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1581,6 +1854,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F3A0B2411B0C7AE600196E16 /* Build configuration list for PBXNativeTarget "Tjfa WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3A0B23F1B0C7AE600196E16 /* Debug */,
+				F3A0B2401B0C7AE600196E16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F3A0B2421B0C7AE600196E16 /* Build configuration list for PBXNativeTarget "Tjfa WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3A0B23D1B0C7AE600196E16 /* Debug */,
+				F3A0B23E1B0C7AE600196E16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
