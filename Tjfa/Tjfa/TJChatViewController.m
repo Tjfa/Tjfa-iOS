@@ -143,9 +143,10 @@ const int kDefaultMessageCount = 20;
         [self.collectionView.pullToRefreshView stopAnimating];
         return;
     }
-
+  
+    [self.conversation markAllMessagesAsRead:YES];
+  
     [self.conversation ayncLoadNumberOfMessages:kDefaultMessageCount before:firstMessage.emMessage complete:^(NSArray *array) {
-        [self.conversation markAllMessagesAsRead:YES];
         for (EMMessage *emMessage in array) {
             TJMessage *tjMessage = [TJMessage generalTJMessageWithEMMessage:emMessage];
             [self.messages insertObject:tjMessage atIndex:0];

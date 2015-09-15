@@ -1,0 +1,10 @@
+{
+    "aps" : {
+        "alert" : {
+            "title" : "同济足协杯报名通知",
+            "body" : "同济大学第25届足协杯报名拉开帷幕"
+        },
+        "badge" : "increase",
+        "page" : "news"
+    }
+}
